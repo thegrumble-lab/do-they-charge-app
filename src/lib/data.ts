@@ -2,11 +2,13 @@ import { supabase } from "./supabase";
 import { Restaurant, Report, ReportStatus, latestReport } from "./types";
 
 /**
- * DATA LAYER — backed by Supabase (Postgres) now, via the anon key +
- * RLS policies described in supabase.ts. Every function here is async;
- * every call site awaits it. Currently seeded with a 520-restaurant
- * sample (see HANDOFF.md for importing the full 140,921-restaurant
- * national dataset once the app is ready to go fully nationwide).
+ * DATA LAYER — backed by Supabase (Postgres), via the anon key + RLS
+ * policies described in supabase.ts. Every function here is async; every
+ * call site awaits it. Loaded with the full 140,921-restaurant national
+ * FSA dataset (see HANDOFF.md). Any query over an unbounded set of rows
+ * needs an explicit .range() loop rather than a bare select — PostgREST
+ * silently caps unranged queries (see getAreas() and getRestaurantsByArea()
+ * below for the pattern, and HANDOFF.md for the bug that pattern fixed).
  */
 
 interface DbReport {
@@ -71,15 +73,6 @@ function toRestaurant(row: DbRestaurant): Restaurant {
   };
 }
 
-export async function getAllRestaurants(): Promise<Restaurant[]> {
-  const { data, error } = await supabase
-    .from("restaurants")
-    .select(RESTAURANT_WITH_REPORTS_SELECT)
-    .order("name");
-  if (error) throw error;
-  return (data ?? []).map(toRestaurant);
-}
-
 export async function getRestaurantBySlug(
   areaSlug: string,
   slug: string
@@ -97,13 +90,24 @@ export async function getRestaurantBySlug(
 export async function getRestaurantsByArea(
   areaSlug: string
 ): Promise<Restaurant[]> {
-  const { data, error } = await supabase
-    .from("restaurants")
-    .select(RESTAURANT_WITH_REPORTS_SELECT)
-    .eq("area_slug", areaSlug)
-    .order("name");
-  if (error) throw error;
-  return (data ?? []).map(toRestaurant);
+  // Same PostgREST default row-cap issue as getAreas() below — an
+  // unranged query silently truncates once an area has more restaurants
+  // than the cap (seen live: Tower Hamlets was being cut off at exactly
+  // 1,000). Page through with .range() instead of one unranged select.
+  const PAGE_SIZE = 1000;
+  const restaurants: Restaurant[] = [];
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("restaurants")
+      .select(RESTAURANT_WITH_REPORTS_SELECT)
+      .eq("area_slug", areaSlug)
+      .order("name")
+      .range(from, from + PAGE_SIZE - 1);
+    if (error) throw error;
+    restaurants.push(...(data ?? []).map(toRestaurant));
+    if (!data || data.length < PAGE_SIZE) break;
+  }
+  return restaurants;
 }
 
 export async function searchRestaurants(
