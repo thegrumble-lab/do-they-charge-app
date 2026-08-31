@@ -163,12 +163,6 @@ a:focus-visible {
   border-bottom: none;
 }
 
-.entry-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
 .entry-top {
   display: flex;
   align-items: flex-start;
@@ -182,11 +176,86 @@ a:focus-visible {
   font-size: 1.02rem;
 }
 
-.entry-area {
-  font-size: 0.8rem;
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 -2px;
+}
+
+.listing-table {
+  width: 100%;
+  min-width: 460px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.listing-table th {
+  text-align: left;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-soft);
+  font-weight: 700;
+  padding: 0 10px 8px 2px;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.listing-table th:nth-child(1),
+.listing-table td:nth-child(1) {
+  width: 46%;
+}
+
+.listing-table th:nth-child(2),
+.listing-table td:nth-child(2) {
+  width: 30%;
+}
+
+.listing-table th:nth-child(3),
+.listing-table td:nth-child(3) {
+  width: 24%;
+}
+
+.listing-table th:last-child,
+.listing-table td:last-child {
+  padding-right: 0;
+  text-align: right;
+}
+
+.listing-table td {
+  padding: 12px 10px 12px 2px;
+  border-bottom: 1px dotted var(--rule);
+  vertical-align: middle;
+}
+
+.listing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.col-name a {
   display: block;
-  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.col-name a:hover,
+.col-name a:focus-visible {
+  text-decoration: underline;
+}
+
+.col-location {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-status {
+  white-space: nowrap;
 }
 
 .stamp {

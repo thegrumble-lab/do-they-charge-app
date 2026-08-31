@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { Restaurant, STATUS_META, ReportStatus, latestReport } from "@/lib/types";
+import { Restaurant, ReportStatus } from "@/lib/types";
+import RestaurantsTable from "./RestaurantsTable";
 
 const FILTERS: { key: "all" | ReportStatus; label: string }[] = [
   { key: "all", label: "All" },
@@ -112,32 +112,7 @@ export default function SearchDirectory({
           it directly, or check back as more reports come in.
         </div>
       ) : (
-        shown.map((r) => {
-          const latest = latestReport(r);
-          const meta = latest ? STATUS_META[latest.status] : null;
-          return (
-            <div className="entry" key={`${r.areaSlug}/${r.slug}`}>
-              <Link
-                className="entry-link"
-                href={`/${r.areaSlug}/${r.slug}`}
-              >
-                <div className="entry-top">
-                  <span>
-                    <span className="entry-name">{r.name}</span>
-                    <span className="entry-area">{r.area}</span>
-                  </span>
-                  {meta ? (
-                    <span className={`stamp ${meta.className}`}>
-                      {meta.label}
-                    </span>
-                  ) : (
-                    <span className="stamp unclear">No reports yet</span>
-                  )}
-                </div>
-              </Link>
-            </div>
-          );
-        })
+        <RestaurantsTable restaurants={shown} />
       )}
     </div>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantsByArea, getAreas } from "@/lib/data";
-import { STATUS_META, latestReport } from "@/lib/types";
+import RestaurantsTable from "@/components/RestaurantsTable";
 
 // Same reasoning as src/app/[area]/[slug]/page.tsx: with 363 areas across
 // 140,921 restaurants, generate area pages on demand and refresh them at
@@ -42,26 +42,7 @@ export default async function AreaPage({ params }: Props) {
         <p className="subhead">{restaurants.length} restaurants listed.</p>
       </div>
       <main className="ticket">
-        {restaurants.map((r) => {
-          const latest = latestReport(r);
-          const meta = latest ? STATUS_META[latest.status] : null;
-          return (
-            <div className="entry" key={r.slug}>
-              <Link className="entry-link" href={`/${r.areaSlug}/${r.slug}`}>
-                <div className="entry-top">
-                  <span className="entry-name">{r.name}</span>
-                  {meta ? (
-                    <span className={`stamp ${meta.className}`}>
-                      {meta.label}
-                    </span>
-                  ) : (
-                    <span className="stamp unclear">No reports yet</span>
-                  )}
-                </div>
-              </Link>
-            </div>
-          );
-        })}
+        <RestaurantsTable restaurants={restaurants} />
       </main>
     </div>
   );
