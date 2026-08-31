@@ -118,11 +118,22 @@ export async function searchRestaurants(
     .from("restaurants")
     .select(RESTAURANT_WITH_REPORTS_SELECT);
 
-  const q = query.trim();
-  if (q) {
-    const escaped = q.replace(/[%,]/g, "");
+  // Split into words and require each one to match name, area or postcode
+  // — but not necessarily the same column for every word. Without this, a
+  // query like "flat iron westminster" (restaurant name "Flat Iron" +
+  // area "Westminster") was matched as one whole substring against each
+  // column individually, which never matches when the name and the area
+  // are different words. Chaining .or() calls ANDs them together, so this
+  // becomes: (name/area/postcode ~ "flat") AND (~ "iron") AND (~ "westminster").
+  const words = query
+    .trim()
+    .split(/\s+/)
+    .map((w) => w.replace(/[%,]/g, ""))
+    .filter(Boolean)
+    .slice(0, 8);
+  for (const word of words) {
     builder = builder.or(
-      `name.ilike.%${escaped}%,area.ilike.%${escaped}%,postcode.ilike.%${escaped}%`
+      `name.ilike.%${word}%,area.ilike.%${word}%,postcode.ilike.%${word}%`
     );
   }
 
