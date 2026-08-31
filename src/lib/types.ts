@@ -10,6 +10,7 @@ export interface Report {
 }
 
 export interface Restaurant {
+  id: string;
   areaSlug: string;
   slug: string;
   name: string;

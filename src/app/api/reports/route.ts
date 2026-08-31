@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { addReportDev } from "@/lib/data";
+import { addReport } from "@/lib/data";
 import { ReportStatus } from "@/lib/types";
 
 const VALID_STATUSES: ReportStatus[] = [
@@ -73,7 +73,6 @@ export async function POST(req: NextRequest) {
   const finalSlug = slug || slugify(name);
 
   const report = {
-    id: `r${Date.now()}${Math.random().toString(36).slice(2, 7)}`,
     status: status as ReportStatus,
     pct: typeof pct === "number" ? pct : null,
     note: (note || "").slice(0, 220),
@@ -81,13 +80,16 @@ export async function POST(req: NextRequest) {
     date: new Date().toISOString().slice(0, 10),
   };
 
-  const restaurant = addReportDev(
-    finalAreaSlug,
-    finalSlug,
-    name,
-    area,
-    report
-  );
+  let restaurant;
+  try {
+    restaurant = await addReport(finalAreaSlug, finalSlug, name, area, report);
+  } catch (err) {
+    console.error("Failed to save report:", err);
+    return NextResponse.json(
+      { error: "Could not save that just now." },
+      { status: 500 }
+    );
+  }
 
   recentSubmissions.set(ip, Date.now());
 

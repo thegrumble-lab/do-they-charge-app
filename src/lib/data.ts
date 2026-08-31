@@ -1,54 +1,125 @@
-import restaurantsSeed from "@/data/restaurants.json";
-import { Restaurant, Report, latestReport } from "./types";
+import { supabase } from "./supabase";
+import { Restaurant, Report, ReportStatus, latestReport } from "./types";
 
 /**
- * DATA LAYER — currently backed by a static JSON sample (520 restaurants
- * across 8 major areas, pulled from the FSA Food Hygiene Rating Scheme
- * dataset). This is a dev/demo fixture, NOT the full 140,921-restaurant
- * national dataset (that lives in restaurants_seed.json on Matt's machine,
- * ready to import once a real database exists).
- *
- * Every function below is written so swapping this for real database
- * queries (e.g. Supabase/Postgres) later means rewriting the INSIDE of
- * these functions only — nothing that calls them needs to change.
+ * DATA LAYER — backed by Supabase (Postgres) now, via the anon key +
+ * RLS policies described in supabase.ts. Every function here is async;
+ * every call site awaits it. Currently seeded with a 520-restaurant
+ * sample (see HANDOFF.md for importing the full 140,921-restaurant
+ * national dataset once the app is ready to go fully nationwide).
  */
 
-// In-memory mutable copy so the "add a report" flow has something to write
-// to during local dev. This resets whenever the server restarts — it is
-// NOT persistent storage. A real deployment needs this replaced with
-// actual database reads/writes (see src/app/api/reports/route.ts).
-const restaurants: Restaurant[] = JSON.parse(
-  JSON.stringify(restaurantsSeed)
-) as Restaurant[];
-
-const bySlug = new Map<string, Restaurant>();
-for (const r of restaurants) {
-  bySlug.set(`${r.areaSlug}/${r.slug}`, r);
+interface DbReport {
+  id: string;
+  status: ReportStatus;
+  pct: number | null;
+  note: string;
+  source: "seed" | "diner";
+  report_date: string;
+  created_at?: string;
 }
 
-export function getAllRestaurants(): Restaurant[] {
-  return restaurants;
+interface DbRestaurant {
+  id: string;
+  fhrsid: string | null;
+  area_slug: string;
+  slug: string;
+  name: string;
+  area: string;
+  address: string;
+  postcode: string;
+  lat: string | null;
+  lng: string | null;
+  reports?: DbReport[];
 }
 
-export function getRestaurantBySlug(
+const RESTAURANT_COLUMNS =
+  "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng";
+const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, report_date, created_at)`;
+
+function toRestaurant(row: DbRestaurant): Restaurant {
+  const reports = (row.reports ?? [])
+    .slice()
+    .sort((a, b) => {
+      const byDate = a.report_date.localeCompare(b.report_date);
+      if (byDate !== 0) return byDate;
+      return (a.created_at ?? "").localeCompare(b.created_at ?? "");
+    })
+    .map(
+      (r): Report => ({
+        id: r.id,
+        status: r.status,
+        pct: r.pct,
+        note: r.note,
+        source: r.source,
+        date: r.report_date,
+      })
+    );
+
+  return {
+    id: row.id,
+    areaSlug: row.area_slug,
+    slug: row.slug,
+    name: row.name,
+    area: row.area,
+    address: row.address ?? "",
+    postcode: row.postcode ?? "",
+    lat: row.lat,
+    lng: row.lng,
+    fhrsid: row.fhrsid ?? "",
+    reports,
+  };
+}
+
+export async function getAllRestaurants(): Promise<Restaurant[]> {
+  const { data, error } = await supabase
+    .from("restaurants")
+    .select(RESTAURANT_WITH_REPORTS_SELECT)
+    .order("name");
+  if (error) throw error;
+  return (data ?? []).map(toRestaurant);
+}
+
+export async function getRestaurantBySlug(
   areaSlug: string,
   slug: string
-): Restaurant | undefined {
-  return bySlug.get(`${areaSlug}/${slug}`);
+): Promise<Restaurant | undefined> {
+  const { data, error } = await supabase
+    .from("restaurants")
+    .select(RESTAURANT_WITH_REPORTS_SELECT)
+    .eq("area_slug", areaSlug)
+    .eq("slug", slug)
+    .maybeSingle();
+  if (error) throw error;
+  return data ? toRestaurant(data) : undefined;
 }
 
-export function searchRestaurants(query: string, status: string): Restaurant[] {
-  const q = query.trim().toLowerCase();
-  return restaurants.filter((r) => {
-    const latest = latestReport(r);
-    const statusOk = status === "all" || latest?.status === status;
-    const qOk =
-      !q ||
-      r.name.toLowerCase().includes(q) ||
-      r.area.toLowerCase().includes(q) ||
-      r.postcode.toLowerCase().includes(q);
-    return statusOk && qOk;
-  });
+export async function searchRestaurants(
+  query: string,
+  status: string
+): Promise<Restaurant[]> {
+  let builder = supabase
+    .from("restaurants")
+    .select(RESTAURANT_WITH_REPORTS_SELECT);
+
+  const q = query.trim();
+  if (q) {
+    const escaped = q.replace(/[%,]/g, "");
+    builder = builder.or(
+      `name.ilike.%${escaped}%,area.ilike.%${escaped}%,postcode.ilike.%${escaped}%`
+    );
+  }
+
+  const { data, error } = await builder.order("name").limit(200);
+  if (error) throw error;
+
+  let restaurants = (data ?? []).map(toRestaurant);
+  if (status !== "all") {
+    restaurants = restaurants.filter(
+      (r) => latestReport(r)?.status === status
+    );
+  }
+  return restaurants;
 }
 
 export interface AreaSummary {
@@ -57,53 +128,91 @@ export interface AreaSummary {
   count: number;
 }
 
-export function getAreas(): AreaSummary[] {
+export async function getAreas(): Promise<AreaSummary[]> {
+  const { data, error } = await supabase
+    .from("restaurants")
+    .select("area_slug, area");
+  if (error) throw error;
+
   const map = new Map<string, AreaSummary>();
-  for (const r of restaurants) {
-    const existing = map.get(r.areaSlug);
+  for (const r of data ?? []) {
+    const existing = map.get(r.area_slug);
     if (existing) {
       existing.count += 1;
     } else {
-      map.set(r.areaSlug, { areaSlug: r.areaSlug, area: r.area, count: 1 });
+      map.set(r.area_slug, { areaSlug: r.area_slug, area: r.area, count: 1 });
     }
   }
   return Array.from(map.values()).sort((a, b) => b.count - a.count);
 }
 
+function slugify(input: string): string {
+  return (
+    input
+      .toLowerCase()
+      .trim()
+      .normalize("NFKD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-+|-+$)/g, "") || "x"
+  );
+}
+
 /**
- * DEV-ONLY write path. Appends a report to the in-memory copy of a
- * restaurant, or creates a new restaurant record if the slug doesn't
- * exist yet (mirrors the artifact's "match or create" behaviour).
- * A production deployment replaces the body of this function with a
- * real database insert (see the handoff notes for the schema).
+ * Adds a report to a restaurant, creating the restaurant record first if
+ * it doesn't already exist (mirrors the artifact's "match or create"
+ * behaviour — a diner can report on a place that isn't in the FSA
+ * sample yet). The insert-anywhere ability is deliberately narrow: the
+ * "public insert" RLS policies on both tables constrain exactly which
+ * columns and values an anonymous request may write.
  */
-export function addReportDev(
+export async function addReport(
   areaSlug: string,
   slug: string,
   name: string,
   area: string,
-  report: Report
-): Restaurant {
-  const key = `${areaSlug}/${slug}`;
-  let r = bySlug.get(key);
-  if (!r) {
-    r = {
-      areaSlug,
-      slug,
-      name,
-      area,
-      address: "",
-      postcode: "",
-      lat: null,
-      lng: null,
-      fhrsid: "",
-      reports: [],
-    };
-    restaurants.push(r);
-    bySlug.set(key, r);
+  report: Omit<Report, "id">
+): Promise<Restaurant> {
+  const finalAreaSlug = areaSlug || slugify(area);
+  const finalSlug = slug || slugify(name);
+
+  const { data: existing, error: findError } = await supabase
+    .from("restaurants")
+    .select(RESTAURANT_COLUMNS)
+    .eq("area_slug", finalAreaSlug)
+    .eq("slug", finalSlug)
+    .maybeSingle();
+  if (findError) throw findError;
+
+  let restaurantId = existing?.id;
+
+  if (!restaurantId) {
+    const { data: created, error: insertError } = await supabase
+      .from("restaurants")
+      .insert({ area_slug: finalAreaSlug, slug: finalSlug, name, area })
+      .select("id")
+      .single();
+    if (insertError) throw insertError;
+    restaurantId = created.id;
   }
-  r.reports.push(report);
-  return r;
+
+  const { error: reportError } = await supabase.from("reports").insert({
+    restaurant_id: restaurantId,
+    status: report.status,
+    pct: report.pct,
+    note: report.note,
+    source: report.source,
+    report_date: report.date,
+  });
+  if (reportError) throw reportError;
+
+  const full = await getRestaurantBySlug(finalAreaSlug, finalSlug);
+  if (!full) {
+    throw new Error(
+      "Restaurant vanished immediately after insert — this should not happen."
+    );
+  }
+  return full;
 }
 
 export { latestReport };

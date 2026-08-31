@@ -2,9 +2,9 @@ import Link from "next/link";
 import { getAllRestaurants, getAreas } from "@/lib/data";
 import SearchDirectory from "@/components/SearchDirectory";
 
-export default function HomePage() {
-  const restaurants = getAllRestaurants();
-  const areas = getAreas();
+export default async function HomePage() {
+  const restaurants = await getAllRestaurants();
+  const areas = await getAreas();
 
   return (
     <div className="page">

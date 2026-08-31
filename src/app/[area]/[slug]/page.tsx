@@ -13,8 +13,9 @@ import AddReportForm from "@/components/AddReportForm";
 //   export const revalidate = 3600; // ISR: regenerate at most hourly
 // and drop (or shrink) generateStaticParams so the build doesn't try to
 // pre-render 140k pages up front.
-export function generateStaticParams() {
-  return getAllRestaurants().map((r) => ({
+export async function generateStaticParams() {
+  const restaurants = await getAllRestaurants();
+  return restaurants.map((r) => ({
     area: r.areaSlug,
     slug: r.slug,
   }));
@@ -24,7 +25,7 @@ type Props = { params: Promise<{ area: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { area, slug } = await params;
-  const r = getRestaurantBySlug(area, slug);
+  const r = await getRestaurantBySlug(area, slug);
   if (!r) return { title: "Restaurant not found" };
   const latest = latestReport(r);
   const desc = latest
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function RestaurantPage({ params }: Props) {
   const { area, slug } = await params;
-  const r = getRestaurantBySlug(area, slug);
+  const r = await getRestaurantBySlug(area, slug);
   if (!r) notFound();
 
   const latest = latestReport(r);

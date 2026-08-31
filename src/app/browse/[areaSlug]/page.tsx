@@ -4,15 +4,16 @@ import { notFound } from "next/navigation";
 import { getAllRestaurants, getAreas } from "@/lib/data";
 import { STATUS_META, latestReport } from "@/lib/types";
 
-export function generateStaticParams() {
-  return getAreas().map((a) => ({ areaSlug: a.areaSlug }));
+export async function generateStaticParams() {
+  const areas = await getAreas();
+  return areas.map((a) => ({ areaSlug: a.areaSlug }));
 }
 
 type Props = { params: Promise<{ areaSlug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { areaSlug } = await params;
-  const areas = getAreas();
+  const areas = await getAreas();
   const area = areas.find((a) => a.areaSlug === areaSlug);
   if (!area) return { title: "Area not found" };
   return {
@@ -23,11 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AreaPage({ params }: Props) {
   const { areaSlug } = await params;
-  const areas = getAreas();
+  const areas = await getAreas();
   const area = areas.find((a) => a.areaSlug === areaSlug);
   if (!area) notFound();
 
-  const restaurants = getAllRestaurants()
+  const allRestaurants = await getAllRestaurants();
+  const restaurants = allRestaurants
     .filter((r) => r.areaSlug === areaSlug)
     .sort((a, b) => a.name.localeCompare(b.name));
 
