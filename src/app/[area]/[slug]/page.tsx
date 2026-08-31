@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const desc = latest
     ? `${r.name} in ${r.area}: ${STATUS_META[latest.status].label.toLowerCase()}${
         latest.pct ? ` (around ${latest.pct}%)` : ""
-      }, based on ${r.reports.length} diner report${r.reports.length === 1 ? "" : "s"}.`
+      }, based on ${r.reports.length} report${r.reports.length === 1 ? "" : "s"}.`
     : `No reports yet on whether ${r.name} in ${r.area} adds a service charge — be the first to say.`;
   return {
     title: `Does ${r.name} add a service charge?`,
@@ -83,11 +83,20 @@ export default async function RestaurantPage({ params }: Props) {
                 <span className="entry-source">
                   {latest.source === "seed"
                     ? "Starter data — unverified"
+                    : latest.source === "researched"
+                    ? `Researched — checked ${latest.date}`
                     : `Reported by a diner · ${latest.date}`}
                 </span>
               </div>
               {latest.note ? (
                 <div className="entry-note">{latest.note}</div>
+              ) : null}
+              {latest.source === "researched" && latest.sourceUrl ? (
+                <p className="small-print" style={{ marginTop: 4 }}>
+                  <a href={latest.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    Source
+                  </a>
+                </p>
               ) : null}
             </>
           ) : (
@@ -106,12 +115,23 @@ export default async function RestaurantPage({ params }: Props) {
                   <div className="report-history-item" key={rep.id}>
                     <span className={`stamp ${m.className}`}>{m.label}</span>
                     <span className="entry-source">
-                      {rep.source === "seed" ? "Starter data" : "Diner report"}{" "}
+                      {rep.source === "seed"
+                        ? "Starter data"
+                        : rep.source === "researched"
+                        ? "Researched"
+                        : "Diner report"}{" "}
                       · {rep.date}
                       {rep.pct ? ` · ${rep.pct}%` : ""}
                     </span>
                     {rep.note ? (
                       <div className="entry-note">{rep.note}</div>
+                    ) : null}
+                    {rep.source === "researched" && rep.sourceUrl ? (
+                      <p className="small-print" style={{ marginTop: 4 }}>
+                        <a href={rep.sourceUrl} target="_blank" rel="noopener noreferrer">
+                          Source
+                        </a>
+                      </p>
                     ) : null}
                   </div>
                 );

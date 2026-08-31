@@ -77,6 +77,7 @@ export async function POST(req: NextRequest) {
     pct: typeof pct === "number" ? pct : null,
     note: (note || "").slice(0, 220),
     source: "diner" as const,
+    sourceUrl: null,
     date: new Date().toISOString().slice(0, 10),
   };
 

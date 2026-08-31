@@ -5,7 +5,8 @@ export interface Report {
   status: ReportStatus;
   pct: number | null;
   note: string;
-  source: "seed" | "diner";
+  source: "seed" | "diner" | "researched";
+  sourceUrl: string | null;
   date: string; // ISO date
 }
 

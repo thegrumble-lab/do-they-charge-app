@@ -17,7 +17,8 @@ interface DbReport {
   status: ReportStatus;
   pct: number | null;
   note: string;
-  source: "seed" | "diner";
+  source: "seed" | "diner" | "researched";
+  source_url: string | null;
   report_date: string;
   created_at?: string;
 }
@@ -39,7 +40,7 @@ interface DbRestaurant {
 
 const RESTAURANT_COLUMNS =
   "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng, is_active";
-const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, report_date, created_at)`;
+const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, source_url, report_date, created_at)`;
 
 function toRestaurant(row: DbRestaurant): Restaurant {
   const reports = (row.reports ?? [])
@@ -56,6 +57,7 @@ function toRestaurant(row: DbRestaurant): Restaurant {
         pct: r.pct,
         note: r.note,
         source: r.source,
+        sourceUrl: r.source_url,
         date: r.report_date,
       })
     );
@@ -254,6 +256,7 @@ export async function addReport(
     pct: report.pct,
     note: report.note,
     source: report.source,
+    source_url: report.sourceUrl,
     report_date: report.date,
   });
   if (reportError) throw reportError;
