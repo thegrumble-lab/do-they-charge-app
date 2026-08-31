@@ -149,19 +149,33 @@ export interface AreaSummary {
 }
 
 export async function getAreas(): Promise<AreaSummary[]> {
-  const { data, error } = await supabase
-    .from("restaurants")
-    .select("area_slug, area");
-  if (error) throw error;
-
+  // PostgREST caps the rows returned by an unranged select (commonly at
+  // 1000), which silently truncated this query once the table grew past
+  // that — some areas (e.g. Tower Hamlets) were missing from the result
+  // entirely, which cascaded into a 404 on their /browse/[areaSlug] page.
+  // Page through the whole table with .range() so every area is counted
+  // regardless of table size. This runs at most once an hour (see the
+  // `revalidate` export on the pages that call it), so the extra
+  // round-trips aren't on the request path for real visitors.
+  const PAGE_SIZE = 1000;
   const map = new Map<string, AreaSummary>();
-  for (const r of data ?? []) {
-    const existing = map.get(r.area_slug);
-    if (existing) {
-      existing.count += 1;
-    } else {
-      map.set(r.area_slug, { areaSlug: r.area_slug, area: r.area, count: 1 });
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("restaurants")
+      .select("area_slug, area")
+      .range(from, from + PAGE_SIZE - 1);
+    if (error) throw error;
+
+    for (const r of data ?? []) {
+      const existing = map.get(r.area_slug);
+      if (existing) {
+        existing.count += 1;
+      } else {
+        map.set(r.area_slug, { areaSlug: r.area_slug, area: r.area, count: 1 });
+      }
     }
+
+    if (!data || data.length < PAGE_SIZE) break;
   }
   return Array.from(map.values()).sort((a, b) => b.count - a.count);
 }

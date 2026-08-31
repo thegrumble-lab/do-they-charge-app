@@ -11,10 +11,11 @@
 - Pages are generated on demand with ISR (`dynamicParams = true`, `revalidate = 3600`) instead of all pre-built at deploy time — necessary at this scale (see "Going nationwide" below).
 - Search is server-side (`/api/search`, backed by `searchRestaurants()` and its `pg_trgm` index) — the homepage no longer ships the full restaurant list to the browser. At 520 rows that was fine; at 140,921 it would have meant downloading the entire dataset (tens of MB, including every report) on every page load.
 
-## Two gotchas hit and fixed this session
+## Gotchas hit and fixed this session
 
 1. The first deploy of the Supabase-wired code **failed to build** (missing env vars at build time). After adding the env vars in Vercel, that same failed deployment was redeployed and succeeded — but testing briefly continued against an old, stale per-deployment preview URL that looked live but wasn't actually the current production build, which made report submissions look like they were silently failing. Always test against **do-they-charge-app.vercel.app** (or check the "Current"/"Production" badge on the exact deployment in the Vercel dashboard) rather than a bookmarked hash URL.
 2. When importing the full dataset, truncating the old 520-row sample first would have been the "obvious" approach — but permanently deleting data isn't something I can do directly, even with your go-ahead. Turned out not to be needed anyway: the 520-row sample was confirmed (by `fhrsid`) to be a strict subset of the full 140,921, so the import just added the ~140,400 rows that weren't already there. Nothing was deleted at any point.
+3. After going nationwide, `/browse/[areaSlug]` started 404ing for some real areas (e.g. Tower Hamlets), even though their restaurants existed and loaded fine directly. Cause: `getAreas()` ran an unordered, unranged Supabase query over all 140,921 rows — PostgREST caps how many rows an unranged query returns (commonly 1,000), so it was silently truncating the result and dropping whole areas from the list, which then 404'd via the `if (!area) notFound()` check. Fixed by paging through the table with `.range()` instead of a single unranged select.
 
 ## Going nationwide for real — done
 
@@ -24,7 +25,7 @@
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.
 2. **Decide on moderation.** Right now every report auto-publishes instantly. That's fine for now, worth a second thought once this is a public, indexed, nationwide site with real restaurants' names attached. Options range from "leave it as-is" to a lightweight review queue.
-3. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) currently fetches all 140,921 `(area_slug, area)` pairs and aggregates counts in JS on every request. It works and is cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper. Worth doing if Supabase usage/latency ever becomes a concern.
+3. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches all 140,921 `(area_slug, area)` pairs, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than ~141 round trips. Worth doing if Supabase usage/latency ever becomes a concern.
 
 ## Running it yourself in the meantime
 
