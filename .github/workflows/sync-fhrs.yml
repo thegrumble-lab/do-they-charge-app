@@ -29,7 +29,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # @supabase/supabase-js's realtime client requires native
+          # WebSocket support, which needs Node 22+ (it throws at client
+          # construction even though this script never uses realtime).
+          node-version: "22"
           cache: "npm"
 
       - run: npm ci
