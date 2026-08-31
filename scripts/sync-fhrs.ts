@@ -11,6 +11,11 @@
 //   - Filters to BusinessTypeID 1 (Restaurant/Cafe/Canteen) and 7843
 //     (Pub/bar/nightclub) — the agreed scope; takeaways (7844) are
 //     deliberately excluded.
+//   - Also excludes known fast-food/coffee/bakery chains by name (see
+//     EXCLUDED_CHAIN_KEYWORDS) — FHRS has no distinct "fast food" category,
+//     so these are ordinary BusinessTypeID 1 rows that would otherwise pass
+//     the filter above. They're excluded because they never charge a
+//     service fee, so there's nothing for this site to report on.
 //   - Upserts by fhrsid (unique constraint: restaurants_fhrsid_key).
 //   - Anything currently active in our DB but absent from this run's
 //     filtered feed gets SOFT-deleted (is_active = false, removed_at =
@@ -36,6 +41,47 @@ const FHRS_URL =
 // Restaurant/Cafe/Canteen, Pub/bar/nightclub. Takeaway/sandwich shop
 // (7844) is deliberately excluded — see HANDOFF.md.
 const ALLOWED_BUSINESS_TYPE_IDS = new Set([1, 7843]);
+
+// Known fast-food/coffee/bakery chains — excluded because they don't
+// charge a service fee, so there's nothing for this site to usefully
+// report on them. Matched case-insensitively as a substring of
+// BusinessName (FHRS names vary a lot: "McDonald's", "Mcdonalds
+// Restaurants Limited", "KFC (Kentucky Fried Chicken)", branch suffixes
+// like " - Oxford Street", franchisee legal-entity suffixes, etc.), so
+// each keyword is the shortest distinctive fragment of the brand name.
+// Add new chains here — no code changes needed elsewhere; this list
+// alone controls both what gets removed now and what stays excluded on
+// every future weekly sync, since excluded rows simply never appear in
+// feedFhrsids and the existing deactivation logic (see main()) takes
+// care of the rest.
+const EXCLUDED_CHAIN_KEYWORDS = [
+  // Core fast food
+  "mcdonald",
+  "burger king",
+  "kfc",
+  "kentucky fried chicken",
+  "subway",
+  "domino",
+  "pizza hut",
+  "taco bell",
+  "wendy",
+  "popeyes",
+  "wingstop",
+  "papa john",
+  "chicken cottage",
+  // Coffee / bakery
+  "greggs",
+  "starbucks",
+  "costa coffee",
+  "costa express",
+  "pret a manger",
+  "pret-a-manger",
+];
+
+function isExcludedChain(name: string): boolean {
+  const lower = name.toLowerCase();
+  return EXCLUDED_CHAIN_KEYWORDS.some((keyword) => lower.includes(keyword));
+}
 
 const DRY_RUN = /^(1|true)$/i.test(process.env.DRY_RUN ?? "");
 const PAGE_SIZE = 1000;
@@ -194,6 +240,7 @@ async function downloadAndFilter(): Promise<FeedRow[]> {
   const typeCounts = new Map<number, number>();
   let totalRows = 0;
   let missingCoreFields = 0;
+  let excludedChainRows = 0;
 
   for await (const rawRecord of parser) {
     const record = rawRecord as CsvRecord;
@@ -207,6 +254,11 @@ async function downloadAndFilter(): Promise<FeedRow[]> {
     const area = (record.LocalAuthorityName ?? "").trim();
     if (!fhrsid || !name || !area) {
       missingCoreFields += 1;
+      continue;
+    }
+
+    if (isExcludedChain(name)) {
+      excludedChainRows += 1;
       continue;
     }
 
@@ -229,7 +281,8 @@ async function downloadAndFilter(): Promise<FeedRow[]> {
   console.log(
     `Matched ${rows.length} rows in scope (BusinessTypeID ${[...ALLOWED_BUSINESS_TYPE_IDS].join(
       ", "
-    )}); skipped ${missingCoreFields} in-scope rows missing a core field.`
+    )}); skipped ${missingCoreFields} in-scope rows missing a core field; ` +
+      `excluded ${excludedChainRows} rows matching a blocklisted chain name.`
   );
 
   return rows;
