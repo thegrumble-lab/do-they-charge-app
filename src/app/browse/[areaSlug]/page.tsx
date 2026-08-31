@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllRestaurants, getAreas } from "@/lib/data";
+import { getRestaurantsByArea, getAreas } from "@/lib/data";
 import { STATUS_META, latestReport } from "@/lib/types";
 
-export async function generateStaticParams() {
-  const areas = await getAreas();
-  return areas.map((a) => ({ areaSlug: a.areaSlug }));
-}
+// Same reasoning as src/app/[area]/[slug]/page.tsx: with 363 areas across
+// 140,921 restaurants, generate area pages on demand and refresh them at
+// most hourly instead of pre-building all of them at deploy time.
+export const dynamicParams = true;
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ areaSlug: string }> };
 
@@ -28,10 +29,7 @@ export default async function AreaPage({ params }: Props) {
   const area = areas.find((a) => a.areaSlug === areaSlug);
   if (!area) notFound();
 
-  const allRestaurants = await getAllRestaurants();
-  const restaurants = allRestaurants
-    .filter((r) => r.areaSlug === areaSlug)
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const restaurants = await getRestaurantsByArea(areaSlug);
 
   return (
     <div className="page">

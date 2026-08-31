@@ -94,6 +94,18 @@ export async function getRestaurantBySlug(
   return data ? toRestaurant(data) : undefined;
 }
 
+export async function getRestaurantsByArea(
+  areaSlug: string
+): Promise<Restaurant[]> {
+  const { data, error } = await supabase
+    .from("restaurants")
+    .select(RESTAURANT_WITH_REPORTS_SELECT)
+    .eq("area_slug", areaSlug)
+    .order("name");
+  if (error) throw error;
+  return (data ?? []).map(toRestaurant);
+}
+
 export async function searchRestaurants(
   query: string,
   status: string
@@ -120,6 +132,14 @@ export async function searchRestaurants(
     );
   }
   return restaurants;
+}
+
+export async function getRestaurantCount(): Promise<number> {
+  const { count, error } = await supabase
+    .from("restaurants")
+    .select("*", { count: "exact", head: true });
+  if (error) throw error;
+  return count ?? 0;
 }
 
 export interface AreaSummary {

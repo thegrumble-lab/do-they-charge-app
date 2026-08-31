@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllRestaurants, getRestaurantBySlug } from "@/lib/data";
+import { getRestaurantBySlug } from "@/lib/data";
 import { STATUS_META, latestReport } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 
-// Dev-build note: with only the 520-restaurant sample loaded, it's cheap to
-// pre-build every page. Once this is wired to the full 140,921-restaurant
-// dataset via a real database, switch to on-demand generation instead of
-// enumerating every slug at build time:
-//   export const dynamicParams = true;
-//   export const revalidate = 3600; // ISR: regenerate at most hourly
-// and drop (or shrink) generateStaticParams so the build doesn't try to
-// pre-render 140k pages up front.
-export async function generateStaticParams() {
-  const restaurants = await getAllRestaurants();
-  return restaurants.map((r) => ({
-    area: r.areaSlug,
-    slug: r.slug,
-  }));
-}
+// Now that the full 140,921-restaurant dataset is loaded, pages are
+// generated on demand instead of all pre-built at deploy time (which would
+// make builds impractically slow). The first visit to a given restaurant
+// renders it and caches the result; ISR then revalidates that page in the
+// background at most once an hour, so new diner reports show up without a
+// full redeploy.
+export const dynamicParams = true;
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ area: string; slug: string }> };
 

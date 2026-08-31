@@ -1,10 +1,18 @@
 import Link from "next/link";
-import { getAllRestaurants, getAreas } from "@/lib/data";
+import { searchRestaurants, getAreas, getRestaurantCount } from "@/lib/data";
 import SearchDirectory from "@/components/SearchDirectory";
 
+// Re-render at most hourly so the "X restaurants across Y areas" summary
+// and the initial results stay reasonably fresh without hitting Supabase
+// on every single request.
+export const revalidate = 3600;
+
 export default async function HomePage() {
-  const restaurants = await getAllRestaurants();
-  const areas = await getAreas();
+  const [initialRestaurants, areas, totalCount] = await Promise.all([
+    searchRestaurants("", "all"),
+    getAreas(),
+    getRestaurantCount(),
+  ]);
 
   return (
     <div className="page">
@@ -19,16 +27,17 @@ export default async function HomePage() {
       </div>
 
       <main className="ticket">
-        <SearchDirectory restaurants={restaurants} />
+        <SearchDirectory
+          initialRestaurants={initialRestaurants}
+          totalCount={totalCount}
+        />
       </main>
 
       <section className="ticket" style={{ marginTop: 24 }}>
         <h2 className="h2">Browse by area</h2>
         <p className="small-print" style={{ marginTop: 0 }}>
-          This dev build only carries a sample of {restaurants.length}{" "}
-          restaurants across {areas.length} areas — the full national list
-          (140,921 restaurants and cafés from the FSA dataset) is ready to
-          import once a real database is connected.
+          {totalCount.toLocaleString()} restaurants and cafés across{" "}
+          {areas.length} areas, from the FSA food hygiene dataset.
         </p>
         <div className="area-grid">
           {areas.map((a) => (

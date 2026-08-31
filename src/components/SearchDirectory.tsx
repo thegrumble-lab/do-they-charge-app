@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Restaurant, STATUS_META, ReportStatus, latestReport } from "@/lib/types";
 
@@ -12,30 +12,67 @@ const FILTERS: { key: "all" | ReportStatus; label: string }[] = [
   { key: "unclear", label: "Unclear" },
 ];
 
+const DEBOUNCE_MS = 250;
+
 export default function SearchDirectory({
-  restaurants,
+  initialRestaurants,
+  totalCount,
 }: {
-  restaurants: Restaurant[];
+  initialRestaurants: Restaurant[];
+  totalCount: number;
 }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"all" | ReportStatus>("all");
+  // Tags each fetched batch with the query/status it answers, so "loading"
+  // and "results" can be derived by comparing against the current
+  // query/status instead of needing a separate effect-driven reset.
+  const [fetched, setFetched] = useState<{
+    query: string;
+    status: string;
+    restaurants: Restaurant[];
+  } | null>(null);
+  const requestId = useRef(0);
+  const trimmedQuery = query.trim();
+  const isFiltering = trimmedQuery !== "" || status !== "all";
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return restaurants
-      .filter((r) => {
-        const latest = latestReport(r);
-        const statusOk = status === "all" || latest?.status === status;
-        const qOk =
-          !q ||
-          r.name.toLowerCase().includes(q) ||
-          r.area.toLowerCase().includes(q) ||
-          r.postcode.toLowerCase().includes(q);
-        return statusOk && qOk;
-      })
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .slice(0, 100);
-  }, [restaurants, query, status]);
+  useEffect(() => {
+    if (!isFiltering) return;
+
+    const thisRequest = ++requestId.current;
+    const timer = setTimeout(async () => {
+      try {
+        const params = new URLSearchParams();
+        if (trimmedQuery) params.set("q", trimmedQuery);
+        params.set("status", status);
+        const res = await fetch(`/api/search?${params.toString()}`);
+        const body = await res.json().catch(() => null);
+        // Ignore stale responses if the user kept typing.
+        if (thisRequest === requestId.current) {
+          setFetched({
+            query: trimmedQuery,
+            status,
+            restaurants: res.ok && body?.restaurants ? body.restaurants : [],
+          });
+        }
+      } catch {
+        if (thisRequest === requestId.current) {
+          setFetched({ query: trimmedQuery, status, restaurants: [] });
+        }
+      }
+    }, DEBOUNCE_MS);
+
+    return () => clearTimeout(timer);
+  }, [trimmedQuery, status, isFiltering]);
+
+  const fetchedIsCurrent =
+    fetched !== null && fetched.query === trimmedQuery && fetched.status === status;
+  const loading = isFiltering && !fetchedIsCurrent;
+  const results = isFiltering
+    ? fetchedIsCurrent
+      ? fetched!.restaurants
+      : []
+    : initialRestaurants;
+  const shown = results.slice(0, 100);
 
   return (
     <div>
@@ -63,16 +100,19 @@ export default function SearchDirectory({
         </div>
       </div>
       <p className="count-line">
-        Showing {Math.min(filtered.length, 100)} of {restaurants.length}
-        {filtered.length > 100 ? " (refine your search to see more)" : ""}
+        {loading
+          ? "Searching…"
+          : `Showing ${shown.length} of ${totalCount.toLocaleString()} restaurants${
+              results.length > 100 ? " (refine your search to see more)" : ""
+            }`}
       </p>
-      {filtered.length === 0 ? (
+      {!loading && shown.length === 0 ? (
         <div className="empty-state">
           No matches. Not listed yet? Search on its own page once you visit
           it directly, or check back as more reports come in.
         </div>
       ) : (
-        filtered.map((r) => {
+        shown.map((r) => {
           const latest = latestReport(r);
           const meta = latest ? STATUS_META[latest.status] : null;
           return (
