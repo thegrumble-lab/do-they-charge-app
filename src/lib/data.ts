@@ -123,18 +123,26 @@ export async function searchRestaurants(
   // query like "flat iron westminster" (restaurant name "Flat Iron" +
   // area "Westminster") was matched as one whole substring against each
   // column individually, which never matches when the name and the area
-  // are different words. Chaining .or() calls ANDs them together, so this
-  // becomes: (name/area/postcode ~ "flat") AND (~ "iron") AND (~ "westminster").
+  // are different words.
+  //
+  // Note: chaining multiple .or() calls does NOT and them together — each
+  // call sets the same "or" query param, so only the last one actually
+  // took effect (tried this first; broke 3+ word searches). PostgREST
+  // does support arbitrarily nested and()/or() groups within a single
+  // filter value, so build one nested expression instead: an outer or()
+  // with a single and() child, whose children are one or() per word.
   const words = query
     .trim()
     .split(/\s+/)
-    .map((w) => w.replace(/[%,]/g, ""))
+    .map((w) => w.replace(/[%,()]/g, ""))
     .filter(Boolean)
     .slice(0, 8);
-  for (const word of words) {
-    builder = builder.or(
-      `name.ilike.%${word}%,area.ilike.%${word}%,postcode.ilike.%${word}%`
+  if (words.length > 0) {
+    const perWord = words.map(
+      (word) =>
+        `or(name.ilike.%${word}%,area.ilike.%${word}%,postcode.ilike.%${word}%)`
     );
+    builder = builder.or(`and(${perWord.join(",")})`);
   }
 
   const { data, error } = await builder.order("name").limit(200);
