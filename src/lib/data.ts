@@ -120,10 +120,58 @@ export async function searchRestaurants(
   query: string,
   status: string
 ): Promise<Restaurant[]> {
+  // A status filter (e.g. "no-charge") has to be resolved against each
+  // restaurant's *latest* report — and PostgREST has no way to express
+  // "latest row per group" as a single filtered query. The previous
+  // approach fetched an unrelated page of restaurants (the 200 that sort
+  // first by name, or first by name within a text match) and only *then*
+  // filtered that page by status in JS. With no text query, that meant a
+  // status-only chip click was filtering the alphabetically-first 200
+  // restaurants out of ~184k nationwide — restaurants with a matching
+  // status essentially never landed in that arbitrary slice, so the
+  // filter silently returned nothing for most statuses (caught when the
+  // "researched" pilot restaurants, scattered randomly across the whole
+  // table, didn't show up under any status filter at all).
+  //
+  // The reports table is small (order of hundreds of rows — most
+  // restaurants have no reports at all; see HANDOFF.md), so it's cheap to
+  // pull the whole thing, compute latest-per-restaurant in JS, and turn a
+  // status filter into an explicit restaurant-id allowlist *before*
+  // querying restaurants — pushing the real filtering to something that
+  // actually covers every restaurant, not just a name-sorted page of one.
+  let restaurantIdFilter: string[] | null = null;
+  if (status !== "all") {
+    const { data: allReports, error: reportsError } = await supabase
+      .from("reports")
+      .select("restaurant_id, status, report_date, created_at")
+      .order("restaurant_id")
+      .order("report_date")
+      .order("created_at");
+    if (reportsError) throw reportsError;
+
+    const latestByRestaurant = new Map<string, { status: string }>();
+    for (const r of allReports ?? []) {
+      // Rows arrive grouped by restaurant_id and sorted oldest-to-newest
+      // within each group (matching the sort in toRestaurant()/
+      // latestReport()), so the last .set() per restaurant_id wins.
+      latestByRestaurant.set(r.restaurant_id, r);
+    }
+
+    restaurantIdFilter = Array.from(latestByRestaurant.entries())
+      .filter(([, r]) => r.status === status)
+      .map(([id]) => id);
+
+    if (restaurantIdFilter.length === 0) return [];
+  }
+
   let builder = supabase
     .from("restaurants")
     .select(RESTAURANT_WITH_REPORTS_SELECT)
     .eq("is_active", true);
+
+  if (restaurantIdFilter) {
+    builder = builder.in("id", restaurantIdFilter);
+  }
 
   // Split into words and require each one to match name, area or postcode
   // — but not necessarily the same column for every word. Without this, a
@@ -155,13 +203,7 @@ export async function searchRestaurants(
   const { data, error } = await builder.order("name").limit(200);
   if (error) throw error;
 
-  let restaurants = (data ?? []).map(toRestaurant);
-  if (status !== "all") {
-    restaurants = restaurants.filter(
-      (r) => latestReport(r)?.status === status
-    );
-  }
-  return restaurants;
+  return (data ?? []).map(toRestaurant);
 }
 
 export async function getRestaurantCount(): Promise<number> {
