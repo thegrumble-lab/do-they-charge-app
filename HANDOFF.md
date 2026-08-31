@@ -2,17 +2,20 @@
 
 ## What's actually built and verified right now
 
-- A real Next.js app (App Router, TypeScript) — `npm run build` succeeds, `npm run start` serves it, and I tested it live: homepage search/filter, a restaurant page, an area browse page, and the report-submission API all work.
-- Every restaurant gets its own URL and its own `<title>`/meta description built for the exact long-tail query it should rank for ("Does [name] add a service charge?"). That was the whole point of moving off the single-page artifact.
-- The visual identity carries over from the artifact you already tested — same receipt/stamp look, same fonts and colours, just built as real stylesheets instead of one embedded `<style>` block.
-- The submission form has basic anti-abuse built in: a honeypot field (bots fill every input; real visitors never see it) and a simple per-IP rate limit. Both were tested and work.
-- Loaded with a 520-restaurant **sample** (Westminster, Birmingham, Glasgow City, Edinburgh, Manchester, Leeds, North Yorkshire, Camden — the top areas by restaurant count from the FSA data), not the full national set. See "Going nationwide for real" below.
+- A real Next.js app (App Router, TypeScript), deployed live on Vercel at **do-they-charge-app.vercel.app** (production alias — use this URL, not one of the per-deployment hash URLs, which can be stale).
+- **Real, persistent storage**: Supabase (hosted Postgres). `restaurants` and `reports` tables, RLS enabled, public read policies, and narrow public insert policies that let a diner submit a report using only the public `anon` key — no service_role key anywhere in the app. `src/lib/supabase.ts` / `src/lib/data.ts` do the wiring.
+- Both reads and writes are verified working end-to-end against the live production URL: the homepage/search/area/restaurant pages all render real Supabase data (520 restaurants), and a direct test submission through `POST /api/reports` produced a real Postgres row (UUID id, correct FK to the existing restaurant) that was visible in the Supabase table editor — then cleaned up afterwards.
+- Every restaurant gets its own URL and its own `<title>`/meta description built for the exact long-tail query it should rank for ("Does [name] add a service charge?").
+- The submission form has basic anti-abuse built in: a honeypot field (bots fill every input; real visitors never see it) and a simple per-IP rate limit.
+- Loaded with a 520-restaurant **sample** (Westminster, Birmingham, Glasgow City, Edinburgh, Manchester, Leeds, North Yorkshire, Camden — the top areas by restaurant count from the FSA data), not the full national set yet. See "Going nationwide for real" below.
 
-## What's deliberately stubbed, and why
+## One important gotcha hit and fixed this session
 
-**Data storage is in-memory, not a real database.** `src/lib/data.ts` holds every function a real backend would need (`getAllRestaurants`, `getRestaurantBySlug`, `addReportDev`, etc.) but right now they read/write a JS array that resets every time the server restarts. This was the fastest way to get something real and testable in front of you today. Nothing that calls these functions needs to change when you swap them for actual database queries — only the insides of `src/lib/data.ts` and the one write in `src/app/api/reports/route.ts`.
+The first deploy of the Supabase-wired code **failed to build** (missing env vars at build time — `generateStaticParams` needs `NEXT_PUBLIC_SUPABASE_URL`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` to pre-render restaurant pages). After adding the env vars in Vercel, that same failed deployment was redeployed and succeeded — but testing briefly continued against an old, stale per-deployment preview URL that looked live but wasn't actually the current production build, which made report submissions look like they were silently failing. Always test against **do-they-charge-app.vercel.app** (or check the "Current"/"Production" badge on the exact deployment in the Vercel dashboard) rather than a bookmarked hash URL.
 
-**Why:** I can't create hosting, domain, or database accounts on your behalf — those need your email, and in the domain's case, your money. Building against a real database before you've chosen and set one up would mean guessing at connection details I can't test. This gets you a fully working app today; wiring up permanent storage is a short, well-defined next step once you've picked a provider.
+## Still static, not yet live-updating
+
+Restaurant and area pages are built with `generateStaticParams` at deploy time (SSG) — a new report submitted by a diner is saved to Supabase immediately, but won't show up on that restaurant's page until the site is rebuilt/redeployed, or until the ISR switch below is made. This is a known, deliberate gap, not a bug.
 
 ## Going nationwide for real
 
@@ -20,18 +23,16 @@ The full FSA dataset — 140,921 restaurant/café records, already slugged and r
 
 `Downloads/do-they-charge-data/restaurants_seed.json` (33MB, on your machine)
 
-Once a real database exists, import that file wholesale as the seed `restaurants` table, then switch the app off the JSON sample. Two code changes needed at that point (both are called out in comments already):
+Now that a real database exists, the next step is to import that file wholesale into the `restaurants` table (replacing/extending the 520-row sample) and switch two things over, both already called out in code comments:
 
-1. In `src/app/[area]/[slug]/page.tsx`, replace `generateStaticParams` returning every slug with on-demand generation instead — pre-building 140k pages at deploy time would make builds painfully slow. Add `export const dynamicParams = true;` and `export const revalidate = 3600;` (or similar) so pages generate on first visit and get cached, which is the standard pattern for a dataset this size.
-2. Point `src/lib/data.ts`'s functions at real queries instead of the in-memory array.
+1. In `src/app/[area]/[slug]/page.tsx`, replace `generateStaticParams` returning every slug with on-demand generation instead — pre-building 140k pages at deploy time would make builds painfully slow. Add `export const dynamicParams = true;` and `export const revalidate = 3600;` (or similar) so pages generate on first visit and get cached — this also solves the "still static" gap above, since pages would refresh periodically instead of only on redeploy.
+2. Same treatment for the area browse pages.
 
-## What you need to do (the parts only you can do)
+## What's left (only things that need your input)
 
-1. **Push this to a GitHub repo.** The project's already got a local git repo initialised (`git init` ran as part of scaffolding) — create a repo on GitHub and push it.
-2. **Pick a host and connect the repo.** You said you're not sure yet — Vercel is the natural fit for Next.js (free tier, connects straight to GitHub, deploys on every push) but Netlify and Cloudflare Pages both work fine too. Whichever you pick, this code doesn't need to change.
-3. **Register the domain** you want this on, and point it at whichever host you choose (the host's dashboard walks you through the DNS records).
-4. **Create a database.** For this scale and budget, a free-tier hosted Postgres (Supabase is the easiest to set up) is the standard choice. Once it exists, send me the connection details (or set them as environment variables yourself) and I'll wire up `src/lib/data.ts` and the API route to it, then import the full 140k-row dataset.
-5. **Decide on moderation.** Right now every report auto-publishes instantly, same as the artifact you already tested. That's fine for a private validation link — worth a second thought once this is a public, indexed, nationwide site with real restaurants' names attached. Options range from "leave it as-is" to a lightweight review queue. Your call once you see how submissions behave.
+1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.
+2. **Import the full 140k-restaurant dataset** and flip the ISR switch above — ready whenever you want to go nationwide instead of the 520-restaurant sample.
+3. **Decide on moderation.** Right now every report auto-publishes instantly. That's fine for now, worth a second thought once this is a public, indexed, nationwide site with real restaurants' names attached. Options range from "leave it as-is" to a lightweight review queue.
 
 ## Running it yourself in the meantime
 
