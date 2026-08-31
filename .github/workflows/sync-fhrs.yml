@@ -1,0 +1,42 @@
+name: FHRS weekly sync
+
+# Manual-trigger only for now. Once a dry run and a real run have both
+# been verified (see HANDOFF.md, "Automated weekly sync"), a follow-up
+# commit adds a `schedule:` trigger here so this runs weekly on its own.
+#
+# Runs on GitHub's infrastructure deliberately, not from the app or from
+# a Claude session — both of those sit behind an egress allowlist that
+# blocks the FHRS download domain outright. GitHub Actions runners have
+# normal internet access.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Compute the diff and log it, but write nothing"
+        type: boolean
+        default: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # The national CSV is large; downloading + streaming-parsing +
+    # batch-upserting comfortably fits in this window with room to spare,
+    # but a Vercel serverless function's much shorter timeout would not
+    # have — that's the main reason this lives in GitHub Actions.
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run FHRS sync
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: npm run sync:fhrs
