@@ -36,7 +36,7 @@ export default async function HomePage() {
       <section className="ticket" style={{ marginTop: 24 }}>
         <h2 className="h2">Browse by area</h2>
         <p className="small-print" style={{ marginTop: 0 }}>
-          {totalCount.toLocaleString()} restaurants and cafés across{" "}
+          {totalCount.toLocaleString()} restaurants, cafés and pubs across{" "}
           {areas.length} areas, from the FSA food hygiene dataset.
         </p>
         <div className="area-grid">

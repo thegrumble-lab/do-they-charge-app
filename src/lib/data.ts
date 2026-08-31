@@ -1,5 +1,6 @@
 import { supabase } from "./supabase";
 import { Restaurant, Report, ReportStatus, latestReport } from "./types";
+import { slugify } from "./slug";
 
 /**
  * DATA LAYER — backed by Supabase (Postgres), via the anon key + RLS
@@ -32,11 +33,12 @@ interface DbRestaurant {
   postcode: string;
   lat: string | null;
   lng: string | null;
+  is_active: boolean;
   reports?: DbReport[];
 }
 
 const RESTAURANT_COLUMNS =
-  "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng";
+  "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng, is_active";
 const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, report_date, created_at)`;
 
 function toRestaurant(row: DbRestaurant): Restaurant {
@@ -69,6 +71,7 @@ function toRestaurant(row: DbRestaurant): Restaurant {
     lat: row.lat,
     lng: row.lng,
     fhrsid: row.fhrsid ?? "",
+    isActive: row.is_active,
     reports,
   };
 }
@@ -101,6 +104,7 @@ export async function getRestaurantsByArea(
       .from("restaurants")
       .select(RESTAURANT_WITH_REPORTS_SELECT)
       .eq("area_slug", areaSlug)
+      .eq("is_active", true)
       .order("name")
       .range(from, from + PAGE_SIZE - 1);
     if (error) throw error;
@@ -116,7 +120,8 @@ export async function searchRestaurants(
 ): Promise<Restaurant[]> {
   let builder = supabase
     .from("restaurants")
-    .select(RESTAURANT_WITH_REPORTS_SELECT);
+    .select(RESTAURANT_WITH_REPORTS_SELECT)
+    .eq("is_active", true);
 
   // Split into words and require each one to match name, area or postcode
   // — but not necessarily the same column for every word. Without this, a
@@ -160,7 +165,8 @@ export async function searchRestaurants(
 export async function getRestaurantCount(): Promise<number> {
   const { count, error } = await supabase
     .from("restaurants")
-    .select("*", { count: "exact", head: true });
+    .select("*", { count: "exact", head: true })
+    .eq("is_active", true);
   if (error) throw error;
   return count ?? 0;
 }
@@ -186,6 +192,7 @@ export async function getAreas(): Promise<AreaSummary[]> {
     const { data, error } = await supabase
       .from("restaurants")
       .select("area_slug, area")
+      .eq("is_active", true)
       .range(from, from + PAGE_SIZE - 1);
     if (error) throw error;
 
@@ -201,18 +208,6 @@ export async function getAreas(): Promise<AreaSummary[]> {
     if (!data || data.length < PAGE_SIZE) break;
   }
   return Array.from(map.values()).sort((a, b) => b.count - a.count);
-}
-
-function slugify(input: string): string {
-  return (
-    input
-      .toLowerCase()
-      .trim()
-      .normalize("NFKD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-+|-+$)/g, "") || "x"
-  );
 }
 
 /**

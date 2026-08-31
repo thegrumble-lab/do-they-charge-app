@@ -23,11 +23,29 @@
 
 ~~The full FSA dataset ... is ready to import~~ — done. If you ever need to re-import or refresh from the source file, it's at `Downloads/do-they-charge-data/restaurants_seed.json` (33MB) on your machine; the import script split it into ~47k-row CSV chunks (Supabase's Table Editor import and the browser upload tool both have size limits) and uploaded each via "Import data from CSV".
 
+## Automated weekly sync (in progress — see "What's left" for the remaining setup steps)
+
+The site now has a mechanism to keep itself in sync with the FSA's national FHRS dataset automatically, instead of relying on another one-off manual import:
+
+- **What it does:** downloads `FHRS_All_en-GB.csv` (the FSA's daily-updated national file — despite the word "weekly" in how we're running it), filters to `BusinessTypeID` 1 (Restaurant/Cafe/Canteen) and 7843 (Pub/bar/nightclub) — **takeaways/sandwich shops (7844) are deliberately excluded**, per your call when we set this up — then upserts by `fhrsid` (new restaurants get inserted, existing ones get their name/address/postcode/lat/lng refreshed) and **soft-deletes** anything currently active that's no longer in the filtered feed (`is_active = false, removed_at = now()`, never a real `DELETE`).
+- **Why soft-delete, not hard delete:** a hard delete would cascade to any diner-submitted reports on that restaurant. Soft delete hides a restaurant from listings/search (`.eq("is_active", true)` was added to `getAreas`, `getRestaurantsByArea`, `searchRestaurants`, `getRestaurantCount` in `src/lib/data.ts`) while its permalink still resolves — `getRestaurantBySlug` is deliberately left unfiltered — showing a small "no longer on the FSA register" notice instead of a raw 404, so an already-indexed URL doesn't just vanish. Fully reversible: if a business reappears in a later feed, it's reactivated (`is_active` back to `true`, `removed_at` cleared) rather than re-created.
+- **Why this runs in GitHub Actions, not from a Claude session or Vercel:** this session's cloud sandbox and your computer's local shell both sit behind an egress allowlist that blocks the FHRS download domain outright (confirmed directly — `curl` gets `connect_rejected`/`blocked-by-allowlist` from both). Even the sanctioned WebFetch tool, which *can* reach the domain, hits a 30MB response-size cap on a file that's much bigger than that. GitHub Actions runners have normal internet access and a far longer execution window than a Vercel serverless function, which matters for streaming-parsing a large national CSV. See `.github/workflows/sync-fhrs.yml` and `scripts/sync-fhrs.ts` (run via `npm run sync:fhrs`, which uses `tsx` so the script can import the same `slugify()` the app uses from `src/lib/slug.ts` — an existing restaurant's `area_slug`/`slug` is never regenerated, only ever set once for a genuinely new row, so already-indexed URLs never change).
+- **Safety guard:** if the parsed/filtered feed comes back with implausibly few rows (under half of what's currently active, or under 20,000 absolute), the script refuses to write anything and fails loudly — protects against a truncated download or a schema change silently mass-deactivating the site.
+- **Auth:** a Supabase `service_role` key, stored only as a GitHub Actions secret (`SUPABASE_SERVICE_ROLE_KEY`) — never added to Vercel, so the deployed app's anon-key-only architecture (see above) is unchanged. This is a separate, offline batch credential.
+- **DB migration applied** (Supabase SQL editor, additive/non-destructive — for the record, since this project has no migration tooling):
+  ```sql
+  alter table restaurants add constraint restaurants_fhrsid_key unique (fhrsid);
+  alter table restaurants add column is_active boolean not null default true;
+  alter table restaurants add column removed_at timestamptz;
+  create index restaurants_is_active_idx on restaurants (is_active);
+  ```
+
 ## What's left (only things that need your input)
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.
 2. **Decide on moderation.** Right now every report auto-publishes instantly. That's fine for now, worth a second thought once this is a public, indexed, nationwide site with real restaurants' names attached. Options range from "leave it as-is" to a lightweight review queue.
 3. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches all 140,921 `(area_slug, area)` pairs, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than ~141 round trips. Worth doing if Supabase usage/latency ever becomes a concern.
+4. **Finish rolling out the weekly sync** (see above): add the two GitHub Actions secrets, run a dry run and sanity-check the numbers, run one real sync and verify live, then enable the `schedule:` trigger for real. Full rollout steps below.
 
 ## Running it yourself in the meantime
 

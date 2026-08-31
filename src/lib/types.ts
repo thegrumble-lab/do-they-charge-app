@@ -20,6 +20,7 @@ export interface Restaurant {
   lat: string | null;
   lng: string | null;
   fhrsid: string;
+  isActive: boolean;
   reports: Report[];
 }
 

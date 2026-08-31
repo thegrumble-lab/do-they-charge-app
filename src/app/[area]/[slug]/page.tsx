@@ -59,6 +59,14 @@ export default async function RestaurantPage({ params }: Props) {
       </div>
 
       <main className="ticket">
+        {!r.isActive && (
+          <p className="small-print" style={{ marginTop: 0, marginBottom: 16 }}>
+            This listing is no longer part of the FSA food hygiene register
+            (or is outside what this directory currently covers) — the page
+            is kept so existing links still work, but it won&apos;t show up
+            in search or area listings.
+          </p>
+        )}
         <div className="entry" style={{ paddingTop: 0 }}>
           <div className="entry-top">
             <span className="entry-name">Current status</span>
