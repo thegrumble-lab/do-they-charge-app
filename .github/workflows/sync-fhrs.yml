@@ -1,14 +1,20 @@
 name: FHRS weekly sync
 
-# Manual-trigger only for now. Once a dry run and a real run have both
-# been verified (see HANDOFF.md, "Automated weekly sync"), a follow-up
-# commit adds a `schedule:` trigger here so this runs weekly on its own.
+# Runs automatically every Monday at 04:00 UTC (see the schedule trigger
+# below), and can also be triggered manually any time from the Actions
+# tab. Verified end-to-end with a dry run and a real run first — see
+# HANDOFF.md ("Automated weekly sync") for the numbers from that first
+# real run.
 #
 # Runs on GitHub's infrastructure deliberately, not from the app or from
 # a Claude session — both of those sit behind an egress allowlist that
 # blocks the FHRS download domain outright. GitHub Actions runners have
 # normal internet access.
 on:
+  schedule:
+    # Minute/hour in UTC. The FHRS feed updates daily, so a weekly sync
+    # is a deliberate cadence choice, not a limitation of the source data.
+    - cron: "0 4 * * 1"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -41,5 +47,9 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # On a scheduled run there's no workflow_dispatch input, so
+          # inputs.dry_run resolves to empty/null — which correctly means
+          # "not dry run" (a real, non-dry, live sync), matching the
+          # default we verified before turning the schedule on.
           DRY_RUN: ${{ inputs.dry_run }}
         run: npm run sync:fhrs
