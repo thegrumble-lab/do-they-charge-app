@@ -85,14 +85,22 @@ One flagged candidate (Heckfield Estates) was deliberately **not** shipped: a ne
    - Restaurant IDs for insertion were resolved by querying `restaurants` directly by name/area/postcode in the Supabase SQL editor (not via `/api/search` — see the known issue below), and cross-checked against each restaurant's actual FSA-listed address before inserting, since generic names (e.g. more than one "Zen" or "Art School" in the same city) can otherwise silently attach a report to the wrong listing.
    - Combined "targeted" hit rate so far: **18/138 (~13%)**, well above random sampling's 8%, though still with a real per-restaurant research cost (parallel subagents, one per city, each independently checking ~15 candidates' own websites). Worth deciding deliberately whether/how far to keep scaling this before investing further, rather than assuming an unbounded background job is the right next step.
 
-## Known issue — `/api/search` is unreliable for some queries (not caching, not yet root-caused)
+## Fixed — `/api/search` was unreliable for some queries (root cause: missing index)
 
-Discovered while resolving restaurant IDs for the round-2 insert above (initially misdiagnosed as a caching problem — corrected here). Symptoms, confirmed by direct testing against production:
+Discovered while resolving restaurant IDs for the round-2 insert above. Initially misdiagnosed twice — first as a caching problem (wrong: this Next.js version's Route Handlers aren't cached by default, and response headers confirmed `x-vercel-cache: MISS` on every request including the failing ones), then suspected as a Vercel-function-timeout/Supabase-compute issue (unconfirmed guess, superseded below).
 
-- Some `/api/search?q=...` requests intermittently return a `500`, and on other attempts the exact same request just **hangs indefinitely** (no response, no error, observed for 20+ seconds before giving up) — for query strings that work fine on other attempts.
-- **Not a caching issue.** Checked response headers directly: `cache-control: public, max-age=0, must-revalidate` and `x-vercel-cache: MISS` on every request, including the failing ones — nothing is being served stale. (An earlier working theory — that Next.js or Vercel was caching a pre-insert response — was wrong and has been ruled out; this Next.js version's Route Handlers are explicitly *not* cached by default unless a route opts in with `dynamic = 'force-static'`, which this route doesn't.)
-- Best unconfirmed guess: `searchRestaurants()`'s embedded reports join, combined with Supabase's free-tier compute (limited connections, possible cold-start pauses), occasionally runs slow enough to hit a Vercel function timeout — which would explain both the 500s and the hangs depending on exactly where the cutoff lands. Not confirmed — would need Supabase's own query/connection logs to pin down, which wasn't done this session.
-- **Practical impact:** this affects real diner-submitted reports too, not just this research batch — a report submitted for a restaurant whose exact search term someone hits during a bad moment could appear to fail or hang for that visitor, unrelated to whether the report actually saved. Worth investigating properly (Supabase logs, Vercel function duration metrics) before relying on `/api/search` for anything time-sensitive.
+**Root cause, confirmed via `EXPLAIN (ANALYZE, BUFFERS)` in the Supabase SQL editor:** `restaurants` had `pg_trgm` GIN indexes on `name` (`idx_restaurants_name_trgm`) and `area` (`idx_restaurants_area_trgm`), but **not on `postcode`**. `searchRestaurants()`'s three-column `ILIKE` OR always touches all three columns, so any query whose `postcode` branch got evaluated forced a full, unindexed scan — didn't complete in 60+ seconds in testing. The same query with the `postcode` condition removed ran in ~21ms.
+
+**Fix:** added the missing index —
+
+```sql
+create index concurrently idx_restaurants_postcode_trgm
+  on restaurants using gin (postcode gin_trgm_ops);
+```
+
+Verified after creation: the full three-column query (postcode included) dropped to ~34ms via `EXPLAIN ANALYZE`, using a proper Bitmap Heap Scan instead of a sequential scan. Live-endpoint testing confirmed the fix end-to-end: `/api/search?q=condesa` and `?q=mambow` both now return correct, complete results with a fast TTFB (well under 100ms) on real page navigations, and the on-site search box correctly surfaces both the Westminster and Bristol "Condesa" rows (the latter showing its researched "Adds charge" status) with no delay. (One earlier round of testing this session, via a fetch issued into a background browser tab, still appeared to hang after the index was created — that turned out to be a stuck automation tab, not a server-side issue; `pg_stat_activity` showed no active or blocked queries at the time, and fresh navigations/tabs worked immediately.)
+
+**Practical impact of the original bug:** affected real diner-submitted reports too, not just research batches — a report submitted for a restaurant whose exact search term hit the unindexed postcode path could appear to fail or hang for that visitor, unrelated to whether the report actually saved. Resolved now that every column in the search OR is indexed.
 
 ## What's left (only things that need your input)
 
