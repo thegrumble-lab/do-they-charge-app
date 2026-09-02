@@ -34,8 +34,17 @@ export interface ChainReport {
 export interface ChainPolicy {
   chainName: string;
   // Case-insensitive substring match against the restaurant's name. A row
-  // matches if it contains ANY of these keywords.
-  keywords: string[];
+  // matches if it contains ANY of these keywords. Ignored when `matches`
+  // is provided.
+  keywords?: string[];
+  // Optional override for the default keyword substring check. Use this
+  // when a chain's real-world FHRS listings are ambiguous under simple
+  // keyword matching — e.g. TGI Fridays bundles in-house delivery
+  // sub-brands ("Conviction Chicken", "Byron Burger", "Mother Clucker",
+  // "Liberty Desserts") into the same listing under wildly inconsistent
+  // punctuation (commas, ampersands, slashes, or no punctuation at all),
+  // most of which isComboListing() below doesn't catch.
+  matches?: (row: ChainPolicyRow) => boolean;
   // Multi-brand/food-court listings (e.g. "Zizzi also trading as Coco di
   // Mama", "Chiquito / Bao Now / Bone Jam") are skipped — we can't be sure
   // which brand's policy actually applies at that specific table, so we
@@ -59,6 +68,26 @@ const FRANCO_MANCA_SOURCE = "https://www.francomanca.co.uk/faqs/";
 const PREZZO_SOURCE = "https://www.prezzo.co.uk/faq/";
 const TURTLE_BAY_SOURCE =
   "https://turtlebay.co.uk/discover/equality-inclusion/fair-share-policy";
+const TGI_FRIDAYS_SOURCE =
+  "https://www.tgifridays.co.uk/sites/default/files/2026-05/TGI_web26_menu.pdf";
+
+// FHRS listings for this chain use several different name spellings, and
+// separately often bundle in-house delivery sub-brands into the same
+// listing under inconsistent punctuation. Matches only the "clean"
+// TGI Fridays name — i.e. after stripping one of these spellings out,
+// nothing else is left besides punctuation/whitespace. A leftover brand
+// name (e.g. ", Conviction Chicken") means we can't be sure the dine-in
+// service charge applies at that table, so it's skipped rather than
+// guessed at. Also correctly excludes unrelated FHRS entries that merely
+// contain "tgi" (e.g. "TGI Catering", a stadium caterer).
+const TGI_FRIDAYS_NAME_VARIANTS = ["tgi fridays", "tgi friday's", "tgifridays"];
+function isTgiFridaysCleanListing(row: ChainPolicyRow): boolean {
+  const lower = row.name.toLowerCase();
+  const variant = TGI_FRIDAYS_NAME_VARIANTS.find((v) => lower.includes(v));
+  if (!variant) return false;
+  const remainder = lower.replace(variant, "").replace(/[\s,&()/.'-]/g, "");
+  return remainder.length === 0;
+}
 
 // Turtle Bay's own Fair Share Policy page names five branches with an
 // automatic charge; every other branch only charges for parties of 4+.
@@ -114,15 +143,26 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
       };
     },
   },
+  {
+    chainName: "TGI Fridays",
+    matches: isTgiFridaysCleanListing,
+    resolve: () => ({
+      status: "groups",
+      pct: 10,
+      note: "TGI Fridays' own menu (published on their website) states a discretionary 10% service charge is added for groups of 7 or more, with 100% of it going directly to the team in that restaurant.",
+      sourceUrl: TGI_FRIDAYS_SOURCE,
+    }),
+  },
 ];
 
 export function matchChainPolicy(row: ChainPolicyRow): ChainPolicy | null {
   if (isComboListing(row.name)) return null;
   const lowerName = row.name.toLowerCase();
   for (const policy of CHAIN_POLICIES) {
-    if (policy.keywords.some((kw) => lowerName.includes(kw))) {
-      return policy;
-    }
+    const isMatch = policy.matches
+      ? policy.matches(row)
+      : (policy.keywords ?? []).some((kw) => lowerName.includes(kw));
+    if (isMatch) return policy;
   }
   return null;
 }
