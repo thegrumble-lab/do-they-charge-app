@@ -34,6 +34,7 @@ import { createClient } from "@supabase/supabase-js";
 import { parse } from "csv-parse";
 import { Readable } from "node:stream";
 import { slugify } from "../src/lib/slug";
+import { matchChainPolicy } from "../src/lib/chain-policies";
 
 const FHRS_URL =
   "https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv";
@@ -288,6 +289,95 @@ async function downloadAndFilter(): Promise<FeedRow[]> {
   return rows;
 }
 
+// --- chain policies ------------------------------------------------------
+
+/**
+ * Applies CHAIN_POLICIES (see src/lib/chain-policies.ts) to every currently
+ * active restaurant. Self-healing by construction: it re-checks the whole
+ * table on every sync run, so a newly-added branch of a known chain (or a
+ * newly-reactivated one) gets its researched report on the very next weekly
+ * run with no separate backfill step required. Never touches a restaurant
+ * that already has ANY report — diner-submitted or researched — matching
+ * the "never overwrite" rule used everywhere else in this project.
+ *
+ * In DRY_RUN mode this only counts what *would* be inserted (against the
+ * restaurants table as it stands before this run's upsert), so the dry-run
+ * summary stays a useful preview without writing anything.
+ */
+async function applyChainPolicies(dryRun: boolean): Promise<{
+  matched: number;
+  eligible: number;
+}> {
+  interface ChainCandidate {
+    id: string;
+    name: string;
+    area: string;
+    address: string;
+  }
+
+  const candidates: ChainCandidate[] = [];
+  for (let from = 0; ; from += PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("restaurants")
+      .select("id, name, area, address")
+      .eq("is_active", true)
+      .range(from, from + PAGE_SIZE - 1);
+    if (error) throw error;
+    for (const row of (data ?? []) as ChainCandidate[]) {
+      if (matchChainPolicy(row)) candidates.push(row);
+    }
+    if (!data || data.length < PAGE_SIZE) break;
+  }
+
+  if (candidates.length === 0) return { matched: 0, eligible: 0 };
+
+  const existingReportIds = new Set<string>();
+  for (const batch of chunk(
+    candidates.map((c) => c.id),
+    200
+  )) {
+    const { data, error } = await supabase
+      .from("reports")
+      .select("restaurant_id")
+      .in("restaurant_id", batch);
+    if (error) throw error;
+    for (const r of (data ?? []) as { restaurant_id: string }[]) {
+      existingReportIds.add(r.restaurant_id);
+    }
+  }
+
+  const eligible = candidates.filter((c) => !existingReportIds.has(c.id));
+
+  console.log(
+    `Chain policies: ${candidates.length} active restaurants match a known chain ` +
+      `(see src/lib/chain-policies.ts); ${eligible.length} have no existing report ` +
+      `${dryRun ? "and would get one" : "and are getting one now"}.`
+  );
+
+  if (!dryRun && eligible.length > 0) {
+    const today = new Date().toISOString().slice(0, 10);
+    const rows = eligible.map((c) => {
+      const policy = matchChainPolicy(c)!;
+      const report = policy.resolve(c);
+      return {
+        restaurant_id: c.id,
+        status: report.status,
+        pct: report.pct,
+        note: report.note,
+        source_url: report.sourceUrl,
+        report_date: today,
+        source: "researched" as const,
+      };
+    });
+    for (const batch of chunk(rows, WRITE_BATCH_SIZE)) {
+      const { error } = await supabase.from("reports").insert(batch);
+      if (error) throw error;
+    }
+  }
+
+  return { matched: candidates.length, eligible: eligible.length };
+}
+
 // --- main ---------------------------------------------------------------
 
 async function main() {
@@ -397,6 +487,15 @@ async function main() {
 
   if (DRY_RUN) {
     console.log("");
+    const chainPreview = await applyChainPolicies(true);
+    if (stepSummaryPath) {
+      const fs = await import("node:fs/promises");
+      await fs.appendFile(
+        stepSummaryPath,
+        `- Chain-policy matches: ${chainPreview.matched} (${chainPreview.eligible} would get a new researched report)\n`
+      );
+    }
+    console.log("");
     console.log("DRY RUN — no writes performed.");
     return;
   }
@@ -420,6 +519,16 @@ async function main() {
       .update({ is_active: false, removed_at: removedAt })
       .in("id", batch);
     if (error) throw error;
+  }
+
+  console.log("");
+  const chainResult = await applyChainPolicies(false);
+  if (stepSummaryPath) {
+    const fs = await import("node:fs/promises");
+    await fs.appendFile(
+      stepSummaryPath,
+      `- Chain-policy matches: ${chainResult.matched} (${chainResult.eligible} new researched reports added)\n`
+    );
   }
 
   console.log("");
