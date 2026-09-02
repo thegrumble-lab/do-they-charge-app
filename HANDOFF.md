@@ -190,7 +190,7 @@ Verified after creation: the full three-column query (postcode included) dropped
 ## What's left (only things that need your input)
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.
-2. **Decide on moderation.** Right now every report auto-publishes instantly. That's fine for now, worth a second thought once this is a public, indexed, nationwide site with real restaurants' names attached. Options range from "leave it as-is" to a lightweight review queue.
+2. **Moderation — decided: leave auto-publish as-is.** Every report (diner-submitted or automated) still auto-publishes instantly, no review step. Revisited explicitly once the daily task started producing ~120 unattended candidate-checks a day (not just a handful of manually-checked pilot restaurants) — your call was to keep auto-publish, on the basis that the citation discipline (own-site-only, never guessed, skip rather than guess) is the real safeguard, and it's held up cleanly across ~550 inserts so far with no known bad entries. Revisit if that stops being true.
 3. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches every `(area_slug, area)` pair, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than the many round trips this now takes at ~184k rows. Worth doing if Supabase usage/latency ever becomes a concern.
 
 ## Running it yourself in the meantime
