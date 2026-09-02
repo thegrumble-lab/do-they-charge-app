@@ -89,6 +89,18 @@ function isTgiFridaysCleanListing(row: ChainPolicyRow): boolean {
   return remainder.length === 0;
 }
 
+const MILLER_AND_CARTER_SOURCE = "https://www.millerandcarter.co.uk/tablebooking#/";
+
+// Every FHRS listing for this chain is a single-brand "Miller & Carter" (or
+// "Miller And Carter", "Miller \& Carter", plus an optional branch-name
+// suffix) — no multi-brand food-court bundling like TGI Fridays, so a
+// simple "contains both words" check is enough; isComboListing() above
+// still runs first as a backstop.
+function isMillerAndCarter(row: ChainPolicyRow): boolean {
+  const lower = row.name.toLowerCase();
+  return lower.includes("miller") && lower.includes("carter");
+}
+
 // Turtle Bay's own Fair Share Policy page names five branches with an
 // automatic charge; every other branch only charges for parties of 4+.
 const TURTLE_BAY_NAMED_BRANCHES: Record<string, number> = {
@@ -151,6 +163,16 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
       pct: 10,
       note: "TGI Fridays' own menu (published on their website) states a discretionary 10% service charge is added for groups of 7 or more, with 100% of it going directly to the team in that restaurant.",
       sourceUrl: TGI_FRIDAYS_SOURCE,
+    }),
+  },
+  {
+    chainName: "Miller & Carter",
+    matches: isMillerAndCarter,
+    resolve: () => ({
+      status: "groups",
+      pct: 10,
+      note: "Miller & Carter's own online booking terms state a discretionary 10% service charge is added to the bill for tables of 8 or more.",
+      sourceUrl: MILLER_AND_CARTER_SOURCE,
     }),
   },
 ];
