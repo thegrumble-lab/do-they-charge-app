@@ -7,14 +7,16 @@ import { createClient } from "@supabase/supabase-js";
  * Every table it touches (restaurants, reports) has Row Level Security
  * enabled, with policies that:
  *   - allow anyone to SELECT (the whole point of a public directory), and
- *   - allow anyone to INSERT a report/restaurant, but only within tight
- *     constraints (valid status, length limits) enforced by the database
- *     itself — see the policies created in the Supabase SQL editor.
+ *   - allow anyone to submit a diner report, but only via the
+ *     submit_diner_report() RPC (validates input, enforces a real
+ *     per-IP cooldown) — there is no direct public INSERT policy on
+ *     either table any more. Restaurants can only be created by the
+ *     FSA sync, which uses the separate, offline service_role key.
  *
  * That means the anon key is safe to ship to Vercel as a plain env var:
- * it can't do anything the RLS policies don't already allow, so there's
- * no need for the far more powerful service_role key anywhere in this
- * app.
+ * it can't do anything the RLS policies/RPCs don't already allow, so
+ * there's no need for the far more powerful service_role key anywhere
+ * in this app.
  */
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

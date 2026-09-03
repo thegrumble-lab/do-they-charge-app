@@ -1,13 +1,31 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
+
+const TITLE = "Do They Charge? — UK restaurant service charge directory";
+const DESCRIPTION =
+  "A crowdsourced UK directory for checking whether a restaurant adds a default service charge, before you book.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Do They Charge? — UK restaurant service charge directory",
+    default: TITLE,
     template: "%s — Do They Charge?",
   },
-  description:
-    "A crowdsourced UK directory for checking whether a restaurant adds a default service charge, before you book.",
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Do They Charge?",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

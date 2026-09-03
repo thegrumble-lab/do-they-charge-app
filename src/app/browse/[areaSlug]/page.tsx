@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantsByArea, getAreas } from "@/lib/data";
 import RestaurantsTable from "@/components/RestaurantsTable";
+import SiteFooter from "@/components/SiteFooter";
 
 // Same reasoning as src/app/[area]/[slug]/page.tsx: with 363 areas across
 // 140,921 restaurants, generate area pages on demand and refresh them at
@@ -44,6 +45,7 @@ export default async function AreaPage({ params }: Props) {
       <main className="ticket">
         <RestaurantsTable restaurants={restaurants} />
       </main>
+      <SiteFooter />
     </div>
   );
 }

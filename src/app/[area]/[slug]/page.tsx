@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
 import { STATUS_META, latestReport } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
+import SiteFooter from "@/components/SiteFooter";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -163,10 +164,10 @@ export default async function RestaurantPage({ params }: Props) {
         </section>
       </main>
 
-      <footer className="site-footer">
-        FHRS ID {r.fhrsid || "n/a"} · Data is user-submitted and unverified
-        beyond what&apos;s noted.
-      </footer>
+      <p className="small-print" style={{ maxWidth: 720, margin: "16px auto 0" }}>
+        FHRS ID {r.fhrsid || "n/a"}
+      </p>
+      <SiteFooter />
     </div>
   );
 }

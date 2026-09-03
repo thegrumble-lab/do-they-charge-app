@@ -266,11 +266,27 @@ drop policy if exists "public insert reports" on reports;
 
 Verified via `npx tsc --noEmit` and `npm run lint` (clean) before pushing.
 
+## Public-readiness pass, part 2 — attribution, legal, discoverability — done
+
+Rest of the "getting ready to face the public" list, all pure app code (no DB changes):
+
+- **FSA/OGL attribution + honest footer copy.** The old footer ("user-submitted and unverified") predated researched reports and was no longer accurate once most reports stopped being diner-submitted. New shared `src/components/SiteFooter.tsx` — used on every page (home, restaurant detail, browse-by-area, about, privacy) — credits the FSA/Open Government Licence v3.0 by name and link, explains the diner-vs-researched distinction in one line, and links to the new About and Privacy pages. Restaurant detail pages keep their own FHRS ID line separately, above the shared footer.
+- **`/about`** — what the site is, where the restaurant list comes from (FSA/OGL), how a diner report differs from a researched one, and a `#correct-a-listing` section for businesses that want something fixed.
+- **`/privacy`** — plain-language: no accounts, no cookies, no tracking; what a submitted report does with the note/status you enter (published immediately, so nothing you wouldn't want public); that an IP address is recorded only to enforce the 30-second rate limit (see `submit_diner_report` above) and never shown or used for anything else; who hosts the site (Vercel/Supabase).
+- **Contact address**: both new pages use `thegrumblephone@gmail.com` — inferred from the `thegrumble-lab` GitHub org's own git history (a commit authored as `thegrumble-lab <thegrumblephone@gmail.com>`) as the project's public identity, rather than exposing a personal address. Swap this in both files if that's not the address you want listed publicly.
+- **`robots.ts` + `sitemap.ts`.** With ~184k restaurant pages, a single sitemap would badly exceed Google's 50,000-URL-per-file cap, so it's sharded via Next's `generateSitemaps()` — shard size and count live in one shared helper (`src/lib/sitemap-shards.ts`) so `sitemap.ts` and `robots.ts` can never disagree about how many shards exist or drift out of sync as the dataset grows. Shard 0 also carries the home/about/privacy pages and all area pages; every other shard is restaurants only, fetched with the same `.range()` paging pattern used elsewhere in this codebase to avoid PostgREST's silent row-cap truncation. `robots.ts` disallows `/api/` and lists every shard.
+- **Open Graph / Twitter card metadata.** `layout.tsx` gained `metadataBase`, `openGraph`, and `twitter` (`summary_large_image`) blocks. The share-card image itself (`src/app/opengraph-image.tsx`, reused by `twitter-image.tsx`) is generated at request time via `next/og`'s `ImageResponse` — a simple card in the site's own paper/purple palette, no external font fetch — verified by running it through `next dev` and rendering the actual output PNG.
+- **`src/lib/site.ts`** — new single `SITE_URL` constant (defaults to the current Vercel URL, overridable via `NEXT_PUBLIC_SITE_URL`) used by the sitemap, robots, and OG metadata, so switching to a real domain later is a one-line change plus setting that env var.
+- `src/lib/supabase.ts`'s doc comment was also out of date (still described restaurants as anon-insertable) — corrected to match the RLS changes above.
+
+Verified via `npx tsc --noEmit` and `npm run lint` (clean); `/opengraph-image` spot-checked by rendering the real output through a local `next dev` server.
+
 ## What's left (only things that need your input)
 
-1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.
+1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled. Once it's live, set `NEXT_PUBLIC_SITE_URL` in Vercel (see `src/lib/site.ts`) so the sitemap/robots/OG tags switch over automatically.
 2. **Moderation — decided: leave auto-publish as-is.** Every report (diner-submitted or automated) still auto-publishes instantly, no review step. Revisited explicitly once the daily task started producing ~120 unattended candidate-checks a day (not just a handful of manually-checked pilot restaurants) — your call was to keep auto-publish, on the basis that the citation discipline (own-site-only, never guessed, skip rather than guess) is the real safeguard, and it's held up cleanly across ~550 inserts so far with no known bad entries. Revisit if that stops being true.
-3. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches every `(area_slug, area)` pair, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than the many round trips this now takes at ~184k rows. Worth doing if Supabase usage/latency ever becomes a concern.
+3. **Confirm the public contact address.** `/about` and `/privacy` currently list `thegrumblephone@gmail.com`, inferred from git history rather than asked for directly — say the word if you'd rather use something else.
+4. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches every `(area_slug, area)` pair, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than the many round trips this now takes at ~184k rows. Worth doing if Supabase usage/latency ever becomes a concern.
 
 ## Running it yourself in the meantime
 

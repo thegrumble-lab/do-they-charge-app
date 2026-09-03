@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { searchRestaurants, getAreas, getRestaurantCount } from "@/lib/data";
 import SearchDirectory from "@/components/SearchDirectory";
+import SiteFooter from "@/components/SiteFooter";
 
 // Re-render at most hourly so the "X restaurants across Y areas" summary
 // and the initial results stay reasonably fresh without hitting Supabase
@@ -53,11 +54,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        Started by one diner fed up with finding out at the table. Data is
-        user-submitted and unverified beyond what&apos;s noted — treat it as
-        a starting point, not gospel.
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
