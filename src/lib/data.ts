@@ -1,6 +1,5 @@
 import { supabase } from "./supabase";
 import { Restaurant, Report, ReportStatus, latestReport } from "./types";
-import { slugify } from "./slug";
 
 /**
  * DATA LAYER — backed by Supabase (Postgres), via the anon key + RLS
@@ -254,56 +253,62 @@ export async function getAreas(): Promise<AreaSummary[]> {
   return Array.from(map.values()).sort((a, b) => b.count - a.count);
 }
 
+/** Thrown by submitDinerReport() when the target restaurant doesn't exist. */
+export class RestaurantNotFoundError extends Error {
+  constructor() {
+    super("Restaurant not found.");
+    this.name = "RestaurantNotFoundError";
+  }
+}
+
+/** Thrown by submitDinerReport() when this IP submitted too recently. */
+export class RateLimitedError extends Error {
+  constructor() {
+    super("Rate limited.");
+    this.name = "RateLimitedError";
+  }
+}
+
 /**
- * Adds a report to a restaurant, creating the restaurant record first if
- * it doesn't already exist (mirrors the artifact's "match or create"
- * behaviour — a diner can report on a place that isn't in the FSA
- * sample yet). The insert-anywhere ability is deliberately narrow: the
- * "public insert" RLS policies on both tables constrain exactly which
- * columns and values an anonymous request may write.
+ * Submits a diner report on an existing restaurant via the
+ * `submit_diner_report` Postgres function (SECURITY DEFINER, see
+ * HANDOFF.md — "Diner-report hardening"). That function does everything
+ * atomically and DB-side: validates status/pct/note, looks up the
+ * restaurant by areaSlug+slug (never creates one — restaurants are only
+ * ever created by the FSA sync, using the service-role key), enforces a
+ * 30-second per-IP cooldown via the `diner_report_rate_limit` table (a
+ * real, shared-across-instances replacement for the old in-memory Map
+ * this route used to use), and inserts the report. Anon has no other way
+ * to write to `reports` — the old direct-insert RLS policy was dropped
+ * once this function existed.
  */
-export async function addReport(
+export async function submitDinerReport(
   areaSlug: string,
   slug: string,
-  name: string,
-  area: string,
-  report: Omit<Report, "id">
+  status: ReportStatus,
+  pct: number | null,
+  note: string,
+  ip: string
 ): Promise<Restaurant> {
-  const finalAreaSlug = areaSlug || slugify(area);
-  const finalSlug = slug || slugify(name);
-
-  const { data: existing, error: findError } = await supabase
-    .from("restaurants")
-    .select(RESTAURANT_COLUMNS)
-    .eq("area_slug", finalAreaSlug)
-    .eq("slug", finalSlug)
-    .maybeSingle();
-  if (findError) throw findError;
-
-  let restaurantId = existing?.id;
-
-  if (!restaurantId) {
-    const { data: created, error: insertError } = await supabase
-      .from("restaurants")
-      .insert({ area_slug: finalAreaSlug, slug: finalSlug, name, area })
-      .select("id")
-      .single();
-    if (insertError) throw insertError;
-    restaurantId = created.id;
+  const { error: rpcError } = await supabase.rpc("submit_diner_report", {
+    p_area_slug: areaSlug,
+    p_slug: slug,
+    p_status: status,
+    p_pct: pct,
+    p_note: note,
+    p_ip: ip,
+  });
+  if (rpcError) {
+    if (rpcError.message.includes("restaurant not found")) {
+      throw new RestaurantNotFoundError();
+    }
+    if (rpcError.message.includes("rate limited")) {
+      throw new RateLimitedError();
+    }
+    throw rpcError;
   }
 
-  const { error: reportError } = await supabase.from("reports").insert({
-    restaurant_id: restaurantId,
-    status: report.status,
-    pct: report.pct,
-    note: report.note,
-    source: report.source,
-    source_url: report.sourceUrl,
-    report_date: report.date,
-  });
-  if (reportError) throw reportError;
-
-  const full = await getRestaurantBySlug(finalAreaSlug, finalSlug);
+  const full = await getRestaurantBySlug(areaSlug, slug);
   if (!full) {
     throw new Error(
       "Restaurant vanished immediately after insert — this should not happen."

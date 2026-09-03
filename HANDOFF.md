@@ -191,6 +191,81 @@ Verified after creation: the full three-column query (postcode included) dropped
 
 **Practical impact of the original bug:** affected real diner-submitted reports too, not just research batches — a report submitted for a restaurant whose exact search term hit the unindexed postcode path could appear to fail or hang for that visitor, unrelated to whether the report actually saved. Resolved now that every column in the search OR is indexed.
 
+## Public-readiness security hardening — done
+
+Before opening the site up more widely, a "what could go wrong if a stranger poked at this" pass turned up a real gap, fixed live:
+
+**Anon could fabricate restaurant listings — fixed.** The `public insert restaurants` RLS policy only checked field lengths (e.g. `name <= 80` chars), not whether the request came from anywhere legitimate. Verified live with a direct `curl` POST to the Supabase REST endpoint using the public/publishable key: it succeeded (`201`), creating a fake restaurant row anyone on the internet could have done the same with. **Fixed** by dropping that policy entirely — restaurants can now only ever be created by the FSA sync (`scripts/sync-fhrs.ts`), which uses the offline `service_role` key, never the app's public key. Verified the fix live: the same probe request now gets `401`/RLS-violation. The test row was cleaned up via the SQL editor (a direct anon `DELETE` silently no-ops — no anon DELETE policy exists on this table — so it had to run as the `postgres` role instead).
+
+App-level defense in depth: `addReport()`/the report-submission path used to create a restaurant on the fly if the submitted area/slug didn't match an existing one — confirmed via `AddReportForm.tsx` that the real UI never needs this (the form always renders on an existing restaurant's own page with its slug/area already known, never free-typed), so this was pure unused attack surface. Removed; submitting a report for an unknown restaurant now cleanly 404s instead of silently creating one.
+
+**In-memory rate limiting replaced with a real, DB-backed one.** The old `/api/reports` rate limit was a plain in-memory `Map` — reset on every cold start/deploy and not shared across serverless instances, so it was only ever a soft speed bump, not a real limit. Replaced with the same pattern already used elsewhere in this project (`insert_researched_report`): a `SECURITY DEFINER` Postgres function, `submit_diner_report`, that does everything atomically and DB-side — validates status/pct/note, looks up the restaurant by `area_slug`+`slug` (never creates one), enforces a real 30-second per-IP cooldown via a new `diner_report_rate_limit` table, and inserts the report. Granted only to `anon`; the table itself has RLS enabled with no anon policies at all, so only the function (which bypasses RLS as its owning role) can touch it. The app (`src/lib/data.ts`: `submitDinerReport()`, plus `RestaurantNotFoundError`/`RateLimitedError`) and the API route (`src/app/api/reports/route.ts`) were both updated to call it; the old in-memory `Map` is gone.
+
+Once `submit_diner_report` existed, the *old* direct-insert `public insert reports` policy was still live — meaning anyone could bypass the new rate limiter entirely by POSTing straight to the REST endpoint instead of calling the RPC (proven via curl: still `201` after the RPC was live). **Fixed** by dropping that policy too. Verified: direct insert now `401`s, the RPC still works fine (`200`) from a different IP, and a same-IP RPC call within 30 seconds correctly gets rejected as rate-limited.
+
+**Migration applied** (Supabase SQL editor):
+```sql
+drop policy if exists "public insert restaurants" on restaurants;
+
+create table if not exists diner_report_rate_limit (
+  ip text primary key,
+  last_submitted_at timestamptz not null default now()
+);
+alter table diner_report_rate_limit enable row level security;
+
+create or replace function submit_diner_report(
+  p_area_slug text, p_slug text, p_status text,
+  p_pct numeric, p_note text, p_ip text
+) returns uuid
+language plpgsql security definer set search_path = public
+as $$
+declare
+  v_restaurant_id uuid; v_last timestamptz; v_report_id uuid;
+begin
+  if p_status not in ('charges','no-charge','groups','unclear') then
+    raise exception 'invalid status';
+  end if;
+  if p_note is not null and char_length(p_note) > 220 then
+    raise exception 'note too long';
+  end if;
+  if p_pct is not null and (p_pct < 0 or p_pct > 100) then
+    raise exception 'invalid percentage';
+  end if;
+  if p_ip is null or char_length(p_ip) = 0 or char_length(p_ip) > 64 then
+    raise exception 'invalid ip';
+  end if;
+
+  select id into v_restaurant_id from restaurants
+    where area_slug = p_area_slug and slug = p_slug;
+  if v_restaurant_id is null then
+    raise exception 'restaurant not found';
+  end if;
+
+  select last_submitted_at into v_last from diner_report_rate_limit where ip = p_ip;
+  if v_last is not null and now() - v_last < interval '30 seconds' then
+    raise exception 'rate limited';
+  end if;
+
+  insert into diner_report_rate_limit (ip, last_submitted_at)
+  values (p_ip, now())
+  on conflict (ip) do update set last_submitted_at = now();
+
+  insert into reports (restaurant_id, status, pct, note, source, source_url, report_date)
+  values (v_restaurant_id, p_status, p_pct, p_note, 'diner', null, current_date)
+  returning id into v_report_id;
+
+  return v_report_id;
+end;
+$$;
+
+revoke all on function submit_diner_report(text, text, text, numeric, text, text) from public;
+grant execute on function submit_diner_report(text, text, text, numeric, text, text) to anon;
+
+drop policy if exists "public insert reports" on reports;
+```
+
+Verified via `npx tsc --noEmit` and `npm run lint` (clean) before pushing.
+
 ## What's left (only things that need your input)
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled.

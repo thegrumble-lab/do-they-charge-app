@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { addReport } from "@/lib/data";
+import {
+  submitDinerReport,
+  RestaurantNotFoundError,
+  RateLimitedError,
+} from "@/lib/data";
 import { ReportStatus } from "@/lib/types";
 
 const VALID_STATUSES: ReportStatus[] = [
@@ -8,13 +12,6 @@ const VALID_STATUSES: ReportStatus[] = [
   "groups",
   "unclear",
 ];
-
-// Best-effort in-memory rate limit — fine for a single dev server, but
-// resets on every deploy/cold start and won't be shared across serverless
-// instances. Replace with a real store (e.g. Upstash Redis, or a
-// `submissions` table with a timestamp check) once this goes live.
-const recentSubmissions = new Map<string, number>();
-const RATE_LIMIT_MS = 30_000;
 
 function slugify(input: string): string {
   return (
@@ -41,13 +38,6 @@ export async function POST(req: NextRequest) {
   }
 
   const ip = req.headers.get("x-forwarded-for") || "unknown";
-  const last = recentSubmissions.get(ip);
-  if (last && Date.now() - last < RATE_LIMIT_MS) {
-    return NextResponse.json(
-      { error: "Slow down a moment before adding another report." },
-      { status: 429 }
-    );
-  }
 
   const { areaSlug, slug, name, area, status, pct, note } = body as {
     areaSlug?: string;
@@ -72,27 +62,35 @@ export async function POST(req: NextRequest) {
   const finalAreaSlug = areaSlug || slugify(area);
   const finalSlug = slug || slugify(name);
 
-  const report = {
-    status: status as ReportStatus,
-    pct: typeof pct === "number" ? pct : null,
-    note: (note || "").slice(0, 220),
-    source: "diner" as const,
-    sourceUrl: null,
-    date: new Date().toISOString().slice(0, 10),
-  };
-
   let restaurant;
   try {
-    restaurant = await addReport(finalAreaSlug, finalSlug, name, area, report);
+    restaurant = await submitDinerReport(
+      finalAreaSlug,
+      finalSlug,
+      status as ReportStatus,
+      typeof pct === "number" ? pct : null,
+      (note || "").slice(0, 220),
+      ip
+    );
   } catch (err) {
+    if (err instanceof RestaurantNotFoundError) {
+      return NextResponse.json(
+        { error: "Couldn't find that restaurant — try refreshing the page." },
+        { status: 404 }
+      );
+    }
+    if (err instanceof RateLimitedError) {
+      return NextResponse.json(
+        { error: "Slow down a moment before adding another report." },
+        { status: 429 }
+      );
+    }
     console.error("Failed to save report:", err);
     return NextResponse.json(
       { error: "Could not save that just now." },
       { status: 500 }
     );
   }
-
-  recentSubmissions.set(ip, Date.now());
 
   return NextResponse.json({ ok: true, restaurant });
 }
