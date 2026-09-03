@@ -281,6 +281,28 @@ Rest of the "getting ready to face the public" list, all pure app code (no DB ch
 
 Verified via `npx tsc --noEmit` and `npm run lint` (clean); `/opengraph-image` spot-checked by rendering the real output through a local `next dev` server.
 
+## Error monitoring — code done, needs a Sentry account (5 min, your side)
+
+You asked for real error monitoring rather than only finding out about a production break by checking Vercel's logs yourself. Went with Sentry — the standard choice for Next.js, official SDK, free tier (~5k errors/month) with email alerts out of the box.
+
+**What's already done**, via `@sentry/nextjs` following its current App Router setup (this project uses a `src/` directory, so Sentry's instrumentation files live there rather than at the repo root):
+- `src/instrumentation-client.ts` — browser-side error/session capture.
+- `src/sentry.server.config.ts` / `src/sentry.edge.config.ts` — server-side, split by runtime.
+- `src/instrumentation.ts` — wires the two above into Next's `register()`/`onRequestError` hooks.
+- `src/app/global-error.tsx` — catches errors that would otherwise escape every boundary, including the root layout.
+- `next.config.ts` — wrapped with `withSentryConfig` (org/project/auth-token all read from env vars, so source-map upload is skipped harmlessly until those exist).
+
+**Deliberately inert until you configure it** — every one of the above reads its DSN from an environment variable that doesn't exist yet, and Sentry's SDK no-ops without one. Verified this directly: ran a full `next dev` with zero Sentry env vars set and no crashes, no runtime errors, and (after fixing two SDK deprecation warnings the first run surfaced — an import path change and a Turbopack-incompatible option) a clean startup log.
+
+**What you need to do, once you're ready to actually receive alerts:**
+1. Sign up at [sentry.io](https://sentry.io) (free tier is enough) and create a new project, platform = Next.js.
+2. Sentry will show you a DSN (looks like `https://xxxx@oXXXXXX.ingest.sentry.io/XXXXXXX`) and your org/project slugs.
+3. In the Vercel project's Environment Variables, add: `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` (same value, both needed — client and server read different names), plus `SENTRY_ORG` and `SENTRY_PROJECT` (the slugs). `SENTRY_AUTH_TOKEN` is optional — only needed if you also want readable (non-minified) stack traces via source-map upload; skip it for now and errors will still land, just with minified line numbers.
+4. Redeploy (any push, or Vercel's "Redeploy" button) so the new env vars take effect.
+5. Sanity-check it: trigger a real error (e.g. temporarily break something, or just wait for a genuine one) and confirm it shows up in the Sentry dashboard and you get the email alert.
+
+Send me the DSN/org/project values whenever you have them and I can double-check the Vercel env var names match what the code expects — the code itself doesn't need to change either way.
+
 ## What's left (only things that need your input)
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled. Once it's live, set `NEXT_PUBLIC_SITE_URL` in Vercel (see `src/lib/site.ts`) so the sitemap/robots/OG tags switch over automatically.
