@@ -191,15 +191,17 @@ Verified after creation: the full three-column query (postcode included) dropped
 
 **Practical impact of the original bug:** affected real diner-submitted reports too, not just research batches — a report submitted for a restaurant whose exact search term hit the unindexed postcode path could appear to fail or hang for that visitor, unrelated to whether the report actually saved. Resolved now that every column in the search OR is indexed.
 
-## Fuzzy (typo-tolerant) search — needs one SQL step to activate
+## Fuzzy (typo-tolerant) search — live, with a known propagation gotcha for multi-word queries
 
 Search was already reasonably forgiving (per-word substring matching across name/area/postcode, order-independent), but a genuine typo — "wagammma" instead of "Wagamama" — returned nothing, since ILIKE still requires an exact substring. You asked for this to be blended in always, not just as a "no results" fallback, so a slightly misspelled query gets ranked results immediately rather than a second empty-state step.
 
-**How it's ranked:** a new Postgres function, `search_restaurants_ranked(search_words, allowed_ids)`, scores each restaurant per search word as the best of: an exact substring match (scores 1.0 — the max) or a `pg_trgm` similarity score (0–1) against name/area/postcode, then sums those per-word scores. Every word still has to match *something* for a restaurant to qualify at all (same AND-across-words behavior the search already had) — fuzzy just widens what counts as "matching" a given word, it doesn't loosen the requirement that every word matches. Because an exact substring always scores the per-word maximum, a restaurant that matches exactly can never be outranked or buried by a fuzzy-only match for the same word — so normal (non-typo) searches should look identical to today's ranking, just with typo tolerance added on top. Uses the `%` similarity operator (index-accelerated by the same `pg_trgm` GIN indexes on name/area/postcode from the fix above), not a raw `similarity()` call in the `WHERE` clause, so it isn't a full table scan.
+**How it's ranked:** a Postgres function, `search_restaurants_ranked(search_words, allowed_ids)`, scores each restaurant per search word as the best of: an exact substring match (scores 1.0 — the max, skipping the `similarity()` call entirely when it already applies) or a `pg_trgm` similarity score (0–1) against name/area/postcode, then sums those per-word scores. Every word still has to match *something* for a restaurant to qualify at all (same AND-across-words behavior the search already had) — fuzzy just widens what counts as "matching" a given word, it doesn't loosen the requirement that every word matches. Because an exact substring always scores the per-word maximum, a restaurant that matches exactly can never be outranked or buried by a fuzzy-only match for the same word — so normal (non-typo) searches look identical to the old ranking, just with typo tolerance added on top. Uses the `%` similarity operator (index-accelerated by the same `pg_trgm` GIN indexes on name/area/postcode from the fix above) in the `WHERE` clause, not a raw `similarity()` call, so it isn't a full table scan.
 
-`searchRestaurants()` in `src/lib/data.ts` now calls this RPC to get a ranked, capped (200) list of restaurant ids, then fetches the full rows (with nested reports) for just those ids and restores the RPC's rank order client-side, since PostgREST's `.in()` doesn't preserve input order. The status-filter allowlist (see the "Fixed" section above this one) is passed straight into the RPC as `allowed_ids`, so a status chip + typo'd search term still combine correctly. Text-less browsing (a status chip with an empty search box) is unchanged — no ranking needed when there's no query to rank against, so that path still just pages the table alphabetically.
+`searchRestaurants()` in `src/lib/data.ts` calls this RPC to get a ranked, capped (200) list of restaurant ids, then fetches the full rows (with nested reports) for just those ids and restores the RPC's rank order client-side, since PostgREST's `.in()` doesn't preserve input order. The status-filter allowlist (see the "Fixed" section above this one) is passed straight into the RPC as `allowed_ids`, so a status chip + typo'd search term still combine correctly. Text-less browsing (a status chip with an empty search box) is unchanged — no ranking needed when there's no query to rank against, so that path still just pages the table alphabetically.
 
-**One-time activation — run this in the Supabase SQL Editor** (same place every other migration and RPC this session went — no service_role key handled by me):
+I ran and iterated on this SQL directly in the Supabase SQL Editor (no service_role key handled by me), the same way every other migration/RPC this session went — including two rounds of debugging a real production-only performance bug, described below.
+
+Current, working definition:
 
 ```sql
 create or replace function search_restaurants_ranked(
@@ -209,17 +211,13 @@ create or replace function search_restaurants_ranked(
 returns table(id uuid, score real)
 language sql
 stable
-set pg_trgm.similarity_threshold = 0.3
 as $$
   select r.id,
     sum(
       greatest(
-        similarity(r.name, w),
-        similarity(r.area, w),
-        similarity(r.postcode, w),
-        (case when r.name ilike '%' || w || '%' then 1.0 else 0.0 end),
-        (case when r.area ilike '%' || w || '%' then 1.0 else 0.0 end),
-        (case when r.postcode ilike '%' || w || '%' then 1.0 else 0.0 end)
+        case when r.name ilike '%' || w || '%' then 1.0 else similarity(r.name, w) end,
+        case when r.area ilike '%' || w || '%' then 1.0 else similarity(r.area, w) end,
+        case when r.postcode ilike '%' || w || '%' then 1.0 else similarity(r.postcode, w) end
       )
     )::real as score
   from restaurants r
@@ -244,7 +242,13 @@ revoke all on function search_restaurants_ranked(text[], uuid[]) from public;
 grant execute on function search_restaurants_ranked(text[], uuid[]) to anon;
 ```
 
-Until this runs, `/api/search` (and the on-site search box) will 404/error on any non-empty query — the app code shipped ahead of the DB function, same order every other RPC-backed feature this session went in. `0.3` is `pg_trgm`'s own default similarity threshold — loose enough to catch a couple of typos, tight enough that unrelated short words shouldn't collide often; worth revisiting if real searches turn up too many (or too few) fuzzy matches once it's live. Not yet verified end-to-end against production (needs the SQL run first) — spot-check a deliberate typo like `?q=wagammma` once it's in, the same way `?q=condesa`/`?q=mambow` were checked after the indexing fix above.
+Note there's no `set pg_trgm.similarity_threshold = 0.3` and no `select set_limit(0.3)` statement anywhere — deliberately. `0.3` is `pg_trgm`'s own default threshold, so it doesn't need setting at all, and the function body is exactly one `SELECT` statement. Both of those turned out to matter a lot (see the bug below).
+
+**Bug found and fixed: a multi-statement function body silently disabled query planning.** The very first working version of this function had `select set_limit(0.3);` as its own statement before the main `SELECT`, to force the trigram threshold (Supabase denies permission to `SET pg_trgm.similarity_threshold` directly, even for the `postgres` role — `ERROR: 42501: permission denied to set parameter`, so `set_limit()` was the workaround). That shipped, activated fine, and single-word typo queries (`?q=wagammma`) worked. But a 3-word query (`?q=flat%20iron%20westminster`) started failing live with `{code: '57014', message: 'canceling statement due to statement timeout'}` in Vercel's Runtime Logs — reproducible every time in production, but the *identical* RPC call ran fine in the SQL Editor. Root cause, found via `EXPLAIN (ANALYZE, BUFFERS)`: a Postgres SQL function can only be **inlined** by the planner (folded into the outer query so it can use indexes properly) when its body is a single `SELECT` statement. The extra `select set_limit(0.3)` statement made it two statements, so Postgres ran it as an opaque black box instead — `EXPLAIN` showed a bare `Function Scan` with no visibility into the real plan, and execution time for the 3-word query was **5,962ms**. Removing that statement (safe, since 0.3 is already the default) dropped it to **993ms** — `EXPLAIN` now shows a proper inlined `Subquery Scan` using the `idx_restaurants_*_trgm` indexes. Separately restructured the per-word scoring to skip the `similarity()` call entirely when the cheap `ILIKE` substring match already gives the max score (1.0), which helped further. Verified the ranking itself is unaffected throughout — `?q=flat%20iron%20westminster` still returns the same 5 branches at score 3 each, before and after.
+
+**Still-open nuance: `anon`'s `statement_timeout` needed raising, and the change takes a while to reach already-open pooled connections.** Even at ~1 second in the SQL Editor, the 3-word query was still timing out live for a while after the inlining fix — turned out `anon`'s Postgres role had `statement_timeout=3s` (vs. `authenticated`'s `8s`), and the real production/pooled connection path (through Supabase's connection pooler) has enough overhead on top of raw query time that multi-word queries were riding right at that edge — both successful and failing requests took a strikingly consistent ~3.3–3.4s wall-clock, which doesn't match the sub-second times measured directly. Ran, with your explicit go-ahead: `alter role anon set statement_timeout = '8s';` (matches `authenticated`, confirmed applied via `select rolconfig from pg_roles where rolname = 'anon'`). **This is a session-level Postgres GUC — it only takes effect for *new* backend connections, not ones already open in the pool**, so live testing right after the change still showed the old 3s behaviour for multi-word queries. It should resolve on its own as the pooler's connections naturally cycle (no fixed timeframe found for this project/tier); a manual project restart would force it immediately but wasn't done, since that briefly interrupts every live connection and is a bigger action than a config tweak. **Re-check this**: try `?q=flat%20iron%20westminster` again — if it's still 500ing after some time has passed, the pool genuinely hasn't cycled yet and a restart (Project Settings, or ask me) is the fix.
+
+Single-word typo queries (`?q=wagammma`, `?q=nandos`) work reliably in production right now. Multi-word queries work in the SQL Editor and should work live once the timeout change propagates.
 
 ## Public-readiness security hardening — done
 
