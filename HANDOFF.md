@@ -191,6 +191,61 @@ Verified after creation: the full three-column query (postcode included) dropped
 
 **Practical impact of the original bug:** affected real diner-submitted reports too, not just research batches — a report submitted for a restaurant whose exact search term hit the unindexed postcode path could appear to fail or hang for that visitor, unrelated to whether the report actually saved. Resolved now that every column in the search OR is indexed.
 
+## Fuzzy (typo-tolerant) search — needs one SQL step to activate
+
+Search was already reasonably forgiving (per-word substring matching across name/area/postcode, order-independent), but a genuine typo — "wagammma" instead of "Wagamama" — returned nothing, since ILIKE still requires an exact substring. You asked for this to be blended in always, not just as a "no results" fallback, so a slightly misspelled query gets ranked results immediately rather than a second empty-state step.
+
+**How it's ranked:** a new Postgres function, `search_restaurants_ranked(search_words, allowed_ids)`, scores each restaurant per search word as the best of: an exact substring match (scores 1.0 — the max) or a `pg_trgm` similarity score (0–1) against name/area/postcode, then sums those per-word scores. Every word still has to match *something* for a restaurant to qualify at all (same AND-across-words behavior the search already had) — fuzzy just widens what counts as "matching" a given word, it doesn't loosen the requirement that every word matches. Because an exact substring always scores the per-word maximum, a restaurant that matches exactly can never be outranked or buried by a fuzzy-only match for the same word — so normal (non-typo) searches should look identical to today's ranking, just with typo tolerance added on top. Uses the `%` similarity operator (index-accelerated by the same `pg_trgm` GIN indexes on name/area/postcode from the fix above), not a raw `similarity()` call in the `WHERE` clause, so it isn't a full table scan.
+
+`searchRestaurants()` in `src/lib/data.ts` now calls this RPC to get a ranked, capped (200) list of restaurant ids, then fetches the full rows (with nested reports) for just those ids and restores the RPC's rank order client-side, since PostgREST's `.in()` doesn't preserve input order. The status-filter allowlist (see the "Fixed" section above this one) is passed straight into the RPC as `allowed_ids`, so a status chip + typo'd search term still combine correctly. Text-less browsing (a status chip with an empty search box) is unchanged — no ranking needed when there's no query to rank against, so that path still just pages the table alphabetically.
+
+**One-time activation — run this in the Supabase SQL Editor** (same place every other migration and RPC this session went — no service_role key handled by me):
+
+```sql
+create or replace function search_restaurants_ranked(
+  search_words text[],
+  allowed_ids uuid[] default null
+)
+returns table(id uuid, score real)
+language sql
+stable
+set pg_trgm.similarity_threshold = 0.3
+as $$
+  select r.id,
+    sum(
+      greatest(
+        similarity(r.name, w),
+        similarity(r.area, w),
+        similarity(r.postcode, w),
+        (case when r.name ilike '%' || w || '%' then 1.0 else 0.0 end),
+        (case when r.area ilike '%' || w || '%' then 1.0 else 0.0 end),
+        (case when r.postcode ilike '%' || w || '%' then 1.0 else 0.0 end)
+      )
+    )::real as score
+  from restaurants r
+  cross join unnest(search_words) as w
+  where r.is_active = true
+    and (allowed_ids is null or r.id = any(allowed_ids))
+    and (
+      r.name ilike '%' || w || '%'
+      or r.area ilike '%' || w || '%'
+      or r.postcode ilike '%' || w || '%'
+      or r.name % w
+      or r.area % w
+      or r.postcode % w
+    )
+  group by r.id
+  having count(distinct w) = coalesce(array_length(search_words, 1), 0)
+  order by score desc, min(r.name) asc
+  limit 200
+$$;
+
+revoke all on function search_restaurants_ranked(text[], uuid[]) from public;
+grant execute on function search_restaurants_ranked(text[], uuid[]) to anon;
+```
+
+Until this runs, `/api/search` (and the on-site search box) will 404/error on any non-empty query — the app code shipped ahead of the DB function, same order every other RPC-backed feature this session went in. `0.3` is `pg_trgm`'s own default similarity threshold — loose enough to catch a couple of typos, tight enough that unrelated short words shouldn't collide often; worth revisiting if real searches turn up too many (or too few) fuzzy matches once it's live. Not yet verified end-to-end against production (needs the SQL run first) — spot-check a deliberate typo like `?q=wagammma` once it's in, the same way `?q=condesa`/`?q=mambow` were checked after the indexing fix above.
+
 ## Public-readiness security hardening — done
 
 Before opening the site up more widely, a "what could go wrong if a stranger poked at this" pass turned up a real gap, fixed live:

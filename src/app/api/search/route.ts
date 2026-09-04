@@ -5,8 +5,9 @@ import { searchRestaurants } from "@/lib/data";
 // restaurant list. With 140,921 restaurants, shipping the whole dataset to
 // every visitor (as the old client-side-filtered version did when there
 // were only 520) isn't viable — this endpoint runs the query in Postgres
-// (via searchRestaurants, which uses the pg_trgm index) and returns only
-// the matching rows.
+// (via searchRestaurants, which blends exact substring matches with
+// pg_trgm typo-tolerant similarity matches via the search_restaurants_ranked
+// RPC — see HANDOFF.md) and returns only the matching rows, already ranked.
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get("q") ?? "";

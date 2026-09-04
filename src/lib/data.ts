@@ -167,46 +167,78 @@ export async function searchRestaurants(
     if (restaurantIdFilter.length === 0) return [];
   }
 
-  let builder = supabase
-    .from("restaurants")
-    .select(RESTAURANT_WITH_REPORTS_SELECT)
-    .eq("is_active", true);
-
-  if (restaurantIdFilter) {
-    builder = builder.in("id", restaurantIdFilter);
-  }
-
   // Split into words and require each one to match name, area or postcode
   // — but not necessarily the same column for every word. Without this, a
   // query like "flat iron westminster" (restaurant name "Flat Iron" +
   // area "Westminster") was matched as one whole substring against each
   // column individually, which never matches when the name and the area
   // are different words.
-  //
-  // Note: chaining multiple .or() calls does NOT and them together — each
-  // call sets the same "or" query param, so only the last one actually
-  // took effect (tried this first; broke 3+ word searches). PostgREST
-  // does support arbitrarily nested and()/or() groups within a single
-  // filter value, so build one nested expression instead: an outer or()
-  // with a single and() child, whose children are one or() per word.
   const words = query
     .trim()
     .split(/\s+/)
     .map((w) => w.replace(/[%,()]/g, ""))
     .filter(Boolean)
     .slice(0, 8);
-  if (words.length > 0) {
-    const perWord = words.map(
-      (word) =>
-        `or(name.ilike.%${word}%,area.ilike.%${word}%,postcode.ilike.%${word}%)`
-    );
-    builder = builder.or(`and(${perWord.join(",")})`);
+
+  if (words.length === 0) {
+    // Browse mode (status chip only, no text typed) — nothing to rank, so
+    // skip the fuzzy RPC entirely and just page the (optionally
+    // status-filtered) table alphabetically, same as before.
+    let builder = supabase
+      .from("restaurants")
+      .select(RESTAURANT_WITH_REPORTS_SELECT)
+      .eq("is_active", true);
+    if (restaurantIdFilter) {
+      builder = builder.in("id", restaurantIdFilter);
+    }
+    const { data, error } = await builder.order("name").limit(200);
+    if (error) throw error;
+    return (data ?? []).map(toRestaurant);
   }
 
-  const { data, error } = await builder.order("name").limit(200);
+  // Fuzzy + exact search, blended: search_restaurants_ranked() (see
+  // HANDOFF.md for the SQL) matches each word against name/area/postcode
+  // either by substring (ILIKE) or by pg_trgm similarity, and scores each
+  // restaurant by the best match per word, summed across words. An exact
+  // substring always scores 1.0 for that word — the maximum — so a typo
+  // ("wagammma") can surface "Wagamama" without ever outranking or
+  // burying a restaurant that matches exactly. Every word still has to
+  // match *something* (exact or fuzzy) for a restaurant to qualify at
+  // all, same AND-across-words behavior as before.
+  //
+  // Note: chaining multiple .or() calls does NOT and them together — each
+  // call sets the same "or" query param, so only the last one actually
+  // took effect (an earlier, since-replaced version of this function hit
+  // that; PostgREST filter syntax can't express this ranked/blended query
+  // at all, hence the RPC).
+  const { data: ranked, error: rankError } = await supabase.rpc(
+    "search_restaurants_ranked",
+    { search_words: words, allowed_ids: restaurantIdFilter }
+  );
+  if (rankError) throw rankError;
+  if (!ranked || ranked.length === 0) return [];
+
+  const orderedIds: string[] = ranked.map((r: { id: string }) => r.id);
+
+  // The RPC already ranked and capped these at 200 — this second query
+  // just fetches the full rows (with nested reports) for exactly that id
+  // set. PostgREST's .in() doesn't preserve input order, so restore the
+  // ranked order client-side afterward.
+  const { data, error } = await supabase
+    .from("restaurants")
+    .select(RESTAURANT_WITH_REPORTS_SELECT)
+    .in("id", orderedIds);
   if (error) throw error;
 
-  return (data ?? []).map(toRestaurant);
+  const byId = new Map<string, DbRestaurant>(
+    (data ?? []).map((row) => [row.id, row as DbRestaurant])
+  );
+  const orderedRows: DbRestaurant[] = [];
+  for (const id of orderedIds) {
+    const row = byId.get(id);
+    if (row) orderedRows.push(row);
+  }
+  return orderedRows.map(toRestaurant);
 }
 
 export async function getRestaurantCount(): Promise<number> {
