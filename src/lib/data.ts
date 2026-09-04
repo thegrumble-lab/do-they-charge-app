@@ -6,9 +6,13 @@ import { Restaurant, Report, ReportStatus, latestReport } from "./types";
  * policies described in supabase.ts. Every function here is async; every
  * call site awaits it. Loaded with the full 140,921-restaurant national
  * FSA dataset (see HANDOFF.md). Any query over an unbounded set of rows
- * needs an explicit .range() loop rather than a bare select — PostgREST
+ * needs an explicit paginated loop rather than a bare select — PostgREST
  * silently caps unranged queries (see getAreas() and getRestaurantsByArea()
  * below for the pattern, and HANDOFF.md for the bug that pattern fixed).
+ * Prefer keyset pagination (order by id, `.gt("id", cursor)`) over
+ * `.range()`/OFFSET for anything that pages through the whole table —
+ * OFFSET pagination gets quadratically slower deep into a large table and
+ * tripped a real Postgres statement timeout in production (see getAreas()).
  */
 
 interface DbReport {
@@ -225,18 +229,32 @@ export async function getAreas(): Promise<AreaSummary[]> {
   // 1000), which silently truncated this query once the table grew past
   // that — some areas (e.g. Tower Hamlets) were missing from the result
   // entirely, which cascaded into a 404 on their /browse/[areaSlug] page.
-  // Page through the whole table with .range() so every area is counted
-  // regardless of table size. This runs at most once an hour (see the
-  // `revalidate` export on the pages that call it), so the extra
-  // round-trips aren't on the request path for real visitors.
+  // Page through the whole table so every area is counted regardless of
+  // table size. This runs at most once an hour (see the `revalidate`
+  // export on the pages that call it), so the extra round-trips aren't on
+  // the request path for real visitors.
+  //
+  // Pagination is by keyset (id > lastId), not .range()/OFFSET. OFFSET
+  // pagination makes Postgres re-scan and discard every row before the
+  // offset on each page — over ~184 pages on a ~184k-row table that's
+  // O(n²) work, and it was intermittently tripping the statement timeout
+  // in production (confirmed live via Sentry: "canceling statement due to
+  // statement timeout" on GET /, Sep 2026). Keyset pagination seeks
+  // directly via the primary-key index on every page, so cost stays flat
+  // regardless of how deep into the table it is.
   const PAGE_SIZE = 1000;
   const map = new Map<string, AreaSummary>();
-  for (let from = 0; ; from += PAGE_SIZE) {
-    const { data, error } = await supabase
+  let cursor: string | null = null;
+  for (;;) {
+    let builder = supabase
       .from("restaurants")
-      .select("area_slug, area")
+      .select("id, area_slug, area")
       .eq("is_active", true)
-      .range(from, from + PAGE_SIZE - 1);
+      .order("id")
+      .limit(PAGE_SIZE);
+    if (cursor) builder = builder.gt("id", cursor);
+
+    const { data, error } = await builder;
     if (error) throw error;
 
     for (const r of data ?? []) {
@@ -249,6 +267,7 @@ export async function getAreas(): Promise<AreaSummary[]> {
     }
 
     if (!data || data.length < PAGE_SIZE) break;
+    cursor = data[data.length - 1].id;
   }
   return Array.from(map.values()).sort((a, b) => b.count - a.count);
 }
