@@ -65,8 +65,8 @@ export default function PrivacyPage() {
         <section className="entry">
           <h2 className="h2">Questions</h2>
           <p>
-            <a href="mailto:thegrumblephone@gmail.com">
-              thegrumblephone@gmail.com
+            <a href="mailto:hello@discretionary.uk">
+              hello@discretionary.uk
             </a>
           </p>
         </section>

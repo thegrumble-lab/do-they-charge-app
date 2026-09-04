@@ -93,8 +93,8 @@ export default function AboutPage() {
             wrong, out of date, or shouldn&apos;t be findable via a
             particular search term, get in touch and it&apos;ll be looked
             at and corrected promptly:{" "}
-            <a href="mailto:thegrumblephone@gmail.com">
-              thegrumblephone@gmail.com
+            <a href="mailto:hello@discretionary.uk">
+              hello@discretionary.uk
             </a>
             . Please include the restaurant&apos;s name and area (or a link
             to its page) and what&apos;s wrong.
