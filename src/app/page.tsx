@@ -20,7 +20,7 @@ export default async function HomePage() {
       <div className="masthead">
         <p className="eyebrow">A crowdsourced UK directory</p>
         <p className="tagline-buildup">
-          They don&apos;t have to add discretionary service charges.
+          They don&apos;t have to add service charges.
           <br />
           You don&apos;t have to eat there.
           <br />
