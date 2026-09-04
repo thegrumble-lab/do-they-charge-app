@@ -281,34 +281,27 @@ Rest of the "getting ready to face the public" list, all pure app code (no DB ch
 
 Verified via `npx tsc --noEmit` and `npm run lint` (clean); `/opengraph-image` spot-checked by rendering the real output through a local `next dev` server.
 
-## Error monitoring — code done, needs a Sentry account (5 min, your side)
+## Error monitoring — live and confirmed working (Sept 2026)
 
 You asked for real error monitoring rather than only finding out about a production break by checking Vercel's logs yourself. Went with Sentry — the standard choice for Next.js, official SDK, free tier (~5k errors/month) with email alerts out of the box.
 
-**What's already done**, via `@sentry/nextjs` following its current App Router setup (this project uses a `src/` directory, so Sentry's instrumentation files live there rather than at the repo root):
+**Built**, via `@sentry/nextjs` following its current App Router setup (this project uses a `src/` directory, so Sentry's instrumentation files live there rather than at the repo root):
 - `src/instrumentation-client.ts` — browser-side error/session capture.
 - `src/sentry.server.config.ts` / `src/sentry.edge.config.ts` — server-side, split by runtime.
 - `src/instrumentation.ts` — wires the two above into Next's `register()`/`onRequestError` hooks.
 - `src/app/global-error.tsx` — catches errors that would otherwise escape every boundary, including the root layout.
 - `next.config.ts` — wrapped with `withSentryConfig` (org/project/auth-token all read from env vars, so source-map upload is skipped harmlessly until those exist).
 
-**Deliberately inert until you configure it** — every one of the above reads its DSN from an environment variable that doesn't exist yet, and Sentry's SDK no-ops without one. Verified this directly: ran a full `next dev` with zero Sentry env vars set and no crashes, no runtime errors, and (after fixing two SDK deprecation warnings the first run surfaced — an import path change and a Turbopack-incompatible option) a clean startup log.
+**Configured and verified live.** DSN/org/project were set as `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT` in the Vercel project's environment variables, and the site redeployed to pick them up. Proof it works: minutes after going live, it caught a real production bug on its own — see "getAreas() statement timeout" below. `SENTRY_AUTH_TOKEN` (for readable, non-minified stack traces) is still not set — optional, skipped for now; errors land fine either way, just with minified line numbers.
 
-**What you need to do, once you're ready to actually receive alerts:**
-1. Sign up at [sentry.io](https://sentry.io) (free tier is enough) and create a new project, platform = Next.js.
-2. Sentry will show you a DSN (looks like `https://xxxx@oXXXXXX.ingest.sentry.io/XXXXXXX`) and your org/project slugs.
-3. In the Vercel project's Environment Variables, add: `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` (same value, both needed — client and server read different names), plus `SENTRY_ORG` and `SENTRY_PROJECT` (the slugs). `SENTRY_AUTH_TOKEN` is optional — only needed if you also want readable (non-minified) stack traces via source-map upload; skip it for now and errors will still land, just with minified line numbers.
-4. Redeploy (any push, or Vercel's "Redeploy" button) so the new env vars take effect.
-5. Sanity-check it: trigger a real error (e.g. temporarily break something, or just wait for a genuine one) and confirm it shows up in the Sentry dashboard and you get the email alert.
-
-Send me the DSN/org/project values whenever you have them and I can double-check the Vercel env var names match what the code expects — the code itself doesn't need to change either way.
+**Known gap:** server-side errors (Server Components, Route Handlers, Server Actions — i.e. `onRequestError`) are confirmed reaching Sentry. Deliberately-triggered client-side (browser) errors, during this same verification session, consistently got a `503` back from Sentry's ingest endpoint instead of being accepted — worth another look if a real browser-side error doesn't show up in the dashboard when you'd expect one. Not yet root-caused; could be Sentry-side, could be something in how the test was triggered.
 
 ## What's left (only things that need your input)
 
 1. **Register the domain** — explicitly deferred for now, at your request. Come back to this once everything else is settled. Once it's live, set `NEXT_PUBLIC_SITE_URL` in Vercel (see `src/lib/site.ts`) so the sitemap/robots/OG tags switch over automatically.
 2. **Moderation — decided: leave auto-publish as-is.** Every report (diner-submitted or automated) still auto-publishes instantly, no review step. Revisited explicitly once the daily task started producing ~120 unattended candidate-checks a day (not just a handful of manually-checked pilot restaurants) — your call was to keep auto-publish, on the basis that the citation discipline (own-site-only, never guessed, skip rather than guess) is the real safeguard, and it's held up cleanly across ~550 inserts so far with no known bad entries. Revisit if that stops being true.
 3. **Confirm the public contact address.** `/about` and `/privacy` currently list `thegrumblephone@gmail.com`, inferred from git history rather than asked for directly — say the word if you'd rather use something else.
-4. **Minor future optimization, not urgent:** `getAreas()` (used for the homepage's area grid and area-page metadata) fetches every `(area_slug, area)` pair, paginated in 1,000-row batches, and aggregates counts in JS. It's correct and cached for an hour via `revalidate`, but a Postgres `GROUP BY` (via an RPC function) would be cheaper than the many round trips this now takes at ~184k rows. Worth doing if Supabase usage/latency ever becomes a concern.
+4. ~~Minor future optimization, not urgent~~ — **turned out to be a real bug, now fixed.** `getAreas()` fetches every `(area_slug, area)` pair, paginated, and aggregates counts in JS. It was paginating with `.range()` (OFFSET-based) — fine at small scale, but at ~184k rows and ~184 pages that's O(n²) work in Postgres (each page re-scans and discards everything before its offset). Sentry caught this live in production, days after going in: `"canceling statement due to statement timeout"` (Postgres error `57014`) on `GET /`, meaning a real visitor hit a failed homepage render. Fixed by switching to keyset pagination (`order by id`, `.gt("id", cursor)` instead of `.range()`), which seeks via the primary-key index on every page regardless of depth — cost stays flat instead of growing with table size. Verified: clean `tsc`/`lint`, and the live homepage now correctly shows 363 areas / 183,798 restaurants with no timeout. Worth remembering as a pattern: anything that pages through the *whole* table should use a cursor, not `.range()`, once it's this size.
 
 ## Running it yourself in the meantime
 
