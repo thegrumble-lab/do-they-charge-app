@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Do They Charge? — UK restaurant service charge directory";
+export const alt = "Discretionary — UK restaurant service charge checker";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +55,7 @@ export default function Image() {
               color: "#241b2e",
             }}
           >
-            Do They Charge?
+            Discretionary.
           </div>
           <div
             style={{
@@ -66,8 +66,8 @@ export default function Image() {
               maxWidth: 900,
             }}
           >
-            Check whether a UK restaurant adds a default service charge —
-            before you book, not after the bill arrives.
+            Check whether a UK restaurant adds a discretionary service
+            charge — before you book, not after the bill arrives.
           </div>
         </div>
       </div>

@@ -4,4 +4,4 @@
  * if/when this moves onto a real domain (see HANDOFF.md, "What's left").
  */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://do-they-charge-app.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://discretionary.uk";

@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 
-const TITLE = "Do They Charge? — UK restaurant service charge directory";
+const TITLE = "Discretionary — UK restaurant service charge checker";
 const DESCRIPTION =
-  "A crowdsourced UK directory for checking whether a restaurant adds a default service charge, before you book.";
+  "A crowdsourced UK directory for checking whether a restaurant adds a discretionary service charge, before you book.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s — Do They Charge?",
+    template: "%s — Discretionary",
   },
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
     url: SITE_URL,
-    siteName: "Do They Charge?",
+    siteName: "Discretionary",
     locale: "en_GB",
     type: "website",
   },

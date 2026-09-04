@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `${r.name} in ${r.area}: ${STATUS_META[latest.status].label.toLowerCase()}${
         latest.pct ? ` (around ${latest.pct}%)` : ""
       }, based on ${r.reports.length} report${r.reports.length === 1 ? "" : "s"}.`
-    : `No reports yet on whether ${r.name} in ${r.area} adds a service charge — be the first to say.`;
+    : `No reports yet on whether ${r.name} in ${r.area} adds a discretionary service charge — be the first to say.`;
   return {
-    title: `Does ${r.name} add a service charge?`,
+    title: `Does ${r.name} add a discretionary service charge?`,
     description: desc,
   };
 }
@@ -45,7 +45,7 @@ export default async function RestaurantPage({ params }: Props) {
   return (
     <div className="page">
       <div className="breadcrumb">
-        <Link href="/">← Do They Charge?</Link>
+        <Link href="/">← Discretionary</Link>
         {" · "}
         <Link href={`/browse/${r.areaSlug}`}>{r.area}</Link>
       </div>

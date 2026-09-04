@@ -19,11 +19,17 @@ export default async function HomePage() {
     <div className="page">
       <div className="masthead">
         <p className="eyebrow">A crowdsourced UK directory</p>
-        <h1>Do They Charge?</h1>
+        <p className="tagline-buildup">
+          They don&apos;t have to add discretionary service charges.
+          <br />
+          You don&apos;t have to eat there.
+          <br />
+          It&apos;s all&hellip;
+        </p>
+        <h1>Discretionary.</h1>
         <p className="subhead">
-          UK menus don&apos;t have to hide it, but the bill still ambushes you
-          at the end. Check before you book — not after you&apos;re already
-          sat down.
+          Check whether a UK restaurant adds a discretionary service charge —
+          before you book, not after you&apos;re already sat down.
         </p>
       </div>
 

@@ -5,14 +5,14 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "How Do They Charge? sources its data, how statuses are researched and cited, and how to flag a correction.",
+    "How Discretionary sources its data, how statuses are researched and cited, and how to flag a correction.",
 };
 
 export default function AboutPage() {
   return (
     <div className="page">
       <div className="breadcrumb">
-        <Link href="/">← Do They Charge?</Link>
+        <Link href="/">← Discretionary</Link>
       </div>
       <div className="masthead">
         <p className="eyebrow">About</p>
@@ -25,11 +25,11 @@ export default function AboutPage() {
         <section className="entry" style={{ paddingTop: 0 }}>
           <h2 className="h2">Why this exists</h2>
           <p>
-            Started by one diner fed up with finding out about a service
-            charge at the table, after the bill was already in front of
-            them. UK menus don&apos;t have to disclose it in advance, so this
-            site tries to fill that gap: a quick way to check before you
-            book, not after you&apos;re sat down.
+            Started by one diner fed up with finding out about a
+            discretionary service charge at the table, after the bill was
+            already in front of them. UK menus don&apos;t have to disclose it
+            in advance, so this site tries to fill that gap: a quick way to
+            check before you book, not after you&apos;re sat down.
           </p>
         </section>
 

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!area) return { title: "Area not found" };
   return {
     title: `Restaurants in ${area.area}`,
-    description: `Which restaurants in ${area.area} add a service charge by default? ${area.count} listed so far.`,
+    description: `Which restaurants in ${area.area} add a discretionary service charge? ${area.count} listed so far.`,
   };
 }
 
@@ -35,7 +35,7 @@ export default async function AreaPage({ params }: Props) {
   return (
     <div className="page">
       <div className="breadcrumb">
-        <Link href="/">← Do They Charge?</Link>
+        <Link href="/">← Discretionary</Link>
       </div>
       <div className="masthead">
         <p className="eyebrow">Browse by area</p>

@@ -4,14 +4,14 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "What Do They Charge? collects, why, and for how long.",
+  description: "What Discretionary collects, why, and for how long.",
 };
 
 export default function PrivacyPage() {
   return (
     <div className="page">
       <div className="breadcrumb">
-        <Link href="/">← Do They Charge?</Link>
+        <Link href="/">← Discretionary</Link>
       </div>
       <div className="masthead">
         <p className="eyebrow">Privacy</p>
