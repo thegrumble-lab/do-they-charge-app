@@ -1,18 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { getSitemapShardCount } from "@/lib/sitemap-shards";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  // The restaurant sitemap is sharded (see sitemap.ts) — every shard has
-  // to be listed here by URL, so this computes the same shard count the
-  // same way, from the shared helper, rather than guessing a number that
-  // could drift out of sync as the dataset grows.
-  const shardCount = await getSitemapShardCount();
-  const sitemaps = Array.from(
-    { length: shardCount },
-    (_, id) => `${SITE_URL}/sitemap/${id}.xml`
-  );
-
   return {
     rules: [
       {
@@ -35,7 +24,14 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         crawlDelay: 30,
       },
     ],
-    sitemap: sitemaps,
+    // The restaurant sitemap is sharded across /sitemap/<id>.xml (see
+    // sitemap.ts) — but rather than listing every shard here (which would
+    // have to be kept in sync with the shard count separately), this
+    // points at the single /sitemap.xml index (src/app/sitemap.xml/route.ts)
+    // that lists them instead. One canonical URL, standard sitemap-index
+    // format, and it can never drift out of sync with the real shard count
+    // since both read it from the same shared helper.
+    sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   };
 }

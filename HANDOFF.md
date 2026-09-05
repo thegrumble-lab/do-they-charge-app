@@ -381,6 +381,19 @@ Three linked incidents in one session, worth reading in order because each one's
      - `revalidate` on both `src/app/browse/[areaSlug]/page.tsx` and `src/app/[area]/[slug]/page.tsx` widened from `3600` (1 hour) to `21600` (6 hours) — content here (FSA sync data, occasional diner reports) doesn't change fast enough to need hourly freshness, and a longer window means even the throttled crawl rate can't outrun the cache.
    - Not yet done, worth checking in a few days: confirm the Supabase egress/usage graph has actually flattened out post-deploy, and that the SQL Editor/dashboard feels responsive again. If usage is still climbing, the next lever is a tighter `crawlDelay` or scoping ClaudeBot's `disallow` to just `/browse/` (individual restaurant pages are cheap single-row lookups and already fully enumerated in the sitemap, so bots don't need the listing pages to discover them) before revisiting the Pro plan.
 
+## /sitemap.xml 404'd (Sept 2026)
+
+You noticed `discretionary.uk/sitemap.xml` was a 404, even though `robots.txt` correctly listed the sharded sitemaps at `/sitemap/0.xml` through `/sitemap/4.xml`. Cause: Next's `generateSitemaps()` metadata convention (what `sitemap.ts` used) only ever publishes shards at `/sitemap/<id>.xml` — it never creates a plain `/sitemap.xml`, which is exactly the path Search Console's own submission flow and most SEO tooling check first.
+
+Tried the obvious fix — add a `route.ts` at `app/sitemap.xml/` alongside the existing `sitemap.ts` to serve a proper sitemap *index* (the standard format for pointing at other sitemaps) — but Next's build refuses outright: `Conflicting route and metadata at /sitemap.xml`. The metadata convention reserves that path even though it never actually serves anything there once there's more than one shard, so a real route handler can't share it.
+
+**Fix**: removed `sitemap.ts`/`generateSitemaps()` entirely and hand-rolled both files as plain Route Handlers instead, so nothing reserves `/sitemap.xml`:
+- `src/app/sitemap/[id]/route.ts` — same job `sitemap.ts` used to do (area/static pages on shard 0, a `.range()`-paged slice of restaurants on every shard), at the same public URLs (`/sitemap/0.xml` etc. — the `[id]` segment matches the whole `"0.xml"` string, stripped internally).
+- `src/app/sitemap.xml/route.ts` — new: a real `<sitemapindex>` listing every shard, built from the same `getSitemapShardCount()` helper so it can't drift from the actual shard count.
+- `robots.ts` simplified to point at the single `/sitemap.xml` index instead of enumerating every shard itself.
+
+Verified via `npx tsc --noEmit` / `npm run lint` (clean) and by actually running `next dev` locally and hitting both routes — worth calling out because this exact bug (the routing conflict) only shows up at request time, not in `tsc`/lint, which passed the whole time. Live: `discretionary.uk/sitemap.xml` now returns a valid sitemap index, and `discretionary.uk/robots.txt` references it.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.
