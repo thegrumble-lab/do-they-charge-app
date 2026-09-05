@@ -7,9 +7,16 @@ import SiteFooter from "@/components/SiteFooter";
 
 // Same reasoning as src/app/[area]/[slug]/page.tsx: with 363 areas across
 // 140,921 restaurants, generate area pages on demand and refresh them at
-// most hourly instead of pre-building all of them at deploy time.
+// most every 6 hours instead of pre-building all of them at deploy time.
+//
+// This was 3600 (1 hour) until Sept 2026, when ClaudeBot was found to be
+// crawling all 363 area pages roughly once every 9 seconds — a full lap
+// in under an hour, so almost every hit was a guaranteed cache miss that
+// re-queried Supabase. Combined with a Crawl-delay for ClaudeBot in
+// robots.ts (see there), a longer window here means a lap can't outrun
+// the cache even at the throttled crawl rate. See HANDOFF.md.
 export const dynamicParams = true;
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 type Props = { params: Promise<{ areaSlug: string }> };
 

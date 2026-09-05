@@ -206,6 +206,15 @@ export async function searchRestaurants(
   // match *something* (exact or fuzzy) for a restaurant to qualify at
   // all, same AND-across-words behavior as before.
   //
+  // address is also checked (added after "kings arms berkhamsted" failed
+  // to match anything — the FSA data files that pub under local authority
+  // "Dacorum", not "Berkhamsted", so only the address column has the
+  // town). It's substring (ILIKE) only, not fuzzy similarity: address is
+  // long free text, and computing pg_trgm similarity() against it per
+  // word, per row, was expensive enough to blow Postgres's statement
+  // timeout on every multi-word query sitewide — a regression caught and
+  // reverted the same day. See HANDOFF.md.
+  //
   // Note: chaining multiple .or() calls does NOT and them together — each
   // call sets the same "or" query param, so only the last one actually
   // took effect (an earlier, since-replaced version of this function hit

@@ -14,11 +14,27 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   );
 
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: "/api/",
-    },
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: "/api/",
+      },
+      // ClaudeBot was sweeping every one of the ~363 /browse/<area> pages
+      // roughly once every 9 seconds — fast enough to complete a full lap
+      // faster than those pages' ISR revalidate window, so nearly every
+      // hit was a guaranteed cache miss requiring a fresh Supabase query.
+      // That drove sustained DB load and pushed the project over its
+      // egress quota. Anthropic's crawler docs confirm ClaudeBot honours
+      // Crawl-delay, so this throttles it to something that can't outrun
+      // the revalidate window without blocking it outright.
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: "/api/",
+        crawlDelay: 30,
+      },
+    ],
     sitemap: sitemaps,
     host: SITE_URL,
   };

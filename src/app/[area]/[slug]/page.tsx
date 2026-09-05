@@ -10,10 +10,11 @@ import SiteFooter from "@/components/SiteFooter";
 // generated on demand instead of all pre-built at deploy time (which would
 // make builds impractically slow). The first visit to a given restaurant
 // renders it and caches the result; ISR then revalidates that page in the
-// background at most once an hour, so new diner reports show up without a
-// full redeploy.
+// background at most every 6 hours, so new diner reports still show up
+// without a full redeploy. See the matching comment in
+// src/app/browse/[areaSlug]/page.tsx for why this was widened from 1 hour.
 export const dynamicParams = true;
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 type Props = { params: Promise<{ area: string; slug: string }> };
 
