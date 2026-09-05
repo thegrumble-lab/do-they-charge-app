@@ -7,12 +7,17 @@ import { Restaurant, Report, ReportStatus, latestReport } from "./types";
  * call site awaits it. Loaded with the full 140,921-restaurant national
  * FSA dataset (see HANDOFF.md). Any query over an unbounded set of rows
  * needs an explicit paginated loop rather than a bare select — PostgREST
- * silently caps unranged queries (see getAreas() and getRestaurantsByArea()
- * below for the pattern, and HANDOFF.md for the bug that pattern fixed).
- * Prefer keyset pagination (order by id, `.gt("id", cursor)`) over
- * `.range()`/OFFSET for anything that pages through the whole table —
- * OFFSET pagination gets quadratically slower deep into a large table and
- * tripped a real Postgres statement timeout in production (see getAreas()).
+ * silently caps unranged queries (see getRestaurantsByArea() below for the
+ * pattern, and HANDOFF.md for the bug that pattern fixed). Prefer keyset
+ * pagination (order by id, `.gt("id", cursor)`) over `.range()`/OFFSET for
+ * anything that pages through the whole table — OFFSET pagination gets
+ * quadratically slower deep into a large table.
+ *
+ * For anything that needs to aggregate across the whole table (counts,
+ * grouping) rather than list rows, prefer a Postgres RPC — see
+ * getAreas()/get_area_summaries() below, and HANDOFF.md, for why paging
+ * ~184k rows into JS just to count them by area was a real production
+ * problem, not just a style preference.
  */
 
 interface DbReport {
@@ -266,51 +271,29 @@ export interface AreaSummary {
 }
 
 export async function getAreas(): Promise<AreaSummary[]> {
-  // PostgREST caps the rows returned by an unranged select (commonly at
-  // 1000), which silently truncated this query once the table grew past
-  // that — some areas (e.g. Tower Hamlets) were missing from the result
-  // entirely, which cascaded into a 404 on their /browse/[areaSlug] page.
-  // Page through the whole table so every area is counted regardless of
-  // table size. This runs at most once an hour (see the `revalidate`
-  // export on the pages that call it), so the extra round-trips aren't on
-  // the request path for real visitors.
+  // Used to page through the whole restaurants table client-side (1000
+  // rows at a time, ~184 round-trips) just to count rows per area_slug in
+  // JS — PostgREST has no group-by, so that used to be the only way to do
+  // it through the table API. Each of those ~184 round-trips is a real
+  // Supabase request, and this runs on every /browse/[areaSlug] view that
+  // misses the ISR cache (twice per view — generateMetadata and the page
+  // body each called it separately) as well as on / and the sitemap
+  // routes. With crawlers (meta-externalagent, ClaudeBot, etc.) working
+  // through all 363 area pages, that added up to a huge share of all
+  // database load site-wide — confirmed via pg_stat_statements and a
+  // Vercel trace showing a single /browse/manchester request making ~100
+  // Supabase calls and taking 41s. See HANDOFF.md.
   //
-  // Pagination is by keyset (id > lastId), not .range()/OFFSET. OFFSET
-  // pagination makes Postgres re-scan and discard every row before the
-  // offset on each page — over ~184 pages on a ~184k-row table that's
-  // O(n²) work, and it was intermittently tripping the statement timeout
-  // in production (confirmed live via Sentry: "canceling statement due to
-  // statement timeout" on GET /, Sep 2026). Keyset pagination seeks
-  // directly via the primary-key index on every page, so cost stays flat
-  // regardless of how deep into the table it is.
-  const PAGE_SIZE = 1000;
-  const map = new Map<string, AreaSummary>();
-  let cursor: string | null = null;
-  for (;;) {
-    let builder = supabase
-      .from("restaurants")
-      .select("id, area_slug, area")
-      .eq("is_active", true)
-      .order("id")
-      .limit(PAGE_SIZE);
-    if (cursor) builder = builder.gt("id", cursor);
-
-    const { data, error } = await builder;
-    if (error) throw error;
-
-    for (const r of data ?? []) {
-      const existing = map.get(r.area_slug);
-      if (existing) {
-        existing.count += 1;
-      } else {
-        map.set(r.area_slug, { areaSlug: r.area_slug, area: r.area, count: 1 });
-      }
-    }
-
-    if (!data || data.length < PAGE_SIZE) break;
-    cursor = data[data.length - 1].id;
-  }
-  return Array.from(map.values()).sort((a, b) => b.count - a.count);
+  // get_area_summaries() does the grouping in Postgres itself (a single
+  // sequential scan + hash aggregate, ~650ms) and returns one row per
+  // area in one round-trip.
+  const { data, error } = await supabase.rpc("get_area_summaries");
+  if (error) throw error;
+  return (
+    (data ?? []) as { area_slug: string; area: string; count: number }[]
+  )
+    .map((r) => ({ areaSlug: r.area_slug, area: r.area, count: r.count }))
+    .sort((a: AreaSummary, b: AreaSummary) => b.count - a.count);
 }
 
 /** Thrown by submitDinerReport() when the target restaurant doesn't exist. */
