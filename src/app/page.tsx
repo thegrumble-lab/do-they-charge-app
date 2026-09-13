@@ -1,19 +1,32 @@
 import Link from "next/link";
-import { searchRestaurants, getAreas, getRestaurantCount } from "@/lib/data";
+import {
+  getSampleOfReportedRestaurants,
+  searchRestaurants,
+  getAreas,
+  getRestaurantCount,
+} from "@/lib/data";
 import SearchDirectory from "@/components/SearchDirectory";
 import SiteFooter from "@/components/SiteFooter";
 
 // Re-render at most hourly so the "X restaurants across Y areas" summary
-// and the initial results stay reasonably fresh without hitting Supabase
-// on every single request.
+// stays reasonably fresh without hitting Supabase on every request. This
+// window also decides how often the sampled restaurants below change —
+// each regeneration draws a new random handful.
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [initialRestaurants, areas, totalCount] = await Promise.all([
-    searchRestaurants("", "all"),
+  const [sample, areas, totalCount] = await Promise.all([
+    getSampleOfReportedRestaurants(),
     getAreas(),
     getRestaurantCount(),
   ]);
+
+  // Fall back to the old alphabetical listing if nothing has a report yet
+  // — only really reachable on an empty database, but better than a
+  // homepage with an empty table on it.
+  const initialRestaurants =
+    sample.length > 0 ? sample : await searchRestaurants("", "all");
+  const showingSample = sample.length > 0;
 
   return (
     <div className="page">
@@ -37,6 +50,7 @@ export default async function HomePage() {
         <SearchDirectory
           initialRestaurants={initialRestaurants}
           totalCount={totalCount}
+          showingSample={showingSample}
         />
       </main>
 

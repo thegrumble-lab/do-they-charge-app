@@ -275,6 +275,57 @@ export async function searchRestaurants(
   return (rows as DbRestaurant[]).map(toRestaurant);
 }
 
+/**
+ * A random handful of restaurants that actually have a report, for the
+ * homepage's default view.
+ *
+ * That view used to be the alphabetically-first 200 of all 183,806
+ * listings — which meant, in practice, 200 consecutive rows of "No
+ * reports yet", since only ~528 listings have an answer at all and none
+ * of them happen to sort first by name. The shop window was advertising
+ * the 99.7% of the directory we know nothing about.
+ *
+ * Sampling randomly rather than taking the newest also keeps the page
+ * from looking static: nearly every report so far comes from the daily
+ * research job rather than from diners, so "most recent" would just be
+ * last night's batch in an arbitrary order. The homepage's ISR window
+ * (`revalidate`) decides how often the sample actually changes.
+ *
+ * Starts from `reports` rather than filtering `restaurants`, so the
+ * random ordering happens over the few hundred rows that qualify instead
+ * of the whole table.
+ */
+export async function getSampleOfReportedRestaurants(
+  limit = 50
+): Promise<Restaurant[]> {
+  const { rows } = await getPgPool().query<DbRestaurant>(
+    `with reported as (
+       select distinct restaurant_id from reports
+     )
+     select r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
+            r.postcode, r.lat, r.lng, r.is_active,
+            coalesce(
+              (select json_agg(json_build_object(
+                 'id', rep.id, 'status', rep.status, 'pct', rep.pct,
+                 'note', rep.note, 'source', rep.source,
+                 'source_url', rep.source_url, 'report_date', rep.report_date,
+                 'created_at', rep.created_at
+               ))
+               from reports rep where rep.restaurant_id = r.id),
+              '[]'
+            ) as reports
+     from reported
+     join restaurants r
+       on r.id = reported.restaurant_id
+      and r.is_active
+     order by random()
+     limit $1`,
+    [limit]
+  );
+
+  return rows.map(toRestaurant);
+}
+
 export async function getRestaurantCount(): Promise<number> {
   const { count, error } = await supabase
     .from("restaurants")

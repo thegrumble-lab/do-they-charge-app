@@ -17,9 +17,16 @@ const DEBOUNCE_MS = 250;
 export default function SearchDirectory({
   initialRestaurants,
   totalCount,
+  showingSample = false,
 }: {
   initialRestaurants: Restaurant[];
   totalCount: number;
+  /**
+   * True when the un-searched view is a random sample of restaurants
+   * that have a report, rather than a plain slice of the directory —
+   * which changes what the line above the table should honestly say.
+   */
+  showingSample?: boolean;
 }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"all" | ReportStatus>("all");
@@ -102,9 +109,11 @@ export default function SearchDirectory({
       <p className="count-line">
         {loading
           ? "Searching…"
-          : `Showing ${shown.length} of ${totalCount.toLocaleString()} restaurants${
+          : isFiltering || !showingSample
+          ? `Showing ${shown.length} of ${totalCount.toLocaleString()} restaurants${
               results.length > 100 ? " (refine your search to see more)" : ""
-            }`}
+            }`
+          : `${shown.length} places we've checked, picked at random from ${totalCount.toLocaleString()} listings — search above for somewhere specific.`}
       </p>
       {!loading && shown.length === 0 ? (
         <div className="empty-state">

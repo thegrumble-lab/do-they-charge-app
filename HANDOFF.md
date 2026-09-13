@@ -479,6 +479,24 @@ Saving a correction calls `revalidatePath()` on the restaurant and area pages. W
 
 **Auth is one shared password** in `ADMIN_PASSWORD`, not user accounts: there's one operator and nothing behind the gate but restaurant data. The cookie holds an HMAC derived from the password rather than the password itself, so it can't be forged, and changing the password invalidates every session; both comparisons are timing-safe, and the login route has a fixed 400ms delay to blunt brute-forcing. Limits worth knowing: no per-device revocation, no audit trail, and the password's length is doing most of the work — so make it long and random. If the site ever gains a second contributor, replace this with real auth rather than sharing the password. Unset `ADMIN_PASSWORD` and admin sign-in is disabled entirely. `/admin` is `noindex` and disallowed in robots.txt.
 
+## The homepage was advertising the 99.7% we know nothing about (Sept 2026)
+
+You flagged that listing restaurants alphabetically on the homepage didn't make much sense. Looking at what that list actually contained made the case much stronger than "alphabetical is arbitrary":
+
+**Of the 200 restaurants the homepage showed, none had a single report.** Not few — zero. With 183,806 active listings and only ~528 carrying an answer, ordering by name means the odds of surfacing one are negligible, so the default view was 200 consecutive rows of "No reports yet". The shop window was demonstrating the emptiness of the directory rather than its contents.
+
+Meanwhile the data that *is* there is decent: of 533 reports, 258 say a charge is added, 193 groups-only, 13 no charge, and just 69 unclear — with 283 carrying an actual percentage.
+
+**Fixed** by seeding the default view from `getSampleOfReportedRestaurants()`: a random 50 drawn from the listings that have a report. A few notes on the choices:
+
+- **Random rather than most-recent.** Worth knowing why: 530 of the 533 reports come from the daily research job and only **3** from diners. "Recently reported" would therefore have meant "last night's automated batch, in arbitrary order", while implying a level of human activity the site doesn't have yet. A random sample is honest about what it is and gives the page variety.
+- **It changes with the page's ISR window** (`revalidate = 3600`), so a fresh handful appears roughly hourly rather than on every request.
+- **The query starts from `reports`, not `restaurants`**, so `order by random()` sorts the few hundred qualifying rows rather than the whole table. Confirmed with `EXPLAIN ANALYZE` against production: ~7ms, top-N heapsort over 499 rows (the 528 reported listings minus inactive ones).
+- **It falls back to the old alphabetical listing** if nothing has a report at all — only reachable on an empty database, but better than a homepage with an empty table.
+- The line above the table changes accordingly when it's a sample rather than search results, so it doesn't claim to be "showing 50 of 183,806".
+
+Searching and the status filters are untouched — this only changes what greets someone who hasn't typed anything yet.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.
