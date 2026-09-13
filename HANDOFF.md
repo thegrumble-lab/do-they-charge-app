@@ -438,6 +438,45 @@ You'd submitted the site to Search Console and couldn't get it to read the sitem
 
 **What Search Console actually showed** (the property is a *URL-prefix* property, `https://discretionary.uk/`, under matt@slingshotsearch.co.uk — not a domain property): the `/sitemap.xml` index submitted Sep 5, last read Sep 12, status Success but **0 pages discovered**; the five shards submitted Sep 13, never read, type still "Unknown", status **"Couldn't fetch"**. The shards were verified working and publicly reachable at the time of diagnosis, so "Couldn't fetch" was a stale verdict — Google's attempts would have landed during the egress-quota outage and the 3-5s-per-request period described above, and it gives up quickly on slow or failing sitemap fetches. The expectation is that re-submitting now that the site is fast and complete will stick; that still needs confirming a few days after this deploys.
 
+## Editing entries: /admin and visitor-raised flags (Sept 2026)
+
+You'd added a report for The Kings Arms (Dacorum) at 12.5%, then found it was actually 10%, and there was no way to correct it — reports could only ever be added, never fixed. (That one was corrected directly in SQL at the time; this is the general fix.)
+
+**Two halves, per your call on how to build it:**
+
+**1. Visitors can flag an entry as wrong.** A "Something wrong with this entry?" link on each restaurant page opens a short form: what's wrong, plus optionally what the status and percentage *should* be. Flags are internal — they never appear publicly — and queue up in /admin.
+
+New table `report_flags` (created via the SQL Editor, like every other schema change here):
+
+```sql
+create table public.report_flags (
+  id uuid primary key default gen_random_uuid(),
+  restaurant_id uuid not null references public.restaurants(id) on delete cascade,
+  report_id uuid references public.reports(id) on delete set null,
+  message text not null,
+  suggested_status text,
+  suggested_pct numeric,
+  resolved_at timestamptz,
+  created_at timestamptz not null default now(),
+  constraint report_flags_message_len check (char_length(message) between 1 and 500),
+  constraint report_flags_suggested_status_check check (
+    suggested_status is null
+    or suggested_status = any (array['charges','no-charge','groups','unclear'])),
+  constraint report_flags_suggested_pct_check check (
+    suggested_pct is null or (suggested_pct >= 0 and suggested_pct <= 100))
+);
+create index report_flags_open_idx on public.report_flags (created_at desc) where resolved_at is null;
+alter table public.report_flags enable row level security;
+```
+
+Note there are **no RLS policies at all** on it, deliberately. Submission goes through `submit_report_flag()` (SECURITY DEFINER, validates everything, reuses the diner-report 30-second per-IP cooldown, and links the flag to the restaurant's current latest report); the admin side reads and writes over the direct Postgres connection, which connects as `postgres` and bypasses RLS. Verified both properties directly: acting as `anon`, `submit_report_flag()` succeeds and lands a correctly linked row, while `select * from report_flags` returns 0 rows even when rows exist, and a direct insert is refused.
+
+**2. /admin, for correcting reports.** Lists open flags (with the visitor's suggestion pre-filled into the edit form, so the common case is read it, sanity-check, save), plus a search box to find any entry by name, area or postcode — including inactive listings, which are exactly the ones that may need fixing. Editing covers status, percentage, note and date. Scope is deliberately *edit only*: no deleting reports, no adding them (the public form does that), no editing restaurant details (those come from the FSA feed and the sync would overwrite them).
+
+Saving a correction calls `revalidatePath()` on the restaurant and area pages. Without that, a fix wouldn't appear publicly for up to six hours, since those pages are cached with `revalidate = 21600` — which would rather defeat the point.
+
+**Auth is one shared password** in `ADMIN_PASSWORD`, not user accounts: there's one operator and nothing behind the gate but restaurant data. The cookie holds an HMAC derived from the password rather than the password itself, so it can't be forged, and changing the password invalidates every session; both comparisons are timing-safe, and the login route has a fixed 400ms delay to blunt brute-forcing. Limits worth knowing: no per-device revocation, no audit trail, and the password's length is doing most of the work — so make it long and random. If the site ever gains a second contributor, replace this with real auth rather than sharing the password. Unset `ADMIN_PASSWORD` and admin sign-in is disabled entirely. `/admin` is `noindex` and disallowed in robots.txt.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.

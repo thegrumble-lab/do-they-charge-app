@@ -7,7 +7,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: "*",
         allow: "/",
-        disallow: "/api/",
+        // /admin is also noindex'd and behind a password; this just keeps
+        // it out of crawl budgets and logs.
+        disallow: ["/api/", "/admin"],
       },
       // ClaudeBot was sweeping every one of the ~363 /browse/<area> pages
       // roughly once every 9 seconds — fast enough to complete a full lap
@@ -20,7 +22,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: "ClaudeBot",
         allow: "/",
-        disallow: "/api/",
+        disallow: ["/api/", "/admin"],
         crawlDelay: 30,
       },
     ],

@@ -380,4 +380,210 @@ export async function submitDinerReport(
   return full;
 }
 
+/* ------------------------------------------------------------------ *
+ * Error flags + admin editing
+ *
+ * Visitors can flag an entry as wrong from the restaurant page; those
+ * land in `report_flags` and are worked through in /admin, where a
+ * report's status/percentage/note/date can be corrected.
+ *
+ * Flags are internal — `report_flags` has RLS on with no policies at
+ * all, so the anon key can neither read nor write it. Submission goes
+ * through submit_report_flag() (SECURITY DEFINER, validates input and
+ * shares the diner-report per-IP cooldown); everything on the admin side
+ * goes over the direct Postgres connection, which connects as `postgres`
+ * and so bypasses RLS. That means the admin reads and writes below are
+ * only ever reachable from server code that has already checked
+ * isAdmin() — there is no public route to them.
+ * ------------------------------------------------------------------ */
+
+export interface ReportFlag {
+  id: string;
+  message: string;
+  suggestedStatus: ReportStatus | null;
+  suggestedPct: number | null;
+  createdAt: string;
+  reportId: string | null;
+  restaurantId: string;
+  restaurantName: string;
+  area: string;
+  areaSlug: string;
+  slug: string;
+}
+
+/** Thrown by submitReportFlag() when the message fails validation. */
+export class InvalidFlagError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "InvalidFlagError";
+  }
+}
+
+export async function submitReportFlag(
+  areaSlug: string,
+  slug: string,
+  message: string,
+  suggestedStatus: ReportStatus | null,
+  suggestedPct: number | null,
+  ip: string
+): Promise<void> {
+  const { error } = await supabase.rpc("submit_report_flag", {
+    p_area_slug: areaSlug,
+    p_slug: slug,
+    p_message: message,
+    p_suggested_status: suggestedStatus,
+    p_suggested_pct: suggestedPct,
+    p_ip: ip,
+  });
+  if (error) {
+    if (error.message.includes("restaurant not found")) {
+      throw new RestaurantNotFoundError();
+    }
+    if (error.message.includes("rate limited")) {
+      throw new RateLimitedError();
+    }
+    if (
+      error.message.includes("message required") ||
+      error.message.includes("message too long") ||
+      error.message.includes("invalid status") ||
+      error.message.includes("invalid pct")
+    ) {
+      throw new InvalidFlagError(error.message);
+    }
+    throw error;
+  }
+}
+
+export async function getOpenFlags(limit = 100): Promise<ReportFlag[]> {
+  const { rows } = await getPgPool().query<{
+    id: string;
+    message: string;
+    suggested_status: ReportStatus | null;
+    suggested_pct: string | null;
+    created_at: Date;
+    report_id: string | null;
+    restaurant_id: string;
+    name: string;
+    area: string;
+    area_slug: string;
+    slug: string;
+  }>(
+    `select f.id, f.message, f.suggested_status, f.suggested_pct,
+            f.created_at, f.report_id, f.restaurant_id,
+            r.name, r.area, r.area_slug, r.slug
+     from report_flags f
+     join restaurants r on r.id = f.restaurant_id
+     where f.resolved_at is null
+     order by f.created_at desc
+     limit $1`,
+    [limit]
+  );
+
+  return rows.map((row) => ({
+    id: row.id,
+    message: row.message,
+    suggestedStatus: row.suggested_status,
+    suggestedPct: row.suggested_pct === null ? null : Number(row.suggested_pct),
+    createdAt: new Date(row.created_at).toISOString(),
+    reportId: row.report_id,
+    restaurantId: row.restaurant_id,
+    restaurantName: row.name,
+    area: row.area,
+    areaSlug: row.area_slug,
+    slug: row.slug,
+  }));
+}
+
+/**
+ * Admin-side restaurant lookup: name/area substring match, with each
+ * match's reports attached so they can be edited in place. Deliberately
+ * simple and separate from searchRestaurants() — this one is about
+ * finding a specific known entry to correct, not ranking results for a
+ * visitor, and it includes inactive listings (which are exactly the ones
+ * you might need to fix).
+ */
+export async function adminFindRestaurants(
+  query: string,
+  limit = 25
+): Promise<Restaurant[]> {
+  const q = query.trim();
+  if (!q) return [];
+
+  const { rows } = await getPgPool().query<DbRestaurant>(
+    `select r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
+            r.postcode, r.lat, r.lng, r.is_active,
+            coalesce(
+              (select json_agg(json_build_object(
+                 'id', rep.id, 'status', rep.status, 'pct', rep.pct,
+                 'note', rep.note, 'source', rep.source,
+                 'source_url', rep.source_url, 'report_date', rep.report_date,
+                 'created_at', rep.created_at
+               ))
+               from reports rep where rep.restaurant_id = r.id),
+              '[]'
+            ) as reports
+     from restaurants r
+     where r.name ilike '%' || $1 || '%'
+        or r.area ilike '%' || $1 || '%'
+        or r.postcode ilike '%' || $1 || '%'
+     order by r.name
+     limit $2`,
+    [q, limit]
+  );
+
+  return rows.map(toRestaurant);
+}
+
+export interface ReportEdit {
+  status: ReportStatus;
+  pct: number | null;
+  note: string;
+  date: string;
+}
+
+/**
+ * Corrects an existing report in place and returns the page path that now
+ * needs revalidating — without that, an edit wouldn't show up publicly
+ * for up to six hours, since restaurant pages are cached with
+ * `revalidate = 21600`.
+ */
+export async function adminUpdateReport(
+  reportId: string,
+  edit: ReportEdit
+): Promise<{ areaSlug: string; slug: string }> {
+  const { rows } = await getPgPool().query<{
+    area_slug: string;
+    slug: string;
+  }>(
+    `update reports rep
+        set status = $2,
+            pct = $3,
+            note = $4,
+            report_date = $5::date
+      from restaurants r
+      where rep.id = $1
+        and r.id = rep.restaurant_id
+      returning r.area_slug, r.slug`,
+    [reportId, edit.status, edit.pct, edit.note, edit.date]
+  );
+
+  if (rows.length === 0) {
+    throw new Error("Report not found.");
+  }
+  return { areaSlug: rows[0].area_slug, slug: rows[0].slug };
+}
+
+export async function adminResolveFlag(flagId: string): Promise<void> {
+  const { rowCount } = await getPgPool().query(
+    `update report_flags set resolved_at = now()
+      where id = $1 and resolved_at is null`,
+    [flagId]
+  );
+  if (!rowCount) {
+    // Already resolved, or never existed — either way there's nothing
+    // left to do, so this isn't worth failing the request over.
+    return;
+  }
+}
+
 export { latestReport };

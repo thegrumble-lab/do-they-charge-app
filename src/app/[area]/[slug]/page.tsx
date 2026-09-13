@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
 import { STATUS_META, latestReport } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
+import ReportErrorForm from "@/components/ReportErrorForm";
 import SiteFooter from "@/components/SiteFooter";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
@@ -162,6 +163,11 @@ export default async function RestaurantPage({ params }: Props) {
             Service charges are always optional under UK consumer law,
             whatever&apos;s listed here: you can ask for it to be removed.
           </p>
+          <ReportErrorForm
+            areaSlug={r.areaSlug}
+            slug={r.slug}
+            hasReport={latest !== null}
+          />
         </section>
       </main>
 
