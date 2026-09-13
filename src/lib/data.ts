@@ -400,8 +400,6 @@ export async function submitDinerReport(
 export interface ReportFlag {
   id: string;
   message: string;
-  suggestedStatus: ReportStatus | null;
-  suggestedPct: number | null;
   createdAt: string;
   reportId: string | null;
   restaurantId: string;
@@ -423,16 +421,21 @@ export async function submitReportFlag(
   areaSlug: string,
   slug: string,
   message: string,
-  suggestedStatus: ReportStatus | null,
-  suggestedPct: number | null,
   ip: string
 ): Promise<void> {
+  // p_suggested_status / p_suggested_pct are always null now: the form
+  // used to ask what the entry *should* say and no longer does. The
+  // parameters and their columns are left in place rather than migrated
+  // away — they cost nothing empty, and dropping them would mean a
+  // destructive migration plus a window where the deployed code and the
+  // database disagree. If "suggest a correction" never comes back, they
+  // can be dropped in some later tidy-up.
   const { error } = await supabase.rpc("submit_report_flag", {
     p_area_slug: areaSlug,
     p_slug: slug,
     p_message: message,
-    p_suggested_status: suggestedStatus,
-    p_suggested_pct: suggestedPct,
+    p_suggested_status: null,
+    p_suggested_pct: null,
     p_ip: ip,
   });
   if (error) {
@@ -458,8 +461,6 @@ export async function getOpenFlags(limit = 100): Promise<ReportFlag[]> {
   const { rows } = await getPgPool().query<{
     id: string;
     message: string;
-    suggested_status: ReportStatus | null;
-    suggested_pct: string | null;
     created_at: Date;
     report_id: string | null;
     restaurant_id: string;
@@ -468,8 +469,7 @@ export async function getOpenFlags(limit = 100): Promise<ReportFlag[]> {
     area_slug: string;
     slug: string;
   }>(
-    `select f.id, f.message, f.suggested_status, f.suggested_pct,
-            f.created_at, f.report_id, f.restaurant_id,
+    `select f.id, f.message, f.created_at, f.report_id, f.restaurant_id,
             r.name, r.area, r.area_slug, r.slug
      from report_flags f
      join restaurants r on r.id = f.restaurant_id
@@ -482,8 +482,6 @@ export async function getOpenFlags(limit = 100): Promise<ReportFlag[]> {
   return rows.map((row) => ({
     id: row.id,
     message: row.message,
-    suggestedStatus: row.suggested_status,
-    suggestedPct: row.suggested_pct === null ? null : Number(row.suggested_pct),
     createdAt: new Date(row.created_at).toISOString(),
     reportId: row.report_id,
     restaurantId: row.restaurant_id,

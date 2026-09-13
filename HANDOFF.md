@@ -444,7 +444,9 @@ You'd added a report for The Kings Arms (Dacorum) at 12.5%, then found it was ac
 
 **Two halves, per your call on how to build it:**
 
-**1. Visitors can flag an entry as wrong.** A "Something wrong with this entry?" link on each restaurant page opens a short form: what's wrong, plus optionally what the status and percentage *should* be. Flags are internal — they never appear publicly — and queue up in /admin.
+**1. Visitors can flag an entry as wrong.** A "Something wrong with this entry?" link on each restaurant page opens a single free-text box: what's wrong. Flags are internal — they never appear publicly — and queue up in /admin.
+
+The first version also asked what the entry *should* say (a status dropdown and a percentage), which was cut as needless friction: anyone who knows the right answer can add a proper report through the form immediately above, and anyone flagging an error just wants to say what's wrong and move on. The `suggested_status` / `suggested_pct` columns and the matching RPC parameters are still there, always null — left rather than migrated away because they cost nothing empty, and dropping them would mean a destructive migration plus a window where the deployed code and the database disagree about the function signature. Worth dropping in some later tidy-up if suggestions never come back.
 
 New table `report_flags` (created via the SQL Editor, like every other schema change here):
 
@@ -471,7 +473,7 @@ alter table public.report_flags enable row level security;
 
 Note there are **no RLS policies at all** on it, deliberately. Submission goes through `submit_report_flag()` (SECURITY DEFINER, validates everything, reuses the diner-report 30-second per-IP cooldown, and links the flag to the restaurant's current latest report); the admin side reads and writes over the direct Postgres connection, which connects as `postgres` and bypasses RLS. Verified both properties directly: acting as `anon`, `submit_report_flag()` succeeds and lands a correctly linked row, while `select * from report_flags` returns 0 rows even when rows exist, and a direct insert is refused.
 
-**2. /admin, for correcting reports.** Lists open flags (with the visitor's suggestion pre-filled into the edit form, so the common case is read it, sanity-check, save), plus a search box to find any entry by name, area or postcode — including inactive listings, which are exactly the ones that may need fixing. Editing covers status, percentage, note and date. Scope is deliberately *edit only*: no deleting reports, no adding them (the public form does that), no editing restaurant details (those come from the FSA feed and the sync would overwrite them).
+**2. /admin, for correcting reports.** Lists open flags — "Open entry" loads the report the flag was raised against, ready to edit — plus a search box to find any entry by name, area or postcode — including inactive listings, which are exactly the ones that may need fixing. Editing covers status, percentage, note and date. Scope is deliberately *edit only*: no deleting reports, no adding them (the public form does that), no editing restaurant details (those come from the FSA feed and the sync would overwrite them).
 
 Saving a correction calls `revalidatePath()` on the restaurant and area pages. Without that, a fix wouldn't appear publicly for up to six hours, since those pages are cached with `revalidate = 21600` — which would rather defeat the point.
 

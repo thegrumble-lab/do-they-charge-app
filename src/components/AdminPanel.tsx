@@ -75,16 +75,13 @@ export default function AdminPanel({
       setResults(found);
       setFlagContext(flag.id);
       setQuery(flag.restaurantName);
+      // The report the flag was raised against, falling back to whatever
+      // is current if that one has since been superseded.
       const target =
         found[0]?.reports.find((r) => r.id === flag.reportId) ??
         found[0]?.reports[found[0].reports.length - 1];
       if (target) {
-        const d = draftFrom(target);
-        // Pre-fill with what the visitor suggested, so the common case is
-        // read it, sanity-check it, save.
-        if (flag.suggestedStatus) d.status = flag.suggestedStatus;
-        if (flag.suggestedPct !== null) d.pct = String(flag.suggestedPct);
-        setDraft(d);
+        setDraft(draftFrom(target));
       } else {
         setNotice("That listing has no reports to correct.");
       }
@@ -180,15 +177,6 @@ export default function AdminPanel({
                   {flag.area} · {flag.createdAt.slice(0, 10)}
                 </span>
                 <div className="entry-note">{flag.message}</div>
-                {flag.suggestedStatus || flag.suggestedPct !== null ? (
-                  <p className="small-print" style={{ marginTop: 4 }}>
-                    Suggests:{" "}
-                    {flag.suggestedStatus
-                      ? STATUS_META[flag.suggestedStatus].label
-                      : "—"}
-                    {flag.suggestedPct !== null ? ` · ${flag.suggestedPct}%` : ""}
-                  </p>
-                ) : null}
                 <p className="small-print" style={{ marginTop: 4 }}>
                   <button
                     type="button"

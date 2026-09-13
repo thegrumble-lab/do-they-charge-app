@@ -21,8 +21,6 @@ export default function ReportErrorForm({
 }) {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [suggestedStatus, setSuggestedStatus] = useState("");
-  const [suggestedPct, setSuggestedPct] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -40,14 +38,7 @@ export default function ReportErrorForm({
       const res = await fetch("/api/flags", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          areaSlug,
-          slug,
-          message,
-          suggestedStatus: suggestedStatus || null,
-          suggestedPct: suggestedPct ? Number(suggestedPct) : null,
-          website,
-        }),
+        body: JSON.stringify({ areaSlug, slug, message, website }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -107,37 +98,6 @@ export default function ReportErrorForm({
           placeholder="e.g. the percentage is out of date — it's 10% now, not 12.5%"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-        />
-      </div>
-
-      <div className="field">
-        <label htmlFor="flag-status">
-          What should it say? (optional)
-        </label>
-        <select
-          id="flag-status"
-          value={suggestedStatus}
-          onChange={(e) => setSuggestedStatus(e.target.value)}
-        >
-          <option value="">Not sure / something else</option>
-          <option value="charges">Adds a service charge</option>
-          <option value="groups">Only for bigger groups</option>
-          <option value="no-charge">No service charge</option>
-          <option value="unclear">Unclear</option>
-        </select>
-      </div>
-
-      <div className="field">
-        <label htmlFor="flag-pct">Correct percentage, if you know it (optional)</label>
-        <input
-          type="number"
-          id="flag-pct"
-          min={0}
-          max={30}
-          step={0.5}
-          placeholder="e.g. 10"
-          value={suggestedPct}
-          onChange={(e) => setSuggestedPct(e.target.value)}
         />
       </div>
 

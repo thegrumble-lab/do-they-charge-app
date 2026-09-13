@@ -5,19 +5,17 @@ import {
   RateLimitedError,
   InvalidFlagError,
 } from "@/lib/data";
-import { ReportStatus } from "@/lib/types";
 
 // Public "this entry looks wrong" submissions. Same shape as
 // /api/reports: honeypot field, per-IP cooldown enforced in Postgres,
 // generic errors out. Flags are never shown publicly — they queue up in
 // /admin.
-const VALID_STATUSES: ReportStatus[] = [
-  "charges",
-  "no-charge",
-  "groups",
-  "unclear",
-];
-
+//
+// Just a free-text message: an earlier version also asked what the entry
+// *should* say (status + percentage), which was dropped as needless
+// friction. Someone who knows the right answer can add a proper report
+// through the form directly above this one; someone flagging an error
+// just wants to say what's wrong and move on.
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   if (!body) {
@@ -29,12 +27,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  const { areaSlug, slug, message, suggestedStatus, suggestedPct } = body as {
+  const { areaSlug, slug, message } = body as {
     areaSlug?: string;
     slug?: string;
     message?: string;
-    suggestedStatus?: string | null;
-    suggestedPct?: number | null;
   };
 
   if (!areaSlug || !slug) {
@@ -49,36 +45,11 @@ export async function POST(req: NextRequest) {
   if (message.length > 500) {
     return NextResponse.json({ error: "That's too long." }, { status: 400 });
   }
-  if (
-    suggestedStatus != null &&
-    !VALID_STATUSES.includes(suggestedStatus as ReportStatus)
-  ) {
-    return NextResponse.json({ error: "Bad request." }, { status: 400 });
-  }
-  if (
-    suggestedPct != null &&
-    (typeof suggestedPct !== "number" ||
-      Number.isNaN(suggestedPct) ||
-      suggestedPct < 0 ||
-      suggestedPct > 100)
-  ) {
-    return NextResponse.json(
-      { error: "Percentage must be between 0 and 100." },
-      { status: 400 }
-    );
-  }
 
   const ip = req.headers.get("x-forwarded-for") || "unknown";
 
   try {
-    await submitReportFlag(
-      areaSlug,
-      slug,
-      message.trim(),
-      (suggestedStatus as ReportStatus) ?? null,
-      typeof suggestedPct === "number" ? suggestedPct : null,
-      ip
-    );
+    await submitReportFlag(areaSlug, slug, message.trim(), ip);
   } catch (err) {
     if (err instanceof RestaurantNotFoundError) {
       return NextResponse.json(
