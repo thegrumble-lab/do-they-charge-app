@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { pgPool } from "./db";
 import { Restaurant, Report, ReportStatus, latestReport } from "./types";
 
 /**
@@ -225,34 +226,53 @@ export async function searchRestaurants(
   // took effect (an earlier, since-replaced version of this function hit
   // that; PostgREST filter syntax can't express this ranked/blended query
   // at all, hence the RPC).
-  const { data: ranked, error: rankError } = await supabase.rpc(
-    "search_restaurants_ranked",
-    { search_words: words, allowed_ids: restaurantIdFilter }
+  // Historically this went through PostgREST: supabase.rpc(
+  // "search_restaurants_ranked", ...) followed by a second .in(orderedIds)
+  // query to fetch full rows, reordered client-side (PostgREST's .in()
+  // doesn't preserve input order). That worked, but PostgREST's own
+  // request-handling layer adds a consistent ~3-5s delay on this specific
+  // RPC shape — confirmed (via HANDOFF.md's diagnosis) to be nothing to do
+  // with the query itself, RLS, compute tier, region, or plan caching.
+  // Connecting straight to Postgres (via db.ts's pgPool, bypassing
+  // PostgREST entirely) skips that layer for this one hot path. The
+  // ROW_NUMBER() preserves search_restaurants_ranked()'s own ranking order
+  // through the join, so the final ORDER BY restores it — same effect as
+  // the old client-side reorder, done in SQL instead.
+  const { rows } = await pgPool.query(
+    `
+    with ranked as (
+      select id, row_number() over () as rn
+      from search_restaurants_ranked($1::text[], $2::uuid[])
+    )
+    select
+      r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
+      r.postcode, r.lat, r.lng, r.is_active,
+      coalesce(
+        (
+          select json_agg(json_build_object(
+            'id', rep.id,
+            'status', rep.status,
+            'pct', rep.pct,
+            'note', rep.note,
+            'source', rep.source,
+            'source_url', rep.source_url,
+            'report_date', rep.report_date,
+            'created_at', rep.created_at
+          ))
+          from reports rep
+          where rep.restaurant_id = r.id
+        ),
+        '[]'
+      ) as reports
+    from ranked
+    join restaurants r on r.id = ranked.id
+    order by ranked.rn
+    `,
+    [words, restaurantIdFilter]
   );
-  if (rankError) throw rankError;
-  if (!ranked || ranked.length === 0) return [];
+  if (rows.length === 0) return [];
 
-  const orderedIds: string[] = ranked.map((r: { id: string }) => r.id);
-
-  // The RPC already ranked and capped these at 200 — this second query
-  // just fetches the full rows (with nested reports) for exactly that id
-  // set. PostgREST's .in() doesn't preserve input order, so restore the
-  // ranked order client-side afterward.
-  const { data, error } = await supabase
-    .from("restaurants")
-    .select(RESTAURANT_WITH_REPORTS_SELECT)
-    .in("id", orderedIds);
-  if (error) throw error;
-
-  const byId = new Map<string, DbRestaurant>(
-    (data ?? []).map((row) => [row.id, row as DbRestaurant])
-  );
-  const orderedRows: DbRestaurant[] = [];
-  for (const id of orderedIds) {
-    const row = byId.get(id);
-    if (row) orderedRows.push(row);
-  }
-  return orderedRows.map(toRestaurant);
+  return (rows as DbRestaurant[]).map(toRestaurant);
 }
 
 export async function getRestaurantCount(): Promise<number> {
