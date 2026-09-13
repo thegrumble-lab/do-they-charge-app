@@ -1,5 +1,5 @@
 import { supabase } from "./supabase";
-import { pgPool } from "./db";
+import { getPgPool } from "./db";
 import { Restaurant, Report, ReportStatus, latestReport } from "./types";
 
 /**
@@ -238,7 +238,7 @@ export async function searchRestaurants(
   // ROW_NUMBER() preserves search_restaurants_ranked()'s own ranking order
   // through the join, so the final ORDER BY restores it — same effect as
   // the old client-side reorder, done in SQL instead.
-  const { rows } = await pgPool.query(
+  const { rows } = await getPgPool().query(
     `
     with ranked as (
       select id, row_number() over () as rn

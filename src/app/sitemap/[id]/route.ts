@@ -1,5 +1,5 @@
 import { getAreas } from "@/lib/data";
-import { supabase } from "@/lib/supabase";
+import { getPgPool } from "@/lib/db";
 import { SITE_URL } from "@/lib/site";
 import { RESTAURANTS_PER_SITEMAP, getSitemapShardCount } from "@/lib/sitemap-shards";
 
@@ -32,7 +32,6 @@ export async function GET(
   }
 
   const from = shardId * RESTAURANTS_PER_SITEMAP;
-  const to = from + RESTAURANTS_PER_SITEMAP - 1;
 
   type Entry = { url: string; changeFrequency: string; priority: number };
   const entries: Entry[] = [];
@@ -55,15 +54,27 @@ export async function GET(
     }
   }
 
-  const { data, error } = await supabase
-    .from("restaurants")
-    .select("area_slug, slug")
-    .eq("is_active", true)
-    .order("id")
-    .range(from, to);
-  if (error) throw error;
+  // Queried through a direct Postgres connection rather than supabase-js,
+  // because PostgREST caps *every* response at 1,000 rows regardless of
+  // the range asked for. That cap applied silently here: this shard asked
+  // for RESTAURANTS_PER_SITEMAP rows and got 1,000, so the sitemaps
+  // advertised ~5,000 of the site's ~184,000 restaurant pages — under 3%
+  // — while looking perfectly valid to both Google and a human reading
+  // the XML. It's the same trap documented at the top of src/lib/data.ts
+  // (the one that truncated Tower Hamlets at exactly 1,000 restaurants);
+  // a .range() wider than the cap looks like it should work and doesn't.
+  // A direct query has no such cap. See HANDOFF.md.
+  const { rows } = await getPgPool().query<{ area_slug: string; slug: string }>(
+    `select area_slug, slug
+     from restaurants
+     where is_active = true
+     order by id
+     offset $1
+     limit $2`,
+    [from, RESTAURANTS_PER_SITEMAP]
+  );
 
-  for (const r of data ?? []) {
+  for (const r of rows) {
     entries.push({
       url: `${SITE_URL}/${r.area_slug}/${r.slug}`,
       changeFrequency: "weekly",
