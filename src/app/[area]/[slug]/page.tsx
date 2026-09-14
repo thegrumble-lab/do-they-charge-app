@@ -6,6 +6,8 @@ import { STATUS_META, latestReport } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 import ReportErrorForm from "@/components/ReportErrorForm";
 import SiteFooter from "@/components/SiteFooter";
+import JsonLd from "@/components/JsonLd";
+import { restaurantPageSchema } from "@/lib/schema";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -46,6 +48,7 @@ export default async function RestaurantPage({ params }: Props) {
 
   return (
     <div className="page">
+      <JsonLd data={restaurantPageSchema(r)} />
       <div className="breadcrumb">
         <Link href="/">← Discretionary</Link>
         {" · "}

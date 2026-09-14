@@ -497,6 +497,28 @@ Meanwhile the data that *is* there is decent: of 533 reports, 258 say a charge i
 
 Searching and the status filters are untouched — this only changes what greets someone who hasn't typed anything yet.
 
+## Structured data (Sept 2026)
+
+The site had **no JSON-LD at all** — good `metadata` (Open Graph, Twitter, title templates) but not a line of schema. Now added across the three page types, built in `src/lib/schema.ts` and rendered by `src/components/JsonLd.tsx`.
+
+**Restaurant pages** get a `@graph` of three things: a `Restaurant` (name, address, geo from the FSA lat/lng), a `BreadcrumbList` matching the visible breadcrumbs, and an `FAQPage` carrying the one question the page exists to answer.
+
+**Homepage** gets `Organization`, `WebSite`, and a `Dataset` describing the directory itself — nothing else aggregates UK service-charge policy, so it's worth publishing as data and not only as pages.
+
+**Area pages** get `BreadcrumbList` and an `ItemList`, capped at 50 entries with `numberOfItems` stating the real total, since some areas run to thousands and inlining them all would bloat the HTML for nothing.
+
+Three decisions worth preserving:
+
+**No `Review` or `AggregateRating`, deliberately.** A service-charge report is not a review and carries no rating. Manufacturing a star score from this data to earn a rich result would misrepresent it and is squarely what Google's review-snippet policy exists to catch — a bad trade on a young domain. The site's distinctive fact is instead expressed honestly as `additionalProperty` on the Restaurant: whether a charge is added, the percentage (as a `PropertyValue` with `unitText: "PERCENT"`), and when it was last checked. That's the piece most likely to earn citations from answer engines, which is realistically where a niche factual dataset gets its value.
+
+**`FAQPage` is included knowing it renders nothing.** Google stopped showing FAQ rich results on 7 May 2026, removed Search Console reporting that June, and ended API support in August. The markup is inert for Search — kept anyway as a clean machine-readable statement of the question each page answers, on the bet that answer engines parse it.
+
+**`area` is not mapped to `addressLocality` or `addressRegion`.** The FSA's area field is the local authority ("Dacorum"), which is neither the town nor the county; forcing it into either would be quietly wrong. Street line plus postcode identifies a UK address unambiguously, so that's all the `PostalAddress` claims.
+
+The `<` → `<` escaping in `JsonLd.tsx` is load-bearing, not boilerplate: restaurant names come from the FSA feed and notes are typed by the public, so a name containing `</script>` would otherwise break out of the tag. Verified with a deliberately malicious name.
+
+One caveat recorded at the time: schema is a multiplier on pages that are already indexed, and Search Console was reporting zero discovered pages. The sitemap fix matters far more than any of this in the short term.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.

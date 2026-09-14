@@ -7,6 +7,8 @@ import {
 } from "@/lib/data";
 import SearchDirectory from "@/components/SearchDirectory";
 import SiteFooter from "@/components/SiteFooter";
+import JsonLd from "@/components/JsonLd";
+import { homePageSchema } from "@/lib/schema";
 
 // Re-render at most hourly so the "X restaurants across Y areas" summary
 // stays reasonably fresh without hitting Supabase on every request. This
@@ -30,6 +32,9 @@ export default async function HomePage() {
 
   return (
     <div className="page">
+      <JsonLd
+        data={homePageSchema({ totalCount, areaCount: areas.length })}
+      />
       <div className="masthead">
         <p className="eyebrow">A crowdsourced UK directory</p>
         <p className="tagline-buildup">
