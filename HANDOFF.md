@@ -533,10 +533,13 @@ An earlier note in this file recorded apex-vs-www as settled ("Vercel defaulted 
 
 **Fixed in code**: `alternates.canonical` on the homepage, restaurant pages, area pages, about and privacy. These resolve against `metadataBase` (the apex), so every page now declares an apex canonical regardless of which host served it — which is the durable fix, since it holds even if the www domain stays live.
 
-**Still needs doing outside the code**, and both matter:
+**Also done: `www` now 301s to the apex.** Set in Vercel (Settings → Domains → `www.discretionary.uk` → Redirect to Another Domain → 301 Moved Permanently → `discretionary.uk`). The domains list shows `www.discretionary.uk ↳ 301 → discretionary.uk`, and requesting `www.discretionary.uk/browse/rochford` now lands on the apex with a matching canonical. 301 rather than the default 307, because a temporary redirect doesn't consolidate signals.
 
-1. **Redirect `www` to the apex in Vercel** (Settings → Domains → the www entry → set it to redirect to `discretionary.uk`). The canonical is a hint; a 301 is an instruction, and it stops the duplicate being served at all.
-2. **Add a Domain property in Search Console** (`sc-domain:discretionary.uk`, verified by DNS TXT record at GoDaddy). A domain property covers every subdomain and both protocols, so this class of problem can't hide data from you again. Worth doing whatever happens with the redirect.
+**Still needs doing, and it's the one that actually gets you data:**
+
+**Add a Domain property in Search Console** (`sc-domain:discretionary.uk`, verified by DNS TXT record at GoDaddy). A domain property covers every subdomain and both protocols. Without it, the existing URL-prefix property will only ever show the apex, so you'd be waiting weeks for Google to consolidate before the numbers look right — and this class of problem could hide data again.
+
+**A warning for future entries in this file:** the previous note here asserted apex-vs-www was configured correctly. It wasn't, and nobody checked, so a week was spent assuming a sitemap fault. Record what was *verified*, not what was intended.
 
 Expect consolidation to take a couple of weeks after the redirect lands — Google has to re-crawl and merge the duplicate hosts.
 
