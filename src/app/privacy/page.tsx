@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Privacy",
   description: "What Discretionary collects, why, and for how long.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

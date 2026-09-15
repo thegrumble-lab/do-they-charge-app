@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   getSampleOfReportedRestaurants,
@@ -15,6 +16,19 @@ import { homePageSchema } from "@/lib/schema";
 // window also decides how often the sampled restaurants below change —
 // each regeneration draws a new random handful.
 export const revalidate = 3600;
+
+// Every page on this site is reachable on both discretionary.uk and
+// www.discretionary.uk — both are configured as live domains in Vercel
+// and both return 200 — and until now nothing told Google which was
+// authoritative. It indexed a mixture of the two, which split the site's
+// signals across two hostnames and, because the Search Console property
+// is the URL-prefix https://discretionary.uk/, made every www-indexed
+// page invisible there. Canonicals resolve against `metadataBase` (the
+// apex, see layout.tsx), so they point at the apex whichever host served
+// the request. See HANDOFF.md.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function HomePage() {
   const [sample, areas, totalCount] = await Promise.all([

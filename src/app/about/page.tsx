@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "How Discretionary sources its data, how statuses are researched and cited, and how to flag a correction.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

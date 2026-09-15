@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Restaurants in ${area.area}`,
     description: `Which restaurants in ${area.area} add a discretionary service charge? ${area.count} listed so far.`,
+    // See the comment in src/app/page.tsx: these also serve on www, and
+    // area pages are the ones Google has actually indexed most of.
+    alternates: { canonical: `/browse/${areaSlug}` },
   };
 }
 

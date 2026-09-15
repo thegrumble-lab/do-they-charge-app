@@ -519,6 +519,27 @@ The `<` → `<` escaping in `JsonLd.tsx` is load-bearing, not boilerplate: resta
 
 One caveat recorded at the time: schema is a multiplier on pages that are already indexed, and Search Console was reporting zero discovered pages. The sitemap fix matters far more than any of this in the short term.
 
+## "Nothing's showing in Search Console" — it was indexed all along, on the wrong hostname (Sept 2026)
+
+A week after submitting the site you still had no data in Search Console. The sitemap work wasn't the problem, and neither was indexing.
+
+**The site is indexed.** `site:discretionary.uk` returns ten-plus pages of results — area pages and restaurant pages both. Crawl stats back that up: 680 crawl requests, 100% HTTP 200, 239ms average response, no host problems in 90 days. Google has had no trouble with the site at all.
+
+**The site serves on two hostnames and nothing said which one counts.** Both `discretionary.uk` and `www.discretionary.uk` are configured as live Production domains in Vercel, both return 200 for every path, and the site had **no `rel=canonical` on any page**. Google indexed a mixture of the two — the `site:` results show area pages under both hosts, and `site:www.discretionary.uk` returns its own set.
+
+**That's why Search Console looked empty.** The property is the *URL-prefix* property `https://discretionary.uk/`, and a URL-prefix property reports only on that exact prefix. Every page Google indexed under `www.` therefore reports into a property that doesn't exist. The data wasn't missing, it was filed under a hostname you weren't looking at.
+
+An earlier note in this file recorded apex-vs-www as settled ("Vercel defaulted the apex to redirect to www — flipped that so the bare apex is canonical"). That was the intent, but the live configuration has both domains serving rather than one redirecting, so it never took effect.
+
+**Fixed in code**: `alternates.canonical` on the homepage, restaurant pages, area pages, about and privacy. These resolve against `metadataBase` (the apex), so every page now declares an apex canonical regardless of which host served it — which is the durable fix, since it holds even if the www domain stays live.
+
+**Still needs doing outside the code**, and both matter:
+
+1. **Redirect `www` to the apex in Vercel** (Settings → Domains → the www entry → set it to redirect to `discretionary.uk`). The canonical is a hint; a 301 is an instruction, and it stops the duplicate being served at all.
+2. **Add a Domain property in Search Console** (`sc-domain:discretionary.uk`, verified by DNS TXT record at GoDaddy). A domain property covers every subdomain and both protocols, so this class of problem can't hide data from you again. Worth doing whatever happens with the redirect.
+
+Expect consolidation to take a couple of weeks after the redirect lands — Google has to re-crawl and merge the duplicate hosts.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.

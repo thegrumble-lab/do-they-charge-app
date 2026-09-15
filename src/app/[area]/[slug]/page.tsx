@@ -34,6 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Does ${r.name} add a discretionary service charge?`,
     description: desc,
+    // Pins the apex as authoritative — these pages also serve on
+    // www.discretionary.uk, and Google had indexed a mix of both. See the
+    // comment in src/app/page.tsx and HANDOFF.md.
+    alternates: { canonical: `/${area}/${slug}` },
   };
 }
 
