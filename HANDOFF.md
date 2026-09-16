@@ -543,6 +543,35 @@ An earlier note in this file recorded apex-vs-www as settled ("Vercel defaulted 
 
 Expect consolidation to take a couple of weeks after the redirect lands — Google has to re-crawl and merge the duplicate hosts.
 
+## Towns in restaurant page titles (Sept 2026)
+
+You asked for the location in title tags — "Does The Royal Oak **in Long Bennington** add a discretionary service charge?".
+
+The catch: we don't store the town. `area` is the local authority ("South Kesteven", "Dacorum", and in one case literally "Telford and Wrekin Council"), which is not what a human calls the place, and the FSA `address` is just AddressLine1-4 comma-joined with the town in no fixed position.
+
+Sampling real records showed the pattern is consistent enough to use — the town is the **last address segment, unless the address ends with a county**, in which case it's the one before:
+
+```
+The Royal Oak, 74 Main Road, Long Bennington, Lincolnshire  -> Long Bennington
+The Kings Arms, 147 High Street, Berkhamsted, Hertfordshire -> Berkhamsted
+Southwater Square, Telford, Shropshire                      -> Telford
+147 Deane Road, Bolton                                      -> Bolton
+202 The Balcony, Westfield Stratford City, …, Stratford     -> Stratford
+```
+
+`src/lib/location.ts` implements that: strip any segment repeating the restaurant name, strip trailing counties (a list of ceremonial, historic and postal counties plus the home nations), then take what's left — rejecting anything that reads as a street, unit or building.
+
+**The asymmetry that shaped the rules**, and the thing to hold onto if editing them: a false negative just means a title with no location, which is what we had before. A false positive puts "in Unit 4b" in front of searchers on some fraction of 184,000 pages. So it fails quiet.
+
+Two false positives worth knowing about, caught by testing rather than reading:
+
+- Rejecting `st` as an abbreviation for Street wrote off **every St-town in the country** — St Ives, St Albans, St Helens, St Neots. In a final address segment "St" means Saint far more often than Street, so it's not in the reject list.
+- Rejecting `hill`, `grove`, `gardens` and `park` similarly killed Notting Hill, Ladbroke Grove and friends, which genuinely are the town for their listings. Retail and business parks are caught by `retail`/`business`/`industrial`/`trading` instead — same catch, no collateral damage.
+
+Applied to the page title, the meta description, and the FAQ answer in the schema, since all three are the same human-facing claim about where somewhere is. Deliberately **not** applied to breadcrumbs, area pages or the schema `PostalAddress` — those legitimately describe the local-authority structure the site is organised by.
+
+**One thing to watch:** titles now run 76-89 characters ("Does The Royal Oak in Long Bennington add a discretionary service charge? — Discretionary" is 89), so Google will truncate most of them and the site suffix will rarely show. The location does land inside the visible portion, which is the point, but a shorter template would survive better if that becomes a concern.
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.

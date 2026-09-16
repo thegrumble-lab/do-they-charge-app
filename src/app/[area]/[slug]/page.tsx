@@ -8,6 +8,7 @@ import ReportErrorForm from "@/components/ReportErrorForm";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
+import { placeLabel } from "@/lib/location";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -26,13 +27,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const r = await getRestaurantBySlug(area, slug);
   if (!r) return { title: "Restaurant not found" };
   const latest = latestReport(r);
+  // Prefer the town over the local authority: "Long Bennington" locates a
+  // pub for a human, "South Kesteven" doesn't. Falls back to no location
+  // at all rather than guessing — see src/lib/location.ts.
+  const place = placeLabel(r.address, r.area, r.name);
+  const where = place ? ` in ${place}` : "";
   const desc = latest
-    ? `${r.name} in ${r.area}: ${STATUS_META[latest.status].label.toLowerCase()}${
+    ? `${r.name}${where}: ${STATUS_META[latest.status].label.toLowerCase()}${
         latest.pct ? ` (around ${latest.pct}%)` : ""
       }, based on ${r.reports.length} report${r.reports.length === 1 ? "" : "s"}.`
-    : `No reports yet on whether ${r.name} in ${r.area} adds a discretionary service charge — be the first to say.`;
+    : `No reports yet on whether ${r.name}${where} adds a discretionary service charge — be the first to say.`;
   return {
-    title: `Does ${r.name} add a discretionary service charge?`,
+    title: `Does ${r.name}${where} add a discretionary service charge?`,
     description: desc,
     // Pins the apex as authoritative — these pages also serve on
     // www.discretionary.uk, and Google had indexed a mix of both. See the

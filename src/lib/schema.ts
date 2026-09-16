@@ -1,5 +1,6 @@
 import { SITE_URL } from "./site";
 import { Restaurant, Report, latestReport } from "./types";
+import { placeLabel } from "./location";
 
 /**
  * JSON-LD builders.
@@ -36,7 +37,8 @@ function restaurantUrl(r: Restaurant): string {
 
 /** The question each restaurant page exists to answer. */
 export function restaurantQuestion(r: Restaurant): string {
-  return `Does ${r.name} add a discretionary service charge?`;
+  const place = placeLabel(r.address, r.area, r.name);
+  return `Does ${r.name}${place ? ` in ${place}` : ""} add a discretionary service charge?`;
 }
 
 /**
@@ -45,17 +47,19 @@ export function restaurantQuestion(r: Restaurant): string {
  * report must not read as a confident "no".
  */
 export function restaurantAnswer(r: Restaurant): string {
+  const place = placeLabel(r.address, r.area, r.name);
+  const where = place ? ` in ${place}` : "";
   const latest = latestReport(r);
   if (!latest) {
-    return `No one has reported yet on whether ${r.name} in ${r.area} adds a discretionary service charge. If you've eaten there recently, you can add what you know.`;
+    return `No one has reported yet on whether ${r.name}${where} adds a discretionary service charge. If you've eaten there recently, you can add what you know.`;
   }
 
   const pct = latest.pct !== null ? ` of ${latest.pct}%` : "";
   const head: Record<Report["status"], string> = {
-    charges: `Yes — ${r.name} in ${r.area} adds a discretionary service charge${pct}.`,
-    groups: `Only for larger groups — ${r.name} in ${r.area} adds a discretionary service charge${pct} to bigger tables.`,
-    "no-charge": `No — ${r.name} in ${r.area} does not add a discretionary service charge.`,
-    unclear: `It isn't clear whether ${r.name} in ${r.area} adds a discretionary service charge.`,
+    charges: `Yes — ${r.name}${where} adds a discretionary service charge${pct}.`,
+    groups: `Only for larger groups — ${r.name}${where} adds a discretionary service charge${pct} to bigger tables.`,
+    "no-charge": `No — ${r.name}${where} does not add a discretionary service charge.`,
+    unclear: `It isn't clear whether ${r.name}${where} adds a discretionary service charge.`,
   };
 
   const provenance =
