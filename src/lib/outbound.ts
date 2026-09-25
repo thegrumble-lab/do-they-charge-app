@@ -53,7 +53,15 @@ export function mapLinkUrl(r: Restaurant): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 }
 
-/** Tripadvisor's own search, on the UK site. */
+/**
+ * Tripadvisor's own search, on the UK site.
+ *
+ * This lands on a results page, not a specific restaurant — Tripadvisor
+ * has no equivalent of the Maps deep link that resolves a name and
+ * address to one place. The label in the page says "Find on Tripadvisor"
+ * rather than promising reviews, because a search page is what the reader
+ * gets. If that ever changes, change the label with it.
+ */
 export function tripadvisorUrl(r: Restaurant): string {
   const q = [r.name, whereabouts(r)].filter(Boolean).join(" ");
   return `https://www.tripadvisor.co.uk/Search?q=${encodeURIComponent(q)}`;

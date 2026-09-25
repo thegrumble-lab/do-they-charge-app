@@ -799,6 +799,13 @@ them Google's own result to judge. Since the Google Maps business page
 carries Google's reviews, there is no separate "Reviews on Google" link —
 it would go to the same place.
 
+**Link labels state what the reader actually gets.** The Maps link
+resolves to the business, so "Open in Maps" delivers reviews and hours.
+Tripadvisor has no equivalent deep link, so that one lands on a search
+results page and is labelled "Find on Tripadvisor" rather than promising
+reviews it doesn't go to. Change the label if the destination ever
+changes.
+
 **Store IDs if this is ever revisited.** `place_id`, Tripadvisor's
 `location_id` and Yelp's business ID are each explicitly cacheable
 indefinitely, unlike the ratings attached to them.

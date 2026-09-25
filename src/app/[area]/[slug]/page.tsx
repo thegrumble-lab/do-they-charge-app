@@ -82,7 +82,7 @@ export default async function RestaurantPage({ params }: Props) {
             Open in Maps
           </a>
           <a href={tripadvisorUrl(r)} target="_blank" rel="noopener noreferrer">
-            Reviews on Tripadvisor
+            Find on Tripadvisor
           </a>
         </p>
       </div>
