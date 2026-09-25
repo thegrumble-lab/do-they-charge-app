@@ -608,3 +608,57 @@ npm run dev
 ```
 
 Then open `http://localhost:3000`.
+
+## Maps: auto-loading, and why the pin is a `search` not a `place`
+
+**Verified 25 September 2026** against the live Embed API on
+`https://discretionary.uk/dacorum/the-kings-arms-2`, by swapping the
+iframe's query in-page (the key never left the browser).
+
+Two things changed at once.
+
+**The map now loads with the page.** It used to sit behind a "Show map"
+button so that nothing was requested from Google until a visitor asked.
+That gate is gone. `loading="lazy"` is set, so the frame is fetched only
+when it comes near the viewport — that spares crawlers that never
+scroll, but it is a browser hint, not a guarantee. The consequence to be
+aware of: Google now sets its own cookies and sees the IP of essentially
+every visitor to a restaurant page, and this site has no cookie banner.
+If one ever arrives, `src/components/RestaurantMap.tsx` is the component
+to gate behind it. The component no longer holds state, so it went back
+to being a server component, and the `.map-placeholder` CSS was removed.
+
+**The pin is now labelled with the business.** Where the FSA feed gave us
+coordinates, the embed uses `search` mode with `q` = the business name
+and `center` = the FSA lat/lng.
+
+The tempting alternative was `place` mode with name + address as a text
+query, since the Embed API's `q` accepts a place name or address. It
+works — until the name is a brand. Tested:
+
+| query | result |
+| --- | --- |
+| `Chaiiwala, 147 Deane Road, Bolton, BL3 5AH` | correct, labelled |
+| `The Royal Oak, 74 Main Road, Long Bennington, NG23 5DJ` | correct, labelled |
+| `Zorble Kitchen Ltd, 74 Main Road, Long Bennington, NG23 5DJ` | falls back to the address — safe |
+| `Costa Coffee, 147 Deane Road, Bolton, BL3 5AH` | **wrong** — a different Costa 1.5km away in Bolton town centre |
+
+The last row is the one that rules `place` mode out as the primary. The
+brand name beat the address, and across ~184,000 pages — many of them
+chains — that means confidently showing the wrong branch on a page named
+after a specific business. A wrong map is worse than an anonymous one.
+
+`search` mode cannot do that, because the viewport is fixed by `center`.
+Verified by pointing a deliberately wrong query (`Costa Coffee`) at the
+Berkhamsted coordinates: the viewport did not move, and no false pin
+appeared. So a bad name match degrades to "right place, no label"
+instead of "wrong place, labelled". `place` mode survives only as the
+fallback for records with no coordinates, where there is nothing better.
+
+**Street View and reviews are not available here.** The question that
+started this was whether matching a real business would unlock them. It
+doesn't: neither embed mode renders a business card, Street View or
+reviews inside the frame. Those need the Places API or the Maps
+JavaScript API, both billed per load — which at this page count is
+exactly the four-figure surprise `src/lib/maps.ts` warns about. Not
+worth revisiting unless the page count or the billing model changes.
