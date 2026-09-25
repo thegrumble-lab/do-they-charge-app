@@ -49,8 +49,36 @@ function whereabouts(r: Restaurant): string {
  * query wins here and lost there.
  */
 export function mapLinkUrl(r: Restaurant): string {
-  const q = [r.name, r.address, r.postcode].filter(Boolean).join(", ");
+  const q = [...nameAndAddress(r), r.postcode].filter(Boolean).join(", ");
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+}
+
+/**
+ * The name and address, without saying the name twice.
+ *
+ * FSA address lines very often lead with the business name already, so
+ * naively joining the two produces "The Kings Arms, The Kings Arms, 147
+ * High Street, …". Compared case-insensitively, since the feed's casing
+ * is not consistent.
+ *
+ * The match has to end on a word boundary: a bare startsWith would treat
+ * "The Oak" as the opening of "The Oakwood Cafe" and drop the real name
+ * from the query. Requiring the next character to be a separator keeps
+ * those distinct.
+ */
+function nameAndAddress(r: Restaurant): string[] {
+  const name = (r.name ?? "").trim();
+  const address = (r.address ?? "").trim();
+  if (!name) return [address];
+
+  const lowerName = name.toLowerCase();
+  const lowerAddress = address.toLowerCase();
+  const addressLeadsWithName =
+    lowerAddress.startsWith(lowerName) &&
+    (address.length === name.length ||
+      /[^a-z0-9]/.test(lowerAddress.charAt(name.length)));
+
+  return addressLeadsWithName ? [address] : [name, address];
 }
 
 /**

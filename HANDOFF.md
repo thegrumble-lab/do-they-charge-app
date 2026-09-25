@@ -806,6 +806,13 @@ results page and is labelled "Find on Tripadvisor" rather than promising
 reviews it doesn't go to. Change the label if the destination ever
 changes.
 
+**The query says the name once.** FSA address lines very often lead with
+the business name, so joining name and address naively produced "The
+Kings Arms, The Kings Arms, 147 High Street, …". `nameAndAddress()` in
+`src/lib/outbound.ts` drops the separate name when the address already
+opens with it — matching on a word boundary, so "The Oak" isn't treated
+as the start of "The Oakwood Cafe".
+
 **Store IDs if this is ever revisited.** `place_id`, Tripadvisor's
 `location_id` and Yelp's business ID are each explicitly cacheable
 indefinitely, unlike the ratings attached to them.
