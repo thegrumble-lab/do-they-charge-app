@@ -956,3 +956,77 @@ re-verify if anyone revisits these pages:
 
 If a guide's facts go stale, update `updated` on it — that field is both
 the visible "last updated" line and `dateModified` in the Article schema.
+
+## Chain policies: second research pass
+
+**25 September 2026.** `src/lib/chain-policies.ts` went from 5 chains to 21.
+Sixteen added: Las Iguanas, Honest Burgers, Dishoom, Giggling Squid,
+Wildwood, Rosa's Thai, Banana Tree, The Ivy Collection, Browns Bar &
+Brasserie, All Bar One, Cosy Club, Cote, Gourmet Burger Kitchen, Pizza
+Express, Zizzi and ASK Italian.
+
+Every one cites the chain's own site, menu PDF, FAQ or booking terms. The
+sync applies them only to active listings with **zero** existing reports,
+so nothing here can overwrite a diner.
+
+**The finding that limits this approach: FHRS lists pubs under their own
+names.** The biggest estates in UK hospitality are pub companies, and
+their FHRS entries read "The Grey Hound" or "The Ship Tavern", not the
+brand — so keyword matching cannot reach them however good the source is.
+That rules out, despite all of them publishing a usable policy:
+
+- **Vintage Inns** — discretionary 10% on tables of 8 or more
+  (vintageinn.co.uk pub booking pages, confirmed on two separate pubs).
+- **Nicholson's** — discretionary 10%, but their own sources disagree on
+  scope: the T&Cs say parties of 6 or more, the menus say "where table
+  service is offered … may be added".
+- **Young's** — discretionary 12.5% on parties of 4 or more, sourced only
+  from their Christmas booking terms.
+- **Fuller's** — "a discretionary 12.5% service charge will normally be
+  applied to your bill", also from Christmas booking terms.
+
+Reaching these needs a branch-address list per brand rather than a
+keyword, which is a bigger piece of work and a separate decision.
+
+**Checked and genuinely NOT FOUND** — no statement on their own property
+about whether a charge is applied. Recorded so nobody repeats the search:
+JD Wetherspoon (FAQ hub, app T&Cs and a current menu PDF all silent — the
+widely repeated "Wetherspoons never adds one" is third-party only),
+Greene King and Hungry Horse, Harvester, Toby Carvery, Ember Inns,
+Sizzling Pubs, O'Neill's, Stonehouse, Castle, Premium Country Pubs,
+Whitbread's Beefeater/Brewers Fayre/Table Table, Marston's, Stonegate's
+Slug & Lettuce/Be At One/Craft Union/Proper Pubs, Lounge (as distinct
+from Cosy Club), Bella Italia, Cafe Rouge, Wagamama, Nando's, Byron and
+Pizza Hut Restaurants.
+
+**Tronc pages are the trap.** "100% of tips go to our teams" says nothing
+about whether a charge is added to bills, and Bella Italia, Cafe Rouge,
+Wagamama and Big Table Group all publish exactly that. Every one of them
+was rejected on those grounds. Any future pass should apply the same bar.
+
+**Matching notes**, because several of these names are dangerous as bare
+substrings, and there are unit-style checks for all of them in the test
+described below:
+
+- "Browns" needs "brasserie" alongside it, or it matches every Browns Cafe
+  in the country.
+- The Ivy Collection matches a name *starting* "the ivy" and excludes The
+  Ivy House / Leaf / Cottage / Tavern / Arms — all common pub names.
+- Cote matches on a word boundary and via accent folding, so "Côte" and
+  "Cote Brasserie" match but "Cotes Cafe" and "The Cotswold Arms" do not.
+- Wildwood must start the name, so "The Wildwood Cafe" is skipped.
+- GBK matches on a word boundary, so "Gbkitchen" is skipped.
+- Banana Tree resolves 12.5% at their nine named London sites and 10%
+  elsewhere, from their own per-site policy.
+
+**Two entries are deliberately hedged.** GBK is recorded as `unclear`,
+because "may be levied … check in restaurant" does not confirm a charge on
+every bill. Cote carries no percentage, because their own policy page
+describes the charge both as one you leave and one that can be removed.
+Following the standing rule: where a chain's own sources are genuinely
+inconsistent, say so rather than pick.
+
+**Before a real sync run**, do a dry run and read the "researched reports
+would be added" count in the job summary. A number far larger than
+expected means a keyword is over-matching, and the fix is the matcher, not
+the data.
