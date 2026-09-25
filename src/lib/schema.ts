@@ -1,6 +1,7 @@
 import { SITE_URL } from "./site";
 import { Restaurant, Report, latestReport, hygieneRating } from "./types";
 import { placeLabel } from "./location";
+import type { Guide } from "@/content/guides/types";
 
 /**
  * JSON-LD builders.
@@ -303,6 +304,97 @@ export function areaPageSchema({
           name: r.name,
           url: restaurantUrl(r),
         })),
+      },
+    ],
+  };
+}
+
+/**
+ * A single /guides page: Article + FAQPage + BreadcrumbList.
+ *
+ * The FAQPage entries come from the same `faqs` array the page renders, so
+ * the markup can never describe content a reader can't see — which is what
+ * Google's structured data policy requires, and the reason the guide type
+ * has one array rather than separate copy and schema.
+ *
+ * As everywhere else on this site, there is no aggregateRating and no
+ * Review. These are explanatory pages; nothing here is rated.
+ */
+export function guideSchema(guide: Guide) {
+  const url = `${SITE_URL}/guides/${guide.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: guide.title,
+        description: guide.description,
+        url,
+        dateModified: guide.updated,
+        inLanguage: "en-GB",
+        isAccessibleForFree: true,
+        publisher: { "@id": ORG_ID },
+        mainEntityOfPage: url,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: guide.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Guides",
+            item: `${SITE_URL}/guides`,
+          },
+          { "@type": "ListItem", position: 3, name: guide.h1, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+/** The /guides index: a plain ItemList of the guides, in page order. */
+export function guidesIndexSchema(guides: Guide[]) {
+  const url = `${SITE_URL}/guides`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#page`,
+        name: "How service charges work",
+        url,
+        publisher: { "@id": ORG_ID },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#list`,
+        numberOfItems: guides.length,
+        itemListElement: guides.map((g, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: g.h1,
+          url: `${SITE_URL}/guides/${g.slug}`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Guides", item: url },
+        ],
       },
     ],
   };

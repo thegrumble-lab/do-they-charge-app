@@ -74,6 +74,15 @@ export default async function HomePage() {
       </main>
 
       <section className="ticket" style={{ marginTop: 24 }}>
+        <h2 className="h2">How service charges work</h2>
+        <p className="small-print" style={{ marginTop: 0 }}>
+          Whether you can decline one, what the law requires a restaurant to
+          tell you, and where the money ends up —{" "}
+          <Link href="/guides">read the guides</Link>.
+        </p>
+      </section>
+
+      <section className="ticket" style={{ marginTop: 24 }}>
         <h2 className="h2">Browse by area</h2>
         <p className="small-print" style={{ marginTop: 0 }}>
           {totalCount.toLocaleString()} restaurants, cafés and pubs across{" "}

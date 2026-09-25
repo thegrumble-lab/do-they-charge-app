@@ -41,6 +41,7 @@ export default function SiteFooter() {
         wrong? <Link href="/about#correct-a-listing">Let us know</Link>.
       </p>
       <p>
+        <Link href="/guides">Guides</Link> ·{" "}
         <Link href="/about">About</Link> · <Link href="/privacy">Privacy</Link>
       </p>
     </footer>

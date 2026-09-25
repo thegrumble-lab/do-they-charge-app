@@ -889,3 +889,70 @@ the page from showing three tables at once.
 Note that the lists render server-side despite the client component, so
 the A-Z is still in the HTML for crawlers and for anyone with JavaScript
 off — only the filtering needs JS.
+
+## /guides — the editorial cluster
+
+**Added 25 September 2026.** Seven pages at `/guides/<slug>`, plus an index
+at `/guides`. Built because the directory answers "does this restaurant add
+one" and nothing on the site answered "can I refuse it".
+
+**How they're stored.** One TSX file per guide in `src/content/guides/`,
+each exporting a typed `Guide` object, registered in
+`src/content/guides/index.ts`. Not MDX, not a CMS: there are seven, they
+change rarely, and TSX means they use the site's own components and get
+type-checked in CI. Adding one means adding a file and an entry in the
+registry — the routes, the index page, the sitemap and the "more guides"
+block all read from it.
+
+They are fully static (`dynamicParams = false` plus
+`generateStaticParams`), so they hit no database and an unknown slug 404s.
+
+**`faqs` feeds both the page and the schema.** One array renders the
+"Common questions" block and populates FAQPage structured data. That is
+deliberate: Google's structured data policy requires marked-up content to
+be visible to the reader, so there is no way for the two to drift.
+`guideSchema()` also emits Article and BreadcrumbList. As everywhere else
+on this site, no `aggregateRating` and no `Review`.
+
+**Editorial standard, which matters more than the code.** These make legal
+and tax claims about UK consumer rights on a public site. Everything was
+researched from primary sources (legislation.gov.uk, HMRC manuals, CMA
+guidance, gov.uk) and then adversarially fact-checked, which caught real
+errors before publication — among them:
+
+- HMRC's test for a voluntary charge is about how clearly it is
+  *presented*, not economic substance. HMRC says expressly that customers
+  rarely refusing a charge "does not affect the true nature of the
+  payment". An earlier draft had this backwards.
+- The menu-contract reasoning is a VAT tribunal proposition
+  (*James Dominic Joyce*) reported in HMRC's manual, conditional on the
+  menu stating service is optional — not a free-standing rule of consumer
+  contract law.
+- NIM02915 is a National Insurance manual. It can be cited for HMRC
+  proceeding on the basis that a compulsory charge is payable; it is not
+  authority on a consumer's contractual liability, and says nothing about
+  disclosure timing.
+- A compulsory charge follows *the liability of the underlying supply* —
+  standard-rated for a restaurant meal, but not universally.
+- The VAT distinction does not change the diner's arithmetic. Consumer
+  prices include tax either way; what changes is the restaurant's
+  accounting.
+- SI 2003/2253 is a Great Britain instrument; Northern Ireland has its own
+  2004 order. The "before entering" rule attaches to an eating area
+  specifically.
+
+**Two things still need a direct check** and are the first thing to
+re-verify if anyone revisits these pages:
+
+1. **ERA 2025 s.14 is described as not yet in force.** That is a negative
+   claim about commencement, supported by the still-open August 2026
+   consultation and secondary trackers, but legislation.gov.uk would not
+   serve the four commencement SIs (2026/3, 2026/323, 2026/373, 2026/559)
+   during research. Confirm against their "Provisions brought into force"
+   tables.
+2. **SI 2003/2253's current status.** Only the as-made version was
+   readable. Check for amendments or revocation before relying on the
+   wording.
+
+If a guide's facts go stale, update `updated` on it — that field is both
+the visible "last updated" line and `dateModified` in the Article schema.

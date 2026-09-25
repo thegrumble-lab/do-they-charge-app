@@ -436,6 +436,81 @@ a:focus-visible {
   border-top: 1px dashed var(--rule);
 }
 
+/* Guides — the editorial pages under /guides. `.prose` is the only place
+   on the site with running body copy, so paragraph rhythm is set here
+   rather than globally, where it would fight the table and entry layouts. */
+.prose p {
+  margin: 0 0 14px;
+  line-height: 1.65;
+}
+
+.prose ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.prose li {
+  margin-bottom: 8px;
+}
+
+.prose .h2 {
+  margin-top: 26px;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.faq-item + .faq-item {
+  margin-top: 16px;
+}
+
+.faq-q {
+  font-size: 1rem;
+  margin: 0 0 4px;
+}
+
+.faq-a {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.guide-list {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-card {
+  display: block;
+  padding: 14px 16px;
+  border: 1.5px solid var(--rule);
+  border-radius: 2px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.guide-card:hover {
+  border-color: var(--accent);
+}
+
+.guide-card-title {
+  display: block;
+  font-family: "Big Shoulders Stencil Display", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.guide-card-desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
 /* A button that reads as a link — used for inline actions (flag an entry,
    dismiss, sign out) where a full .submit-btn would shout. */
 .linkish {
