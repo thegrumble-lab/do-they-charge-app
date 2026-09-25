@@ -44,11 +44,15 @@ interface DbRestaurant {
   lat: string | null;
   lng: string | null;
   is_active: boolean;
+  hygiene_rating?: string | null;
+  hygiene_rating_date?: string | null;
+  hygiene_scheme?: string | null;
   reports?: DbReport[];
 }
 
 const RESTAURANT_COLUMNS =
-  "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng, is_active";
+  "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng, is_active, " +
+  "hygiene_rating, hygiene_rating_date, hygiene_scheme";
 const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, source_url, report_date, created_at)`;
 
 function toRestaurant(row: DbRestaurant): Restaurant {
@@ -83,6 +87,9 @@ function toRestaurant(row: DbRestaurant): Restaurant {
     lng: row.lng,
     fhrsid: row.fhrsid ?? "",
     isActive: row.is_active,
+    hygieneRating: row.hygiene_rating ?? null,
+    hygieneRatingDate: row.hygiene_rating_date ?? null,
+    hygieneScheme: row.hygiene_scheme ?? null,
     reports,
   };
 }
@@ -247,6 +254,7 @@ export async function searchRestaurants(
     select
       r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
       r.postcode, r.lat, r.lng, r.is_active,
+      r.hygiene_rating, r.hygiene_rating_date, r.hygiene_scheme,
       coalesce(
         (
           select json_agg(json_build_object(
@@ -304,6 +312,7 @@ export async function getSampleOfReportedRestaurants(
      )
      select r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
             r.postcode, r.lat, r.lng, r.is_active,
+            r.hygiene_rating, r.hygiene_rating_date, r.hygiene_scheme,
             coalesce(
               (select json_agg(json_build_object(
                  'id', rep.id, 'status', rep.status, 'pct', rep.pct,
@@ -561,6 +570,7 @@ export async function adminFindRestaurants(
   const { rows } = await getPgPool().query<DbRestaurant>(
     `select r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
             r.postcode, r.lat, r.lng, r.is_active,
+            r.hygiene_rating, r.hygiene_rating_date, r.hygiene_scheme,
             coalesce(
               (select json_agg(json_build_object(
                  'id', rep.id, 'status', rep.status, 'pct', rep.pct,

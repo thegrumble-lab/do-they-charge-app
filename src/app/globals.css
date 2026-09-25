@@ -387,19 +387,45 @@ a:focus-visible {
   border-radius: 2px;
 }
 
-/* The "Open in Maps" link beside a restaurant's address. Set apart from
-   the address itself so it reads as an action rather than part of the
-   street line. There is no map on the page by design — see
-   src/lib/maps.ts. */
-.map-link {
-  white-space: nowrap;
+/* Outbound links under a restaurant's address — maps and review sites.
+   Links rather than embedded scores, deliberately: see src/lib/outbound.ts
+   for why no review platform's terms allow the numbers on a cached page. */
+.outbound {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
-.map-link::before {
+.outbound a + a::before {
   content: "·";
-  margin-right: 6px;
+  margin: 0 8px;
+  color: var(--ink-soft);
   text-decoration: none;
   display: inline-block;
+}
+
+/* Food hygiene rating. FSA inspection data, not a customer review — the
+   label says so plainly so the two are never confused. */
+.hygiene {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+
+.hygiene-label {
+  display: block;
+  font-family: "Big Shoulders Stencil Display", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.hygiene-value {
+  display: block;
+  font-size: 1.15rem;
+  margin-top: 2px;
 }
 
 /* A button that reads as a link — used for inline actions (flag an entry,

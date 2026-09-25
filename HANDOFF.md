@@ -755,3 +755,66 @@ made to scroll past a picture to reach it.
 
 If a map is ever wanted again, read all three of these sections first —
 particularly the consent point, which is what killed the iframe.
+
+## Review scores, and why the page links out instead
+
+**Researched 25 September 2026.** The restaurant page now carries three
+outbound links under the address — Open in Maps, Reviews on Google,
+Tripadvisor — and no review scores. That is not a stopgap; it is the
+conclusion.
+
+Every major review source forbids storing the rating, and a page rendered
+by ISR is storage:
+
+| Source | Cost for one pass over ~184k | The blocker |
+| --- | --- | --- |
+| Google Places (New) | ~$3,660 (rating is an Enterprise-tier field at $20/1,000) | Caching permitted for lat/long (30 days) and `place_id` (indefinitely). Rating values: not at all. Also requires the Google Maps logo, and forbids showing Google content alongside a non-Google map. |
+| Tripadvisor Content API | 5,000 calls/month free; price beyond that is not published | "No caching, storing or indexing" of anything but `location_id`. Mandatory bubble graphics and a 20px logo. |
+| Yelp Fusion | $229/month floor, ~$33k/month at one refresh a day | 24-hour cache ceiling. Yelp-branded stars mandatory. UK depth unverified. |
+| Foursquare | ~$3,450 | Its "rating" is a 0-10 score derived from tips and visit data, not a review average. Presenting it as one would mislead. Systematic querying of a whole region is prohibited. |
+
+Compliant use of Google's rating means fetching it live on every page
+view, outside the cache, with unbounded per-view cost. That is the only
+open door, and it isn't one to walk through.
+
+**There is no SEO case either.** Google's review-snippet guidance says
+"Don't aggregate reviews or ratings from other websites", with manual
+action as the consequence — so third-party stars could only ever be a UX
+feature. `src/lib/schema.ts` still emits no `aggregateRating` of any kind,
+and shouldn't start.
+
+**Store IDs if this is ever revisited.** `place_id`, Tripadvisor's
+`location_id` and Yelp's business ID are each explicitly cacheable
+indefinitely, unlike the ratings attached to them.
+
+## Food hygiene rating
+
+**Added 25 September 2026** — the one rating the site can legitimately
+hold. FSA inspection data is published under the Open Government Licence,
+so it can be stored, republished and cached, and the feed is already
+being downloaded weekly.
+
+- **Migration: `migrations/2026-09-25-hygiene-rating.sql`. Run it BEFORE
+  deploying.** Every restaurant query selects the three new columns, so a
+  deploy that lands first will 500 on every restaurant, area and search
+  page.
+- `hygiene_rating` is **text**, not an integer. FHRS (England, Wales, NI)
+  publishes "0".."5"; FHIS (Scotland) publishes "Pass" / "Improvement
+  Required"; either can say "AwaitingInspection" or "Exempt".
+  `hygieneRating()` in `src/lib/types.ts` is the only place that decides
+  what those mean, and returns null for anything not worth rendering.
+- `sync-fhrs.ts` reads `RatingValue`, `RatingDate` and `SchemeType` with
+  the same defensive `pick()` used for lat/lng, and **logs how many
+  in-scope rows carried a rating**. If that count is ever 0 against a
+  non-empty feed, a column has been renamed — fix `pick()` rather than
+  shipping a silent column of nulls. Check it on the dry run.
+- Rating dates are normalised to `YYYY-MM-DD` or null, because one
+  malformed date would fail its whole 500-row batch.
+- It renders as a labelled block under the service-charge entry, worded so
+  it can't be mistaken for a customer review, and attributes the FSA — a
+  condition of the licence.
+- In structured data it is a plain `PropertyValue`, alongside the
+  service-charge facts. Not `aggregateRating`: an inspection score is not
+  a review, and the guidance above applies regardless.
+- Values appear on the next sync run. Until then every row is null and
+  pages render exactly as before.

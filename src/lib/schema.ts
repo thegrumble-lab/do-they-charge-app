@@ -1,5 +1,5 @@
 import { SITE_URL } from "./site";
-import { Restaurant, Report, latestReport } from "./types";
+import { Restaurant, Report, latestReport, hygieneRating } from "./types";
 import { placeLabel } from "./location";
 
 /**
@@ -141,8 +141,24 @@ export function restaurantPageSchema(r: Restaurant): object {
     }
   }
 
-  const properties = chargeProperties(r);
-  if (properties) restaurant.additionalProperty = properties;
+  const properties: Record<string, unknown>[] = chargeProperties(r) ?? [];
+
+  // The FSA hygiene rating goes in as a plain PropertyValue, same as the
+  // service-charge facts. Deliberately NOT aggregateRating: an inspection
+  // score is not a customer review, and Google's review-snippet guidance
+  // rules out marking up ratings sourced from elsewhere regardless. This
+  // is a statement of fact about the business, not a bid for stars.
+  const hygiene = hygieneRating(r);
+  if (hygiene) {
+    properties.push({
+      "@type": "PropertyValue",
+      name: "Food hygiene rating",
+      value: hygiene.label,
+      ...(hygiene.score !== null ? { maxValue: 5, minValue: 0 } : {}),
+    });
+  }
+
+  if (properties.length > 0) restaurant.additionalProperty = properties;
 
   return {
     "@context": "https://schema.org",

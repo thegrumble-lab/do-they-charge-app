@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
-import { STATUS_META, latestReport } from "@/lib/types";
+import { STATUS_META, latestReport, hygieneRating } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 import ReportErrorForm from "@/components/ReportErrorForm";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
 import { placeLabel } from "@/lib/location";
-import { mapLinkUrl } from "@/lib/maps";
+import { mapLinkUrl, googleReviewsUrl, tripadvisorUrl } from "@/lib/outbound";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -56,6 +56,10 @@ export default async function RestaurantPage({ params }: Props) {
   const latest = latestReport(r);
   const meta = latest ? STATUS_META[latest.status] : null;
   const history = r.reports.slice(0, -1).reverse();
+  // FSA inspection data, under the Open Government Licence — the one
+  // rating source that can be stored and republished. null when the
+  // listing is awaiting inspection, exempt, or predates the field.
+  const hygiene = hygieneRating(r);
 
   return (
     <div className="page">
@@ -72,14 +76,16 @@ export default async function RestaurantPage({ params }: Props) {
         <p className="subhead">
           {r.address ? `${r.address}, ` : ""}
           {r.postcode}
-          {" "}
-          <a
-            className="map-link"
-            href={mapLinkUrl(r)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        </p>
+        <p className="outbound">
+          <a href={mapLinkUrl(r)} target="_blank" rel="noopener noreferrer">
             Open in Maps
+          </a>
+          <a href={googleReviewsUrl(r)} target="_blank" rel="noopener noreferrer">
+            Reviews on Google
+          </a>
+          <a href={tripadvisorUrl(r)} target="_blank" rel="noopener noreferrer">
+            Tripadvisor
           </a>
         </p>
       </div>
@@ -165,6 +171,24 @@ export default async function RestaurantPage({ params }: Props) {
             </div>
           )}
         </div>
+
+        {hygiene && (
+          <div className="hygiene">
+            <span className="hygiene-label">Food hygiene rating</span>
+            <span className="hygiene-value">{hygiene.label}</span>
+            <span className="small-print">
+              {hygiene.date ? `Rated ${hygiene.date} · ` : ""}
+              <a
+                href="https://ratings.food.gov.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Food Standards Agency
+              </a>
+              , under the Open Government Licence
+            </span>
+          </div>
+        )}
 
         <div className="tear">
           <span className="tear-label">Tear here — add your own</span>

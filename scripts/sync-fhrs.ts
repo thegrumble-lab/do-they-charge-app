@@ -203,6 +203,18 @@ async function currentActiveCount(): Promise<number> {
   return count ?? 0;
 }
 
+/**
+ * The feed's RatingDate is an ISO date, but empty strings and the odd
+ * placeholder do appear. Postgres rejects those on a date column and one
+ * bad row would fail its whole 500-row batch, so anything that isn't a
+ * plain YYYY-MM-DD becomes null.
+ */
+function normaliseRatingDate(v: string | null): string | null {
+  if (!v) return null;
+  const m = v.trim().match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : null;
+}
+
 function chunk<T>(arr: T[], size: number): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
@@ -220,6 +232,9 @@ interface FeedRow {
   address: string;
   lat: string | null;
   lng: string | null;
+  hygieneRating: string | null;
+  hygieneRatingDate: string | null;
+  hygieneScheme: string | null;
 }
 
 async function downloadAndFilter(): Promise<FeedRow[]> {
@@ -275,10 +290,25 @@ async function downloadAndFilter(): Promise<FeedRow[]> {
       address: buildAddress(record),
       lat: lat ?? null,
       lng: lng ?? null,
+      // Read defensively, same as lat/lng: the feed's header casing has
+      // moved before. Anything unrecognised lands as null and the page
+      // simply shows no hygiene rating.
+      hygieneRating: pick(record, "RatingValue", "ratingvalue", "Rating Value") ?? null,
+      hygieneRatingDate:
+        pick(record, "RatingDate", "ratingdate", "Rating Date") ?? null,
+      hygieneScheme: pick(record, "SchemeType", "schemetype", "Scheme Type") ?? null,
     });
   }
 
+  // This count is the check that the RatingValue column is still named
+  // what we think it is. If it ever reads 0 against a non-empty feed, the
+  // header has moved and pick() needs another spelling — don't ship a
+  // silent column of nulls.
+  const withRating = rows.filter((r) => r.hygieneRating).length;
   console.log(`Parsed ${totalRows} total rows from the feed.`);
+  console.log(
+    `Hygiene rating present on ${withRating} of ${rows.length} in-scope rows.`
+  );
   console.log(
     `Matched ${rows.length} rows in scope (BusinessTypeID ${[...ALLOWED_BUSINESS_TYPE_IDS].join(
       ", "
@@ -410,6 +440,9 @@ async function main() {
     postcode: string;
     lat: string | null;
     lng: string | null;
+    hygiene_rating: string | null;
+    hygiene_rating_date: string | null;
+    hygiene_scheme: string | null;
     is_active: true;
     removed_at: null;
   }
@@ -444,6 +477,9 @@ async function main() {
       postcode: row.postcode,
       lat: row.lat,
       lng: row.lng,
+      hygiene_rating: row.hygieneRating,
+      hygiene_rating_date: normaliseRatingDate(row.hygieneRatingDate),
+      hygiene_scheme: row.hygieneScheme,
       is_active: true,
       removed_at: null,
     });
