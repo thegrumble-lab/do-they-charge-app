@@ -9,7 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
 import { placeLabel } from "@/lib/location";
-import { mapEmbedUrl, mapLinkUrl } from "@/lib/maps";
+import { mapMosaic, mapLinkUrl } from "@/lib/maps";
 import RestaurantMap from "@/components/RestaurantMap";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
@@ -57,9 +57,9 @@ export default async function RestaurantPage({ params }: Props) {
   const latest = latestReport(r);
   const meta = latest ? STATUS_META[latest.status] : null;
   const history = r.reports.slice(0, -1).reverse();
-  // null when GOOGLE_MAPS_EMBED_KEY isn't set, in which case the page
-  // simply renders without a map.
-  const embedUrl = mapEmbedUrl(r);
+  // null when the FSA record has no usable coordinates, in which case the
+  // page simply renders without a map.
+  const mosaic = mapMosaic(r);
 
   return (
     <div className="page">
@@ -161,9 +161,9 @@ export default async function RestaurantPage({ params }: Props) {
           )}
         </div>
 
-        {embedUrl && (
+        {mosaic && (
           <RestaurantMap
-            embedUrl={embedUrl}
+            mosaic={mosaic}
             linkUrl={mapLinkUrl(r)}
             name={r.name}
           />

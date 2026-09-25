@@ -662,3 +662,65 @@ reviews inside the frame. Those need the Places API or the Maps
 JavaScript API, both billed per load — which at this page count is
 exactly the four-figure surprise `src/lib/maps.ts` warns about. Not
 worth revisiting unless the page count or the billing model changes.
+
+## Maps, take two: off Google, onto plain OSM tiles
+
+**Changed 25 September 2026**, the same day the auto-load change above
+shipped — and it supersedes the Google Maps embed entirely. Read the
+section above for the embed-mode testing, which is still the record of
+why a text query is a bad way to locate a business; everything else in it
+is history now.
+
+**Why.** Auto-loading the Google iframe meant Google set cookies and
+received the IP of every visitor to a restaurant page, before any
+interaction. Under UK PECR a map isn't "strictly necessary", so that
+needs consent, which needs a banner. The click-to-load button had been
+standing in for the banner. Rather than build consent infrastructure for
+a site that deliberately has none, the map was rebuilt so there is
+nothing to consent to.
+
+**What it is now.** `src/lib/maps.ts` does the slippy-map projection
+itself and returns a mosaic of tile URLs plus the exact pixel offset of
+the restaurant inside that mosaic.
+`src/components/RestaurantMap.tsx` lays the tiles out as plain `<img>`
+elements inside a `overflow: hidden` frame, shifted by that offset so the
+restaurant lands at dead centre, with our own marker on top.
+
+Consequences that are easy to miss:
+
+- **No iframe, no third-party script, no cookies.** There is nothing to
+  ask permission for, so the map loads with the page.
+- **No JavaScript at all.** It's a server component; the mosaic is in the
+  HTML and renders with scripting off. It doesn't pan or zoom — the
+  "Open in Maps" link covers that.
+- **No key in the page source.** Stadia authenticates by allowlisted
+  domain (Origin/Referer). `MAP_TILE_KEY` exists only for local dev.
+- **The marker is ours**, drawn at the FSA coordinates, so it cannot
+  label the wrong business the way a Google place query could.
+- **`next/image` is deliberately not used** — it would route every tile
+  through Vercel's image optimiser, which bills per transformation. The
+  eslint rule is suppressed inline with that reasoning.
+
+**Tile budget.** 6-9 tiles per page view (the grid is the smallest that
+covers the frame; `HALF_WIDTH`/`HALF_HEIGHT` in `maps.ts` set that, and
+widening them costs requests). Stadia's free tier is 200,000 tiles a
+month, so roughly 25,000 map views. Free tier is non-commercial; the
+Starter plan is $20/month.
+
+**`MAP_TILES_ENABLED` must be `1` for any map to render.** Verified 25
+September: an unauthenticated tile request returns a valid 512×512 PNG
+that reads "401 Error — Invalid Authentication", so a deployment whose
+domain isn't registered with Stadia would fill every restaurant page with
+error tiles rather than fail quietly. The flag is what prevents that.
+Register `discretionary.uk` **and** `www.discretionary.uk` before setting
+it. The URL template and the `stamen_toner_lite` slug were confirmed
+correct by that same request.
+
+**Attribution is a licence condition**, not decoration. It renders under
+every map and names OpenStreetMap, Stadia Maps, Stamen Design and
+OpenMapTiles. Restyle it if you like; removing it breaches the terms.
+
+**`GOOGLE_MAPS_EMBED_KEY` is now unused** and has been dropped from
+`.env.local.example`. Remove it from Vercel, and delete the key itself in
+Google Cloud Console — it lives on a Dark Horse account that won't be
+available after October.
