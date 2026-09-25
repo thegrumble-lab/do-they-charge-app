@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantsByArea, getAreas } from "@/lib/data";
-import RestaurantsTable from "@/components/RestaurantsTable";
+import AreaDirectory from "@/components/AreaDirectory";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { areaPageSchema } from "@/lib/schema";
@@ -58,7 +58,7 @@ export default async function AreaPage({ params }: Props) {
         <p className="subhead">{restaurants.length} restaurants listed.</p>
       </div>
       <main className="ticket">
-        <RestaurantsTable restaurants={restaurants} />
+        <AreaDirectory restaurants={restaurants} area={area.area} />
       </main>
       <SiteFooter />
     </div>

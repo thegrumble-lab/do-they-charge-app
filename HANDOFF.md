@@ -848,3 +848,44 @@ being downloaded weekly.
   a review, and the guidance above applies regardless.
 - Values appear on the next sync run. Until then every row is null and
   pages render exactly as before.
+
+## Area pages: search, Latest reports, A-Z
+
+**25 September 2026.** `/browse/[areaSlug]` now carries a search bar and
+two lists instead of one bare table. `src/components/AreaDirectory.tsx`
+holds the lot.
+
+**The search is local, and deliberately not the homepage's.**
+`SearchDirectory` on the homepage debounces and calls `/api/search`
+because it searches 184,000 rows it doesn't have. An area page already
+loads every restaurant in the area to render the A-Z, so filtering that
+array in the browser is free and instant — no round trip, no debounce, no
+loading state. It matches name, postcode and address, and the status chips
+work the same way.
+
+The trade-off: a search here can only find places in this area. That is
+the right behaviour on a page about one area, and the placeholder says
+"Search in <area>" so nobody expects otherwise. To search the whole
+directory from here instead, call `/api/search` the way `SearchDirectory`
+does.
+
+**"Latest reports"** is the ten most recently reported places in the area,
+derived from the same loaded data — no extra query. Only listings that
+actually have a report qualify, since the overwhelming majority have
+none and "latest" has to mean something. It sorts on the same report date
+the restaurant page displays, with a name tie-break so the order can't
+shuffle between renders, and the whole section is hidden when an area has
+no reports at all.
+
+**"A-Z"** is the previous table, now under a heading. It was already
+ordered by name — `getRestaurantsByArea()` has `.order("name")` — so this
+is a label on existing behaviour rather than a new sort.
+
+Both lists reuse `RestaurantsTable`, so area pages, the homepage and
+search results all stay visually identical. Searching replaces both lists
+with the results table rather than filtering them in place, which keeps
+the page from showing three tables at once.
+
+Note that the lists render server-side despite the client component, so
+the A-Z is still in the HTML for crawlers and for anyone with JavaScript
+off — only the filtering needs JS.
