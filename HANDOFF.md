@@ -572,6 +572,25 @@ Applied to the page title, the meta description, and the FAQ answer in the schem
 
 **One thing to watch:** titles now run 76-89 characters ("Does The Royal Oak in Long Bennington add a discretionary service charge? — Discretionary" is 89), so Google will truncate most of them and the site suffix will rarely show. The location does land inside the visible portion, which is the point, but a shorter template would survive better if that becomes a concern.
 
+## Maps on restaurant pages (Sept 2026)
+
+Each restaurant page can now show its location on a Google map. Coordinates come straight from the FSA feed, so nothing needed geocoding.
+
+**Use the Maps *Embed* API and nothing else.** It's the iframe one, and per Google's usage-and-billing page it is free with unlimited requests and no rate limits. The Maps JavaScript API and the Static Maps API are billed per load — across ~184,000 restaurant pages being swept by crawlers, either would be a four-figure surprise. `src/lib/maps.ts` says this at the top too, because it's the one decision here that can cost real money.
+
+**The map loads on click, not on page load** (`src/components/RestaurantMap.tsx`). Two reasons:
+
+- A Google Maps iframe sets cookies and passes the visitor's IP to Google the moment it renders. The site has no cookie banner and doesn't want one; under UK PECR that means not firing third-party embeds until someone asks. Anyone who never touches the map gets a page with no third-party requests at all.
+- Bots sweeping 184,000 pages shouldn't be pulling 184,000 map frames along with them.
+
+The placeholder is sized to match the loaded map so the page doesn't jump.
+
+**The key needs restricting**, and this matters: the key is visible in the page source, which is unavoidable for an iframe embed. In Google Cloud Console limit it to the **Maps Embed API only** and to an HTTP referrer of `discretionary.uk/*`. That's what stops it being lifted and used against a billable API on the same account.
+
+Set `GOOGLE_MAPS_EMBED_KEY` in Vercel to switch it on. Unset, `mapEmbedUrl()` returns null and pages render exactly as before — same fail-quiet pattern as the rest of the site.
+
+Location query prefers exact coordinates and falls back to name + address + postcode when the feed has no position, skipping the name if the address already leads with it (FSA addresses often do).
+
 ## What's left (only things that need your input)
 
 1. **Confirm `discretionary.uk` has fully propagated and Vercel shows it as valid** — DNS records were just corrected; give it a little time if Vercel's domain status hasn't flipped to "Valid Configuration" yet.
