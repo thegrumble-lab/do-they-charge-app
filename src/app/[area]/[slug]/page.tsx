@@ -9,8 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
 import { placeLabel } from "@/lib/location";
-import { mapMosaic, mapLinkUrl } from "@/lib/maps";
-import RestaurantMap from "@/components/RestaurantMap";
+import { mapLinkUrl } from "@/lib/maps";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -57,9 +56,6 @@ export default async function RestaurantPage({ params }: Props) {
   const latest = latestReport(r);
   const meta = latest ? STATUS_META[latest.status] : null;
   const history = r.reports.slice(0, -1).reverse();
-  // null when the FSA record has no usable coordinates, in which case the
-  // page simply renders without a map.
-  const mosaic = mapMosaic(r);
 
   return (
     <div className="page">
@@ -76,6 +72,15 @@ export default async function RestaurantPage({ params }: Props) {
         <p className="subhead">
           {r.address ? `${r.address}, ` : ""}
           {r.postcode}
+          {" "}
+          <a
+            className="map-link"
+            href={mapLinkUrl(r)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Maps
+          </a>
         </p>
       </div>
 
@@ -160,14 +165,6 @@ export default async function RestaurantPage({ params }: Props) {
             </div>
           )}
         </div>
-
-        {mosaic && (
-          <RestaurantMap
-            mosaic={mosaic}
-            linkUrl={mapLinkUrl(r)}
-            name={r.name}
-          />
-        )}
 
         <div className="tear">
           <span className="tear-label">Tear here — add your own</span>

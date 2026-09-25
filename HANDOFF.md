@@ -724,3 +724,34 @@ OpenMapTiles. Restyle it if you like; removing it breaches the terms.
 `.env.local.example`. Remove it from Vercel, and delete the key itself in
 Google Cloud Console — it lives on a Dark Horse account that won't be
 available after October.
+
+## Maps, take three: removed
+
+**25 September 2026.** There is no map on restaurant pages. The address
+now carries an "Open in Maps" link beside it and that is the whole
+feature.
+
+The two sections above are kept because they record real findings — how
+the Embed API resolves a text query, and how to build a cookie-free tile
+mosaic — but neither describes shipped code any more.
+`src/components/RestaurantMap.tsx` is deleted, the tile maths is gone from
+`src/lib/maps.ts` (which now holds only `mapLinkUrl`), and the map CSS is
+replaced by a single `.map-link` rule.
+
+The reason is simply that the map earned nothing. It occupied a third of
+the page above the fold and told a reader nothing the address hadn't
+already: someone who wants to find the place taps through to a real map
+app, and someone who wants to know about the service charge was being
+made to scroll past a picture to reach it.
+
+**Clean-up that follows from this:**
+
+- `MAP_TILES_ENABLED`, `MAP_TILE_KEY` and `MAP_TILE_STYLE` are unused.
+  Remove `MAP_TILES_ENABLED` from Vercel; the others were never set there.
+- The Stadia Maps account is now idle. It costs nothing on the free plan,
+  so it can sit there against a future change of mind.
+- `GOOGLE_MAPS_EMBED_KEY` was already removed from Vercel, and the key it
+  named was deleted from the `discretionary-uk` Google Cloud project.
+
+If a map is ever wanted again, read all three of these sections first —
+particularly the consent point, which is what killed the iframe.

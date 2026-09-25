@@ -387,54 +387,19 @@ a:focus-visible {
   border-radius: 2px;
 }
 
-/* Map on a restaurant page. A mosaic of plain tile images with our own
-   marker on top — no iframe and no third-party script, so it loads with
-   the page and there's nothing to consent to. See src/lib/maps.ts. The
-   fixed height keeps the layout from shifting while tiles arrive. */
-.map-block {
-  margin-top: 20px;
+/* The "Open in Maps" link beside a restaurant's address. Set apart from
+   the address itself so it reads as an action rather than part of the
+   street line. There is no map on the page by design — see
+   src/lib/maps.ts. */
+.map-link {
+  white-space: nowrap;
 }
 
-.map-frame {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
-  border: 1.5px solid var(--rule-strong);
-  border-radius: 2px;
-  background: var(--rule);
-}
-
-.map-tiles {
-  position: absolute;
-}
-
-.map-tiles img {
-  position: absolute;
-  width: 256px;
-  height: 256px;
-  user-select: none;
-}
-
-/* A pin at the dead centre of the frame, which is where the mosaic has
-   been shifted to put the restaurant. The dot marks the point; the stalk
-   hangs below it so the dot itself isn't obscured. */
-.map-marker {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  margin: -7px 0 0 -7px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2.5px solid var(--paper);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
-}
-
-.map-credit {
-  margin-top: 6px;
+.map-link::before {
+  content: "·";
+  margin-right: 6px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 /* A button that reads as a link — used for inline actions (flag an entry,
