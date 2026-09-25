@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync:fhrs": "tsx scripts/sync-fhrs.ts"
+    "sync:fhrs": "tsx scripts/sync-fhrs.ts",
+    "check:chains": "tsx scripts/check-chain-policies.ts"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.73.0",

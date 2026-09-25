@@ -1030,3 +1030,42 @@ inconsistent, say so rather than pick.
 would be added" count in the job summary. A number far larger than
 expected means a keyword is over-matching, and the fix is the matcher, not
 the data.
+
+### Matcher fixes after the first local count
+
+A count of `matchChainPolicy()` against the FHRS export found 1,227
+matches — sane in total, but with real false positives. All three are
+fixed, and the fixes are locked in by `npm run check:chains`
+(`scripts/check-chain-policies.ts`), 67 assertions, most of them negative.
+**Run it before any sync run**, and add a case to it whenever a false
+positive turns up, before touching the matcher.
+
+1. **"The Ivy" is one of the most common names in British hospitality.**
+   It was matching The Ivy Farm Shop, The Ivy Wall, The Ivy Street Centre,
+   The Ivy Tree, The Ivy Bean, The Ivy Fish Bar, The Ivy Green Pub, The
+   Ivy Lounge, The Ivy Kitchen, and bare "The Ivy" / "The Ivy Restaurant"
+   (which may be the separate West Street business). It now needs a
+   collection brand word — brasserie, asia, cafe, grill or garden — and
+   rejects garden centres, farm shops, fish bars and tea rooms even when
+   one appears. This **deliberately under-matches**: Ivy Collection sites
+   named only for their location are indistinguishable by pattern from The
+   Ivy Tree, so they are left alone. A missed branch costs nothing; a
+   wrong one puts a confident claim on someone else's business.
+2. **Cote** was matching on a word boundary anywhere in the name, which
+   caught "Cote Du Nord" and "The Cote Kitchen At Churncote". It now has
+   to start the name, and "Cote du" is excluded outright.
+3. **Combo detection missed several real bundles**: Coco di Mama riding
+   along in Zizzi and ASK Italian listings, a rotating cast of virtual
+   brands inside Las Iguanas ones (Kickass/Kick Ass Burrito, Super Nonna,
+   Blazing Bird, Bang Bang Burrito, Presto), and GBK listings carrying
+   "Restaurant Hub" / "Rest Hub" / "Tap and Barrel". Those are now combo
+   signals, along with "also ta" and " inc.".
+
+Two traps in that last one, both covered by the test:
+
+- **"presto" must be word-bounded**, or it matches every listing in
+  Preston. The phrase list and the word list are separate for exactly this
+  reason.
+- **A bare "&" or " and " must never be a combo signal.** "Browns Bar &
+  Brasserie", "Miller & Carter" and "Tap and Barrel" are all single-brand
+  names, so that rule would suppress the chains this file exists to match.

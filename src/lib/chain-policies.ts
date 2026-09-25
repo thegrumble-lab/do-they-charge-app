@@ -52,16 +52,46 @@ export interface ChainPolicy {
   resolve: (row: ChainPolicyRow) => ChainReport;
 }
 
+// Multi-brand signals that are safe as plain substrings because they are
+// several words long, or punctuated in a way an ordinary restaurant name
+// isn't. The delivery sub-brands here were all found riding along in real
+// FHRS listings for chains this file matches: Coco di Mama inside Zizzi
+// and ASK Italian entries, and a rotating cast of virtual burrito and
+// chicken brands inside Las Iguanas ones.
+//
+// Note what is deliberately NOT here: a bare "&" or " and ". Plenty of
+// single-brand listings contain one — "Browns Bar & Brasserie", "Miller &
+// Carter", "Tap and Barrel" — so treating it as a combo signal would
+// suppress the very chains this file exists to match.
+const COMBO_PHRASES = [
+  " t/a ",
+  "also t/a",
+  "trading as",
+  "also trading",
+  "also ta ",
+  " inc.",
+  "case notes",
+  "coco di mama",
+  "kickass burrito",
+  "kick ass burrito",
+  "super nonna",
+  "blazing bird",
+  "bang bang burrito",
+  "rest hub",
+  "restaurant hub",
+  "tap and barrel",
+];
+
+// Single words that only mean "another brand is in this listing" when they
+// stand alone. "presto" has to be word-bounded or it swallows every
+// listing in Preston.
+const COMBO_WORDS = ["presto"];
+
 function isComboListing(name: string): boolean {
   const lower = name.toLowerCase();
-  return (
-    lower.includes("/") ||
-    lower.includes(" t/a ") ||
-    lower.includes("also t/a") ||
-    lower.includes("trading as") ||
-    lower.includes("also trading") ||
-    lower.includes("case notes")
-  );
+  if (lower.includes("/")) return true;
+  if (COMBO_PHRASES.some((phrase) => lower.includes(phrase))) return true;
+  return COMBO_WORDS.some((word) => new RegExp(`\\b${word}\\b`).test(lower));
 }
 
 const FRANCO_MANCA_SOURCE = "https://www.francomanca.co.uk/faqs/";
@@ -190,14 +220,45 @@ function isBrownsBrasserie(row: ChainPolicyRow): boolean {
   return plain.includes("browns") && plain.includes("brasserie");
 }
 
-// The Ivy Collection venues are "The Ivy <place> Brasserie", "The Ivy
-// Asia" and so on. Plenty of unrelated pubs are called The Ivy House or
-// similar, so the name has to start with "the ivy" and not continue into
-// one of those.
-const NOT_THE_IVY_COLLECTION = /^the ivy (house|inn|leaf|cottage|bush|tavern|arms)/;
+// "The Ivy" is one of the most common names in British hospitality, and an
+// earlier version of this matched a farm shop, a fish bar, a garden
+// centre, a community centre and several pubs. So the name must start
+// "the ivy" AND carry one of the collection's own brand words.
+//
+// This deliberately under-matches. Ivy Collection sites named only for
+// their location — "The Ivy Spinningfields" and the like — are
+// indistinguishable by pattern from "The Ivy Tree" or "The Ivy Wall", so
+// they are left alone. A missed branch costs nothing; a wrong one puts a
+// confident claim on someone else's business.
+const IVY_COLLECTION_MARKERS = [
+  "brasserie",
+  "asia",
+  "cafe",
+  "grill",
+  "garden",
+];
+
+// Checked after the markers, for the cases where a marker word appears in
+// something that plainly isn't the collection — a garden centre being the
+// obvious one, since it contains "garden".
+const NOT_IVY_COLLECTION = [
+  "garden centre",
+  "garden center",
+  "farm shop",
+  "fish bar",
+  "green pub",
+  "street centre",
+  "tea room",
+  "tearoom",
+  "chippy",
+  "takeaway",
+];
+
 function isIvyCollection(row: ChainPolicyRow): boolean {
   const plain = plainName(row.name);
-  return /^the ivy\b/.test(plain) && !NOT_THE_IVY_COLLECTION.test(plain);
+  if (!/^the ivy\b/.test(plain)) return false;
+  if (NOT_IVY_COLLECTION.some((bad) => plain.includes(bad))) return false;
+  return IVY_COLLECTION_MARKERS.some((marker) => plain.includes(marker));
 }
 
 export const CHAIN_POLICIES: ChainPolicy[] = [
@@ -383,7 +444,13 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
   },
   {
     chainName: "Cote",
-    matches: (row) => wordMatch(row.name, "cote"),
+    // Must *start* "Cote": a word-boundary match anywhere pulled in "Cote
+    // Du Nord" and "The Cote Kitchen At Churncote". "Cote du" is excluded
+    // outright, since the brand never trades that way.
+    matches: (row) => {
+      const plain = plainName(row.name);
+      return /^cote\b/.test(plain) && !plain.startsWith("cote du");
+    },
     resolve: () => ({
       status: "charges",
       pct: null,
