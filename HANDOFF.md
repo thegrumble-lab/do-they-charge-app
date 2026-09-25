@@ -783,6 +783,22 @@ action as the consequence — so third-party stars could only ever be a UX
 feature. `src/lib/schema.ts` still emits no `aggregateRating` of any kind,
 and shouldn't start.
 
+**The Maps link searches by name and address, not coordinates.** Tested
+25 September: a coordinate query drops an anonymous pin titled with the
+degrees and minutes, offering "Add a missing place" — no business, no
+hours, no reviews. The same place searched as "The Kings Arms, 147 High
+Street, HP4 3HL" lands on the business, rating and review tab included.
+Name and postcode alone can return a short list (right answer first in
+the cases checked); the street line resolved straight to the business
+every time.
+
+That is the opposite of the call made for the old embedded map, and
+deliberately so: an embed that resolves to the wrong branch is
+confidently wrong with nothing to tip the reader off, while a link hands
+them Google's own result to judge. Since the Google Maps business page
+carries Google's reviews, there is no separate "Reviews on Google" link —
+it would go to the same place.
+
 **Store IDs if this is ever revisited.** `place_id`, Tripadvisor's
 `location_id` and Yelp's business ID are each explicitly cacheable
 indefinitely, unlike the ratings attached to them.

@@ -25,23 +25,32 @@ function whereabouts(r: Restaurant): string {
   return placeLabel(r.address, r.area, r.name) || r.postcode || r.area;
 }
 
-/** Google Maps, centred on the FSA coordinates when we have them. */
-export function mapLinkUrl(r: Restaurant): string {
-  const q =
-    r.lat && r.lng
-      ? `${r.lat},${r.lng}`
-      : [r.name, r.address, r.postcode].filter(Boolean).join(", ");
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
-}
-
 /**
- * A Google search rather than a Maps deep link: without a place ID we
- * can't link straight to a business's review panel, and a search for the
- * name and town reliably surfaces it.
+ * Google Maps, searched by name and full address — NOT by the FSA
+ * coordinates, even though we have them.
+ *
+ * Tested 25 September 2026, and the difference is the whole point of the
+ * link. A coordinate query ("51.759831,-0.563405") drops an anonymous pin
+ * titled with the degrees-and-minutes and offers "Add a missing place":
+ * no business, no hours, no reviews. The same place searched as "The
+ * Kings Arms, 147 High Street, HP4 3HL" lands on the business itself,
+ * rating and review tab included — which is where someone following this
+ * link actually wants to be.
+ *
+ * Name plus a full address is what makes that reliable. A name and
+ * postcode alone can return a short list rather than one place (correct
+ * one first, in the cases checked); adding the street line resolved
+ * straight to the business every time.
+ *
+ * Note this is the opposite call to the one the old embedded map needed.
+ * An embed that resolves a name to the wrong branch shows a confidently
+ * wrong map with no way for the reader to tell. A link hands the reader
+ * Google's own result, which they can see and judge — so the richer
+ * query wins here and lost there.
  */
-export function googleReviewsUrl(r: Restaurant): string {
-  const q = [r.name, whereabouts(r), "reviews"].filter(Boolean).join(" ");
-  return `https://www.google.com/search?q=${encodeURIComponent(q)}`;
+export function mapLinkUrl(r: Restaurant): string {
+  const q = [r.name, r.address, r.postcode].filter(Boolean).join(", ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 }
 
 /** Tripadvisor's own search, on the UK site. */

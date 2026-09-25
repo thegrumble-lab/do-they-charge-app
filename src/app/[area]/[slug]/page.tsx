@@ -9,7 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
 import { placeLabel } from "@/lib/location";
-import { mapLinkUrl, googleReviewsUrl, tripadvisorUrl } from "@/lib/outbound";
+import { mapLinkUrl, tripadvisorUrl } from "@/lib/outbound";
 
 // Now that the full 140,921-restaurant dataset is loaded, pages are
 // generated on demand instead of all pre-built at deploy time (which would
@@ -81,11 +81,8 @@ export default async function RestaurantPage({ params }: Props) {
           <a href={mapLinkUrl(r)} target="_blank" rel="noopener noreferrer">
             Open in Maps
           </a>
-          <a href={googleReviewsUrl(r)} target="_blank" rel="noopener noreferrer">
-            Reviews on Google
-          </a>
           <a href={tripadvisorUrl(r)} target="_blank" rel="noopener noreferrer">
-            Tripadvisor
+            Reviews on Tripadvisor
           </a>
         </p>
       </div>
