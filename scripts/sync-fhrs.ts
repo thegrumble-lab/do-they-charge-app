@@ -94,6 +94,22 @@ const WRITE_BATCH_SIZE = 500;
 const MIN_FEED_RATIO = 0.5;
 const MIN_FEED_ABSOLUTE = 20000;
 
+// A sanity ceiling on how much of the feed can look "new" in one run.
+// Steady state is a few hundred genuinely new registrations a week against
+// ~184,000 active rows — well under 1%. Anything approaching 5% means the
+// existing-rows loader failed to see rows that are already in the table,
+// which is what unordered pagination did in September 2026: run #10 called
+// 70,845 rows new, run #11 called 64,153 new, and the live run then died
+// with a duplicate key on restaurants_area_slug_slug_key because a skipped
+// row was handed a fresh slug that collided with its own.
+//
+// Failing loudly here is the point. That bug was silent for weeks.
+const MAX_NEW_RATIO = 0.05;
+
+// Below this many existing active rows the ratio above is not a useful
+// signal — on a first run or a rebuild from a seed, everything is new.
+const MIN_ACTIVE_FOR_NEW_RATIO_CHECK = 1000;
+
 function must(name: string): string {
   const v = process.env[name];
   if (!v) {
@@ -183,6 +199,14 @@ async function fetchAllExisting(): Promise<{
       .from("restaurants")
       .select("id, fhrsid, area_slug, slug, is_active")
       .not("fhrsid", "is", null)
+      // .order("id") is LOAD-BEARING, not tidiness. Without an ORDER BY,
+      // Postgres may return rows in a different order for each page, so
+      // OFFSET-based pagination silently duplicates some rows and skips
+      // others. A skipped existing restaurant looks new to the loop below,
+      // gets a freshly generated slug, and collides with its own row on
+      // restaurants_area_slug_slug_key. That is exactly how the weekly sync
+      // broke on 14 September 2026 — see HANDOFF.md.
+      .order("id")
       .range(from, from + PAGE_SIZE - 1);
     if (error) throw error;
     for (const row of (data ?? []) as ExistingRow[]) {
@@ -351,6 +375,9 @@ async function applyChainPolicies(dryRun: boolean): Promise<{
       .from("restaurants")
       .select("id, name, area, address")
       .eq("is_active", true)
+      // Stable order for the same reason as the loader above: unordered
+      // OFFSET pagination duplicates and skips rows between pages.
+      .order("id")
       .range(from, from + PAGE_SIZE - 1);
     if (error) throw error;
     for (const row of (data ?? []) as ChainCandidate[]) {
@@ -358,6 +385,27 @@ async function applyChainPolicies(dryRun: boolean): Promise<{
     }
     if (!data || data.length < PAGE_SIZE) break;
   }
+
+  // Belt and braces after the ordering fix above: if pagination ever
+  // duplicates a row again, a duplicate here would mean two identical
+  // researched reports inserted against the same restaurant. Deduping by
+  // id costs nothing and makes that impossible.
+  const seenIds = new Set<string>();
+  const uniqueCandidates = candidates.filter((c) => {
+    if (seenIds.has(c.id)) return false;
+    seenIds.add(c.id);
+    return true;
+  });
+  if (uniqueCandidates.length !== candidates.length) {
+    console.warn(
+      `WARNING: chain candidate list contained ${
+        candidates.length - uniqueCandidates.length
+      } duplicate row(s) — pagination is returning rows more than once. ` +
+        `Check the .order("id") on the paginated selects in this file.`
+    );
+  }
+  candidates.length = 0;
+  candidates.push(...uniqueCandidates);
 
   if (candidates.length === 0) return { matched: 0, eligible: 0 };
 
@@ -515,10 +563,50 @@ async function main() {
     `- Active before: ${activeBefore}`,
     `- Active after (est.): ${activeBefore + newCount + reactivatedCount - toDeactivateIds.length}`,
   ];
+  // The ratio is meaningless on a small or empty table — a first run, or a
+  // rebuild from a seed — where every row is legitimately new. The guard
+  // only applies once the table is big enough for "5% is absurd" to be
+  // true, which it is at anything like the real 184,000.
+  const newRatio = activeBefore > 0 ? newCount / activeBefore : 0;
+  const newCountLooksWrong =
+    activeBefore >= MIN_ACTIVE_FOR_NEW_RATIO_CHECK && newRatio > MAX_NEW_RATIO;
+  if (newCountLooksWrong) {
+    summaryLines.push(
+      "",
+      `> **ABORTED — ${newCount} rows (${(newRatio * 100).toFixed(1)}% of the ` +
+        `${activeBefore} active) look new, above the ${(MAX_NEW_RATIO * 100).toFixed(0)}% ` +
+        "ceiling.** Almost certainly the existing-rows loader is not seeing rows " +
+        "that are already in the table, which ends in a duplicate-key failure on " +
+        "restaurants_area_slug_slug_key. Check the paginated selects still carry " +
+        'a stable `.order("id")`. Nothing was written.'
+    );
+  }
+
   const stepSummaryPath = process.env.GITHUB_STEP_SUMMARY;
   if (stepSummaryPath) {
     const fs = await import("node:fs/promises");
     await fs.appendFile(stepSummaryPath, summaryLines.join("\n") + "\n");
+  }
+
+  // Checked in BOTH modes, and before any write. In a dry run it turns a
+  // number nobody reads into a failed job; in a live run it stops the
+  // duplicate-key crash happening at all.
+  if (newCountLooksWrong) {
+    console.error("");
+    console.error(
+      `ABORTING: ${newCount} of ${activeBefore} active restaurants (${(
+        newRatio * 100
+      ).toFixed(1)}%) look new, above the ${(MAX_NEW_RATIO * 100).toFixed(
+        0
+      )}% ceiling.`
+    );
+    console.error(
+      "A real week adds a few hundred. This means the existing-rows loader " +
+        "missed rows that are already in the table — check that every " +
+        'paginated select in this file still has a stable .order("id"). ' +
+        "Nothing was written."
+    );
+    process.exit(1);
   }
 
   if (DRY_RUN) {

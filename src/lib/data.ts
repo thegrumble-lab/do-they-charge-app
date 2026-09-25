@@ -123,7 +123,12 @@ export async function getRestaurantsByArea(
       .select(RESTAURANT_WITH_REPORTS_SELECT)
       .eq("area_slug", areaSlug)
       .eq("is_active", true)
+      // Ordered by name for display, then by id to break ties. The id is
+      // what makes the pagination safe: ordering by a non-unique column
+      // alone leaves rows with equal names free to swap places between
+      // pages, which duplicates some and skips others.
       .order("name")
+      .order("id")
       .range(from, from + PAGE_SIZE - 1);
     if (error) throw error;
     restaurants.push(...(data ?? []).map(toRestaurant));

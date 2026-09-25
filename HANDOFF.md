@@ -1069,3 +1069,49 @@ Two traps in that last one, both covered by the test:
 - **A bare "&" or " and " must never be a combo signal.** "Browns Bar &
   Brasserie", "Miller & Carter" and "Tap and Barrel" are all single-brand
   names, so that rule would suppress the chains this file exists to match.
+
+## The 14 September sync failure: unordered pagination
+
+**Fixed 25 September 2026.** The weekly sync had been failing since 14
+September. Root cause: **every `.range()` loop in the repo paginated
+without an `ORDER BY`.**
+
+Postgres makes no promise about row order without one, so consecutive
+pages could overlap or leave gaps. In `fetchAllExisting()` that meant rows
+already in the table were never loaded — so the upsert loop treated them
+as new, generated a fresh slug for each, and the live run died with
+
+```
+23505 duplicate key value violates unique constraint
+"restaurants_area_slug_slug_key"  (huntingdonshire, the-white-horse)
+```
+
+— a row colliding with itself. The dry runs had been shouting about it for
+a week in a number nobody was reading: run #10 called 70,845 rows new, run
+#11 called 64,153, against 183,810 active. A real week adds a few hundred.
+
+**Three fixes, all in this commit:**
+
+1. **`.order("id")` on every paginated select.** Two in
+   `scripts/sync-fhrs.ts` (the existing-rows loader and the chain-candidate
+   loader) and one in `src/lib/data.ts` (`getRestaurantsByArea`, which
+   ordered by `name` only — a non-unique column, so rows sharing a name
+   could still swap between pages; it now orders by `name` then `id`).
+   These comments are marked load-bearing in the code for a reason: an
+   `.order()` here looks like tidiness and is actually correctness.
+2. **Chain candidates are deduped by id** before any insert, and warn if a
+   duplicate is ever seen — which would mean pagination has regressed.
+3. **A ceiling on "new" rows.** If more than `MAX_NEW_RATIO` (5%) of the
+   active table looks new, the run aborts before writing anything, in both
+   dry and live mode, and says what to check. The check is skipped below
+   1,000 active rows, since on a first run or a rebuild from a seed
+   everything genuinely is new.
+
+**If this ever fires**, the fault is almost certainly a paginated select
+that lost its `.order()`, not the data.
+
+**Anywhere new that pages through rows needs the same treatment.** Order
+by a unique column, or by a display column *plus* a unique one. The
+sitemap shard route already avoids this by ordering explicitly; the
+PostgREST 1,000-row cap documented elsewhere in this file is a separate
+issue that happens to live in the same code.
