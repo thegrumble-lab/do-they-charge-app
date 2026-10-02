@@ -28,9 +28,12 @@ export default function AboutPage() {
           <p>
             Started by one diner fed up with finding out about a
             discretionary service charge at the table, after the bill was
-            already in front of them. UK menus don&apos;t have to disclose it
-            in advance, so this site tries to fill that gap: a quick way to
-            check before you book, not after you&apos;re sat down.
+            already in front of them. UK rules say a service charge has to
+            be shown on the menu at least as prominently as the prices (see{" "}
+            <Link href="/guides/service-charge-law-uk">what the law says</Link>
+            ), but the menu is usually the first place you see it, once
+            you&apos;ve booked or arrived. This site fills that gap: a quick
+            way to check before you book, not after you&apos;re sat down.
           </p>
         </section>
 

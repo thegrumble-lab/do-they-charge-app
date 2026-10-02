@@ -7,7 +7,7 @@ export const guide: Guide = {
   h1: "What is a service charge?",
   description:
     "A service charge is an amount a restaurant adds to your bill before handing it to you. What it is, what it isn't, and why it's not the same as a tip.",
-  updated: "2026-09-25",
+  updated: "2026-10-02",
   standfirst:
     "It's an amount the restaurant adds to your bill before the bill reaches you. That one detail — that it's added by the restaurant rather than offered by you — is what separates it from a tip, and it's the reason almost every other question about service charges has the answer it does.",
   faqs: [
@@ -92,12 +92,16 @@ export const guide: Guide = {
 
       <h2 className="h2">Why any of this is hard to find out in advance</h2>
       <p>
-        Because menus do not have to shout about it. A charge is often
-        disclosed in small print at the foot of a menu, on a card by the
-        till, or on a website page nobody reads before booking. It is
-        perfectly lawful to disclose it that way, and the practical result
-        is that most people meet the charge for the first time when the bill
-        lands.
+        Because the menu is usually the first place it appears, and you
+        tend to see the menu only once you have booked or sat down. The
+        rules say a charge should be shown{" "}
+        <Link href="/guides/service-charge-law-uk">
+          at least as prominently as the food prices
+        </Link>
+        , yet in practice it still often turns up as a line of small print
+        at the foot of a menu, on a card by the till, or on a website page
+        nobody reads before booking. The practical result is that most
+        people meet the charge for the first time when the bill lands.
       </p>
       <p>
         That gap is the reason this site exists. If you know where
