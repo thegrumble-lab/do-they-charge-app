@@ -142,7 +142,7 @@ gtag('config', '${GA_ID}');`}
         >
           <p>
             Can we use Google Analytics cookies to see how people use the
-            site? ItIt&apos;s anonymous visit stats only, no ads.apos;s visit statistics only, never ads.{" "}
+            site? It&apos;s visit statistics only, never ads.{" "}
             <Link href="/privacy#analytics">More detail</Link>.
           </p>
           <div className="consent-actions">
