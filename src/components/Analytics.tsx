@@ -13,8 +13,11 @@ import { useEffect, useState, useSyncExternalStore } from "react";
  * ignoring the banner) means the site behaves exactly as it did before GA4
  * was added.
  *
- * Entirely inert until NEXT_PUBLIC_GA_MEASUREMENT_ID is set (Vercel →
- * Project → Settings → Environment Variables): no ID, no banner.
+ * The measurement ID is public (it ships in every page anyway), so the
+ * production one is the default here. NEXT_PUBLIC_GA_MEASUREMENT_ID
+ * overrides it; set it to an empty string to switch GA4 off entirely
+ * (no ID, no banner). GA property: "discretionary.uk" in the
+ * "Discretionary" account on matt@slingshotsearch.co.uk.
  *
  * The visitor's choice is kept in localStorage (not a cookie). A
  * "Cookie settings" link in the footer dispatches OPEN_EVENT to reopen
@@ -25,7 +28,8 @@ import { useEffect, useState, useSyncExternalStore } from "react";
  * default), so no manual page_view events are sent here.
  */
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+export const GA_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-0M6E1QLZZE";
 const STORAGE_KEY = "discretionary-analytics-consent";
 export const OPEN_EVENT = "discretionary:open-cookie-settings";
 const CHANGE_EVENT = "discretionary:consent-changed";

@@ -1,10 +1,10 @@
 "use client";
 
-import { OPEN_EVENT } from "./Analytics";
+import { GA_ID, OPEN_EVENT } from "./Analytics";
 
 /** Footer link that reopens the analytics consent banner. Hidden until GA4 is configured. */
 export default function CookieSettingsLink() {
-  if (!process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) return null;
+  if (!GA_ID) return null;
   return (
     <>
       {" · "}
