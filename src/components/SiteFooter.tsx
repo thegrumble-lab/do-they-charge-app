@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsLink from "./CookieSettingsLink";
 
 /**
  * Shared across every page. Two things this exists to get right:
@@ -43,6 +44,7 @@ export default function SiteFooter() {
       <p>
         <Link href="/guides">Guides</Link> ·{" "}
         <Link href="/about">About</Link> · <Link href="/privacy">Privacy</Link>
+        <CookieSettingsLink />
       </p>
     </footer>
   );

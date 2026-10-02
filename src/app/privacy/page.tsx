@@ -25,11 +25,12 @@ export default function PrivacyPage() {
         <section className="entry" style={{ paddingTop: 0 }}>
           <h2 className="h2">The short version</h2>
           <p>
-            This site doesn&apos;t have user accounts, doesn&apos;t use
-            cookies, and doesn&apos;t run any advertising or tracking
-            scripts. Browsing and searching the directory involves no
-            personal data at all. The only thing that involves any data
-            about you is submitting a diner report.
+            This site doesn&apos;t have user accounts and doesn&apos;t run
+            any advertising. If you say yes when asked, it uses Google
+            Analytics to count visits; if you say no, no analytics
+            cookies are set and browsing the directory involves no
+            personal data at all. Submitting a diner report is the only
+            other thing that involves any data about you.
           </p>
         </section>
 
@@ -50,6 +51,28 @@ export default function PrivacyPage() {
             submitting repeated reports within 30 seconds — it&apos;s
             never shown publicly, published alongside a report, or used
             for anything else, such as figuring out who or where you are.
+          </p>
+        </section>
+
+        <section className="entry" id="analytics">
+          <h2 className="h2">Analytics cookies</h2>
+          <p>
+            With your permission, the site uses Google Analytics 4 to
+            understand how it&apos;s used: which pages people visit, how
+            they arrive (for example from a search engine), and roughly
+            what device and region they&apos;re browsing from. It sets
+            first-party cookies named <code>_ga</code> and{" "}
+            <code>_ga_&lt;ID&gt;</code>, which last up to two years. Google
+            processes this data on the site&apos;s behalf; it isn&apos;t
+            used for advertising and Google signals are switched off.
+          </p>
+          <p>
+            Nothing from Google loads until you click Accept on the
+            banner. Your choice is saved in your browser&apos;s local
+            storage, not a cookie. You can change your mind at any time
+            through the &ldquo;Cookie settings&rdquo; link at the bottom of
+            every page; choosing Decline there removes the analytics
+            cookies.
           </p>
         </section>
 
