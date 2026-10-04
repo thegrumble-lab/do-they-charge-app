@@ -1115,3 +1115,17 @@ by a unique column, or by a display column *plus* a unique one. The
 sitemap shard route already avoids this by ordering explicitly; the
 PostgREST 1,000-row cap documented elsewhere in this file is a separate
 issue that happens to live in the same code.
+
+## Outreach engine (restaurants + press)
+
+Ported from the Carer Tickets engine. A Vercel cron (`vercel.json`, weekdays 08:20 UTC) calls `/api/cron/outreach`, which:
+- imports prospects from `src/data/outreach.json` (two campaigns: `restaurant` = venues listed as no service charge, asked to confirm and offered a badge; `press` = journalists pitched the figures in `FIGURES` in `src/lib/outreach/copy.ts`, a snapshot to refresh by hand),
+- reads replies over IMAP, classifies them with Claude (Haiku), auto-answers routine restaurant replies (confirmations get a fixed thank-you with the badge code), and escalates every journalist reply,
+- sends first emails and one follow-up (restaurants 7 days, press 5), warming up from 8 a day,
+- emails a digest (NEEDS YOU / READY TO PUBLISH / HANDLED). Site changes from confirmations are applied by hand in a Claude session, as a researched report via `insert_researched_report` with a note that the restaurant confirmed by email.
+
+State lives in Upstash Redis (keys prefixed `dc:`), so the app's anon-key-only Supabase setup is unchanged. hello@discretionary.uk is an alias on the Zoho Mail Lite mailbox that serves hello@carertickets.co.uk: the engine logs in as that mailbox, sends from the alias, and only handles mail addressed to @discretionary.uk.
+
+The badge (`/badge/[area]/[slug]`, SVG) only renders while the listing's latest report is `no-charge`.
+
+Env vars (Production): `OUTREACH_SMTP_USER` (the Zoho mailbox login), `OUTREACH_SMTP_PASS` (a Zoho app password), `OUTREACH_FROM_ADDRESS` (hello@discretionary.uk), `OUTREACH_DIGEST_TO`, `ANTHROPIC_API_KEY`, `CRON_SECRET`, Upstash's `KV_REST_API_URL`/`KV_REST_API_TOKEN`, and `OUTREACH_ENABLED=true` only once the preview digest is approved.
