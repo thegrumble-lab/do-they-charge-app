@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
-import { STATUS_META, latestReport, hygieneRating } from "@/lib/types";
+import { STATUS_META, latestReport, hygieneRating, relativeAge, isStale } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 import ReportErrorForm from "@/components/ReportErrorForm";
+import StillAccurate from "@/components/StillAccurate";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
 import { restaurantPageSchema } from "@/lib/schema";
@@ -112,11 +113,20 @@ export default async function RestaurantPage({ params }: Props) {
                 <span className="entry-source">
                   {latest.source === "seed"
                     ? "Starter data — unverified"
-                    : latest.source === "researched"
-                    ? `Researched — checked ${latest.date}`
-                    : `Reported by a diner · ${latest.date}`}
+                    : (
+                      <time dateTime={latest.date} title={latest.date}>
+                        {latest.source === "researched" ? "Researched · checked " : "Reported by a diner · "}
+                        {relativeAge(latest.date)}
+                      </time>
+                    )}
                 </span>
               </div>
+              {isStale(latest) ? (
+                <p className="stale-note">
+                  May be out of date: this was last checked {relativeAge(latest.date)}, and
+                  policies change. If you&apos;ve eaten here recently, let us know below.
+                </p>
+              ) : null}
               {latest.note ? (
                 <div className="entry-note">{latest.note}</div>
               ) : null}
@@ -136,6 +146,17 @@ export default async function RestaurantPage({ params }: Props) {
             </p>
           )}
 
+          {latest ? (
+            <StillAccurate
+              areaSlug={r.areaSlug}
+              slug={r.slug}
+              name={r.name}
+              area={r.area}
+              status={latest.status}
+              pct={latest.pct}
+            />
+          ) : null}
+
           {history.length > 0 && (
             <div className="report-history">
               {history.map((rep) => {
@@ -149,7 +170,10 @@ export default async function RestaurantPage({ params }: Props) {
                         : rep.source === "researched"
                         ? "Researched"
                         : "Diner report"}{" "}
-                      · {rep.date}
+                      ·{" "}
+                      <time dateTime={rep.date} title={rep.date}>
+                        {relativeAge(rep.date)}
+                      </time>
                       {rep.pct ? ` · ${rep.pct}%` : ""}
                     </span>
                     {rep.note ? (
@@ -191,7 +215,7 @@ export default async function RestaurantPage({ params }: Props) {
           <span className="tear-label">Tear here — add your own</span>
         </div>
 
-        <section className="add-section">
+        <section className="add-section" id="add-report">
           <h2 className="h2">Add what you know</h2>
           <p className="hint">
             Been to {r.name} recently? A quick report helps the next person

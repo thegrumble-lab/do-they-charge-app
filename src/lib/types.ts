@@ -88,3 +88,33 @@ export function latestReport(r: Restaurant): Report | null {
   if (r.reports.length === 0) return null;
   return r.reports[r.reports.length - 1];
 }
+
+/**
+ * Freshness. Restaurants change policy, menus and owners, so a report is
+ * shown with its age and flagged once it passes STALE_AFTER_DAYS. The
+ * verdict still shows; only the confidence drops. Pages are ISR-cached for
+ * up to 6 hours, so ages are approximate by design ("3 months ago").
+ */
+export const STALE_AFTER_DAYS = 365;
+
+export function reportAgeDays(date: string, now: Date = new Date()): number {
+  const then = new Date(`${date.slice(0, 10)}T00:00:00Z`).getTime();
+  if (Number.isNaN(then)) return 0;
+  return Math.max(0, Math.floor((now.getTime() - then) / 86_400_000));
+}
+
+export function relativeAge(date: string, now: Date = new Date()): string {
+  const days = reportAgeDays(date, now);
+  if (days === 0) return "today";
+  if (days === 1) return "yesterday";
+  if (days < 14) return `${days} days ago`;
+  if (days < 60) return `${Math.round(days / 7)} weeks ago`;
+  if (days < 365) return `${Math.round(days / 30.44)} months ago`;
+  const years = Math.floor(days / 365);
+  return years === 1 ? "over a year ago" : `over ${years} years ago`;
+}
+
+/** Seed rows are already labelled "unverified", so they never get the stale flag. */
+export function isStale(report: Report, now: Date = new Date()): boolean {
+  return report.source !== "seed" && reportAgeDays(report.date, now) > STALE_AFTER_DAYS;
+}

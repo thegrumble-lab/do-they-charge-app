@@ -690,3 +690,37 @@ footer.site-footer {
   padding: 10px 16px;
   font-size: 0.95rem;
 }
+
+/* Freshness: "Still accurate?" one-tap check and the stale-report flag. */
+.still-accurate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--rule);
+}
+.still-accurate-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--ink);
+}
+.still-accurate-actions a {
+  color: inherit;
+}
+.still-accurate-error {
+  flex-basis: 100%;
+  margin: 0;
+}
+.stale-note {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--groups);
+  border-left: 3px solid currentColor;
+  padding: 2px 0 2px 10px;
+  margin: 10px 0 0;
+}

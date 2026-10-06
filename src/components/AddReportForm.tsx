@@ -64,7 +64,7 @@ export default function AddReportForm({
   if (done) {
     return (
       <p className="field-success">
-        Thanks — your report is in. Refresh to see it reflected above.
+        Thanks, your report is in. Refresh to see it reflected above.
       </p>
     );
   }

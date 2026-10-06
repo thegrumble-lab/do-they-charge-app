@@ -1,5 +1,5 @@
 import { SITE_URL } from "./site";
-import { Restaurant, Report, latestReport, hygieneRating } from "./types";
+import { Restaurant, Report, latestReport, hygieneRating, isStale } from "./types";
 import { placeLabel } from "./location";
 import type { Guide } from "@/content/guides/types";
 
@@ -71,8 +71,11 @@ export function restaurantAnswer(r: Restaurant): string {
       : `Starter data, unverified (${latest.date}).`;
 
   const note = latest.note ? ` ${latest.note}` : "";
+  const stale = isStale(latest)
+    ? " That was over a year ago, so the policy may have changed since."
+    : "";
 
-  return `${head[latest.status]} ${provenance}${note} Service charges are always optional under UK consumer law — you can ask for it to be removed.`;
+  return `${head[latest.status]} ${provenance}${stale}${note} Service charges are always optional under UK consumer law — you can ask for it to be removed.`;
 }
 
 function chargeProperties(r: Restaurant) {

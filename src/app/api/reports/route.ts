@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import {
   submitDinerReport,
   RestaurantNotFoundError,
@@ -91,6 +92,11 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
+
+  // Restaurant and area pages are ISR-cached for up to 6 hours, so refresh
+  // them now: a diner who just confirmed or corrected a listing should see it.
+  revalidatePath(`/${finalAreaSlug}/${finalSlug}`);
+  revalidatePath(`/browse/${finalAreaSlug}`);
 
   return NextResponse.json({ ok: true, restaurant });
 }
