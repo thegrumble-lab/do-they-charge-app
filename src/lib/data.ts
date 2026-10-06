@@ -47,12 +47,14 @@ interface DbRestaurant {
   hygiene_rating?: string | null;
   hygiene_rating_date?: string | null;
   hygiene_scheme?: string | null;
+  previous_name?: string | null;
+  name_changed_at?: string | null;
   reports?: DbReport[];
 }
 
 const RESTAURANT_COLUMNS =
   "id, fhrsid, area_slug, slug, name, area, address, postcode, lat, lng, is_active, " +
-  "hygiene_rating, hygiene_rating_date, hygiene_scheme";
+  "hygiene_rating, hygiene_rating_date, hygiene_scheme, previous_name, name_changed_at";
 const RESTAURANT_WITH_REPORTS_SELECT = `${RESTAURANT_COLUMNS}, reports(id, status, pct, note, source, source_url, report_date, created_at)`;
 
 function toRestaurant(row: DbRestaurant): Restaurant {
@@ -90,6 +92,8 @@ function toRestaurant(row: DbRestaurant): Restaurant {
     hygieneRating: row.hygiene_rating ?? null,
     hygieneRatingDate: row.hygiene_rating_date ?? null,
     hygieneScheme: row.hygiene_scheme ?? null,
+    previousName: row.previous_name ?? null,
+    nameChangedAt: row.name_changed_at ?? null,
     reports,
   };
 }

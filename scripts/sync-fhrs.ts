@@ -182,6 +182,25 @@ interface ExistingRow {
   area_slug: string;
   slug: string;
   is_active: boolean;
+  name: string;
+  previous_name: string | null;
+  name_changed_at: string | null;
+}
+
+/**
+ * Business names compared loosely, so cosmetic edits in the feed ("Ltd",
+ * "&" vs "and", punctuation, case, "The") don't count as a name change.
+ * A real change (a rebrand, usually new owners) is what we want to catch:
+ * it marks earlier service-charge reports as possibly out of date.
+ */
+function nameKey(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\b(the|ltd|limited|plc|llp|co|uk)\b/g, " ")
+    .replace(/[^a-z0-9]+/g, "");
 }
 
 async function fetchAllExisting(): Promise<{
@@ -197,7 +216,7 @@ async function fetchAllExisting(): Promise<{
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
       .from("restaurants")
-      .select("id, fhrsid, area_slug, slug, is_active")
+      .select("id, fhrsid, area_slug, slug, is_active, name, previous_name, name_changed_at")
       .not("fhrsid", "is", null)
       // .order("id") is LOAD-BEARING, not tidiness. Without an ORDER BY,
       // Postgres may return rows in a different order for each page, so
@@ -491,6 +510,8 @@ async function main() {
     hygiene_rating: string | null;
     hygiene_rating_date: string | null;
     hygiene_scheme: string | null;
+    previous_name: string | null;
+    name_changed_at: string | null;
     is_active: true;
     removed_at: null;
   }
@@ -499,6 +520,8 @@ async function main() {
   let newCount = 0;
   let updatedCount = 0;
   let reactivatedCount = 0;
+  let renamedCount = 0;
+  const today = new Date().toISOString().slice(0, 10);
 
   for (const row of feedRows) {
     const existing = byFhrsid.get(row.fhrsid);
@@ -515,6 +538,16 @@ async function main() {
       newCount += 1;
     }
 
+    // Carry the existing name-change record forward (the upsert writes every
+    // column), and start a new one when the name has meaningfully changed.
+    let previousName = existing?.previous_name ?? null;
+    let nameChangedAt = existing?.name_changed_at ?? null;
+    if (existing && existing.name && nameKey(existing.name) !== nameKey(row.name)) {
+      previousName = existing.name;
+      nameChangedAt = today;
+      renamedCount += 1;
+    }
+
     toUpsert.push({
       fhrsid: row.fhrsid,
       area_slug: areaSlug,
@@ -528,6 +561,8 @@ async function main() {
       hygiene_rating: row.hygieneRating,
       hygiene_rating_date: normaliseRatingDate(row.hygieneRatingDate),
       hygiene_scheme: row.hygieneScheme,
+      previous_name: previousName,
+      name_changed_at: nameChangedAt,
       is_active: true,
       removed_at: null,
     });
@@ -546,6 +581,7 @@ async function main() {
   console.log(`New restaurants to insert:        ${newCount}`);
   console.log(`Existing restaurants to update:    ${updatedCount}`);
   console.log(`Previously-delisted, now back:     ${reactivatedCount}`);
+  console.log(`Renamed (reports flagged as stale): ${renamedCount}`);
   console.log(`Existing restaurants to deactivate: ${toDeactivateIds.length}`);
   console.log(`Active count before this run:      ${activeBefore}`);
   console.log(
@@ -559,6 +595,7 @@ async function main() {
     `- New restaurants: ${newCount}`,
     `- Updated restaurants: ${updatedCount}`,
     `- Reactivated (previously delisted): ${reactivatedCount}`,
+    `- Renamed (earlier reports flagged as possibly out of date): ${renamedCount}`,
     `- Deactivated (no longer in scope / closed): ${toDeactivateIds.length}`,
     `- Active before: ${activeBefore}`,
     `- Active after (est.): ${activeBefore + newCount + reactivatedCount - toDeactivateIds.length}`,

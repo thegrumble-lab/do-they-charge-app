@@ -1,5 +1,5 @@
 import { SITE_URL } from "./site";
-import { Restaurant, Report, latestReport, hygieneRating, isStale } from "./types";
+import { Restaurant, Report, latestReport, hygieneRating, isStale, renamedSince } from "./types";
 import { placeLabel } from "./location";
 import type { Guide } from "@/content/guides/types";
 
@@ -71,7 +71,9 @@ export function restaurantAnswer(r: Restaurant): string {
       : `Starter data, unverified (${latest.date}).`;
 
   const note = latest.note ? ` ${latest.note}` : "";
-  const stale = isStale(latest)
+  const stale = renamedSince(r, latest)
+    ? " The business has changed its name since then, so the policy may have changed."
+    : isStale(latest)
     ? " That was over a year ago, so the policy may have changed since."
     : "";
 

@@ -32,6 +32,9 @@ export interface Restaurant {
   hygieneRating: string | null;
   hygieneRatingDate: string | null;
   hygieneScheme: string | null;
+  /** Set by the FHRS sync when the business name meaningfully changes (often new owners). */
+  previousName: string | null;
+  nameChangedAt: string | null;
   reports: Report[];
 }
 
@@ -112,6 +115,11 @@ export function relativeAge(date: string, now: Date = new Date()): string {
   if (days < 365) return `${Math.round(days / 30.44)} months ago`;
   const years = Math.floor(days / 365);
   return years === 1 ? "over a year ago" : `over ${years} years ago`;
+}
+
+/** True when the business was renamed after this report was made. */
+export function renamedSince(r: Restaurant, report: Report): boolean {
+  return Boolean(r.nameChangedAt && r.previousName && report.date.slice(0, 10) < r.nameChangedAt.slice(0, 10));
 }
 
 /** Seed rows are already labelled "unverified", so they never get the stale flag. */

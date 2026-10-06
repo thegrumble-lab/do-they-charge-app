@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
-import { STATUS_META, latestReport, hygieneRating, relativeAge, isStale } from "@/lib/types";
+import { STATUS_META, latestReport, hygieneRating, relativeAge, isStale, renamedSince } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 import ReportErrorForm from "@/components/ReportErrorForm";
 import StillAccurate from "@/components/StillAccurate";
@@ -121,7 +121,13 @@ export default async function RestaurantPage({ params }: Props) {
                     )}
                 </span>
               </div>
-              {isStale(latest) ? (
+              {renamedSince(r, latest) ? (
+                <p className="stale-note">
+                  May be out of date: this business has changed its name since this was
+                  checked (it was listed as {r.previousName}), which can mean new owners
+                  and a new policy. If you&apos;ve eaten here recently, let us know below.
+                </p>
+              ) : isStale(latest) ? (
                 <p className="stale-note">
                   May be out of date: this was last checked {relativeAge(latest.date)}, and
                   policies change. If you&apos;ve eaten here recently, let us know below.
