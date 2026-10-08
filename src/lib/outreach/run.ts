@@ -3,6 +3,7 @@ import prospectsData from "@/data/outreach.json";
 import { FOLLOW_UP_DAYS, SEQUENCE_LENGTH, confirmationReply, renderStep, type Seed } from "./copy";
 import { OUR_DOMAIN, fetchInbox, mailbox, sendInternal, sendOutreach, stripQuoted, unsubUrl } from "./mail";
 import { decideReply } from "./ai";
+import { pressReference } from "./reference";
 import { allProspects, countSend, firstSeen, getState, logEvent, saveProspect, sentOn, setState, updateProspect, type Prospect } from "./store";
 
 const SEEDS = prospectsData as Seed[];
@@ -127,7 +128,8 @@ async function processInbox(report: RunReport, deadline: number) {
       };
     } else {
       const ours = renderStep(Math.max(0, p.step - 1), seed, "").text;
-      decision = await decideReply({ campaign: p.campaign, name: p.name, theirMessage: theirs, ourLastEmail: ours });
+      const reference = p.campaign === "press" ? await pressReference().catch(() => "") : undefined;
+      decision = await decideReply({ campaign: p.campaign, name: p.name, theirMessage: theirs, ourLastEmail: ours, reference });
     }
 
     if (decision.action === "reply" && seed) {
