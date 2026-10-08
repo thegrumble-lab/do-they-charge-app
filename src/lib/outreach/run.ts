@@ -275,7 +275,7 @@ async function sendDigest(report: RunReport) {
   if (followUps.length) {
     L.push(`FOLLOW-UPS YOU OWE (${followUps.length})`);
     for (const r of followUps) {
-      L.push(`- ${r.name} <${r.email}>`);
+      L.push(`- ${r.campaign === "press" ? "[Press] " : ""}${r.name} <${r.email}>`);
       L.push(`  To do: ${r.followUp}`);
       L.push(`  They wrote: ${flat(r.theirs, 700)}`);
       if (r.ours) L.push(`  We replied: ${flat(r.ours, 500)}`);
