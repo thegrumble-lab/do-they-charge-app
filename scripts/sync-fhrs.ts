@@ -491,6 +491,7 @@ async function main() {
     hygiene_rating: string | null;
     hygiene_rating_date: string | null;
     hygiene_scheme: string | null;
+    business_type_id: number;
     is_active: true;
     removed_at: null;
   }
@@ -528,6 +529,8 @@ async function main() {
       hygiene_rating: row.hygieneRating,
       hygiene_rating_date: normaliseRatingDate(row.hygieneRatingDate),
       hygiene_scheme: row.hygieneScheme,
+      // 1 = Restaurant/Cafe/Canteen, 7843 = Pub/bar/nightclub (see ALLOWED_BUSINESS_TYPE_IDS).
+      business_type_id: row.businessTypeId,
       is_active: true,
       removed_at: null,
     });

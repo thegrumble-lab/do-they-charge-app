@@ -15,6 +15,10 @@ on:
     # Minute/hour in UTC. The FHRS feed updates daily, so a weekly sync
     # is a deliberate cadence choice, not a limitation of the source data.
     - cron: "0 4 * * 1"
+  # Pushing the run/sync-fhrs branch starts a real (non-dry) run, for when a
+  # sync is needed between Mondays (e.g. to backfill a new column).
+  push:
+    branches: [run/sync-fhrs]
   workflow_dispatch:
     inputs:
       dry_run:
