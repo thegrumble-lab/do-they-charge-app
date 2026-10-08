@@ -1,0 +1,975 @@
+{
+  "generatedAt": "2026-10-08T18:40:25.015Z",
+  "listingsWithPolicy": 1395,
+  "byType": {
+    "Restaurant/Cafe/Canteen": {
+      "total": 1238,
+      "charges": 610,
+      "groups": 611,
+      "no-charge": 17,
+      "bySource": {
+        "researched": 1233,
+        "diner": 5
+      }
+    },
+    "Pub/bar/nightclub": {
+      "total": 134,
+      "charges": 74,
+      "groups": 51,
+      "no-charge": 9,
+      "bySource": {
+        "researched": 130,
+        "diner": 4
+      }
+    },
+    "Not found on FSA": {
+      "total": 23,
+      "charges": 8,
+      "groups": 13,
+      "no-charge": 2,
+      "bySource": {
+        "researched": 23
+      }
+    }
+  },
+  "pubs": [
+    {
+      "name": "All bar one",
+      "area": "Southwark",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Sutton",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Cheltenham",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Leeds",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Trafford",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Glasgow City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Edinburgh (City of)",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "City of London Corporation",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Lambeth",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Liverpool",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Edinburgh (City of)",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Newcastle Upon Tyne",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Nottingham City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Birmingham",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Camden",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Westminster",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Solihull",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "City of London Corporation",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Westminster",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "City of London Corporation",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Birmingham",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Merton",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Manchester",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Edinburgh (City of)",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Bath and North East Somerset",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Stratford-on-Avon",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Islington",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One",
+      "area": "Camden",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "ALL BAR ONE",
+      "area": "Aberdeen City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One West Quay",
+      "area": "Southampton",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "All Bar One Worcester",
+      "area": "Worcester City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Animal Inns Ltd @ The Wildebeest Arms",
+      "area": "South Norfolk",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Back Lane Tavern",
+      "area": "West Oxfordshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Beeley Inn",
+      "area": "Derbyshire Dales",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Bridge Arms",
+      "area": "Canterbury City",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Bryherstones Inn",
+      "area": "North Yorkshire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Cosy Club Lincoln",
+      "area": "Lincoln City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Cosy Club Nottingham",
+      "area": "Nottingham City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Cosy Club Salisbury",
+      "area": "Wiltshire",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Cosy Club Stamford",
+      "area": "South Kesteven",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Cosy Club Taunton",
+      "area": "Somerset",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Dishoom",
+      "area": "Edinburgh (City of)",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "HARBOUR INN",
+      "area": "Dorset",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Harley's of Hemsby",
+      "area": "Great Yarmouth",
+      "status": "no-charge",
+      "pct": null,
+      "source": "diner"
+    },
+    {
+      "name": "Las Iguanas at The Oracle",
+      "area": "Reading",
+      "status": "charges",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "South Staffordshire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Horsham",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "South Gloucestershire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Nottingham City",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Bournemouth, Christchurch and Poole",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Bromley",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Basildon",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Solihull",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Solihull",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Edinburgh (City of)",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Merton",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Kingston-Upon-Thames",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter",
+      "area": "Harrow",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter - St Albans",
+      "area": "St Albans City",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter - Wheathampstead",
+      "area": "St Albans City",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Ainsdale",
+      "area": "Sefton",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter at the Dick Turpin",
+      "area": "Redbridge",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Aylesbury",
+      "area": "Buckinghamshire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Cannock",
+      "area": "Cannock Chase",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Cardiff",
+      "area": "Cardiff",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Caversham",
+      "area": "Reading",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Cramond Brig",
+      "area": "Edinburgh (City of)",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Grantham",
+      "area": "South Kesteven",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Heaton Chapel",
+      "area": "Stockport",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Rothley",
+      "area": "Charnwood",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Steakhouse",
+      "area": "Swansea",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Steakhouse",
+      "area": "East Suffolk",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Steakhouse",
+      "area": "Haringey",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller & Carter Steakhouse",
+      "area": "Warrington",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller and Carter",
+      "area": "Epping Forest",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller and Carter",
+      "area": "Kirklees",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller and Carter",
+      "area": "Adur",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter",
+      "area": "Leeds",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter",
+      "area": "Maidstone",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter",
+      "area": "Bexley",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter",
+      "area": "Wyre",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter Tynemouth",
+      "area": "North Tyneside",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller And Carter Washford Mill",
+      "area": "Stratford-on-Avon",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Miller and Carter Weston Gateway",
+      "area": "North Somerset",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Number 20",
+      "area": "North Yorkshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Pilsley Inn",
+      "area": "Derbyshire Dales",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Pomus",
+      "area": "Thanet",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Prezzo",
+      "area": "Cheltenham",
+      "status": "charges",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Roots",
+      "area": "York",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Sabor De Rua Brasil",
+      "area": "Richmond-Upon-Thames",
+      "status": "no-charge",
+      "pct": null,
+      "source": "diner"
+    },
+    {
+      "name": "Saint Judes",
+      "area": "Glasgow City",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Seven Stars Inn",
+      "area": "Wiltshire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Ten Trinity Square Private Club",
+      "area": "City of London Corporation",
+      "status": "charges",
+      "pct": 15,
+      "source": "researched"
+    },
+    {
+      "name": "The Angel",
+      "area": "West Oxfordshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Blues Kitchen",
+      "area": "Camden",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Bull & Swan",
+      "area": "South Kesteven",
+      "status": "charges",
+      "pct": 13,
+      "source": "researched"
+    },
+    {
+      "name": "The Bull on Bell Street",
+      "area": "South Oxfordshire",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Bulls Head",
+      "area": "Derbyshire Dales",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Cat And Custard Pot Inn",
+      "area": "Cotswold",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Chorlton Tap",
+      "area": "Manchester",
+      "status": "no-charge",
+      "pct": null,
+      "source": "diner"
+    },
+    {
+      "name": "The Cott Inn",
+      "area": "South Hams",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Erskine Arms",
+      "area": "Conwy",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "The George & Pilgrims",
+      "area": "Somerset",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "The Globe",
+      "area": "North Norfolk",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Great Bustard",
+      "area": "Wiltshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Guildhall Tavern",
+      "area": "Bournemouth, Christchurch and Poole",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Inn At Welland",
+      "area": "Malvern Hills",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The John Harvey Tavern",
+      "area": "Lewes",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Kensington Arms",
+      "area": "Bristol",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Kentish Hare",
+      "area": "Tunbridge Wells",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Kings Arms",
+      "area": "Dacorum",
+      "status": "charges",
+      "pct": 10,
+      "source": "diner"
+    },
+    {
+      "name": "The Kings Head",
+      "area": "Cotswold",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Little Angel",
+      "area": "Wokingham",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Mermaid",
+      "area": "Rother",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Milbury",
+      "area": "Winchester City",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "The Packhorse Inn",
+      "area": "West Suffolk",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Plough Shiplake",
+      "area": "South Oxfordshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Priory Inn",
+      "area": "Cotswold",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The Red Lion",
+      "area": "Wiltshire",
+      "status": "charges",
+      "pct": 15,
+      "source": "researched"
+    },
+    {
+      "name": "The Red Lion",
+      "area": "South Oxfordshire",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Royal Oak",
+      "area": "Cotswold",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Tobie Norris",
+      "area": "South Kesteven",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Victoria Oxshott",
+      "area": "Elmbridge",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "The Westleton Crown",
+      "area": "East Suffolk",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "The White Hart",
+      "area": "Lewes",
+      "status": "groups",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Turtle Bay",
+      "area": "Spelthorne",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Turtle Bay",
+      "area": "Derby City",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Turtle Bay",
+      "area": "Manchester",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Turtle Bay Restaurant",
+      "area": "Birmingham",
+      "status": "groups",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Two Sawyers",
+      "area": "Rother",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Union Inn",
+      "area": "Rother",
+      "status": "no-charge",
+      "pct": null,
+      "source": "researched"
+    },
+    {
+      "name": "Wild Thyme & Honey",
+      "area": "Cotswold",
+      "status": "charges",
+      "pct": 12.5,
+      "source": "researched"
+    },
+    {
+      "name": "Wildwood",
+      "area": "Somerset",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    },
+    {
+      "name": "Ye Olde Sportsman",
+      "area": "Canterbury City",
+      "status": "charges",
+      "pct": 10,
+      "source": "researched"
+    }
+  ]
+}
