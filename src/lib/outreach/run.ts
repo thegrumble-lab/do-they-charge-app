@@ -8,7 +8,7 @@ import { allProspects, countSend, firstSeen, getState, logEvent, saveProspect, s
 const SEEDS = prospectsData as Seed[];
 const seedFor = (email: string) => SEEDS.find((s) => s.email === email);
 
-type ReplyItem = { name: string; email: string; campaign: string; action: string; kind?: string; summary: string; theirs: string; ours?: string; changes?: string; page?: string };
+type ReplyItem = { name: string; email: string; campaign: string; action: string; kind?: string; summary: string; theirs: string; ours?: string; changes?: string; page?: string; followUp?: string };
 
 export type RunReport = {
   imported: number;
@@ -119,7 +119,7 @@ async function processInbox(report: RunReport, deadline: number) {
     }
 
     let decision;
-    if (p.status === "escalated" || p.ai_replies >= 3 || !seed) {
+    if (p.status === "escalated" || p.ai_replies >= 6 || !seed) {
       decision = {
         action: "escalate" as const,
         kind: "other" as const,
@@ -142,7 +142,7 @@ async function processInbox(report: RunReport, deadline: number) {
         const id = await sendOutreach({ to: m.from, subject, text, inReplyTo: m.messageId, references: [p.first_message_id ?? "", m.messageId], listUnsubscribe: false });
         await updateProspect(p.email, { ai_replies: p.ai_replies + 1, last_message_id: id });
         await logEvent(p.email, "ai_reply", text);
-        report.replies.push(item({ action: "AI replied", kind: decision.kind, summary: decision.summary, ours: text, changes: "changes" in decision ? decision.changes : undefined }));
+        report.replies.push(item({ action: "AI replied", kind: decision.kind, summary: decision.summary, ours: text, changes: "changes" in decision ? decision.changes : undefined, followUp: "follow_up" in decision ? decision.follow_up : undefined }));
       } catch (err) {
         await updateProspect(p.email, { status: "escalated" });
         report.errors.push(`Couldn't send the reply to ${p.name}: ${(err as Error).message}`);
@@ -267,9 +267,21 @@ async function sendDigest(report: RunReport) {
 
   const needs = report.replies.filter((r) => r.action === "needs you");
   const publish = report.replies.filter((r) => r.action === "AI replied" && (r.kind === "confirmed" || r.kind === "correction"));
-  const handled = report.replies.filter((r) => r.action !== "needs you" && !publish.includes(r));
+  const followUps = report.replies.filter((r) => r.followUp && r.action === "AI replied");
+  const handled = report.replies.filter((r) => r.action !== "needs you" && !publish.includes(r) && !followUps.includes(r));
   const L: string[] = [];
   L.push(`Discretionary outreach, ${new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", dateStyle: "full" }).format(new Date())}`, "");
+
+  if (followUps.length) {
+    L.push(`FOLLOW-UPS YOU OWE (${followUps.length})`);
+    for (const r of followUps) {
+      L.push(`- ${r.name} <${r.email}>`);
+      L.push(`  To do: ${r.followUp}`);
+      L.push(`  They wrote: ${flat(r.theirs, 700)}`);
+      if (r.ours) L.push(`  We replied: ${flat(r.ours, 500)}`);
+    }
+    L.push("Each one has already had a reply saying you'll come back to them. Reply as hello@discretionary.uk.", "");
+  }
 
   if (needs.length) {
     L.push(`NEEDS YOU (${needs.length})`);
@@ -342,7 +354,9 @@ async function sendDigest(report: RunReport) {
         ? `Discretionary outreach: ${needs.length} ${needs.length === 1 ? "reply needs" : "replies need"} you`
         : publish.length
           ? `Discretionary outreach: ${publish.length} ready to publish`
-          : "Discretionary outreach: daily summary";
+          : followUps.length
+            ? `Discretionary outreach: ${followUps.length} ${followUps.length === 1 ? "follow-up" : "follow-ups"} owed`
+            : "Discretionary outreach: daily summary";
   await sendInternal(to, subject, L.join("\n"));
 }
 
