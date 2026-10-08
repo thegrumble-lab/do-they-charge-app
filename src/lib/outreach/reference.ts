@@ -3,6 +3,44 @@ import { CHAIN_POLICIES } from "@/lib/chain-policies";
 import { getAreas } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 import { GUIDES } from "@/content/guides";
+import { supabase } from "@/lib/supabase";
+
+const PUB = 7843;
+const RESTAURANT = 1;
+
+/** Live split of listings with a stated policy into pubs/bars and restaurants/cafes (FSA business type). */
+async function typeSplit(): Promise<string[]> {
+  const latest = new Map<string, { status: string; pct: number | null; type: number | null }>();
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await supabase
+      .from("reports")
+      .select("restaurant_id, status, pct, report_date, created_at, restaurants!inner(business_type_id, is_active)")
+      .order("restaurant_id")
+      .order("report_date")
+      .order("created_at")
+      .range(from, from + 999);
+    if (error) throw error;
+    for (const r of (data ?? []) as unknown as { restaurant_id: string; status: string; pct: number | null; restaurants: { business_type_id: number | null; is_active: boolean } }[]) {
+      if (r.restaurants?.is_active === false) continue;
+      latest.set(r.restaurant_id, { status: r.status, pct: r.pct, type: r.restaurants?.business_type_id ?? null });
+    }
+    if (!data || data.length < 1000) break;
+  }
+  const rows = [...latest.values()].filter((r) => r.status === "charges" || r.status === "groups" || r.status === "no-charge");
+  if (!rows.some((r) => r.type != null)) return [];
+  const line = (label: string, type: number) => {
+    const g = rows.filter((r) => r.type === type);
+    const c = (s: string) => g.filter((r) => r.status === s).length;
+    const add = c("charges") + c("groups");
+    return `- ${label}: ${g.length} with a stated policy. ${add} add a service charge (${c("charges")} to every bill, ${c("groups")} for larger groups only); ${c("no-charge")} leave tipping to the diner.`;
+  };
+  return [
+    `Split by FSA business type (live, today; FSA's own classification, pub/bar/nightclub vs restaurant/cafe/canteen):`,
+    line("Pubs and bars", PUB),
+    line("Restaurants and cafes", RESTAURANT),
+    "- When asked about pubs, use these pub figures exactly. Never derive other percentages.",
+  ];
+}
 
 /**
  * Reference material the journalist-reply AI can quote from, so it can answer
@@ -31,10 +69,18 @@ export async function pressReference(): Promise<string> {
     console.error("Couldn't load areas for press replies", err);
   }
 
+  let split: string[] = [];
+  try {
+    split = await typeSplit();
+  } catch (err) {
+    console.error("Couldn't load the pub/restaurant split for press replies", err);
+  }
+
   cached = [
     "REFERENCE MATERIAL (you may state and link anything here):",
     `- Home page and search across every listed restaurant, each with its source: ${SITE_URL}`,
     "",
+    ...(split.length ? [...split, ""] : []),
     "Chain policies (from each chain's own published policy):",
     ...chains,
     "",
