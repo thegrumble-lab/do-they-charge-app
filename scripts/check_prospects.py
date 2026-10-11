@@ -17,6 +17,7 @@ Input:  <dir>/candidates.json, a list of
 Output: <dir>/results.json, keyed by id:
   {
     "emails_found": {address: [urls it appeared on]},
+    "context": {address: visible text around its first appearance},
     "email_confirmed": true/false/None (None when no email was expected),
     "email_seen_on": [urls],
     "pages": {url: {"status": int, "rendered": bool}},
@@ -69,21 +70,38 @@ def cf_decode(hexstr: str) -> str:
         return ""
 
 
-def extract_emails(body: str) -> set:
+def page_words(body: str) -> str:
+    """Visible-ish text with tags turned into spaces, so adjacent elements never run together."""
+    body = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", body)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", body)))
+
+
+def extract_emails(body: str) -> dict:
+    """Return {email: short snippet of the visible text around it}."""
     found = set()
-    text = html.unescape(urllib.parse.unquote(body))
-    for m in EMAIL_RE.findall(text):
-        found.add(m)
+    raw = html.unescape(urllib.parse.unquote(body))
+    words = page_words(body)
+    for src in (raw, words):
+        found.update(EMAIL_RE.findall(src))
     for h in CF_ATTR_RE.findall(body) + CF_HREF_RE.findall(body):
         d = cf_decode(h)
         if EMAIL_RE.fullmatch(d):
             found.add(d)
-    for user, dom in AT_RE.findall(text):
+    for user, dom in AT_RE.findall(words):
         dom = re.sub(r"\s*[\[\(\{]\s*dot\s*[\]\)\}]\s*|\s*\.\s*", ".", dom, flags=re.I)
         cand = f"{user}@{dom}"
         if EMAIL_RE.fullmatch(cand):
             found.add(cand)
-    return {e.strip(".").lower() for e in found if not JUNK_EMAIL.search(e)}
+    clean = {e.strip(".'\"").lower() for e in found if not JUNK_EMAIL.search(e)}
+    # Script data sometimes runs an address into the next word ("hello@x.comadvertising"):
+    # drop any address that is a shorter one plus extra letters.
+    clean = {e for e in clean if not any(o != e and e.startswith(o) and e[len(o)].isalpha() for o in clean)}
+    low = words.lower()
+    out = {}
+    for e in sorted(clean):
+        i = low.find(e.split("@")[0] + "@")
+        out[e] = words[max(0, i - 80): i + len(e) + 60].strip() if i >= 0 else ""
+    return out
 
 
 def visible_len(body: str) -> int:
@@ -179,7 +197,7 @@ def meta(body: str, key: str):
 def check(c: dict, cache: dict) -> dict:
     expected = (c.get("email") or "").strip().lower()
     pages = [p for p in c.get("pages", []) if p and p.startswith("http")]
-    res = {"emails_found": {}, "email_confirmed": None, "email_seen_on": [], "pages": {}, "article": None}
+    res = {"emails_found": {}, "context": {}, "email_confirmed": None, "email_seen_on": [], "pages": {}, "article": None}
     queue = list(pages)
     if c.get("follow"):
         for p in pages:
@@ -188,8 +206,10 @@ def check(c: dict, cache: dict) -> dict:
     for url in queue:
         status, body, final, rendered = get(url, cache)
         res["pages"][url] = {"status": status, "rendered": rendered}
-        for e in extract_emails(body):
+        for e, ctx in extract_emails(body).items():
             res["emails_found"].setdefault(e, []).append(url)
+            if ctx and e not in res["context"]:
+                res["context"][e] = ctx
     if expected:
         res["email_seen_on"] = res["emails_found"].get(expected, [])
         res["email_confirmed"] = bool(res["email_seen_on"])
