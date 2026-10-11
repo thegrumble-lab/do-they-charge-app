@@ -149,6 +149,8 @@ def follow_links(base: str, body: str) -> list:
         p = urllib.parse.urlparse(u)
         if p.scheme not in ("http", "https") or p.netloc.lower().removeprefix("www.") != host:
             continue
+        if re.search(r"\.(css|js|json|xml|png|jpe?g|gif|svg|webp|ico|woff2?)$|/feed/?$|/wp-json/", p.path, re.I):
+            continue
         if FOLLOW_RE.search(p.path) and u not in out and u.rstrip("/") != base.rstrip("/"):
             out.append(u)
     return out[:MAX_FOLLOW]
