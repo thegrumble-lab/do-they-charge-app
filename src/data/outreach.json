@@ -288,5 +288,365 @@
   "basis": "",
   "outlet": "Propel",
   "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "greatbeer@grogandgruel.co.uk",
+  "name": "Grog & Gruel",
+  "first": "",
+  "page": "https://discretionary.uk/highland/grog-gruel",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "theph@me.com",
+  "name": "Pantygwydr Restaurant",
+  "first": "",
+  "page": "https://discretionary.uk/swansea/pantygwydr-restaurant",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "stay@royalyorkhotel.co.uk",
+  "name": "Royal York & Faulkner Hotel",
+  "first": "",
+  "page": "https://discretionary.uk/east-devon/royal-york-faulkner-hotel",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "woodbridgebistro47a@gmail.com",
+  "name": "Bistro@47a",
+  "first": "",
+  "page": "https://discretionary.uk/east-suffolk/bistro-47a",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "stay@acorn-inn.co.uk",
+  "name": "Acorn Inn",
+  "first": "",
+  "page": "https://discretionary.uk/dorset/acorn-inn",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "halesowen@esffongrill.co.uk",
+  "name": "Esffon Grill",
+  "first": "",
+  "page": "https://discretionary.uk/dudley/esffon-grill",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "info@63taystreet.com",
+  "name": "63 Tay Street Restaurant",
+  "first": "",
+  "page": "https://discretionary.uk/perth-and-kinross/63-tay-street-restaurant",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "hello@timeout.com",
+  "name": "Time Out London editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Time Out London",
+  "angle": "your piece on why so many London restaurants are now charging a 15% service charge"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@startups.co.uk",
+  "name": "Startups.co.uk news desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Startups.co.uk",
+  "angle": "your piece on hidden bar and restaurant charges"
+ },
+ {
+  "campaign": "press",
+  "email": "edit@catererlicensee.com",
+  "name": "Caterer & Licensee editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Caterer & Licensee",
+  "angle": "your piece on Gordon Ramsay's festive service charge"
+ },
+ {
+  "campaign": "press",
+  "email": "editor@handcnews.com",
+  "name": "Hospitality & Catering News editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hospitality & Catering News",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@irishnews.com",
+  "name": "Irish News newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Irish News",
+  "angle": "your piece on Belfast diners paying over the odds for wine in restaurants"
+ },
+ {
+  "campaign": "press",
+  "email": "editor@manchesterwire.co.uk",
+  "name": "Manchester Wire editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Manchester Wire",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@men-news.co.uk",
+  "name": "Manchester Evening News newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Manchester Evening News",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@birminghamlive.co.uk",
+  "name": "Birmingham Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Birmingham Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@liverpool.com",
+  "name": "Liverpool Echo newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Liverpool Echo",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@walesonline.co.uk",
+  "name": "WalesOnline newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "WalesOnline",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "ec.news@ncjmedia.co.uk",
+  "name": "Chronicle Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Chronicle Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@glasgowtimes.co.uk",
+  "name": "Glasgow Times newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Glasgow Times",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsen@edinburghnews.com",
+  "name": "Edinburgh Evening News newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Edinburgh Evening News",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdeskts@scotsman.com",
+  "name": "The Scotsman newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Scotsman",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "service@countertalk.co.uk",
+  "name": "Countertalk editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Countertalk",
+  "angle": "your piece asking whether a 20% service charge will be the new norm"
+ },
+ {
+  "campaign": "press",
+  "email": "lifestyle@thelondoneconomic.com",
+  "name": "The London Economic lifestyle desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The London Economic",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "ediblereading@gmail.com",
+  "name": "Edible Reading",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Edible Reading",
+  "angle": "your review of Mignonette in Richmond"
+ },
+ {
+  "campaign": "press",
+  "email": "info@manchesterfoodtourist.com",
+  "name": "Manchester Food Tourist",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Manchester Food Tourist",
+  "angle": "your review of Restaurant Örme in Urmston"
+ },
+ {
+  "campaign": "press",
+  "email": "alecfrusher@gmail.com",
+  "name": "Alec Frusher",
+  "first": "Alec",
+  "page": "",
+  "basis": "",
+  "outlet": "Frusher on Food",
+  "angle": "your review of Zhug in Nottingham"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@thegourmetboys.com",
+  "name": "The Gourmet Boys",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Gourmet Boys",
+  "angle": "your review of Hendrix in Belfast"
+ },
+ {
+  "campaign": "press",
+  "email": "emily@breaksandbites.co.uk",
+  "name": "Emily",
+  "first": "Emily",
+  "page": "",
+  "basis": "",
+  "outlet": "Breaks and Bites",
+  "angle": "your post on the Cosy Club in Bristol's glow-up"
+ },
+ {
+  "campaign": "press",
+  "email": "jensfoodblog@gmail.com",
+  "name": "Jen",
+  "first": "Jen",
+  "page": "",
+  "basis": "",
+  "outlet": "Jen's Food Blog",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "eat@restaurantsbrighton.co.uk",
+  "name": "Restaurants Brighton",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Restaurants Brighton",
+  "angle": "your guide to where to eat in Brighton"
+ },
+ {
+  "campaign": "press",
+  "email": "liverpooleditorial@confidentials.com",
+  "name": "Liverpool Confidential editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Liverpool Confidential",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "eat@list.co.uk",
+  "name": "The List food and drink desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The List",
+  "angle": "that Eat & Drink 365 Edinburgh is back for a second edition"
+ },
+ {
+  "campaign": "press",
+  "email": "peter.simpson@theskinny.co.uk",
+  "name": "Peter Simpson",
+  "first": "Peter",
+  "page": "",
+  "basis": "",
+  "outlet": "The Skinny",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@weareopus.org",
+  "name": "Now Then editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Now Then Magazine",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "rachel.buchanan@muddystilettos.co.uk",
+  "name": "Rachel Buchanan",
+  "first": "Rachel",
+  "page": "",
+  "basis": "",
+  "outlet": "Muddy Stilettos Cornwall",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@bristol247.com",
+  "name": "Bristol24/7 editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Bristol24/7",
+  "angle": ""
  }
 ]
