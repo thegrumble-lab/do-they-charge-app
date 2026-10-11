@@ -1,0 +1,51 @@
+name: Prospect check
+
+# The weekly outreach prospect research (a Claude scheduled task) finds
+# candidate contact pages and articles, then pushes them to the
+# prospect-check branch as prospect-check/candidates.json. This job fetches
+# each page, records which email addresses really appear on it and whether
+# each angle article exists, and commits prospect-check/results.json back to
+# the same branch for the task to read.
+#
+# Runs here rather than in a Claude session because GitHub's runners have
+# normal internet access, while Claude sessions sit behind an allowlist that
+# needs every new site approved by hand. See scripts/check_prospects.py.
+on:
+  push:
+    branches: [prospect-check]
+    paths: [prospect-check/candidates.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: prospect-check
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Headless Chromium for JavaScript-only sites (Wix and similar).
+      - name: Install Playwright
+        run: |
+          pip install playwright==1.48.0
+          python -m playwright install --with-deps chromium
+
+      - name: Check candidates
+        run: python3 scripts/check_prospects.py prospect-check
+
+      # Commits made with GITHUB_TOKEN never trigger another workflow run.
+      - name: Save results to the branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prospect-check/results.json
+          git commit -q -m "Prospect check results $(date -u +%FT%TZ)"
+          git push -q origin HEAD:prospect-check
