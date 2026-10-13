@@ -4,6 +4,7 @@ import { FOLLOW_UP_DAYS, SEQUENCE_LENGTH, confirmationReply, renderStep, type Se
 import { OUR_DOMAIN, fetchInbox, mailbox, sendInternal, sendOutreach, stripQuoted, unsubUrl } from "./mail";
 import { decideReply } from "./ai";
 import { pressReference } from "./reference";
+import { publishSubmissionsSummary } from "./submissions";
 import { allProspects, countSend, firstSeen, getState, logEvent, saveProspect, sentOn, setState, updateProspect, type Prospect } from "./store";
 
 const SEEDS = prospectsData as Seed[];
@@ -377,6 +378,10 @@ export async function runOutreach(opts: { digest?: boolean } = {}): Promise<RunR
   await step("Import", () => importProspects(report));
   await step("Reply check", () => processInbox(report, deadline - 90_000));
   await step("Sending", () => sendDue(report, deadline));
+  // Visitor submissions snapshot for the Sites status email (built by Carer Tickets).
+  await step("Submissions summary", async () => {
+    await publishSubmissionsSummary();
+  });
   if (opts.digest !== false) await step("Summary email", () => sendDigest(report));
   return report;
 }
