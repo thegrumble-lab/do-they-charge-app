@@ -280,7 +280,13 @@ function fromTracker(slug: string, pctOverride?: number): ChainReport {
     throw new Error(`chain-tracker entry "${slug}" is missing a note or source`);
   }
   const status: ReportStatus =
-    c.verdict === "every-bill" ? "charges" : c.verdict === "groups" ? "groups" : "unclear";
+    c.verdict === "every-bill"
+      ? "charges"
+      : c.verdict === "groups"
+      ? "groups"
+      : c.verdict === "may-charge"
+      ? "may-charge"
+      : "unclear";
   const single = c.rate && /^\d+(\.\d+)?%$/.test(c.rate) ? Number(c.rate.replace("%", "")) : null;
   return {
     status,
@@ -605,8 +611,8 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
       plainName(row.name).includes("gourmet burger kitchen") ||
       wordMatch(row.name, "gbk"),
     resolve: () => ({
-      status: "unclear",
-      pct: null,
+      status: "may-charge",
+      pct: 12.5,
       note: "GBK's own menu states a discretionary service charge of 12.5% may be levied, and to check in restaurant for details — which stops short of confirming it is added to every bill.",
       sourceUrl: GBK_SOURCE,
     }),

@@ -78,10 +78,12 @@ export default function AboutPage() {
             <strong>Researched</strong> — checked against a restaurant&apos;s
             own published policy (a FAQ, menu, booking terms, or similar),
             with a link to that source shown on the page. Nothing is ever
-            guessed: if no restaurant ever publishes a policy anywhere
-            findable, or its wording covering conflicting, it&apos;s
-            recorded as &ldquo;unclear&rdquo; with a note, rather than
-            assigning a status that can&apos;t be backed by a link.
+            guessed. Where a restaurant&apos;s own wording says a service
+            charge &ldquo;may&rdquo; be added without confirming it goes on
+            every bill, the listing says <strong>May charge</strong>. Where
+            nothing citable can be found, the listing simply stays without
+            a report rather than showing a status that can&apos;t be backed
+            by a link.
           </p>
           <p>
             Either way, service charges are always optional under UK

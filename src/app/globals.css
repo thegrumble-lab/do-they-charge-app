@@ -289,6 +289,9 @@ a:focus-visible {
 .stamp.groups {
   color: var(--groups);
 }
+.stamp.may-charge {
+  color: var(--groups);
+}
 .stamp.unclear {
   color: var(--unclear);
 }

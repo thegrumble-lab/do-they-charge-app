@@ -172,6 +172,8 @@ export async function searchRestaurants(
 
     const latestByRestaurant = new Map<string, { status: string }>();
     for (const r of allReports ?? []) {
+      // "unclear" is internal only, matching latestReport().
+      if (r.status === "unclear") continue;
       // Rows arrive grouped by restaurant_id and sorted oldest-to-newest
       // within each group (matching the sort in toRestaurant()/
       // latestReport()), so the last .set() per restaurant_id wins.
@@ -313,7 +315,7 @@ export async function getSampleOfReportedRestaurants(
 ): Promise<Restaurant[]> {
   const { rows } = await getPgPool().query<DbRestaurant>(
     `with reported as (
-       select distinct restaurant_id from reports
+       select distinct restaurant_id from reports where status <> 'unclear'
      )
      select r.id, r.fhrsid, r.area_slug, r.slug, r.name, r.area, r.address,
             r.postcode, r.lat, r.lng, r.is_active,

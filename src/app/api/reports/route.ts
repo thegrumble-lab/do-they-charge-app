@@ -5,13 +5,14 @@ import {
   RestaurantNotFoundError,
   RateLimitedError,
 } from "@/lib/data";
-import { ReportStatus } from "@/lib/types";
+import { PublicStatus } from "@/lib/types";
 
-const VALID_STATUSES: ReportStatus[] = [
+// "unclear" is internal only, so diners can't submit it.
+const VALID_STATUSES: PublicStatus[] = [
   "charges",
+  "may-charge",
   "no-charge",
   "groups",
-  "unclear",
 ];
 
 function slugify(input: string): string {
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
     note?: string;
   };
 
-  if (!name || !area || !status || !VALID_STATUSES.includes(status as ReportStatus)) {
+  if (!name || !area || !status || !VALID_STATUSES.includes(status as PublicStatus)) {
     return NextResponse.json(
       { error: "Restaurant name, area, and what happened are all required." },
       { status: 400 }
@@ -68,7 +69,7 @@ export async function POST(req: NextRequest) {
     restaurant = await submitDinerReport(
       finalAreaSlug,
       finalSlug,
-      status as ReportStatus,
+      status as PublicStatus,
       typeof pct === "number" ? pct : null,
       (note || "").slice(0, 220),
       ip

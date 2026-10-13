@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import type { ReportStatus } from "@/lib/types";
+import type { PublicStatus } from "@/lib/types";
 
-const CONFIRM_LABEL: Record<ReportStatus, string> = {
+const CONFIRM_LABEL: Record<PublicStatus, string> = {
   charges: "Yes, they still add one",
+  "may-charge": "Yes, it still says one may be added",
   "no-charge": "Yes, still no service charge",
   groups: "Yes, still only for groups",
-  unclear: "Yes, still unclear",
 };
 
 /**
@@ -27,7 +27,7 @@ export default function StillAccurate({
   slug: string;
   name: string;
   area: string;
-  status: ReportStatus;
+  status: PublicStatus;
   pct: number | null;
 }) {
   const [state, setState] = useState<"idle" | "saving" | "done" | "error">("idle");

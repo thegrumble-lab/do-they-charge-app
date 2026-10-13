@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/data";
-import { STATUS_META, latestReport, hygieneRating, relativeAge, isStale } from "@/lib/types";
+import { STATUS_META, PublicStatus, latestReport, publicReports, hygieneRating, relativeAge, isStale } from "@/lib/types";
 import AddReportForm from "@/components/AddReportForm";
 import ReportErrorForm from "@/components/ReportErrorForm";
 import StillAccurate from "@/components/StillAccurate";
@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const r = await getRestaurantBySlug(area, slug);
   if (!r) return { title: "Restaurant not found" };
   const latest = latestReport(r);
+  const reportCount = publicReports(r).length;
   // Prefer the town over the local authority: "Long Bennington" locates a
   // pub for a human, "South Kesteven" doesn't. Falls back to no location
   // at all rather than guessing — see src/lib/location.ts.
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const desc = latest
     ? `${r.name}${where}: ${STATUS_META[latest.status].label.toLowerCase()}${
         latest.pct ? ` (around ${latest.pct}%)` : ""
-      }, based on ${r.reports.length} report${r.reports.length === 1 ? "" : "s"}.`
+      }, based on ${reportCount} report${reportCount === 1 ? "" : "s"}.`
     : `No reports yet on whether ${r.name}${where} adds a discretionary service charge — be the first to say.`;
   return {
     title: `Does ${r.name}${where} add a discretionary service charge?`,
@@ -56,7 +57,7 @@ export default async function RestaurantPage({ params }: Props) {
 
   const latest = latestReport(r);
   const meta = latest ? STATUS_META[latest.status] : null;
-  const history = r.reports.slice(0, -1).reverse();
+  const history = publicReports(r).slice(0, -1).reverse();
   // FSA inspection data, under the Open Government Licence — the one
   // rating source that can be stored and republished. null when the
   // listing is awaiting inspection, exempt, or predates the field.
@@ -152,7 +153,7 @@ export default async function RestaurantPage({ params }: Props) {
               slug={r.slug}
               name={r.name}
               area={r.area}
-              status={latest.status}
+              status={latest.status as PublicStatus}
               pct={latest.pct}
             />
           ) : null}

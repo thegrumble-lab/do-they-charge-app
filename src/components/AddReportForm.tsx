@@ -122,11 +122,11 @@ export default function AddReportForm({
             <input
               type="radio"
               name="status"
-              value="unclear"
-              checked={status === "unclear"}
+              value="may-charge"
+              checked={status === "may-charge"}
               onChange={(e) => setStatus(e.target.value)}
             />
-            Not sure — just flagging it
+            The menu says one may be added
           </label>
         </div>
       </div>

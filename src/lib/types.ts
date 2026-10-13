@@ -1,4 +1,20 @@
-export type ReportStatus = "charges" | "no-charge" | "groups" | "unclear";
+/**
+ * "may-charge": the restaurant's own published wording mentions a service
+ * charge but stops short of confirming it is added to every bill (e.g. "a
+ * discretionary service charge may be added").
+ *
+ * "unclear": internal only. Research found nothing citable, or the wording
+ * conflicted. Kept so the same restaurant isn't researched again, but never
+ * shown publicly: to a diner it is the same as having no report at all.
+ */
+export type ReportStatus = "charges" | "may-charge" | "no-charge" | "groups" | "unclear";
+
+/** Statuses a visitor can see, filter by, or submit. */
+export type PublicStatus = Exclude<ReportStatus, "unclear">;
+
+export function isPublicReport(r: { status: ReportStatus | string }): boolean {
+  return r.status !== "unclear";
+}
 
 export interface Report {
   id: string;
@@ -81,12 +97,20 @@ export const STATUS_META: Record<
   charges: { label: "Adds charge", className: "charges" },
   "no-charge": { label: "No charge", className: "no-charge" },
   groups: { label: "Groups only", className: "groups" },
-  unclear: { label: "Unclear", className: "unclear" },
+  "may-charge": { label: "May charge", className: "may-charge" },
+  unclear: { label: "Unclear (hidden)", className: "unclear" },
 };
 
+/** Reports a visitor can see, oldest first. Hides internal "unclear" rows. */
+export function publicReports(r: Restaurant): Report[] {
+  return r.reports.filter(isPublicReport);
+}
+
+/** The latest report a visitor can see, or null if there is none. */
 export function latestReport(r: Restaurant): Report | null {
-  if (r.reports.length === 0) return null;
-  return r.reports[r.reports.length - 1];
+  const visible = publicReports(r);
+  if (visible.length === 0) return null;
+  return visible[visible.length - 1];
 }
 
 /**

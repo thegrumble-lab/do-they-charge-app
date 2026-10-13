@@ -277,6 +277,7 @@ export default function AdminPanel({
                           {(
                             [
                               "charges",
+                              "may-charge",
                               "groups",
                               "no-charge",
                               "unclear",

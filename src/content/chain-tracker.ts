@@ -25,7 +25,7 @@
 // group threshold moves. Each change needs the date it was spotted and a
 // one-line description in plain English.
 
-export type ChainVerdict = "every-bill" | "groups" | "unclear" | "not-published";
+export type ChainVerdict = "every-bill" | "groups" | "may-charge" | "not-published";
 
 export interface ChainChange {
   /** ISO date the change was spotted on the chain's own site. */
@@ -330,7 +330,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
     chain: "Gourmet Burger Kitchen",
     slug: "gbk",
     matcherName: "Gourmet Burger Kitchen",
-    verdict: "unclear",
+    verdict: "may-charge",
     rate: "12.5%",
     groupSize: null,
     summary: "12.5% \"may be levied\": check in restaurant",
@@ -751,7 +751,7 @@ export const VERDICT_META: Record<
 > = {
   "every-bill": { label: "Every bill", className: "charges", order: 0 },
   groups: { label: "Groups only", className: "groups", order: 1 },
-  unclear: { label: "Unclear", className: "unclear", order: 2 },
+  "may-charge": { label: "May charge", className: "may-charge", order: 2 },
   "not-published": { label: "Not published", className: "unclear", order: 3 },
 };
 

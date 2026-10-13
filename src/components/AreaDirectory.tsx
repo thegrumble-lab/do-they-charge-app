@@ -1,15 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Restaurant, ReportStatus, latestReport } from "@/lib/types";
+import { Restaurant, PublicStatus, latestReport } from "@/lib/types";
 import RestaurantsTable from "./RestaurantsTable";
 
-const FILTERS: { key: "all" | ReportStatus; label: string }[] = [
+const FILTERS: { key: "all" | PublicStatus; label: string }[] = [
   { key: "all", label: "All" },
   { key: "no-charge", label: "No charge" },
   { key: "charges", label: "Adds charge" },
   { key: "groups", label: "Groups only" },
-  { key: "unclear", label: "Unclear" },
+  { key: "may-charge", label: "May charge" },
 ];
 
 /** How many recently-reported places to show above the A-Z. */
@@ -40,7 +40,7 @@ export default function AreaDirectory({
   area: string;
 }) {
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<"all" | ReportStatus>("all");
+  const [status, setStatus] = useState<"all" | PublicStatus>("all");
 
   const trimmedQuery = query.trim();
   const isFiltering = trimmedQuery !== "" || status !== "all";

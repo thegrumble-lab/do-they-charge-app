@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Restaurant, ReportStatus } from "@/lib/types";
+import { Restaurant, PublicStatus } from "@/lib/types";
 import RestaurantsTable from "./RestaurantsTable";
 
-const FILTERS: { key: "all" | ReportStatus; label: string }[] = [
+const FILTERS: { key: "all" | PublicStatus; label: string }[] = [
   { key: "all", label: "All" },
   { key: "no-charge", label: "No charge" },
   { key: "charges", label: "Adds charge" },
   { key: "groups", label: "Groups only" },
-  { key: "unclear", label: "Unclear" },
+  { key: "may-charge", label: "May charge" },
 ];
 
 const DEBOUNCE_MS = 250;
@@ -29,7 +29,7 @@ export default function SearchDirectory({
   showingSample?: boolean;
 }) {
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<"all" | ReportStatus>("all");
+  const [status, setStatus] = useState<"all" | PublicStatus>("all");
   // Tags each fetched batch with the query/status it answers, so "loading"
   // and "results" can be derived by comparing against the current
   // query/status instead of needing a separate effect-driven reset.

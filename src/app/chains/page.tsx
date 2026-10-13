@@ -38,10 +38,10 @@ const SECTIONS: { verdict: ChainVerdict; title: string; intro: string }[] = [
       "Added only once your party reaches a certain size (and, at a few chains, at London branches too).",
   },
   {
-    verdict: "unclear",
-    title: "Unclear",
+    verdict: "may-charge",
+    title: "May charge",
     intro:
-      "The chain's own wording stops short of saying whether the charge is added to every bill.",
+      "The chain's own wording says a service charge may be added, but stops short of saying it goes on every bill.",
   },
   {
     verdict: "not-published",

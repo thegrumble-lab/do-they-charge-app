@@ -46,6 +46,8 @@ export function restaurantQuestion(r: Restaurant): string {
  * A plain-English answer built strictly from the latest report, matching
  * what the page displays. Hedged where the data is hedged — an "unclear"
  * report must not read as a confident "no".
+ * ("unclear" is never public, so latestReport() won't return one; the
+ * entry stays only to keep the Record exhaustive.)
  */
 export function restaurantAnswer(r: Restaurant): string {
   const place = placeLabel(r.address, r.area, r.name);
@@ -60,6 +62,7 @@ export function restaurantAnswer(r: Restaurant): string {
     charges: `Yes — ${r.name}${where} adds a discretionary service charge${pct}.`,
     groups: `Only for larger groups — ${r.name}${where} adds a discretionary service charge${pct} to bigger tables.`,
     "no-charge": `No — ${r.name}${where} does not add a discretionary service charge.`,
+    "may-charge": `Possibly. ${r.name}${where} says a discretionary service charge${pct} may be added, without confirming it is added to every bill.`,
     unclear: `It isn't clear whether ${r.name}${where} adds a discretionary service charge.`,
   };
 
@@ -86,6 +89,7 @@ function chargeProperties(r: Restaurant) {
     charges: "Yes",
     groups: "Larger groups only",
     "no-charge": "No",
+    "may-charge": "Possibly",
     unclear: "Unknown",
   };
 

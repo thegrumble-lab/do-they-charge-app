@@ -23,6 +23,7 @@ async function typeSplit(): Promise<string[]> {
     if (error) throw error;
     for (const r of (data ?? []) as unknown as { restaurant_id: string; status: string; pct: number | null; restaurants: { business_type_id: number | null; is_active: boolean } }[]) {
       if (r.restaurants?.is_active === false) continue;
+      if (r.status === "unclear") continue; // internal only, never public
       latest.set(r.restaurant_id, { status: r.status, pct: r.pct, type: r.restaurants?.business_type_id ?? null });
     }
     if (!data || data.length < 1000) break;
@@ -56,7 +57,7 @@ export async function pressReference(): Promise<string> {
     try {
       const r = c.resolve({ name: c.chainName, area: "", address: "" });
       const varies = c.resolve.length > 0 ? " The rate varies by branch, so give the general policy and point to the source." : "";
-      const status = r.status === "charges" ? "adds a service charge" : r.status === "no-charge" ? "does not add a service charge" : r.status === "groups" ? "adds a service charge for larger groups" : "policy unclear";
+      const status = r.status === "charges" ? "adds a service charge" : r.status === "no-charge" ? "does not add a service charge" : r.status === "groups" ? "adds a service charge for larger groups" : r.status === "may-charge" ? "says a service charge may be added, without confirming it is added to every bill" : "policy unclear";
       return `- ${c.chainName}: ${status}. ${r.note}${varies} Source: ${r.sourceUrl}`;
     } catch {
       return null;

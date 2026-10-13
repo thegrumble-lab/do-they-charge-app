@@ -6,6 +6,7 @@ import { ReportStatus } from "@/lib/types";
 
 const VALID_STATUSES: ReportStatus[] = [
   "charges",
+  "may-charge",
   "no-charge",
   "groups",
   "unclear",
