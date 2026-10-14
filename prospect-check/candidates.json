@@ -1,0 +1,540 @@
+[
+ {
+  "id": "cheese-and-biscuits",
+  "pages": [
+   "https://www.cheese-and-biscuits.org.uk/",
+   "https://www.cheese-and-biscuits.org.uk/contact"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "eat-like-a-girl",
+  "pages": [
+   "https://eatlikeagirl.com/",
+   "https://eatlikeagirl.com/contact/",
+   "https://eatlikeagirl.com/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "foodie-quine",
+  "pages": [
+   "https://www.foodiequine.co.uk/",
+   "https://www.foodiequine.co.uk/contact",
+   "https://www.foodiequine.co.uk/about"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "the-london-foodie",
+  "pages": [
+   "https://www.thelondonfoodie.co.uk/",
+   "https://www.thelondonfoodie.co.uk/p/about.html"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "kentishtowner",
+  "pages": [
+   "https://www.kentishtowner.co.uk/",
+   "https://www.kentishtowner.co.uk/contact/",
+   "https://www.kentishtowner.co.uk/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "gastrogays",
+  "pages": [
+   "https://gastrogays.com/",
+   "https://gastrogays.com/contact/",
+   "https://gastrogays.com/work-with-us/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "vittles",
+  "pages": [
+   "https://vittles.substack.com/about"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "clerkenwell-boy-aevitas",
+  "pages": [
+   "https://www.aevitascreative.com/client/clerkenwell-boy",
+   "https://www.aevitascreative.com/contact"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "leyla-kazim-performing-artistes",
+  "pages": [
+   "https://performingartistes.co.uk/artistes/leyla-kazim",
+   "https://performingartistes.co.uk/contact"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "stephen-tries",
+  "pages": [
+   "https://www.youtube.com/@StephenTries/about",
+   "https://www.chortle.co.uk/other-news/2023/09/21/54196/management_deal_for_stephen_tries"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "leeds-list",
+  "pages": [
+   "https://leeds-list.com/",
+   "https://leeds-list.com/contact/",
+   "https://leeds-list.com/advertise/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "topjaw-ymu",
+  "pages": [
+   "https://www.ymugroup.com/talent/topjaw/",
+   "https://www.ymugroup.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.mca-insight.com/innovation/why-chefs-are-obsessed-with-this-foodie-instagram-account/685009.article",
+  "follow": true
+ },
+ {
+  "id": "honest-places-ruthless",
+  "pages": [
+   "https://ruthlesstalent.com/creators/honest-places/",
+   "https://ruthlesstalent.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "ollie-eats-connect",
+  "pages": [
+   "https://connectmgt.com/talent-roster/ollie-eats",
+   "https://connectmgt.com/management/talent/ollie-eats",
+   "https://connectmgt.com/food-drink-cooking-influencers/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "arthur-tv-ruthless",
+  "pages": [
+   "https://ruthlesstalent.com/creators/arthur-tv-2/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "ed-chapman-ruthless",
+  "pages": [
+   "https://ruthlesstalent.com/creators/ed-chapman/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "macmaster-ruthless",
+  "pages": [
+   "https://ruthlesstalent.com/creators/macmaster/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "sammy-and-tommy-ruthless",
+  "pages": [
+   "https://ruthlesstalent.com/creators/sammy-and-tommy/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "manchesters-finest",
+  "pages": [
+   "https://www.manchestersfinest.com/",
+   "https://www.manchestersfinest.com/contact/",
+   "https://www.manchestersfinest.com/advertise/"
+  ],
+  "email": "",
+  "article": "https://www.manchestersfinest.com/manchester-guides/the-best-genuinely-cheap-eats-in-manchester/",
+  "follow": true
+ },
+ {
+  "id": "york-on-a-fork",
+  "pages": [
+   "https://yorkonafork.com/",
+   "https://yorkonafork.com/about/",
+   "https://yorkonafork.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "where-goes-rose",
+  "pages": [
+   "https://www.wheregoesrose.com/",
+   "https://www.wheregoesrose.com/contact/",
+   "https://www.wheregoesrose.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://www.wheregoesrose.com/cheap-eats-manchester-city-centre/",
+  "follow": true
+ },
+ {
+  "id": "creative-tourist",
+  "pages": [
+   "https://www.creativetourist.com/",
+   "https://www.creativetourist.com/contact/",
+   "https://www.creativetourist.com/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "faraway-lucy",
+  "pages": [
+   "https://www.farawaylucy.com/",
+   "https://www.farawaylucy.com/contact/",
+   "https://www.farawaylucy.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://www.farawaylucy.com/cheap-eats-liverpool/",
+  "follow": true
+ },
+ {
+  "id": "independent-liverpool",
+  "pages": [
+   "https://independentliverpool.co.uk/",
+   "https://independentliverpool.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "seven-streets",
+  "pages": [
+   "https://www.sevenstreets.com/",
+   "https://www.sevenstreets.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "feeding-boys",
+  "pages": [
+   "https://www.feedingboys.co.uk/",
+   "https://www.feedingboys.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "the-lovecats-inc",
+  "pages": [
+   "https://www.thelovecatsinc.com/",
+   "https://www.thelovecatsinc.com/contact/",
+   "https://www.thelovecatsinc.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "edinburgh-reviews",
+  "pages": [
+   "https://edinburgh-reviews.co.uk/",
+   "https://edinburgh-reviews.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "budget-traveller",
+  "pages": [
+   "https://budgettraveller.org/",
+   "https://budgettraveller.org/contact/",
+   "https://budgettraveller.org/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://budgettraveller.org/cheap-eats-in-belfast-try-boojum",
+  "follow": true
+ },
+ {
+  "id": "live-breathe-scotland",
+  "pages": [
+   "https://www.livebreathescotland.com/",
+   "https://www.livebreathescotland.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.livebreathescotland.com/tipping-in-scotland/",
+  "follow": true
+ },
+ {
+  "id": "whats-good-to-do",
+  "pages": [
+   "https://whatsgoodtodo.com/",
+   "https://whatsgoodtodo.com/contact/",
+   "https://whatsgoodtodo.com/advertise/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "dish-cult",
+  "pages": [
+   "https://www.dishcult.com/",
+   "https://www.dishcult.com/contact"
+  ],
+  "email": "",
+  "article": "https://www.dishcult.com/articles/glasgows-best-cheap-cheerful",
+  "follow": true
+ },
+ {
+  "id": "ireland-before-you-die",
+  "pages": [
+   "https://www.irelandbeforeyoudie.com/",
+   "https://www.irelandbeforeyoudie.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "finding-the-universe",
+  "pages": [
+   "https://findingtheuniverse.com/",
+   "https://findingtheuniverse.com/contact/"
+  ],
+  "email": "",
+  "article": "https://findingtheuniverse.com/aberdeen-restaurants-scotland",
+  "follow": true
+ },
+ {
+  "id": "nottinghammm",
+  "pages": [
+   "https://nottinghammm.com/",
+   "https://nottinghammm.com/contact/",
+   "https://nottinghammm.com/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "leftlion",
+  "pages": [
+   "https://www.leftlion.co.uk/",
+   "https://www.leftlion.co.uk/contact/",
+   "https://www.leftlion.co.uk/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "secret-bristol",
+  "pages": [
+   "https://secretbristol.com/",
+   "https://secretbristol.com/contact/"
+  ],
+  "email": "",
+  "article": "https://secretbristol.com/cheap-eats-bristol/",
+  "follow": true
+ },
+ {
+  "id": "bristol-unique-guide",
+  "pages": [
+   "https://www.bristoluniqueguide.com/",
+   "https://www.bristoluniqueguide.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.bristoluniqueguide.com/bristol-food-hub-wheres-reasonable-nice/",
+  "follow": true
+ },
+ {
+  "id": "crumbs",
+  "pages": [
+   "https://www.crumbsmag.com/",
+   "https://www.crumbsmag.com/contact/",
+   "https://www.mediaclash.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "brunchographers",
+  "pages": [
+   "https://www.brunchographers.com/",
+   "https://www.brunchographers.com/contact",
+   "https://www.brunchographers.com/about"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "candace-abroad",
+  "pages": [
+   "https://candaceabroad.com/",
+   "https://candaceabroad.com/contact/",
+   "https://candaceabroad.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://candaceabroad.com/tipping-in-london/",
+  "follow": true
+ },
+ {
+  "id": "the-nudge",
+  "pages": [
+   "https://thenudge.com/",
+   "https://thenudge.com/about/",
+   "https://thenudge.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "the-rare-welsh-bit",
+  "pages": [
+   "https://www.therarewelshbit.com/",
+   "https://www.therarewelshbit.com/contact/",
+   "https://www.therarewelshbit.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "dining-devon",
+  "pages": [
+   "https://diningdevon.com/",
+   "https://diningdevon.com/contact/",
+   "https://diningdevon.com/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "the-oxfordshire-foodie",
+  "pages": [
+   "https://www.theoxfordshirefoodie.co.uk/",
+   "https://www.theoxfordshirefoodie.co.uk/contact",
+   "https://www.theoxfordshirefoodie.co.uk/about"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "eat-out-norwich",
+  "pages": [
+   "https://eatoutnorwich.com/",
+   "https://eatoutnorwich.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "enjoy-norwich",
+  "pages": [
+   "https://enjoynorwich.com/",
+   "https://enjoynorwich.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "cambridge-food-blog",
+  "pages": [
+   "https://www.cambridgefoodblog.com/",
+   "https://www.cambridgefoodblog.com/contact"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "cambridge-food",
+  "pages": [
+   "https://cambridge-food.com/",
+   "https://cambridge-food.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "leicester-food",
+  "pages": [
+   "https://leicesterfood.com/",
+   "https://leicesterfood.com/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "independent-leicester",
+  "pages": [
+   "https://independentleicester.co.uk/",
+   "https://independentleicester.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "southampton-food",
+  "pages": [
+   "https://www.southamptonfood.co.uk/",
+   "https://www.southamptonfood.co.uk/contact"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ }
+]
