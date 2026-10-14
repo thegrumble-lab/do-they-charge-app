@@ -177,7 +177,8 @@ export default async function ChainPage({ params }: Props) {
                   </span>
                   {variesByBranch ? (
                     <span className={`stamp ${STATUS_META[b.status].className} stamp-small`}>
-                      {b.pct ? `${b.pct}%` : STATUS_META[b.status].label}
+                      {b.status === "groups" ? "Groups" : b.status === "charges" ? "Every bill" : STATUS_META[b.status].label}
+                      {b.pct ? ` ${b.pct}%` : ""}
                     </span>
                   ) : null}
                 </div>
