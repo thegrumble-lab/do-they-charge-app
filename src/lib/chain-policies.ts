@@ -381,7 +381,7 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
     resolve: () => ({
       status: "charges",
       pct: null,
-      note: "A Rosa's Thai menu published on their own site states an optional service charge is added to the bill, and that you can ask for a different amount or none. No percentage is given, and the menu found dates from 2024.",
+      note: "A Rosa's Thai menu published on their own site states an optional service charge is added to the bill, and that you can ask for a different amount or none. No percentage is given. The menu at that address was last updated in June 2026.",
       sourceUrl: ROSAS_THAI_SOURCE,
     }),
   },
