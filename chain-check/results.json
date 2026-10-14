@@ -1,0 +1,1994 @@
+{
+ "bancone": {
+  "article": null,
+  "context": {
+   "hannah@nourishpr.com": "essible access to our private dining rooms. Collaboration Requests Please email hannah@nourishpr.com with your media kit and proposition. Covent Garden 39 Willi",
+   "host@bancone.co.uk": "nd the answer to your question on this page! If not, please reach out to us via host@bancone.co.uk and we will be happy to help. Reservations Can I pay with c"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hannah@nourishpr.com": [
+    "https://www.bancone.co.uk/faqs"
+   ],
+   "host@bancone.co.uk": [
+    "https://www.bancone.co.uk/faqs"
+   ]
+  },
+  "pages": {
+   "https://www.bancone.co.uk/faqs": {
+    "final_url": "https://www.bancone.co.uk/faqs",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.bancone.co.uk/s/Covent-Garden-Main-Menu-9th-July-2025.pdf": {
+    "final_url": "https://static1.squarespace.com/static/61de90855159ee26452a680a/t/686e7397165ae55d9f0d83b1/1752069015411/Covent+Garden+Main+Menu+9th+July+2025.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.bancone.co.uk/faqs": [],
+   "https://www.bancone.co.uk/s/Covent-Garden-Main-Menu-9th-July-2025.pdf": [
+    "mond cake, white chocolate 9.5 Please let us know if you have any dietary requirements, however we are unable to guarantee dishes are completely allergen free Some dishes available with gluten free pasta +\u00a31 An optional gratuity of 12.5% will be added to the total bill and shared by the whole team. We accept card payments only Bancone Signature Negronis 7 White Gin, Suze, Lillet Blanc Classic Gin, Campari & Sweet Vermouth Orange Blossom Gin, O"
+   ]
+  }
+ },
+ "bao": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "battersea@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "borough.bookings@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "borough@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "city@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "info@baolondon.com": [
+    "https://baolondon.com/faq/",
+    "https://baolondon.com/groups/",
+    "https://baolondon.com/bookings/",
+    "https://baolondon.com/menus/"
+   ],
+   "kingscross@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "marylebone.bookings@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "nancy@baolondon.com": [
+    "https://baolondon.com/faq/",
+    "https://baolondon.com/groups/",
+    "https://baolondon.com/bookings/",
+    "https://baolondon.com/menus/"
+   ],
+   "noodleshop.bookings@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "noodleshop@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ],
+   "soho.bookings@baolondon.com": [
+    "https://baolondon.com/faq/"
+   ]
+  },
+  "pages": {
+   "https://baolondon.com/bookings/": {
+    "final_url": "https://baolondon.com/bookings/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://baolondon.com/faq/": {
+    "final_url": "https://baolondon.com/faq/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://baolondon.com/groups/": {
+    "final_url": "https://baolondon.com/groups/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://baolondon.com/menus/": {
+    "final_url": "https://baolondon.com/menus/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://baolondon.com/bookings/": [],
+   "https://baolondon.com/faq/": [],
+   "https://baolondon.com/groups/": [],
+   "https://baolondon.com/menus/": []
+  }
+ },
+ "beefeater": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.beefeater.co.uk/en-gb/christmas": {
+    "final_url": "https://www.beefeater.co.uk/en-gb/christmas",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.beefeater.co.uk/en-gb/christmas-day": {
+    "final_url": "https://www.beefeater.co.uk/en-gb/christmas-day",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.beefeater.co.uk/en-gb/locations/kent/the-beacon": {
+    "final_url": "https://www.beefeater.co.uk/en-gb/locations/kent/the-beacon",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.beefeater.co.uk/en-gb/main-menu/beefeater_main_menu_band3.pdf": {
+    "final_url": "https://www.beefeater.co.uk/en-gb/main-menu/beefeater_main_menu_band3.pdf",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.beefeater.co.uk/en-gb/terms-and-conditions": {
+    "final_url": "https://www.beefeater.co.uk/en-gb/terms-and-conditions",
+    "rendered": false,
+    "status": 0
+   }
+  },
+  "policy_text": {
+   "https://www.beefeater.co.uk/en-gb/christmas": [],
+   "https://www.beefeater.co.uk/en-gb/christmas-day": [],
+   "https://www.beefeater.co.uk/en-gb/locations/kent/the-beacon": [],
+   "https://www.beefeater.co.uk/en-gb/main-menu/beefeater_main_menu_band3.pdf": [],
+   "https://www.beefeater.co.uk/en-gb/terms-and-conditions": []
+  }
+ },
+ "benihana": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.benihana.co.uk/": {
+    "final_url": "https://www.benihanainternational.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.benihana.co.uk/book-a-table/": {
+    "final_url": "https://www.benihanainternational.com/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.benihana.co.uk/": [],
+   "https://www.benihana.co.uk/book-a-table/": []
+  }
+ },
+ "blacklock": {
+  "article": null,
+  "context": {
+   "coventgarden@theblacklock.com": "can take care of for you or questions we can answer, please do get in touch on coventgarden@theblacklock.com We look forward to welcoming you soon. Blacklock Newsletter",
+   "manchester@theblacklock.com": "can take care of for you or questions we can answer, please do get in touch on manchester@theblacklock.com Sundays Our fire pits have a makeover on Sundays to allow u"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "coventgarden@theblacklock.com": [
+    "https://theblacklock.com/coventgarden-reservations/"
+   ],
+   "manchester@theblacklock.com": [
+    "https://theblacklock.com/manchester-reservations/"
+   ]
+  },
+  "pages": {
+   "https://theblacklock.com/coventgarden-reservations/": {
+    "final_url": "https://theblacklock.com/coventgarden-reservations/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://theblacklock.com/manchester-reservations/": {
+    "final_url": "https://theblacklock.com/manchester-reservations/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://theblacklock.com/menus/": {
+    "final_url": "https://theblacklock.com/menus/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://theblacklock.com/coventgarden-reservations/": [],
+   "https://theblacklock.com/manchester-reservations/": [],
+   "https://theblacklock.com/menus/": [
+    "Potato 5 Creamed Spinach 5 Chop House Salad 5 Autumn Slaw 5 Broccoli & Walnut Salad 5 Bread & Gravy 4 Sauces Chilli Hollandaise 2 Green Sauce 2 Bearnaise 2 Blacklock Gravy 3 Chop Sauce 3 Garlic Marrow Spread 5 We add a discretionary 12.5% service & hospitality charge to all bills every penny of which is shared by the team who look after you. If for any reason you feel the care you received falls short, please do say and we\u2019ll remove it for you. If",
+    "y comforting. Extra Trimmings 5 When a single yorkie won't suffice or you can't get enough of the carrots! Sauces Sunday favourites of creamed horseradish, mint sauce and apple ketchup - served with each roast. We add a discretionary 12.5% service & hospitality charge to all bills every penny of which is shared by the team who look after you. If for any reason you feel the care you received falls short, please do say and we\u2019ll remove it for you. If"
+   ]
+  }
+ },
+ "bodeans": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2025/05/Bodeans-Main-Menu-Design-Update-Allergens.pdf": {
+    "final_url": "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2025/05/Bodeans-Main-Menu-Design-Update-Allergens.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2026/04/Bodeans-A5-Lunch-Menu-NEW-1.pdf": {
+    "final_url": "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2026/04/Bodeans-A5-Lunch-Menu-NEW-1.pdf",
+    "rendered": false,
+    "status": 200
+   },
+   "https://bodeansbbq.com/christmas/": {
+    "final_url": "https://bodeansbbq.com/christmas/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://bodeansbbq.com/menus/": {
+    "final_url": "https://bodeansbbq.com/menus/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2025/05/Bodeans-Main-Menu-Design-Update-Allergens.pdf": [],
+   "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2026/04/Bodeans-A5-Lunch-Menu-NEW-1.pdf": [],
+   "https://bodeansbbq.com/christmas/": [],
+   "https://bodeansbbq.com/menus/": []
+  }
+ },
+ "brewdog": {
+  "article": null,
+  "context": {
+   "doghouseedinburgh@brewdog.com": "ed. Rooms must be booked in advance via email to the respective hotel location: Doghouseedinburgh@brewdog.com . The Gift Card may be redeemed on arrival at check-in. Boo",
+   "hello@brewdog.com": "ies or issues related to Gift Cards, please contact BrewDog Customer Support at hello@brewdog.com By purchasing or using a BrewDog Digital Gift Card, you agr"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "doghouseedinburgh@brewdog.com": [
+    "https://brewdog.com/pages/terms-and-conditions"
+   ],
+   "hello@brewdog.com": [
+    "https://brewdog.com/pages/terms-and-conditions"
+   ],
+   "recipient@giftnote.com": [
+    "https://brewdog.com/pages/uk-booking-terms",
+    "https://brewdog.com/pages/terms-and-conditions"
+   ]
+  },
+  "pages": {
+   "https://brewdog.com/pages/terms-and-conditions": {
+    "final_url": "https://brewdog.com/pages/terms-and-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://brewdog.com/pages/uk-booking-terms": {
+    "final_url": "https://brewdog.com/pages/uk-booking-terms",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://brewdog.com/pages/terms-and-conditions": [],
+   "https://brewdog.com/pages/uk-booking-terms": []
+  }
+ },
+ "brewers-fayre": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://brewersfayre.co.uk/en-gb/locations/falkirk/cadgers-brae/menus": {
+    "final_url": "https://brewersfayre.co.uk/en-gb/locations/falkirk/cadgers-brae/menus",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.brewersfayre.co.uk/en-gb/christmas-festive-menu": {
+    "final_url": "https://www.brewersfayre.co.uk/en-gb/christmas-festive-menu",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.brewersfayre.co.uk/en-gb/frequently-asked-questions": {
+    "final_url": "https://www.brewersfayre.co.uk/en-gb/frequently-asked-questions",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.brewersfayre.co.uk/en-gb/main-menu/brewers_fayre_main_menu_band3.pdf": {
+    "final_url": "https://www.brewersfayre.co.uk/en-gb/main-menu/brewers_fayre_main_menu_band3.pdf",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.brewersfayre.co.uk/en-gb/sunday-roast": {
+    "final_url": "https://www.brewersfayre.co.uk/en-gb/sunday-roast",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.brewersfayre.co.uk/en-gb/terms-and-conditions": {
+    "final_url": "https://www.brewersfayre.co.uk/en-gb/terms-and-conditions",
+    "rendered": false,
+    "status": 0
+   }
+  },
+  "policy_text": {
+   "https://brewersfayre.co.uk/en-gb/locations/falkirk/cadgers-brae/menus": [],
+   "https://www.brewersfayre.co.uk/en-gb/christmas-festive-menu": [],
+   "https://www.brewersfayre.co.uk/en-gb/frequently-asked-questions": [],
+   "https://www.brewersfayre.co.uk/en-gb/main-menu/brewers_fayre_main_menu_band3.pdf": [],
+   "https://www.brewersfayre.co.uk/en-gb/sunday-roast": [],
+   "https://www.brewersfayre.co.uk/en-gb/terms-and-conditions": []
+  }
+ },
+ "brunning-and-price": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@brunningandprice.co.uk": [
+    "https://www.brunningandprice.co.uk/company/tsandcs/"
+   ],
+   "wharf@brunningandprice.co.uk": [
+    "https://www.brunningandprice.co.uk/thewharf/tsandcs/"
+   ]
+  },
+  "pages": {
+   "https://www.brunningandprice.co.uk/company/tsandcs/": {
+    "final_url": "https://www.brunningandprice.co.uk/company/tsandcs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.brunningandprice.co.uk/thewharf/tsandcs/": {
+    "final_url": "https://www.brunningandprice.co.uk/thewharf/tsandcs/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.brunningandprice.co.uk/company/tsandcs/": [],
+   "https://www.brunningandprice.co.uk/thewharf/tsandcs/": []
+  }
+ },
+ "bundobust": {
+  "article": null,
+  "context": {
+   "leeds@bundobust.com": "ft drinks, and wine. Book Now Contact 6 Mill Hill, Leeds, LS1 5DQ 0113 243 1248 leeds@bundobust.com Opening Hours Monday \u2013 Thursday: 12pm \u2013 10:30pm Friday & Sa"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "brewery@bundobust.com": [
+    "https://bundobust.com/faq/",
+    "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "https://bundobust.com/locations/leeds/"
+   ],
+   "hello@bundobust.com": [
+    "https://bundobust.com/faq/",
+    "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "https://bundobust.com/locations/leeds/"
+   ],
+   "leeds@bundobust.com": [
+    "https://bundobust.com/faq/",
+    "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "https://bundobust.com/locations/leeds/"
+   ],
+   "liverpool@bundobust.com": [
+    "https://bundobust.com/faq/",
+    "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "https://bundobust.com/locations/leeds/"
+   ],
+   "manchester@bundobust.com": [
+    "https://bundobust.com/faq/",
+    "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "https://bundobust.com/locations/leeds/"
+   ]
+  },
+  "pages": {
+   "https://bundobust.com/faq/": {
+    "final_url": "https://bundobust.com/faq/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://bundobust.com/locations/leeds/": {
+    "final_url": "https://bundobust.com/locations/leeds/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf": {
+    "final_url": "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+    "rendered": false,
+    "status": 404
+   }
+  },
+  "policy_text": {
+   "https://bundobust.com/faq/": [],
+   "https://bundobust.com/locations/leeds/": [],
+   "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf": []
+  }
+ },
+ "burger-and-lobster": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.burgerandlobster.com/christmas/": {
+    "final_url": "https://www.burgerandlobster.com/christmas/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.burgerandlobster.com/menus/london/": {
+    "final_url": "https://www.burgerandlobster.com/menus/london/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.burgerandlobster.com/wp-content/uploads/2025/09/WLDMenu_LDN_2025.pdf": {
+    "final_url": "https://www.burgerandlobster.com/wp-content/uploads/2025/09/WLDMenu_LDN_2025.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.burgerandlobster.com/christmas/": [],
+   "https://www.burgerandlobster.com/menus/london/": [],
+   "https://www.burgerandlobster.com/wp-content/uploads/2025/09/WLDMenu_LDN_2025.pdf": [
+    "OBSTER SANDWICH ROLL, FRIES, LEMON AND GARLIC BUTTER. Rock Oysters | 3 for \u00a39 / 6 for \u00a318 tabasco, fresh lemon, shallot vinaigrette. SIDES Please inform a member of our team if you have any food or beverage allergies! A discretionary 13.5% service charge will be added to your bill. With thanks to \u00a31 will be added to every bill on World Lobster Day to support the National Lobster Hatchery going to their vital conservation work to protect and replenish native lobster popu"
+   ]
+  }
+ },
+ "busaba": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.busaba.com/bookingterms": {
+    "final_url": "https://www.busaba.com/bookingterms",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.busaba.com/christmas-at-busaba": {
+    "final_url": "https://www.busaba.com/christmas-at-busaba",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.busaba.com/terms-and-conditions": {
+    "final_url": "https://www.busaba.com/terms-and-conditions",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.busaba.com/wp-content/uploads/2023/11/Busaba_Christmas_Booking_PDF_2023.pdf": {
+    "final_url": "https://www.busaba.com/wp-content/uploads/2023/11/Busaba_Christmas_Booking_PDF_2023.pdf",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.busaba.com/wp-content/uploads/2024/03/Busaba_Core_Food_Menu_2024_02_22_AW.pdf": {
+    "final_url": "https://www.busaba.com/wp-content/uploads/2024/03/Busaba_Core_Food_Menu_2024_02_22_AW.pdf",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.busaba.com/wp-content/uploads/2025/08/Busaba_Christmas_Menus_2025_07_21_WEB.pdf": {
+    "final_url": "https://www.busaba.com/wp-content/uploads/2025/08/Busaba_Christmas_Menus_2025_07_21_WEB.pdf",
+    "rendered": false,
+    "status": 403
+   }
+  },
+  "policy_text": {
+   "https://www.busaba.com/bookingterms": [],
+   "https://www.busaba.com/christmas-at-busaba": [],
+   "https://www.busaba.com/terms-and-conditions": [],
+   "https://www.busaba.com/wp-content/uploads/2023/11/Busaba_Christmas_Booking_PDF_2023.pdf": [],
+   "https://www.busaba.com/wp-content/uploads/2024/03/Busaba_Core_Food_Menu_2024_02_22_AW.pdf": [],
+   "https://www.busaba.com/wp-content/uploads/2025/08/Busaba_Christmas_Menus_2025_07_21_WEB.pdf": []
+  }
+ },
+ "caravan": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "reservations@caravanrestaurants.co.uk": [
+    "https://caravanandco.com/pages/bankside"
+   ]
+  },
+  "pages": {
+   "https://caravanandco.com/pages/bankside": {
+    "final_url": "https://caravanandco.com/pages/bankside",
+    "rendered": false,
+    "status": 200
+   },
+   "https://caravanrestaurants.co.uk/contact.php": {
+    "final_url": "https://caravanrestaurants.co.uk/contact.php",
+    "rendered": false,
+    "status": 400
+   },
+   "https://caravanrestaurants.co.uk/kings-cross.php": {
+    "final_url": "https://caravanrestaurants.co.uk/kings-cross.php",
+    "rendered": false,
+    "status": 400
+   }
+  },
+  "policy_text": {
+   "https://caravanandco.com/pages/bankside": [],
+   "https://caravanrestaurants.co.uk/contact.php": [],
+   "https://caravanrestaurants.co.uk/kings-cross.php": []
+  }
+ },
+ "carluccios": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.carluccios.com/pages/christmas": {
+    "final_url": "https://www.carluccios.com/pages/christmas",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.carluccios.com/pages/faqs-restaurants": {
+    "final_url": "https://www.carluccios.com/pages/faqs-restaurants",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.carluccios.com/pages/terms-conditions": {
+    "final_url": "https://www.carluccios.com/pages/terms-conditions",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.carluccios.com/pages/christmas": [],
+   "https://www.carluccios.com/pages/faqs-restaurants": [],
+   "https://www.carluccios.com/pages/terms-conditions": []
+  }
+ },
+ "chaophraya": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://chaophraya.co.uk/christmas": {
+    "final_url": "https://chaophraya.co.uk/christmas",
+    "rendered": false,
+    "status": 200
+   },
+   "https://chaophraya.co.uk/faqs": {
+    "final_url": "https://chaophraya.co.uk/faqs",
+    "rendered": false,
+    "status": 200
+   },
+   "https://chaophraya.co.uk/thai-restaurant/leeds/menus": {
+    "final_url": "https://chaophraya.co.uk/thai-restaurant/leeds/menus",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://chaophraya.co.uk/christmas": [],
+   "https://chaophraya.co.uk/faqs": [],
+   "https://chaophraya.co.uk/thai-restaurant/leeds/menus": []
+  }
+ },
+ "cinnamon-collection": {
+  "article": null,
+  "context": {
+   "info@cinnamon-bazaar.com": "act Cinnamon Bazaar 28 Maiden Lane Covent Garden, London WC2E 7JS 0207 395 1400 info@cinnamon-bazaar.com Opening hours Monday to Saturday 12 noon to 10:30pm Sunday"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hello@cinnamonkitchenleeds.co.uk": [
+    "https://www.cinnamon-kitchen.com/leeds/"
+   ],
+   "info@cinnamon-bazaar.com": [
+    "https://cinnamon-bazaar.com/"
+   ]
+  },
+  "pages": {
+   "https://cinnamon-bazaar.com/": {
+    "final_url": "https://cinnamon-bazaar.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.cinnamon-kitchen.com/leeds/": {
+    "final_url": "https://www.cinnamon-kitchen.com/leeds/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.cinnamon-kitchen.com/wp-content/uploads/2024/09/3-course-Set-Lunch-CKC-09.09.24.pdf": {
+    "final_url": "https://www.cinnamon-kitchen.com/wp-content/uploads/2024/09/3-course-Set-Lunch-CKC-09.09.24.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://cinnamon-bazaar.com/": [],
+   "https://www.cinnamon-kitchen.com/leeds/": [],
+   "https://www.cinnamon-kitchen.com/wp-content/uploads/2024/09/3-course-Set-Lunch-CKC-09.09.24.pdf": [
+    "HOMEMADE SORBET SELECTION of the day PASSION FRUIT BR\u00dbL\u00c9E blueberry compote DARK CHOCOLATE & PEANUT BUTTER CHEESECAKE carom seed crumble (v) VEGETARIAN (vg) VEGAN (n) CONTAINS NUTS - Full allergen guide available. 12.5% discretionary service will be added to groups of 8 and above. Prices include VAT at prevailing rate.Please inform one of our team members of your allergies or special dietary requirements before placing your order as all ingredients"
+   ]
+  }
+ },
+ "comptoir-libanais": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "bath@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "birmingham@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "cheshireoaks@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "ealing@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "exeter@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "gloucesterroad@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "info@comptoirgroup.com": [
+    "https://www.comptoirlibanais.com/private-events/"
+   ],
+   "kingston@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "liverpoolst@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "londonbridge@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "manchester@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "oxford@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "reading@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "reservations.manchester@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "southbank@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ],
+   "wigmore@comptoirlibanais.com": [
+    "https://www.comptoirlibanais.com/menus/",
+    "https://www.comptoirlibanais.com/private-events/",
+    "https://www.comptoirlibanais.com/locations/manchester/"
+   ]
+  },
+  "pages": {
+   "https://www.comptoirlibanais.com/locations/manchester/": {
+    "final_url": "https://www.comptoirlibanais.com/locations/manchester/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.comptoirlibanais.com/menus/": {
+    "final_url": "https://www.comptoirlibanais.com/menus/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.comptoirlibanais.com/private-events/": {
+    "final_url": "https://www.comptoirlibanais.com/private-events/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.comptoirlibanais.com/locations/manchester/": [
+    "xeter Gloucester Road Kingston Liverpool Street London Bridge Manchester Oxford Reading South Kensington Southbank Wigmore Street --> Step into the world of Comptoir! Join our mailing list for exclusive updates, insider tips, and special offers. Don't miss out - become part of our family today! First Name Last Name Email DOB Choose a Location Select a location Comptoir Bath Comptoir Birmingham Comptoir Bluewater --> Comptoir Chelsea Comptoi"
+   ],
+   "https://www.comptoirlibanais.com/menus/": [
+    "xeter Gloucester Road Kingston Liverpool Street London Bridge Manchester Oxford Reading South Kensington Southbank Wigmore Street --> Step into the world of Comptoir! Join our mailing list for exclusive updates, insider tips, and special offers. Don't miss out - become part of our family today! First Name Last Name Email DOB Choose a Location Select a location Comptoir Bath Comptoir Birmingham Comptoir Bluewater --> Comptoir Chelsea Comptoi"
+   ],
+   "https://www.comptoirlibanais.com/private-events/": [
+    "xeter Gloucester Road Kingston Liverpool Street London Bridge Manchester Oxford Reading South Kensington Southbank Wigmore Street --> Step into the world of Comptoir! Join our mailing list for exclusive updates, insider tips, and special offers. Don't miss out - become part of our family today! First Name Last Name Email DOB Choose a Location Select a location Comptoir Bath Comptoir Birmingham Comptoir Bluewater --> Comptoir Chelsea Comptoi"
+   ]
+  }
+ },
+ "coppa-club": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "cardiff@coppaclub.co.uk": [
+    "https://coppaclub.co.uk/service-charge-policy/"
+   ]
+  },
+  "pages": {
+   "https://coppaclub.co.uk/service-charge-policy/": {
+    "final_url": "https://www.coppaclub.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.coppaclub.co.uk/terms-and-conditions": {
+    "final_url": "https://www.coppaclub.co.uk/terms-and-conditions",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://coppaclub.co.uk/service-charge-policy/": [],
+   "https://www.coppaclub.co.uk/terms-and-conditions": [
+    ", a pre-order is required at least 5 days before the booking. For tables of 12 or more, a cancellation or no-show within 7 days of the booking will incur a \u00a310 charge per person, taken from the deposit provided. A 12.5% service charge is added to the bill for all party sizes. Canap\u00e9s and Sharing Boards Bookings over 20 people Canap\u00e9s and Sharing Boards available for parties of 20 or more. A preorder is required at least 5 days prior to booking. Deposit \u00a320 per person. Minimum order of 10 pieces per individual canap\u00e9 type. A cancellation or no-show within 48 hours of your booking will incur a \u00a320 charge, per person, from the deposit provided. A 12 .5% service charge will be added to your bill. Christmas Day Lunch A preorder is required at least 7 days prior to booking. Deposit \u00a340 per person (including children). Full payment is required 14 days prior to booking which is non-refundable. A 12 .5% service charge will be added to your bill. Christmas Stays Rates are subject to availability, include breakfast and VAT and are based on two people sharing. Upgraded rooms available at additional rates. Pre-booking is essential. A 25%"
+   ]
+  }
+ },
+ "fullers": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.fullers.co.uk/blog/pubs-articles/autumn-winter-menus": {
+    "final_url": "https://www.fullers.co.uk/blog/pubs-articles/autumn-winter-menus",
+    "rendered": true,
+    "status": 403
+   },
+   "https://www.fullers.co.uk/christmas": {
+    "final_url": "https://www.fullers.co.uk/christmas",
+    "rendered": true,
+    "status": 403
+   },
+   "https://www.fullers.co.uk/termsandconditions/christmasbookings": {
+    "final_url": "https://www.fullers.co.uk/termsandconditions/christmasbookings",
+    "rendered": true,
+    "status": 403
+   },
+   "https://www.fullers.co.uk/termsandconditions/get-together": {
+    "final_url": "https://www.fullers.co.uk/termsandconditions/get-together",
+    "rendered": true,
+    "status": 403
+   }
+  },
+  "policy_text": {
+   "https://www.fullers.co.uk/blog/pubs-articles/autumn-winter-menus": [],
+   "https://www.fullers.co.uk/christmas": [],
+   "https://www.fullers.co.uk/termsandconditions/christmasbookings": [],
+   "https://www.fullers.co.uk/termsandconditions/get-together": []
+  }
+ },
+ "gaucho": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@gauchorestaurants.com": [
+    "https://gauchorestaurants.com/terms-conditions/",
+    "https://gauchorestaurants.com/wp-content/uploads/2025/01/Gaucho_Classic-Menu_A5_LDNMAN_1024.pdf",
+    "https://gauchorestaurants.com/wp-content/uploads/2023/03/Gaucho_SetLunch_A5_London_0924_V2_Digital.pdf",
+    "https://gauchorestaurants.com/wp-content/uploads/2026/01/Gaucho_RED_ALC_CST_A3_1225.pdf",
+    "https://gauchorestaurants.com/wp-content/uploads/2025/11/Gaucho_RED_ALC_NWC_A3_1025.pdf"
+   ]
+  },
+  "pages": {
+   "https://gauchorestaurants.com/terms-conditions/": {
+    "final_url": "https://gauchorestaurants.com/legal/terms-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gauchorestaurants.com/wp-content/uploads/2023/03/Gaucho_SetLunch_A5_London_0924_V2_Digital.pdf": {
+    "final_url": "https://gauchorestaurants.com/wp-content/uploads/2023/03/Gaucho_SetLunch_A5_London_0924_V2_Digital.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://gauchorestaurants.com/wp-content/uploads/2025/01/Gaucho_Classic-Menu_A5_LDNMAN_1024.pdf": {
+    "final_url": "https://gauchorestaurants.com/wp-content/uploads/2025/01/Gaucho_Classic-Menu_A5_LDNMAN_1024.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://gauchorestaurants.com/wp-content/uploads/2025/11/Gaucho_RED_ALC_NWC_A3_1025.pdf": {
+    "final_url": "https://gauchorestaurants.com/wp-content/uploads/2025/11/Gaucho_RED_ALC_NWC_A3_1025.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://gauchorestaurants.com/wp-content/uploads/2026/01/Gaucho_RED_ALC_CST_A3_1225.pdf": {
+    "final_url": "https://gauchorestaurants.com/wp-content/uploads/2026/01/Gaucho_RED_ALC_CST_A3_1225.pdf",
+    "rendered": false,
+    "status": 404
+   }
+  },
+  "policy_text": {
+   "https://gauchorestaurants.com/terms-conditions/": [],
+   "https://gauchorestaurants.com/wp-content/uploads/2023/03/Gaucho_SetLunch_A5_London_0924_V2_Digital.pdf": [],
+   "https://gauchorestaurants.com/wp-content/uploads/2025/01/Gaucho_Classic-Menu_A5_LDNMAN_1024.pdf": [],
+   "https://gauchorestaurants.com/wp-content/uploads/2025/11/Gaucho_RED_ALC_NWC_A3_1025.pdf": [],
+   "https://gauchorestaurants.com/wp-content/uploads/2026/01/Gaucho_RED_ALC_CST_A3_1225.pdf": []
+  }
+ },
+ "hakkasan": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "mayfairreservation@hakkasan.com": [
+    "https://hakkasan.com/mayfair/"
+   ],
+   "ukpress@hakkasangroup.com": [
+    "https://hakkasan.com/mayfair/"
+   ]
+  },
+  "pages": {
+   "https://hakkasan.com/group-events-terms-conditions/": {
+    "final_url": "https://hakkasan.com/group-events-terms-conditions/",
+    "rendered": false,
+    "status": 522
+   },
+   "https://hakkasan.com/mayfair/": {
+    "final_url": "https://hakkasangroup.com/venues/hakkasan-mayfair-london/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hakkasangroup.com/venues/hakkasan-mayfair-london/menu/": {
+    "final_url": "https://hakkasangroup.com/venues/hakkasan-mayfair-london/menu/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hakkasangroup.com/wp-content/uploads/2026/04/Hakkasan-SpringSummer-ALC-Menu-2026.pdf": {
+    "final_url": "https://hakkasangroup.com/wp-content/uploads/2026/04/Hakkasan-SpringSummer-ALC-Menu-2026.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://hakkasan.com/group-events-terms-conditions/": [],
+   "https://hakkasan.com/mayfair/": [],
+   "https://hakkasangroup.com/venues/hakkasan-mayfair-london/menu/": [],
+   "https://hakkasangroup.com/wp-content/uploads/2026/04/Hakkasan-SpringSummer-ALC-Menu-2026.pdf": [
+    "its London origins to a global presence, Hakkasan remains a study in contrast: heritage and modernity, energy and restraint, all expressed through cuisine, design and experience. Prices include VAT at the current rate A discretionary service charge of 15% will be added to your bill v vg g Spring / Summer 2026 Signature Vegetarian Vegan Made with ingredients not containing gluten We ask our guests with allergies or intolerances to make a member of the team aware be"
+   ]
+  }
+ },
+ "hard-rock-cafe": {
+  "article": null,
+  "context": {
+   "london_social@hardrock.com": "Bartenders * Servers * Back of House/Kitchen TO APPLY, SEND US YOUR CV HERE ON LONDON_SOCIAL@HARDROCK.COM Details on our Privacy Policy, and how your information is"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "giada.sisti@hardrock.com": [
+    "https://cafe.hardrock.com/london/"
+   ],
+   "london.events@hardrock.com": [
+    "https://cafe.hardrock.com/london/"
+   ],
+   "london_events@hardrock.com": [
+    "https://cafe.hardrock.com/london/"
+   ],
+   "london_social@hardrock.com": [
+    "https://cafe.hardrock.com/london/"
+   ]
+  },
+  "pages": {
+   "https://cafe.hardrock.com/london/": {
+    "final_url": "https://cafe.hardrock.com/london/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_Europe_2023_Group_Menus.pdf": {
+    "final_url": "https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_Europe_2023_Group_Menus.pdf",
+    "rendered": false,
+    "status": 200
+   },
+   "https://cafe.hardrock.com/london/files/5330/USJ219497_-_HRC_EU_-_EATS_MENU_-_JAN_26_-_B_-_LONDON_OPL_-_ENG.pdf": {
+    "final_url": "https://cafe.hardrock.com/london/files/5330/USJ219497_-_HRC_EU_-_EATS_MENU_-_JAN_26_-_B_-_LONDON_OPL_-_ENG.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://cafe.hardrock.com/london/": [],
+   "https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_Europe_2023_Group_Menus.pdf": [],
+   "https://cafe.hardrock.com/london/files/5330/USJ219497_-_HRC_EU_-_EATS_MENU_-_JAN_26_-_B_-_LONDON_OPL_-_ENG.pdf": [
+    "\u00a34.65 (3 cal / 71 cal with milk) HOT CHOCOLATE \u00a34.40 (306 cal) | TEA \u00a34.40 (24 cal with milk) SEASONAL FRUIT COBBLER Seasonal Fruit Cobbler Vanilla Bean Ice Cream Caramel Sauce \u00a310.95 (1003 cal) We are often asked about gratuities. Quality service is customarily acknowledged by a gratuity of 12.5%. A voluntary 12.5% gratuity is included for your convenience. Thank you. We hold allergy information for all menu items, please speak to your server for further details. If you suffer from a food allergy, please ensure that your server is aware a"
+   ]
+  }
+ },
+ "hawksmoor": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://thehawksmoor.com/?p=46382": {
+    "final_url": "https://thehawksmoor.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thehawksmoor.com/book-a-table/": {
+    "final_url": "https://thehawksmoor.com/book-a-table/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thehawksmoor.com/locations/airstreet/food/menu/": {
+    "final_url": "https://thehawksmoor.com/locations/airstreet/food/menu/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thehawksmoor.com/locations/borough/food/menu/": {
+    "final_url": "https://thehawksmoor.com/locations/borough/food/menu/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thehawksmoor.com/wp-content/uploads/2023/04/GH-LARGE-GROUP-SET-MENU-NEW-2023.pdf": {
+    "final_url": "https://thehawksmoor.com/wp-content/uploads/2023/04/GH-LARGE-GROUP-SET-MENU-NEW-2023.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://thehawksmoor.com/?p=46382": [],
+   "https://thehawksmoor.com/book-a-table/": [],
+   "https://thehawksmoor.com/locations/airstreet/food/menu/": [],
+   "https://thehawksmoor.com/locations/borough/food/menu/": [],
+   "https://thehawksmoor.com/wp-content/uploads/2023/04/GH-LARGE-GROUP-SET-MENU-NEW-2023.pdf": [
+    "for \u00a330, all proceeds go to Action Against Hunger. We cannot guarantee the absence of traces of nuts or other allergens. Please advise a member of staff if you have any particular dietary requirements An optional 12.5% service charge will be applied to your bill all of which goes to the staff. Bone-in prime rib Sirloin Rump Bone-in prime rib T-Bone Chateaubriand Bone-in prime rib Porterhouse Chateaubriand MAINS Herb fed chicken, with b\u00e9arnaise \u2013 \u00a350"
+   ]
+  }
+ },
+ "hickorys": {
+  "article": null,
+  "context": {
+   "emailingwhistleblowing@hickorys.co.uk": "ng procedure- either by scanning the QR code on our Whistleblowing policy or by emailingwhistleblowing@hickorys.co.uk. Alternatively, they can report suspicions externally to th",
+   "hello@hickorys.co.uk": "et , please check your junk folder. If your order still isn\u2019t there email us at hello@hickorys.co.uk . How long are gift cards valid for? All gift cards are val",
+   "jobs@hickorys.co.uk": "nd on our careers page here https://careers.hickorys.co.uk/ or email your CV to jobs@hickorys.co.uk CAN\u2019T FIND WHAT YOU\u2019RE LOOKING FOR? Get in touch with your"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "emailingwhistleblowing@hickorys.co.uk": [
+    "https://hickorys.co.uk/legal/"
+   ],
+   "hello@hickorys.co.uk": [
+    "https://hickorys.co.uk/faqs/",
+    "https://hickorys.co.uk/terms/",
+    "https://hickorys.co.uk/legal/"
+   ],
+   "jobs@hickorys.co.uk": [
+    "https://hickorys.co.uk/faqs/"
+   ]
+  },
+  "pages": {
+   "https://hickorys.co.uk/faqs/": {
+    "final_url": "https://hickorys.co.uk/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hickorys.co.uk/legal/": {
+    "final_url": "https://hickorys.co.uk/legal/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hickorys.co.uk/terms/": {
+    "final_url": "https://hickorys.co.uk/terms/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://hickorys.co.uk/faqs/": [],
+   "https://hickorys.co.uk/legal/": [],
+   "https://hickorys.co.uk/terms/": []
+  }
+ },
+ "homeslice": {
+  "article": null,
+  "context": {
+   "info@homeslicepizza.co.uk": "irst name Email * Yes, subscribe me to your newsletter. Submit GET A FREE SLICE info@homeslicepizza.co.uk Terms and conditions Privacy Policy Careers info@homeslicep"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "0fd2930120484402ac9adfb9e05cacd5@o37417.ingest.sentry.io": [
+    "https://www.homeslicepizza.co.uk/menu",
+    "https://www.homeslicepizza.co.uk/"
+   ],
+   "example@mysite.com": [
+    "https://www.homeslicepizza.co.uk/menu",
+    "https://www.homeslicepizza.co.uk/"
+   ],
+   "info@homeslicepizza.co.uk": [
+    "https://www.homeslicepizza.co.uk/menu",
+    "https://www.homeslicepizza.co.uk/"
+   ]
+  },
+  "pages": {
+   "https://www.homeslicepizza.co.uk/": {
+    "final_url": "https://www.homeslicepizza.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.homeslicepizza.co.uk/menu": {
+    "final_url": "https://www.homeslicepizza.co.uk/menu",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.homeslicepizza.co.uk/": [],
+   "https://www.homeslicepizza.co.uk/menu": []
+  }
+ },
+ "hoppers": {
+  "article": null,
+  "context": {
+   "careers@hopperslondon.com": "enthusiastic people to join the team. Please email your CV and cover letter to careers@hopperslondon.com, and we\u2019ll get back to you. ANYTHING ELSE How do I contact",
+   "info@hopperslondon.com": "rvations.soho@hopperslondon.com For non booking related inquiries please email: info@hopperslondon.com OUR WALK IN POLICY Join our virtual queue system, which wor",
+   "reservations.kingscross@hopperslondon.com": "slondon.com Marylebone: reservations.marylebone@hopperslondon.com King\u2019s Cross: reservations.kingscross@hopperslondon.com Shoreditch: reservations.shoreditch@hopperslondon.com Kindl",
+   "reservations.marylebone@hopperslondon.com": "guide, you can contact us Soho: reservations.soho@hopperslondon.com Marylebone: reservations.marylebone@hopperslondon.com King\u2019s Cross: reservations.kingscross@hopperslondon.com Sho",
+   "reservations.shoreditch@hopperslondon.com": "slondon.com King\u2019s Cross: reservations.kingscross@hopperslondon.com Shoreditch: reservations.shoreditch@hopperslondon.com Kindly note, due to the volume of emails received we are on",
+   "reservations.soho@hopperslondon.com": "ance? If your query is not covered by the above guide, you can contact us Soho: reservations.soho@hopperslondon.com Marylebone: reservations.marylebone@hopperslondon.com King\u2019"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "careers@hopperslondon.com": [
+    "https://www.hopperslondon.com/faqs/"
+   ],
+   "info@hopperslondon.com": [
+    "https://www.hopperslondon.com/soho/"
+   ],
+   "reservations.kingscross@hopperslondon.com": [
+    "https://www.hopperslondon.com/faqs/"
+   ],
+   "reservations.marylebone@hopperslondon.com": [
+    "https://www.hopperslondon.com/faqs/"
+   ],
+   "reservations.shoreditch@hopperslondon.com": [
+    "https://www.hopperslondon.com/faqs/"
+   ],
+   "reservations.soho@hopperslondon.com": [
+    "https://www.hopperslondon.com/faqs/",
+    "https://www.hopperslondon.com/soho/"
+   ]
+  },
+  "pages": {
+   "https://www.hopperslondon.com/faqs/": {
+    "final_url": "https://www.hopperslondon.com/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.hopperslondon.com/soho/": {
+    "final_url": "https://www.hopperslondon.com/soho/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.hopperslondon.com/wp-content/uploads/2025/11/Hoppers-Festive-Group-Menu-101125-1.pdf": {
+    "final_url": "https://www.hopperslondon.com/wp-content/uploads/2025/11/Hoppers-Festive-Group-Menu-101125-1.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.hopperslondon.com/faqs/": [],
+   "https://www.hopperslondon.com/soho/": [],
+   "https://www.hopperslondon.com/wp-content/uploads/2025/11/Hoppers-Festive-Group-Menu-101125-1.pdf": []
+  }
+ },
+ "hub-box": {
+  "article": null,
+  "context": {
+   "app@hubbox.co.uk": "FURTHER INFORMATION REGARDING THE APP OR ANY MARKETING PROMOTIONS, PLEASE EMAIL APP@HUBBOX.CO.UK PLEASE ALSO NOTE THAT ALL PROMOTIONS EXPIRED AFTER 12 MONTH",
+   "info@hubbox.co.uk": "affected. If you require any further information please contact us by emailing info@hubbox.co.uk \u2013 postal address, Hub Box Limited First Floor | 68 Lemon St"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "app@hubbox.co.uk": [
+    "https://hubbox.co.uk/terms-conditions/"
+   ],
+   "info@hubbox.co.uk": [
+    "https://hubbox.co.uk/terms-conditions/",
+    "https://hubbox.co.uk/booking/",
+    "https://hubbox.co.uk/new-menu/"
+   ]
+  },
+  "pages": {
+   "https://hubbox.co.uk/booking/": {
+    "final_url": "https://hubbox.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hubbox.co.uk/new-menu/": {
+    "final_url": "https://hubbox.co.uk/new-menu/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://hubbox.co.uk/terms-conditions/": {
+    "final_url": "https://hubbox.co.uk/terms-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://hubbox.co.uk/booking/": [],
+   "https://hubbox.co.uk/new-menu/": [],
+   "https://hubbox.co.uk/terms-conditions/": []
+  }
+ },
+ "lina-stores": {
+  "article": null,
+  "context": {
+   "reservations@linastores.co.uk": "you plan on bringing your own bottle of wine or cake, please get in touch with reservations@linastores.co.uk for more information. For special occasions, such as annive"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "events@linastores.co.uk": [
+    "https://support.linastores.co.uk/support/solutions/articles/77000534500-do-you-offer-bookings-for-larger-parties-"
+   ],
+   "reservations@linastores.co.uk": [
+    "https://www.linastores.co.uk/booking-terms-and-conditions"
+   ]
+  },
+  "pages": {
+   "https://support.linastores.co.uk/support/solutions/articles/77000534500-do-you-offer-bookings-for-larger-parties-": {
+    "final_url": "https://support.linastores.co.uk/support/solutions/articles/77000534500-do-you-offer-bookings-for-larger-parties-",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.linastores.co.uk/booking-terms-and-conditions": {
+    "final_url": "https://www.linastores.co.uk/booking-terms-and-conditions",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://support.linastores.co.uk/support/solutions/articles/77000534500-do-you-offer-bookings-for-larger-parties-": [],
+   "https://www.linastores.co.uk/booking-terms-and-conditions": []
+  }
+ },
+ "meatliquor": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "eastdulwich@meatliquor.com": [
+    "https://meatliquor.com/faqs/"
+   ],
+   "howdy@bloodsports.co": [
+    "https://meatliquor.com/faqs/"
+   ],
+   "howdy@meatliquor.com": [
+    "https://meatliquor.com/faqs/",
+    "https://meatliquor.com/menu/"
+   ],
+   "w1@meatliquor.com": [
+    "https://meatliquor.com/faqs/"
+   ]
+  },
+  "pages": {
+   "https://meatliquor.com/faqs/": {
+    "final_url": "https://meatliquor.com/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://meatliquor.com/menu/": {
+    "final_url": "https://meatliquor.com/menu/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://meatliquor.com/faqs/": [],
+   "https://meatliquor.com/menu/": []
+  }
+ },
+ "mildreds": {
+  "article": null,
+  "context": {
+   "marketing@mildreds.co.uk": "tice or want to exercise your rights, please contact us by: Sending an email to marketing@mildreds.co.uk Writing to us at Mildred's Head Office, 45 Lexington Street"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hello@mildreds.co.uk": [
+    "https://www.mildreds.co.uk/locations/soho/all-day/"
+   ],
+   "hello@mildreds.com": [
+    "https://www.mildreds.co.uk/booking-page/",
+    "https://www.mildreds.co.uk/terms-and-conditions/",
+    "https://www.mildreds.co.uk/locations/soho/all-day/"
+   ],
+   "marketing@mildreds.co.uk": [
+    "https://www.mildreds.co.uk/terms-and-conditions/"
+   ]
+  },
+  "pages": {
+   "https://www.mildreds.co.uk/booking-page/": {
+    "final_url": "https://www.mildreds.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.mildreds.co.uk/locations/soho/all-day/": {
+    "final_url": "https://www.mildreds.com/soho/#all-day",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.mildreds.co.uk/terms-and-conditions/": {
+    "final_url": "https://www.mildreds.com/terms-of-use/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.mildreds.co.uk/booking-page/": [],
+   "https://www.mildreds.co.uk/locations/soho/all-day/": [
+    "$ 5 hot drinks coffee by origin americano / espresso $ 3.10 flat white / latte / cappuccino $ 3.60 speciality lattes matcha / chai $ 5.50 loose leaf teas by rare tea co speedy breakfast / rare earl grey / jasmine silver tip / wild rooibos / whole chamomile flowers / malawi green $ 3.60 fresh mint tea / fresh lemon & ginger tea $ 3 hot chocolate colombia, single origin, 55% $ 4 cold foam lattes served over ice and topped with a fluffy oatly",
+    "$ 6 hot drinks coffee by origin americano / espresso $ 3.10 flat white / latte / cappuccino $ 3.60 speciality lattes matcha / chai $ 5.50 loose leaf teas by rare tea co speedy breakfast / rare earl grey / jasmine silver tip / wild rooibos / whole chamomile flowers / malawi green $ 3.60 fresh mint tea / fresh lemon & ginger tea $ 3 hot chocolate colombia, single origin, 55% $ 4 dessert menu desserts sticky toffee pudding apple, butterscotch",
+    "al) hot drinks coffee by origin americano / espresso $ 3.10 flat white / latte / cappuccino $ 3.60 speciality lattes matcha / chai $ 5.50 loose leaf teas by rare tea co speedy breakfast / rare earl grey / jasmine silver tip / wild rooibos / whole chamomile flowers / malawi green $ 3.60 fresh mint tea $ 3 fresh lemon & ginger tea $ 3 hot chocolate colombia, single origin, 55% $ 4 cocktails lime yuzu spritz sapling vodka, lime coriander shru",
+    "$ 6 hot drinks coffee by origin americano / espresso $ 3.10 flat white / latte / cappuccino $ 3.60 speciality lattes matcha / chai $ 5.50 loose leaf teas by rare tea co speedy breakfast / rare earl grey / jasmine silver tip / wild rooibos / whole chamomile flowers / malawi green $ 3.60 fresh mint tea / fresh lemon & ginger tea $ 3 hot chocolate colombia, single origin, 55% $ 4 Kids Menu mains pumpkin hummus dip daps $ 7 (416 kcal) nuggies,"
+   ],
+   "https://www.mildreds.co.uk/terms-and-conditions/": []
+  }
+ },
+ "miller-and-carter": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.millerandcarter.co.uk/tablebooking": {
+    "final_url": "https://www.millerandcarter.co.uk/tablebooking",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.millerandcarter.co.uk/tablebooking#/": {
+    "final_url": "https://www.millerandcarter.co.uk/tablebooking#/",
+    "rendered": false,
+    "status": 403
+   }
+  },
+  "policy_text": {
+   "https://www.millerandcarter.co.uk/tablebooking": [],
+   "https://www.millerandcarter.co.uk/tablebooking#/": []
+  }
+ },
+ "pastaio": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "carnaby@pastaio.co.uk": [
+    "https://www.pastaio.co.uk/book-a-table",
+    "https://www.pastaio.co.uk/mainmenu"
+   ]
+  },
+  "pages": {
+   "https://www.pastaio.co.uk/book-a-table": {
+    "final_url": "https://www.pastaio.co.uk/book-a-table",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.pastaio.co.uk/mainmenu": {
+    "final_url": "https://www.pastaio.co.uk/mainmenu",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.pastaio.co.uk/book-a-table": [],
+   "https://www.pastaio.co.uk/mainmenu": []
+  }
+ },
+ "pizza-pilgrims": {
+  "article": null,
+  "context": {
+   "birmingham@pizzapilgrims.co.uk": "25 per person and make ordering for a crowd easy and enjoyable. Get in touch at birmingham@pizzapilgrims.co.uk to discuss group bookings. Pizza Pilgrims Pizza Pilgrims Pi"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "birmingham@pizzapilgrims.co.uk": [
+    "https://www.pizzapilgrims.co.uk/pizzerias/birmingham/"
+   ]
+  },
+  "pages": {
+   "https://www.pizzapilgrims.co.uk/faqs/": {
+    "final_url": "https://www.pizzapilgrims.co.uk/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.pizzapilgrims.co.uk/pizzerias/birmingham/": {
+    "final_url": "https://www.pizzapilgrims.co.uk/pizzerias/birmingham/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.pizzapilgrims.co.uk/pizzerias/covent-garden/": {
+    "final_url": "https://www.pizzapilgrims.co.uk/pizzerias/covent-garden/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.pizzapilgrims.co.uk/terms-and-conditions/": {
+    "final_url": "https://www.pizzapilgrims.co.uk/terms-and-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.pizzapilgrims.co.uk/faqs/": [
+    "as close to the original recipe as possible as our food team have lovingly curated these pizzas to perfection. However, if there\u2019s an ingredient you particularly dislike, of course, we\u2019re here to help! Do you keep your service charge? Yes! All the tips and service charge is pooled and distributed through a tronc system and teams will see this on their payslip every month. Do you have condiments? We do have the classic pizza condiments including chilli oil, olive oil, pepper, chilli flakes & oregano. We also have a range of crus"
+   ],
+   "https://www.pizzapilgrims.co.uk/pizzerias/birmingham/": [],
+   "https://www.pizzapilgrims.co.uk/pizzerias/covent-garden/": [],
+   "https://www.pizzapilgrims.co.uk/terms-and-conditions/": []
+  }
+ },
+ "purezza": {
+  "article": null,
+  "context": {
+   "info@purezza.co.uk": "1 Address: Purezza, 12 St James Street, Brighton, BN2 1RE 13.1.2 Email address: info@purezza.co.uk Part 2: Online Ordering Terms and Conditions This page tell"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@purezza.co.uk": [
+    "https://purezza.co.uk/terms-and-conditions/"
+   ]
+  },
+  "pages": {
+   "https://purezza.co.uk/faq/": {
+    "final_url": "https://purezza.co.uk/faq/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://purezza.co.uk/locations/london/": {
+    "final_url": "https://purezza.co.uk/locations/london/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://purezza.co.uk/terms-and-conditions/": {
+    "final_url": "https://purezza.co.uk/terms-and-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://purezza.co.uk/faq/": [
+    "our ingredients and products, please consult our menu for allergen advice. Do you use soya in your dishes? We use soya in some of our ingredients and products, please consult our menu for allergen advice. Do you have a service charge? Yes, we add a discretional amount of 12.5% across all our sites, which is shared exclusively within our amazing team. Do you have discounts available? We regularly have different offers in place for each restaurant. Pl"
+   ],
+   "https://purezza.co.uk/locations/london/": [],
+   "https://purezza.co.uk/terms-and-conditions/": [
+    "lease note that if your Delivery Order is below a minimum value then an additional charge, as set out on the Order Website or during the ordering process, may also apply. 5.2 In relation to Delivery Orders, delivery and service charges are set by Deliveroo but are paid directly to us acting as agent on behalf of Deliveroo. 5.3 It is always possible that, despite our best efforts, some of the Products may be incorrectly priced. We will normally check",
+    "cumstances, we are unable to fulfil your Order or any of the Products in a particular Order, we will refund the value of the Product(s) that we were unable to fulfil and, if the full Order is cancelled, any delivery and service charges. You may obtain a refund by contacting our Customer Experience Team (see below for details). 8. Products 8.1 We endeavour to provide information on any allergens that the Products may contain on the Purezza Website, bu",
+    "r us to exclude or restrict our liability. 9.2 Subject to clauses 9.1 and 9.3 our maximum liability to you, in respect of any particular Order, will be limited to the value of that Order (which includes any delivery and service charges) as set out in the relevant Confirmation Email. 9.3 We are not responsible for any loss or damage that is not foreseeable. Loss or damage is foreseeable if it was an obvious consequence of our breach or if it was conte"
+   ]
+  }
+ },
+ "revolucion-de-cuba": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.revoluciondecuba.com/faq/": {
+    "final_url": "https://www.revoluciondecuba.com/faq/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.revoluciondecuba.com/terms-conditions/": {
+    "final_url": "https://www.revoluciondecuba.com/terms-conditions/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.revoluciondecuba.com/wp-content/uploads/2023/08/RBG-BOOKING-TERMS-AND-CONDITIONS.pdf": {
+    "final_url": "https://www.revoluciondecuba.com/wp-content/uploads/2023/08/RBG-BOOKING-TERMS-AND-CONDITIONS.pdf",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.revoluciondecuba.com/wp-content/uploads/2024/06/13682-RDC-Cantina-Menu-24-3.pdf": {
+    "final_url": "https://www.revoluciondecuba.com/wp-content/uploads/2024/06/13682-RDC-Cantina-Menu-24-3.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.revoluciondecuba.com/faq/": [],
+   "https://www.revoluciondecuba.com/terms-conditions/": [],
+   "https://www.revoluciondecuba.com/wp-content/uploads/2023/08/RBG-BOOKING-TERMS-AND-CONDITIONS.pdf": [],
+   "https://www.revoluciondecuba.com/wp-content/uploads/2024/06/13682-RDC-Cantina-Menu-24-3.pdf": [
+    "rfecta Koko Kanu coconut rum, RumChata cream liqueur, Frangelico, peach liqueur, oat milk. CHECK OUT OUR COCKTAIL MENU FOR PRICING DESSERT COCKTAILS WHY NOT ORDER AND PAY AT YOUR TABLE, USING THE QR CODE An optional 10% service charge will be added to all table-served bills. 100% of our service charge is distributed amongst the team that created and served your food and drinks today. All prices are correct at time of printing. Vegetarian Vegan Spicy CHECK OUT OUR COCKTAIL MENU FOR PRICING DESSERT COCKTAILS Caribbean"
+   ]
+  }
+ },
+ "revolution": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "dpo@revolutionbarsgroup.com": [
+    "https://www.revolution-bars.co.uk/FAQ/"
+   ],
+   "sar@neoshospitality.co.uk": [
+    "https://www.revolution-bars.co.uk/FAQ/"
+   ]
+  },
+  "pages": {
+   "https://www.revolution-bars.co.uk/FAQ/": {
+    "final_url": "https://www.revolution-bars.co.uk/FAQ/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.revolution-bars.co.uk/wp/app/uploads/2023/09/RBG-BOOKING-TERMS-AND-CONDITIONS-FINAL-3.pdf": {
+    "final_url": "https://www.revolution-bars.co.uk/wp/app/uploads/2023/09/RBG-BOOKING-TERMS-AND-CONDITIONS-FINAL-3.pdf",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.revolution-bars.co.uk/wp/app/uploads/2025/07/Revolution-Christmas-2025-Menu-Pricing-3.pdf": {
+    "final_url": "https://www.revolution-bars.co.uk/wp/app/uploads/2025/07/Revolution-Christmas-2025-Menu-Pricing-3.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.revolution-bars.co.uk/FAQ/": [],
+   "https://www.revolution-bars.co.uk/wp/app/uploads/2023/09/RBG-BOOKING-TERMS-AND-CONDITIONS-FINAL-3.pdf": [],
+   "https://www.revolution-bars.co.uk/wp/app/uploads/2025/07/Revolution-Christmas-2025-Menu-Pricing-3.pdf": []
+  }
+ },
+ "rudys-pizza": {
+  "article": null,
+  "context": {
+   "careers@wearemissionmars.com": "nd out more here. You can click here to view all our current vacancies or email careers@wearemissionmars.com . Do you do gluten free pizza? We currently do not make glu",
+   "glasgow@rudyspizza.co.uk": "Click + Collect Book Now Book Now Rudy's Pizza Glasgow Glasgow 35 Gordon Street glasgow@rudyspizza.co.uk 0141 319 6599 Ciao Glasgow Rudy\u2019s is bringing authentic Nea",
+   "shop@rudyspizza.co.uk": "re . How can I contact you about bake at home? For Bake at Home, please contact shop@rudyspizza.co.uk and we'll get back to you within 48 hours. Can I book a tab"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "careers@wearemissionmars.com": [
+    "https://www.rudyspizza.co.uk/faqs/"
+   ],
+   "glasgow@rudyspizza.co.uk": [
+    "https://www.rudyspizza.co.uk/location/glasgow/"
+   ],
+   "shop@rudyspizza.co.uk": [
+    "https://www.rudyspizza.co.uk/faqs/"
+   ]
+  },
+  "pages": {
+   "https://www.rudyspizza.co.uk/christmas/": {
+    "final_url": "https://www.rudyspizza.co.uk/christmas/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.rudyspizza.co.uk/content/uploads/2025/11/RUDYS-PIZZA-PACKAGE_LONDON_A5_WEB.pdf": {
+    "final_url": "https://www.rudyspizza.co.uk/content/uploads/2025/11/RUDYS-PIZZA-PACKAGE_LONDON_A5_WEB.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.rudyspizza.co.uk/faqs/": {
+    "final_url": "https://www.rudyspizza.co.uk/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.rudyspizza.co.uk/location/glasgow/": {
+    "final_url": "https://www.rudyspizza.co.uk/location/glasgow/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.rudyspizza.co.uk/menu/harborne-birmingham/": {
+    "final_url": "https://www.rudyspizza.co.uk/menu/harborne-birmingham/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.rudyspizza.co.uk/christmas/": [],
+   "https://www.rudyspizza.co.uk/content/uploads/2025/11/RUDYS-PIZZA-PACKAGE_LONDON_A5_WEB.pdf": [],
+   "https://www.rudyspizza.co.uk/faqs/": [],
+   "https://www.rudyspizza.co.uk/location/glasgow/": [],
+   "https://www.rudyspizza.co.uk/menu/harborne-birmingham/": []
+  }
+ },
+ "six-by-nico": {
+  "article": null,
+  "context": {
+   "aberdeen@sixbynico.co.uk": "may result in your booking having to be rescheduled. Aberdeen - 0141 248 3938 - aberdeen@sixbynico.co.uk Belfast - 02890 329 467 - belfast@sixbynico.co.uk Birmingha",
+   "belfast@sixbynico.co.uk": ". Aberdeen - 0141 248 3938 - aberdeen@sixbynico.co.uk Belfast - 02890 329 467 - belfast@sixbynico.co.uk Birmingham - 01218 125 666 - birmingham@sixbynico.co.uk Bri",
+   "birmingham@sixbynico.co.uk": "Belfast - 02890 329 467 - belfast@sixbynico.co.uk Birmingham - 01218 125 666 - birmingham@sixbynico.co.uk Bristol - 01174 505 266 - bristol@sixbynico.co.uk Cardiff -",
+   "bristol@sixbynico.co.uk": "rmingham - 01218 125 666 - birmingham@sixbynico.co.uk Bristol - 01174 505 266 - bristol@sixbynico.co.uk Cardiff - 029 2002 6666 - cardiff@sixbynico.co.uk Dublin -",
+   "canarywharf@sixbynico.co.uk": "0 8143 - london.fitzrovia@sixbynico.co.uk London Canary Wharf - 020 3912 3334 - canarywharf@sixbynico.co.uk Manchester Deansgate - 0161 870 5666 - manchester.deansgate",
+   "cardiff@sixbynico.co.uk": ".uk Bristol - 01174 505 266 - bristol@sixbynico.co.uk Cardiff - 029 2002 6666 - cardiff@sixbynico.co.uk Dublin - (+353) 1 525 5919 - dublin@sixbynico.ie Edinburgh",
+   "dublin@sixbynico.ie": "Cardiff - 029 2002 6666 - cardiff@sixbynico.co.uk Dublin - (+353) 1 525 5919 - dublin@sixbynico.ie Edinburgh Hanover - 0131 225 5050 - edinburgh@sixbynico.co.",
+   "edinburgh@sixbynico.co.uk": "n - (+353) 1 525 5919 - dublin@sixbynico.ie Edinburgh Hanover - 0131 225 5050 - edinburgh@sixbynico.co.uk Glasgow Merchant City - 0141 334 5661 - glasgow.merchantcit",
+   "glasgow.merchantcity@sixbynico.co.uk": "31 225 5050 - edinburgh@sixbynico.co.uk Glasgow Merchant City - 0141 334 5661 - glasgow.merchantcity@sixbynico.co.uk Leeds - 0113 340 6666 - leeds@sixbynico.co.uk London Fitzro",
+   "leeds@sixbynico.co.uk": "- 0141 334 5661 - glasgow.merchantcity@sixbynico.co.uk Leeds - 0113 340 6666 - leeds@sixbynico.co.uk London Fitzrovia - 020 7580 8143 - london.fitzrovia@sixbyni",
+   "london.fitzrovia@sixbynico.co.uk": "eeds - 0113 340 6666 - leeds@sixbynico.co.uk London Fitzrovia - 020 7580 8143 - london.fitzrovia@sixbynico.co.uk London Canary Wharf - 020 3912 3334 - canarywharf@sixbynico",
+   "manchester.deansgate@sixbynico.co.uk": "3912 3334 - canarywharf@sixbynico.co.uk Manchester Deansgate - 0161 870 5666 - manchester.deansgate@sixbynico.co.uk Oxford - 01865 639 006 - oxford@sixbynico.co.uk Prepay a bo",
+   "marketing@sixbynico.co.uk": "or press queries: press@sixbynico.co.uk For marketing and partnership querires: marketing@sixbynico.co.uk Careers If you are interested in any vacancies we may have",
+   "oxford@sixbynico.co.uk": "- 0161 870 5666 - manchester.deansgate@sixbynico.co.uk Oxford - 01865 639 006 - oxford@sixbynico.co.uk Prepay a booking If you wish to pre-pay a booking in advanc",
+   "press@sixbynico.co.uk": "using the details further down the page Press & Partnerships For press queries: press@sixbynico.co.uk For marketing and partnership querires: marketing@sixbynico",
+   "vouchers@sixbynico.co.uk": "If you have any queries about your vouchers, please contact our gifting team on vouchers@sixbynico.co.uk Six by Nico vouchers can be used in any of our Six by Nico"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "aberdeen@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "belfast@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "birmingham@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "bristol@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "canarywharf@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "cardiff@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "dublin@sixbynico.ie": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "edinburgh@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "glasgow.merchantcity@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "leeds@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "london.fitzrovia@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/",
+    "https://www.sixbynico.co.uk/london/booking/"
+   ],
+   "manchester.deansgate@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/",
+    "https://www.sixbynico.co.uk/manchester/booking/"
+   ],
+   "marketing@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "oxford@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "press@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/"
+   ],
+   "vouchers@sixbynico.co.uk": [
+    "https://www.sixbynico.co.uk/faqs/",
+    "https://www.sixbynico.co.uk/london/booking/",
+    "https://www.sixbynico.co.uk/manchester/booking/"
+   ]
+  },
+  "pages": {
+   "https://www.sixbynico.co.uk/faqs/": {
+    "final_url": "https://www.sixbynico.co.uk/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.sixbynico.co.uk/london/booking/": {
+    "final_url": "https://www.sixbynico.co.uk/london/booking/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.sixbynico.co.uk/manchester/booking/": {
+    "final_url": "https://www.sixbynico.co.uk/manchester/booking/",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.sixbynico.co.uk/faqs/": [],
+   "https://www.sixbynico.co.uk/london/booking/": [],
+   "https://www.sixbynico.co.uk/manchester/booking/": []
+  }
+ },
+ "table-table": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.tabletable.co.uk/en-gb/christmas": {
+    "final_url": "https://www.tabletable.co.uk/en-gb/christmas",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.tabletable.co.uk/en-gb/christmas-day-menu": {
+    "final_url": "https://www.tabletable.co.uk/en-gb/christmas-day-menu",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.tabletable.co.uk/en-gb/frequently-asked-questions": {
+    "final_url": "https://www.tabletable.co.uk/en-gb/frequently-asked-questions",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.tabletable.co.uk/en-gb/main-menu/table_table_main_menu_band3.pdf": {
+    "final_url": "https://www.tabletable.co.uk/en-gb/main-menu/table_table_main_menu_band3.pdf",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.tabletable.co.uk/en-gb/terms-and-conditions": {
+    "final_url": "https://www.tabletable.co.uk/en-gb/terms-and-conditions",
+    "rendered": false,
+    "status": 0
+   }
+  },
+  "policy_text": {
+   "https://www.tabletable.co.uk/en-gb/christmas": [],
+   "https://www.tabletable.co.uk/en-gb/christmas-day-menu": [],
+   "https://www.tabletable.co.uk/en-gb/frequently-asked-questions": [],
+   "https://www.tabletable.co.uk/en-gb/main-menu/table_table_main_menu_band3.pdf": [],
+   "https://www.tabletable.co.uk/en-gb/terms-and-conditions": []
+  }
+ },
+ "tattu": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://tattu.co.uk/wp-content/uploads/2023/04/NORTH-group-booking-policy-.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2023/04/NORTH-group-booking-policy-.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://tattu.co.uk/wp-content/uploads/2025/04/SHARING_LONDON_ONLINE.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2025/04/SHARING_LONDON_ONLINE.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://tattu.co.uk/wp-content/uploads/2025/09/ALC_LEEDS_ONLINE.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2025/09/ALC_LEEDS_ONLINE.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://tattu.co.uk/wp-content/uploads/2026/01/ALC_EDI_ONLINE.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2026/01/ALC_EDI_ONLINE.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://tattu.co.uk/wp-content/uploads/2026/03/ALL-DAY_LDN-ONLINE.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2026/03/ALL-DAY_LDN-ONLINE.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://tattu.co.uk/wp-content/uploads/2026/06/Manchester-XMAS-event-brochure-2026-DIGITAL.pdf": {
+    "final_url": "https://tattu.co.uk/wp-content/uploads/2026/06/Manchester-XMAS-event-brochure-2026-DIGITAL.pdf",
+    "rendered": false,
+    "status": 404
+   }
+  },
+  "policy_text": {
+   "https://tattu.co.uk/wp-content/uploads/2023/04/NORTH-group-booking-policy-.pdf": [],
+   "https://tattu.co.uk/wp-content/uploads/2025/04/SHARING_LONDON_ONLINE.pdf": [],
+   "https://tattu.co.uk/wp-content/uploads/2025/09/ALC_LEEDS_ONLINE.pdf": [],
+   "https://tattu.co.uk/wp-content/uploads/2026/01/ALC_EDI_ONLINE.pdf": [],
+   "https://tattu.co.uk/wp-content/uploads/2026/03/ALL-DAY_LDN-ONLINE.pdf": [],
+   "https://tattu.co.uk/wp-content/uploads/2026/06/Manchester-XMAS-event-brochure-2026-DIGITAL.pdf": []
+  }
+ },
+ "temper": {
+  "article": null,
+  "context": {
+   "reservationsmanager@temperrestaurant.com": "ed times. Address 25 Broadwick Street, London W1F 0DF Phone 020 3879 3834 Email reservationsmanager@temperrestaurant.com Hours Mon 17:00 - 21:00 Tue 12:00 - 22:15 Wed 12:00 - 22:15"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "reservationsmanager@temperrestaurant.com": [
+    "https://temperrestaurant.com/reservations",
+    "https://temperrestaurant.com/party-reservations/",
+    "https://temperrestaurant.com/temper-soho/menu"
+   ]
+  },
+  "pages": {
+   "https://temperrestaurant.com/party-reservations/": {
+    "final_url": "https://temperrestaurant.com/private-hire",
+    "rendered": false,
+    "status": 200
+   },
+   "https://temperrestaurant.com/reservations": {
+    "final_url": "https://temperrestaurant.com/book-now",
+    "rendered": false,
+    "status": 200
+   },
+   "https://temperrestaurant.com/temper-soho/menu": {
+    "final_url": "https://temperrestaurant.com/temper-soho/menu",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://temperrestaurant.com/party-reservations/": [],
+   "https://temperrestaurant.com/reservations": [],
+   "https://temperrestaurant.com/temper-soho/menu": [
+    "butchery concept, and all our meat has come from one single farmer, Charles Ashbridge in North Yorkshire, since 2016. Before that meat reaches you, it\u2019s dry-aged and butchered in-house, then finally cooked over fire. A discretionary 15% service charge will be added to your bill. Please inform a member of the temper team about any allergies, food intolerances, or dietary requirements. Hungry yet? Book a table at temper Soho \u2014 or walk in for Taco Tuesday from 5pm. Open"
+   ]
+  }
+ },
+ "thaikhun": {
+  "article": null,
+  "context": {
+   "info@thaileisuregroup.co.uk": "? 7 days notice is required if you wish to amend your reservation. Please email info@thaileisuregroup.co.uk and we will be able to assist you. If you wish to cancel, y"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@thaileisuregroup.co.uk": [
+    "https://www.thaikhun.co.uk/thai-restaurant/aberdeen/group-bookings"
+   ]
+  },
+  "pages": {
+   "https://www.thaikhun.co.uk/christmas": {
+    "final_url": "https://www.thaikhun.co.uk/christmas",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.thaikhun.co.uk/fileadmin/TK_Menus/ALL/TK_Main_Menu_DEC25_Estate_V2.pdf": {
+    "final_url": "https://www.thaikhun.co.uk/fileadmin/TK_Menus/ALL/TK_Main_Menu_DEC25_Estate_V2.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.thaikhun.co.uk/thai-restaurant/aberdeen/group-bookings": {
+    "final_url": "https://www.thaikhun.co.uk/thai-restaurant/aberdeen/group-bookings",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.thaikhun.co.uk/christmas": [],
+   "https://www.thaikhun.co.uk/fileadmin/TK_Menus/ALL/TK_Main_Menu_DEC25_Estate_V2.pdf": [],
+   "https://www.thaikhun.co.uk/thai-restaurant/aberdeen/group-bookings": []
+  }
+ },
+ "the-alchemist": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://thealchemist.uk.com/christmas-bookings": {
+    "final_url": "https://thealchemist.uk.com/christmas-bookings",
+    "rendered": false,
+    "status": 404
+   },
+   "https://thealchemist.uk.com/christmas-tcs/": {
+    "final_url": "https://thealchemistbars.com/happenings/christmas/?utm_source=redirect&utm_medium=legacy&utm_campaign=301",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thealchemist.uk.com/menus/": {
+    "final_url": "https://thealchemistbars.com/food/?utm_source=redirect&utm_medium=legacy&utm_campaign=301",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://thealchemist.uk.com/christmas-bookings": [],
+   "https://thealchemist.uk.com/christmas-tcs/": [],
+   "https://thealchemist.uk.com/menus/": []
+  }
+ },
+ "the-real-greek": {
+  "article": null,
+  "context": {
+   "info@therealgreek.com": "doesn\u2019t show the results you were hoping for, don\u2019t dispair! Simply email us at info@therealgreek.com and our team will so their very best to find you a table DE",
+   "privacy@therealgreek.com": "bscribe instructions included in each electronic communication or contact us at privacy@ The Real Greek Once we have received notification that you have withdrawn y"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@therealgreek.com": [
+    "https://www.therealgreek.com/faqs/",
+    "https://www.therealgreek.com/legals/"
+   ],
+   "privacy@therealgreek.com": [
+    "https://www.therealgreek.com/legals/"
+   ]
+  },
+  "pages": {
+   "https://www.therealgreek.com/faqs/": {
+    "final_url": "https://www.therealgreek.com/faqs/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therealgreek.com/legals/": {
+    "final_url": "https://www.therealgreek.com/legals/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therealgreek.com/party-menu/": {
+    "final_url": "https://www.therealgreek.com/party-menu/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Main-Menu%E2%80%93Spring%E2%80%93Menu%E2%80%9326.pdf": {
+    "final_url": "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Main-Menu%E2%80%93Spring%E2%80%93Menu%E2%80%9326.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://www.therealgreek.com/faqs/": [],
+   "https://www.therealgreek.com/legals/": [
+    "discount FAQs Icon THE REAL GREEK AT HOME Offers STUDENT DISCOUNT FILTER BY V VG GF LOW CAL (under 400kcal) All Day Lunch Drinks Kids Legals PRIVACY NOTICE COOKIES POLICY TERMS & CONDITIONS GIFT CARDS GENDER PAY REPORT SERVICE CHARGE PRIVACY NOTICE LAST UPDATED ON 27.05.26 Contents Personal data and how we collect it? What personal data and information do we collect from our customers How is our customers\u2019 personal data and information collected? Le",
+    "full payment directly at any The Real Greek restaurant and for online ordering in the UK mainland only. Not valid on Uber Eats, Deliveroo, Just Eat. Please present this card when paying. This card cannot be used to pay tips or gratuities. 2. This card cannot be refunded or exchanged in part or as whole for cash or credit. No change will be given, though any balance may be applied to future purchases, provided that the card has not expired. 3. Protect",
+    "eported is accurate. Marcel Khan CEO The Real Greek Food Company Ltd. 1st Floor, 50-51 Berwick Street, London, W1F 8SJ. Registered in England No: 04918527 Last updated: 1 st May 2019 View the 2018 Gender Pay Report here SERVICE CHARGE A discretionary optional 10% service charge will be added to all dining in bills. This charge is completely optional, so please ask your waiter if you would like this to be removed. OUR TAVERNAS BOOK A TABLE PARTY BOOKINGS BLOG GIFT CARD UBER EATS DELIVEROO JUST"
+   ],
+   "https://www.therealgreek.com/party-menu/": [
+    "GF \u2013 CHIPS V VG Chicken Skewer option Total 2275kcal Pork Skewer option Total 2278kcal Celebrate at The Real Greek WITH OUR PARTY MENU Book Your Party Adults needs around 2000kcal a day. All prices in pound sterling. A discretionary optional 12.5% service charge will be added to all dining in bills. This charge is completely optional, so please ask your waiter if you would like this to be removed. --> A discretionary 10% service charge will be added to all dining in bills. This charge is completely optional, so please ask your waiter if you would like to this to be removed. V items are suitable for vegetarians VG items are suitable for vegans GF items"
+   ],
+   "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Main-Menu%E2%80%93Spring%E2%80%93Menu%E2%80%9326.pdf": [
+    "Scan QR code to view our kcal & allergen menu. GF = GLUTEN FREE = VEGAN = VEGETARIAN An optional 10% service charge will be added to your bill For every pork souvlaki sold, we donate 25p to Pancreatic Cancer UK, in loving memory of our friend and colleague Christos Karatzenis, who loved this dish. MEAT PLATTER For 2 to share 26.00pp"
+   ]
+  }
+ },
+ "toby-carvery": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://tobycarvery.co.uk/christmas": {
+    "final_url": "https://www.tobycarvery.co.uk/christmas#/",
+    "rendered": true,
+    "status": 200
+   },
+   "https://tobycarvery.co.uk/content/dam/toby-carvery/pdf/2024/christmas/toby-christmas-day-menu-pb3.pdf": {
+    "final_url": "https://www.tobycarvery.co.uk/content/dam/toby-carvery/pdf/2024/christmas/toby-christmas-day-menu-pb3.pdf",
+    "rendered": false,
+    "status": 200
+   },
+   "https://tobycarvery.co.uk/faq": {
+    "final_url": "https://tobycarvery.co.uk/faq",
+    "rendered": false,
+    "status": 403
+   },
+   "https://www.tobycarvery.co.uk/content/dam/toby-carvery/pdf/dn24/toby-dn24-main-menu-pb7.pdf": {
+    "final_url": "https://www.tobycarvery.co.uk/content/dam/toby-carvery/pdf/dn24/toby-dn24-main-menu-pb7.pdf",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.tobycarvery.co.uk/eventsbookingterms": {
+    "final_url": "https://www.tobycarvery.co.uk/eventsbookingterms#/",
+    "rendered": true,
+    "status": 404
+   },
+   "https://www.tobycarvery.co.uk/faq": {
+    "final_url": "https://www.tobycarvery.co.uk/faq",
+    "rendered": false,
+    "status": 403
+   }
+  },
+  "policy_text": {
+   "https://tobycarvery.co.uk/christmas": [],
+   "https://tobycarvery.co.uk/content/dam/toby-carvery/pdf/2024/christmas/toby-christmas-day-menu-pb3.pdf": [],
+   "https://tobycarvery.co.uk/faq": [],
+   "https://www.tobycarvery.co.uk/content/dam/toby-carvery/pdf/dn24/toby-dn24-main-menu-pb7.pdf": [],
+   "https://www.tobycarvery.co.uk/eventsbookingterms": [],
+   "https://www.tobycarvery.co.uk/faq": []
+  }
+ },
+ "yo-sushi": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://yosushi.com/birmingham": {
+    "final_url": "https://yosushi.com/birmingham",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yosushi.com/bookings-terms-conditions": {
+    "final_url": "https://yosushi.com/bookings-terms-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yosushi.com/content/booking-faqs": {
+    "final_url": "https://yosushi.com/content/booking-faqs",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://yosushi.com/birmingham": [],
+   "https://yosushi.com/bookings-terms-conditions": [],
+   "https://yosushi.com/content/booking-faqs": []
+  }
+ },
+ "zaap-thai": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://zaapthai.co.uk/food/": {
+    "final_url": "https://zaapthai.co.uk/food/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://zaapthai.co.uk/wp-content/uploads/2024/08/ZAAP_A3Menu.pdf": {
+    "final_url": "https://zaapthai.co.uk/wp-content/uploads/2024/08/ZAAP_A3Menu.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  },
+  "policy_text": {
+   "https://zaapthai.co.uk/food/": [],
+   "https://zaapthai.co.uk/wp-content/uploads/2024/08/ZAAP_A3Menu.pdf": []
+  }
+ }
+}
