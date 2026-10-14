@@ -1248,5 +1248,126 @@
   "basis": "",
   "outlet": "Square Meal",
   "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "contact@fasttrainltd.com",
+  "name": "London Cheapo",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "London Cheapo",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@luxebible.com",
+  "name": "Luxe Bible",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Luxe Bible",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "contact@feastuponyork.com",
+  "name": "Feast Upon York",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Feast Upon York",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@yorkshirepudd.co.uk",
+  "name": "Yorkshire Pudd",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Yorkshire Pudd",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@foodjunkieuk.co.uk",
+  "name": "Food Junkie UK",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Food Junkie UK",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@hungryhodophile.com",
+  "name": "Hungry Hodophile",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hungry Hodophile",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@foodieexplorers.co.uk",
+  "name": "Foodie Explorers",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Foodie Explorers",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@leytonstoner.london",
+  "name": "Leytonstoner",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Leytonstoner",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "marketing@matchingfoodandwine.com",
+  "name": "Fiona Beckett (Matching Food & Wine)",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Matching Food & Wine",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "agent@techmedialabs.com",
+  "name": "Danny Malin (Rate My Takeaway), via Tech Media Labs",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Rate My Takeaway",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "pr@edinburghfoodcourt.com",
+  "name": "Edinburgh Food Court",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Edinburgh Food Court",
+  "angle": "",
+  "variant": "creator"
  }
 ]

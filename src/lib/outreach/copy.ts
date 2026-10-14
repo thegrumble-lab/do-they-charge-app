@@ -1,5 +1,6 @@
 import { SITE_URL } from "@/lib/site";
 import type { Campaign } from "./store";
+import { TRACKED_CHAINS } from "@/content/chain-tracker";
 
 /** Days after the first email that the single follow-up is sent, per campaign. */
 export const FOLLOW_UP_DAYS: Record<Campaign, number> = { restaurant: 7, press: 5 };
@@ -21,6 +22,12 @@ export type Seed = {
   outlet: string;
   /** Press only: their relevant coverage, used in the opening line. */
   angle: string;
+  /**
+   * Press only: "creator" for food bloggers, newsletters and social creators,
+   * who get a content idea built around the chain tracker instead of the
+   * journalist data pitch. Same campaign, sequence and reply handling.
+   */
+  variant?: "creator";
 };
 
 /**
@@ -91,6 +98,8 @@ ${footer(unsubUrl, "restaurant")}`,
     };
   }
 
+  if (s.variant === "creator") return renderCreatorStep(step, s, unsubUrl);
+
   const subject = `Data: ${FIGURES.addCharge} of ${FIGURES.withPolicy} UK restaurants publishing a policy add a service charge`;
   const hi = s.first ? `Hi ${s.first},` : "Hi there,";
   if (step === 0) {
@@ -122,6 +131,44 @@ ${footer(unsubUrl, "press")}`,
     text: `${hi}
 
 Bringing this back to the top of your inbox in case the figures are useful for anything you're working on. The chain-by-chain tracker is here, with sources and a CSV download: ${SITE_URL}/chains\n\nHappy to send the full list with sources, or a breakdown by city.
+
+${sig}
+
+${footer(unsubUrl, "press")}`,
+  };
+}
+
+/** Food bloggers, newsletters and social creators: a content idea, not a data pitch. */
+function renderCreatorStep(step: number, s: Seed, unsubUrl: string): { subject: string; text: string } {
+  const subject = "Which UK chains add a service charge? A list your followers might like";
+  const hi = s.first ? `Hi ${s.first},` : "Hi there,";
+  const chains = TRACKED_CHAINS.length;
+  if (step === 0) {
+    const opener = s.angle ? `I saw ${s.angle}, so thought this might be up your street.\n\n` : "";
+    return {
+      subject,
+      text: `${hi}
+
+${opener}I run Discretionary (discretionary.uk), a free UK guide that shows whether a restaurant adds a service charge before you book.
+
+We've just published a tracker of ${chains} UK restaurant and pub chains, from Pizza Express and Zizzi to Dishoom and Flat Iron: which add a charge to every bill, which only for bigger groups, and which don't say either way. Every entry links to the chain's own menu or terms, so it's all checkable:
+${SITE_URL}/chains
+
+It could make a handy post or video for your followers, along the lines of "which chains quietly add 12.5% to your bill". You're welcome to use anything on the page, and a link back is always appreciated.
+
+Happy to pull together the chains near you, or anything else that would help.
+
+${sig}
+
+${footer(unsubUrl, "press")}`,
+    };
+  }
+  return {
+    subject: `Re: ${subject}`,
+    text: `${hi}
+
+Just bringing this back to the top of your inbox in case the chain list is handy for a post:
+${SITE_URL}/chains
 
 ${sig}
 
