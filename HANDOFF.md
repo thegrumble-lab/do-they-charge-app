@@ -1129,3 +1129,14 @@ State lives in Upstash Redis (keys prefixed `dc:`), so the app's anon-key-only S
 The badge (`/badge/[area]/[slug]`, SVG) only renders while the listing's latest report is `no-charge`.
 
 Env vars (Production): `OUTREACH_SMTP_USER` (the Zoho mailbox login), `OUTREACH_SMTP_PASS` (a Zoho app password), `OUTREACH_FROM_ADDRESS` (hello@discretionary.uk), `OUTREACH_DIGEST_TO`, `ANTHROPIC_API_KEY`, `CRON_SECRET`, Upstash's `KV_REST_API_URL`/`KV_REST_API_TOKEN`, and `OUTREACH_ENABLED=true` only once the preview digest is approved.
+
+## Chain tracker: /chains (October 2026)
+
+A shareable, citable asset for press and outreach, built on the chain research above.
+
+- **Data:** `src/content/chain-tracker.ts`. Every chain checked, with a verdict (`every-bill`, `groups`, `unclear`, `not-published`), headline rate, group threshold, a one-line summary, `tracked`/`checked` dates and a `changes` log. Chains also in `chain-policies.ts` carry `matcherName`, and their note and source come from there, so the tracker, the branch reports and the press reference can never disagree. Launched with 47 chains: the 21 matched chains plus the 26 recorded in HANDOFF as checked with nothing published.
+- **Pages:** `/chains` (grouped list, headline stats, change log, cite box), `/chains/[slug]` (policy, source, history, every branch whose latest report cites the chain's source, FAQ schema; targets "does X add a service charge"), `/chains/data.csv`. Branch counts come from `src/lib/chain-tracker-data.ts` over the direct Postgres connection and degrade to no counts if it's unavailable. Linked from the homepage, footer and sitemap; Dataset schema on the index.
+- **"Not published" wording:** means the chain's own site, menus and terms say nothing either way. Never describe one as not charging, anywhere (the press-reply reference says the same).
+- **Monthly re-check:** a Claude scheduled task ("Discretionary – monthly chain tracker check", 3rd of each month) re-checks every source, logs dated changes, and adds up to 30 new chains a run until the tracker reaches 100. New chains go into the tracker only; adding one to the branch matcher stays a deliberate decision (the task lists good candidates in its email).
+- **Reading pages:** `.github/workflows/chain-check.yml` on its own `chain-check` branch, using `scripts/check_prospects.py` with `"policy": true` (records the text around service-charge wording, PDF menus via pypdf). Separate from `prospect-check` so the two research tasks never overwrite each other's candidates. Baseline run on 14 October 2026: all 21 matched sources fetched with status 200.
+- **Press:** the press pitch and follow-up link the tracker, and `pressReference()` includes it plus the not-published list.
