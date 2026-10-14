@@ -948,5 +948,305 @@
   "basis": "",
   "outlet": "Harden's",
   "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newstips@gbnews.com",
+  "name": "GB News newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "GB News",
+  "angle": "your report on UK restaurants quietly hiking service charges to 15 per cent"
+ },
+ {
+  "campaign": "press",
+  "email": "editorial@footprintmediagroup.com",
+  "name": "Foodservice Footprint editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Foodservice Footprint",
+  "angle": "your piece asking whether public diners can find a niche on the high street"
+ },
+ {
+  "campaign": "press",
+  "email": "editor@moneyweek.com",
+  "name": "MoneyWeek editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "MoneyWeek",
+  "angle": "your piece on how to profit from the UK leisure sector in 2026"
+ },
+ {
+  "campaign": "press",
+  "email": "james.baxter-derrington@telegraph.co.uk",
+  "name": "James Baxter-Derrington",
+  "first": "James",
+  "page": "",
+  "basis": "",
+  "outlet": "The Telegraph",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "personal.finance@reachplc.com",
+  "name": "Daily Express money desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Daily Express",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "mirror.money.saving@mirror.co.uk",
+  "name": "Mirror Money Saving desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Daily Mirror",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@independent.co.uk",
+  "name": "The Independent newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Independent",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "features@inews.co.uk",
+  "name": "The i Paper features desk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The i Paper",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "webnews@metro.co.uk",
+  "name": "Metro online newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Metro",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@standarddigital.co.uk",
+  "name": "Evening Standard newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Evening Standard",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editorialadmin@theweek.co.uk",
+  "name": "The Week UK editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Week",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@bdaily.co.uk",
+  "name": "Bdaily editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Bdaily",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "businesslive@reachplc.com",
+  "name": "Business Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Business Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@businesscloud.co.uk",
+  "name": "BusinessCloud newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "BusinessCloud",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@nation.cymru",
+  "name": "Nation.Cymru editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Nation.Cymru",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@nottinghampost.com",
+  "name": "Nottingham Post newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Nottingham Post",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@leicestermercury.co.uk",
+  "name": "Leicester Mercury newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Leicester Mercury",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@bristolpost.co.uk",
+  "name": "Bristol Post newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Bristol Post",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@coventrytelegraph.net",
+  "name": "Coventry Telegraph newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Coventry Telegraph",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@derbytelegraph.co.uk",
+  "name": "Derby Telegraph newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Derby Telegraph",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@hulldailymail.co.uk",
+  "name": "Hull Daily Mail newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hull Daily Mail",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@thesentinel.co.uk",
+  "name": "The Sentinel newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Sentinel, Stoke",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "kentlivenewsdesk@reachplc.com",
+  "name": "Kent Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Kent Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@dailyecho.co.uk",
+  "name": "Daily Echo newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Daily Echo, Southampton",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@theargus.co.uk",
+  "name": "The Argus newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Argus, Brighton",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@nne.co.uk",
+  "name": "The Northern Echo newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Northern Echo",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@nqo.com",
+  "name": "Oxford Mail newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Oxford Mail",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@southwalesargus.co.uk",
+  "name": "South Wales Argus newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "South Wales Argus",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editorial@confidentials.com",
+  "name": "Manchester Confidential editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Manchester Confidential",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "hello@squaremeal.co.uk",
+  "name": "Square Meal editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Square Meal",
+  "angle": ""
  }
 ]

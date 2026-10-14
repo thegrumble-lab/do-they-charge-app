@@ -29,11 +29,11 @@ export type Seed = {
  * own website or menu states one, as cited on each listing.
  */
 export const FIGURES = {
-  asOf: "11 October 2026",
-  withPolicy: "1,437",
-  addCharge: "1,410",
-  everyBill: "718",
-  groupsOnly: "692",
+  asOf: "14 October 2026",
+  withPolicy: "1,444",
+  addCharge: "1,417",
+  everyBill: "724",
+  groupsOnly: "693",
   noCharge: "27",
 };
 
