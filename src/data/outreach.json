@@ -648,5 +648,305 @@
   "basis": "",
   "outlet": "Bristol24/7",
   "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "info@thedrinksbusiness.com",
+  "name": "The Drinks Business editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Drinks Business",
+  "angle": "your piece on why annoyed diners still hand over the service charge"
+ },
+ {
+  "campaign": "press",
+  "email": "catherine@hot-dinners.com",
+  "name": "Catherine Hanly",
+  "first": "Catherine",
+  "page": "",
+  "basis": "",
+  "outlet": "Hot Dinners",
+  "angle": "your Hot Right Now list of London's hottest restaurants for October"
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@mulberrymedia.co.uk",
+  "name": "Hospitality Week newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hospitality Week",
+  "angle": "your piece asking whether the UK tipping law has been a success twelve months on"
+ },
+ {
+  "campaign": "press",
+  "email": "felix.armstrong@cityam.com",
+  "name": "Felix Armstrong",
+  "first": "Felix",
+  "page": "",
+  "basis": "",
+  "outlet": "City AM",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "helen.crane@thisismoney.co.uk",
+  "name": "Helen Crane",
+  "first": "Helen",
+  "page": "",
+  "basis": "",
+  "outlet": "This is Money",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "info@ibtimes.co.uk",
+  "name": "IBTimes UK editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "International Business Times UK",
+  "angle": "your piece on a London restaurant adding a hidden carbon charge to diners' bills"
+ },
+ {
+  "campaign": "press",
+  "email": "news@thestar.co.uk",
+  "name": "The Star newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Star, Sheffield",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "yp.newsdesk@ypn.co.uk",
+  "name": "Yorkshire Post newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Yorkshire Post",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@theherald.co.uk",
+  "name": "The Herald newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Herald",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesknorfolk@newsquest.co.uk",
+  "name": "Eastern Daily Press newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Eastern Daily Press",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@thepress.co.uk",
+  "name": "The Press newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Press, York",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "newsdesk@iliffemedia.co.uk",
+  "name": "Cambridge Independent newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Cambridge Independent",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "thecambridgefoodies@gmail.com",
+  "name": "The Cambridge Foodies",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Cambridge Foodies",
+  "angle": "your ranking of the best pizza in Cambridge"
+ },
+ {
+  "campaign": "press",
+  "email": "ellen@eatwithellen.com",
+  "name": "Ellen",
+  "first": "Ellen",
+  "page": "",
+  "basis": "",
+  "outlet": "Eat with Ellen",
+  "angle": "your review of Narla in Fowey"
+ },
+ {
+  "campaign": "press",
+  "email": "fiona@london-unattached.com",
+  "name": "Fiona Maclean",
+  "first": "Fiona",
+  "page": "",
+  "basis": "",
+  "outlet": "London Unattached",
+  "angle": "your review of Kawan by Uncle Roger"
+ },
+ {
+  "campaign": "press",
+  "email": "alexis@newcastlesparkles.co.uk",
+  "name": "Alexis Forsyth",
+  "first": "Alexis",
+  "page": "",
+  "basis": "",
+  "outlet": "Newcastle Sparkles",
+  "angle": "your piece on House of Tides launching After Hours"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@bittenoxford.co.uk",
+  "name": "Bitten Oxford",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Bitten Oxford",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "nottinghamfoodcritic@outlook.com",
+  "name": "Nottingham Food Critic",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Nottingham Food Critic",
+  "angle": "your review of Little Brick House"
+ },
+ {
+  "campaign": "press",
+  "email": "kavey@kaveyeats.com",
+  "name": "Kavita Favelle",
+  "first": "Kavita",
+  "page": "",
+  "basis": "",
+  "outlet": "Kavey Eats",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "hello@greedygourmet.com",
+  "name": "Michelle Minnaar",
+  "first": "Michelle",
+  "page": "",
+  "basis": "",
+  "outlet": "Greedy Gourmet",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "helen@casacostello.com",
+  "name": "Helen",
+  "first": "Helen",
+  "page": "",
+  "basis": "",
+  "outlet": "Casa Costello",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "abrummiehomeandabroad@gmail.com",
+  "name": "A Brummie Home and Abroad",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "A Brummie Home and Abroad",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "leedseditorial@confidentials.com",
+  "name": "Leeds Confidential editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Leeds Confidential",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "mags@leedsliving.co.uk",
+  "name": "Leeds Living editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Leeds Living",
+  "angle": "your piece asking whether A Taste of Cinnamon is Leeds city centre's best-value set menu"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@yorkshirefoodguide.co.uk",
+  "name": "Yorkshire Food Guide",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Yorkshire Food Guide",
+  "angle": "your guide to the 20 best restaurants in Leeds"
+ },
+ {
+  "campaign": "press",
+  "email": "info@dailyinfo.co.uk",
+  "name": "Daily Info",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Daily Info Oxford",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "info@cardifflife.wales",
+  "name": "Cardiff Life editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Cardiff Life",
+  "angle": "your piece on the 12 Cardiff restaurants named in Harden's guide"
+ },
+ {
+  "campaign": "press",
+  "email": "info@thebathmagazine.co.uk",
+  "name": "The Bath Magazine editor",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Bath Magazine",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "info@greatfoodclub.co.uk",
+  "name": "Great Food Club",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Great Food Club",
+  "angle": "your Great Food Club Awards 2026/7 winners round-up"
+ },
+ {
+  "campaign": "press",
+  "email": "editorial@hardens.com",
+  "name": "Harden's editorial",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Harden's",
+  "angle": ""
  }
 ]
