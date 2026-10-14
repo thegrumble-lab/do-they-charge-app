@@ -1,0 +1,2373 @@
+{
+ "arthur-tv-ruthless": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://ruthlesstalent.com/creators/arthur-tv-2/": {
+    "final_url": "https://ruthlesstalent.com/creators/arthur-tv-2/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "bristol-unique-guide": {
+  "article": {
+   "final_url": "https://www.bristoluniqueguide.com/bristol-food-hub-wheres-reasonable-nice/",
+   "published": "2014-05-06T14:49:20+00:00",
+   "status": 200,
+   "title": "Bristol Unique Guide present their top 10 Quality Budget Eats",
+   "url": "https://www.bristoluniqueguide.com/bristol-food-hub-wheres-reasonable-nice/"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "enquiries@kwmc.org.uk": [
+    "https://www.bristoluniqueguide.com/"
+   ]
+  },
+  "pages": {
+   "https://www.bristoluniqueguide.com/": {
+    "final_url": "https://www.bristoluniqueguide.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.bristoluniqueguide.com/bristol-book-hive/": {
+    "final_url": "https://www.bristoluniqueguide.com/bristol-book-hive/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.bristoluniqueguide.com/contact/": {
+    "final_url": "https://www.bristoluniqueguide.com/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.bristoluniqueguide.com/custom_page/about/": {
+    "final_url": "https://www.bristoluniqueguide.com/custom_page/about/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "brunchographers": {
+  "article": null,
+  "context": {
+   "brunchographers@gmail.com": "? Or maybe you just want to say hi? We want to hear from you! Drop us a line at brunchographers@gmail.com, or use the form below for your convenience. Please complet"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "brunchographers@gmail.com": [
+    "https://www.brunchographers.com/contact",
+    "https://www.brunchographers.com/about"
+   ]
+  },
+  "pages": {
+   "https://www.brunchographers.com/": {
+    "final_url": "https://www.brunchographers.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.brunchographers.com/about": {
+    "final_url": "https://www.brunchographers.com/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.brunchographers.com/contact": {
+    "final_url": "https://www.brunchographers.com/contact",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "budget-traveller": {
+  "article": {
+   "final_url": "https://budgettraveller.org/cheap-eats-in-belfast-try-boojum",
+   "published": null,
+   "status": 404,
+   "title": "Page not found - BudgetTraveller",
+   "url": "https://budgettraveller.org/cheap-eats-in-belfast-try-boojum"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "europebudgetguide@gmail.com": [
+    "https://budgettraveller.org/privacy-policy/"
+   ],
+   "kash@budgettraveller.org": [
+    "https://budgettraveller.org/contact/",
+    "https://budgettraveller.org/about-me/",
+    "https://budgettraveller.org/contact-us/"
+   ]
+  },
+  "pages": {
+   "https://budgettraveller.org/": {
+    "final_url": "https://budgettraveller.org/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/about-me/": {
+    "final_url": "https://budgettraveller.org/about-me/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/contact-us/": {
+    "final_url": "https://budgettraveller.org/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/contact/": {
+    "final_url": "https://budgettraveller.org/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/privacy-policy/": {
+    "final_url": "https://budgettraveller.org/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/work-with-me/": {
+    "final_url": "https://budgettraveller.org/work-with-me/",
+    "rendered": false,
+    "status": 404
+   }
+  }
+ },
+ "cambridge-food": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://cambridge-food.com/": {
+    "final_url": "https://cambridge-food.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://cambridge-food.com/contact/": {
+    "final_url": "https://cambridge-food.com/contact/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "cambridge-food-blog": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.cambridgefoodblog.com/": {
+    "final_url": "https://www.cambridgefoodblog.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.cambridgefoodblog.com/contact": {
+    "final_url": "https://www.cambridgefoodblog.com/contact",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "candace-abroad": {
+  "article": {
+   "final_url": "https://candaceabroad.com/tipping-in-london/",
+   "published": "2025-06-21T19:50:00+00:00",
+   "status": 200,
+   "title": "A Practical Guide to Tipping in London in 2026 (from a local!) - Candace Abroad",
+   "url": "https://candaceabroad.com/tipping-in-london/"
+  },
+  "context": {
+   "candace@candaceabroad.com": "ons by following the unsubscribe links in our emails. You may also notify us at candace@candaceabroad.com to be removed from our mailing list. Access \u2013 You may acces"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "candace@candaceabroad.com": [
+    "https://candaceabroad.com/about/",
+    "https://candaceabroad.com/privacy-policy-2/"
+   ]
+  },
+  "pages": {
+   "https://candaceabroad.com/": {
+    "final_url": "https://candaceabroad.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://candaceabroad.com/about/": {
+    "final_url": "https://candaceabroad.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://candaceabroad.com/contact/": {
+    "final_url": "https://candaceabroad.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://candaceabroad.com/privacy-policy-2/": {
+    "final_url": "https://candaceabroad.com/privacy-policy-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://candaceabroad.com/work-with-me/": {
+    "final_url": "https://candaceabroad.com/work-with-me/",
+    "rendered": false,
+    "status": 404
+   }
+  }
+ },
+ "cheese-and-biscuits": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.cheese-and-biscuits.org.uk/": {
+    "final_url": "https://www.cheese-and-biscuits.org.uk/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.cheese-and-biscuits.org.uk/contact": {
+    "final_url": "https://www.cheese-and-biscuits.org.uk/contact",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "clerkenwell-boy-aevitas": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.aevitascreative.com/about": {
+    "final_url": "https://www.aevitascreative.com/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.aevitascreative.com/client/clerkenwell-boy": {
+    "final_url": "https://www.aevitascreative.com/client/clerkenwell-boy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.aevitascreative.com/contact": {
+    "final_url": "https://www.aevitascreative.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.aevitascreative.com/genres/food-and-cookbooks": {
+    "final_url": "https://www.aevitascreative.com/genres/food-and-cookbooks",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.aevitascreative.com/our-team": {
+    "final_url": "https://www.aevitascreative.com/our-team",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.aevitascreative.com/privacy-policy": {
+    "final_url": "https://www.aevitascreative.com/privacy-policy",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "creative-tourist": {
+  "article": null,
+  "context": {
+   "info@creativetourist.com": "t Limited (registered in England and Wales with number 07980292) Email address: info@creativetourist.com Postal address: 18 Hilton Street, Manchester, M1 1FR. You h",
+   "sales@creativetourist.com": "m below. If you have enquiry about Advertising & Campaigns , please email us at sales@creativetourist.com . Or if you\u2019re just looking for a bit more information on w"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@creativetourist.com": [
+    "https://www.creativetourist.com/privacy",
+    "https://www.creativetourist.com/privacy/"
+   ],
+   "sales@creativetourist.com": [
+    "https://www.creativetourist.com/contact/",
+    "https://www.creativetourist.com/contact-2/",
+    "https://www.creativetourist.com/advertise/"
+   ]
+  },
+  "pages": {
+   "https://www.creativetourist.com/": {
+    "final_url": "https://www.creativetourist.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/about/": {
+    "final_url": "https://www.creativetourist.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/about/item.url": {
+    "final_url": "https://www.creativetourist.com/about/item.url",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.creativetourist.com/advertise/": {
+    "final_url": "https://www.creativetourist.com/advertise/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/contact-2/": {
+    "final_url": "https://www.creativetourist.com/contact-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/contact-2/item.url": {
+    "final_url": "https://www.creativetourist.com/contact-2/item.url",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.creativetourist.com/contact/": {
+    "final_url": "https://www.creativetourist.com/contact-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/event/the-manchester-music-walkabout/": {
+    "final_url": "https://www.creativetourist.com/event/the-manchester-music-walkabout/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/event/the-manchester-pub-walkabout/": {
+    "final_url": "https://www.creativetourist.com/event/the-manchester-pub-walkabout/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/privacy": {
+    "final_url": "https://www.creativetourist.com/privacy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/privacy/": {
+    "final_url": "https://www.creativetourist.com/privacy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.creativetourist.com/website-terms/": {
+    "final_url": "https://www.creativetourist.com/website-terms/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "crumbs": {
+  "article": null,
+  "context": {
+   "info@mediaclash.co.uk": "ry searching for the content you are seeking by clicking here . Get in touch e: info@mediaclash.co.uk t: 01225 475 800 MediaClash Ltd. Media House, 1 Widcombe Pa"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "andrew.richmond@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "annabel.north@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "careers@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "charlotte.mace-pettitt@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "claudia.butler@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/contact/",
+    "https://www.mediaclash.co.uk/aboutmediaclashevents",
+    "https://www.mediaclash.co.uk/about",
+    "https://www.mediaclash.co.uk/team",
+    "https://www.mediaclash.co.uk/book"
+   ],
+   "dan.nichols@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "deri.robins@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "greg.ingham@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "harriette.dixon@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "info@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/contact/",
+    "https://www.mediaclash.co.uk/aboutmediaclashevents",
+    "https://www.mediaclash.co.uk/about",
+    "https://www.mediaclash.co.uk/team",
+    "https://www.mediaclash.co.uk/book"
+   ],
+   "jane.ingham@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "kirstie.howe@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "louise.holland@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "neil.snow@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "pat.white@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "sarah.moolla@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "sean.ingham@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ],
+   "sian.pitman@mediaclash.co.uk": [
+    "https://www.mediaclash.co.uk/team"
+   ]
+  },
+  "pages": {
+   "https://www.crumbsmag.com/": {
+    "final_url": "https://www.crumbsmag.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.crumbsmag.com/contact/": {
+    "final_url": "https://www.crumbsmag.com/contact/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.mediaclash.co.uk/about": {
+    "final_url": "https://www.mediaclash.co.uk/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.mediaclash.co.uk/aboutmediaclashevents": {
+    "final_url": "https://www.mediaclash.co.uk/aboutmediaclashevents",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.mediaclash.co.uk/book": {
+    "final_url": "https://www.mediaclash.co.uk/book",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.mediaclash.co.uk/contact/": {
+    "final_url": "https://www.mediaclash.co.uk/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.mediaclash.co.uk/team": {
+    "final_url": "https://www.mediaclash.co.uk/team",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "dining-devon": {
+  "article": null,
+  "context": {
+   "eleanor@squaremeal.co.uk": "log/1210/get-blog-reviews If you would like to know more, please do email me at eleanor@squaremeal.co.uk I do hope that you are interested and look forward to heari",
+   "info@diningdevon.com": "es If you\u2019d like to invite us to review your venue or event, please email us at info@diningdevon.com giving us as much information as you can. Press releases Di"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "eleanor@squaremeal.co.uk": [
+    "https://diningdevon.com/about/"
+   ],
+   "info@diningdevon.com": [
+    "https://diningdevon.com/contact/",
+    "https://diningdevon.com/contact-pr/"
+   ]
+  },
+  "pages": {
+   "https://diningdevon.com/": {
+    "final_url": "https://diningdevon.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/about/": {
+    "final_url": "https://diningdevon.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/about/?share=facebook": {
+    "final_url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fshare_channel%2F%3Ftype%3Dreshare%26link%3Dhttps%253A%252F%252Fdiningdevon.com%252Fabout%252F%26app_id%3D966242223397117%26source_surface%3Dexternal_reshare%26display%26hashtag",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/about/?share=linkedin": {
+    "final_url": "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2FshareArticle%2F%3Furl%3Dhttps%253A%252F%252Fdiningdevon.com%252Fabout%252F",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/about/?share=pinterest": {
+    "final_url": "https://www.pinterest.com/pin/create/link/?url=https%3A%2F%2Fdiningdevon.com%2Fabout%2F&media=https%3A%2F%2Fi0.wp.com%2Fdiningdevon.com%2Fwp-content%2Fuploads%2F2021%2F04%2Fapril-header-3.png%3Ffit%3D1200%252C675%26ssl%3D1&description=What%20and%20Who%3F%20Meet%20the%20Team%21",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/about/?share=reddit": {
+    "final_url": "https://diningdevon.com/about/?share=reddit",
+    "rendered": false,
+    "status": 403
+   },
+   "https://diningdevon.com/about/?share=twitter": {
+    "final_url": "https://x.com/i/jf/onboarding/web?redirect_after_login=%2Fintent%2Ftweet%3Ftext%3DWhat%2520and%2520Who%253F%2520Meet%2520the%2520Team%2521%26url%3Dhttps%253A%252F%252Fdiningdevon.com%252Fabout%252F&mode=login",
+    "rendered": true,
+    "status": 200
+   },
+   "https://diningdevon.com/category/press-releases/": {
+    "final_url": "https://diningdevon.com/category/press-releases/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/contact-pr/": {
+    "final_url": "https://diningdevon.com/contact-pr/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/contact-pr/?share=facebook": {
+    "final_url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fshare_channel%2F%3Ftype%3Dreshare%26link%3Dhttps%253A%252F%252Fdiningdevon.com%252Fcontact-pr%252F%26app_id%3D966242223397117%26source_surface%3Dexternal_reshare%26display%26hashtag",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/contact-pr/?share=linkedin": {
+    "final_url": "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2FshareArticle%2F%3Furl%3Dhttps%253A%252F%252Fdiningdevon.com%252Fcontact-pr%252F",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/contact-pr/?share=pinterest": {
+    "final_url": "https://www.pinterest.com/pin/create/link/?url=https%3A%2F%2Fdiningdevon.com%2Fcontact-pr%2F&media=https%3A%2F%2Fdiningdevon.com%2Fwp-content%2Fuploads%2F2021%2F05%2Fmickeys-restaurant-exmouth-seafront.jpeg&description=Contact%20%26amp%3B%20PR",
+    "rendered": false,
+    "status": 200
+   },
+   "https://diningdevon.com/contact-pr/?share=reddit": {
+    "final_url": "https://diningdevon.com/contact-pr/?share=reddit",
+    "rendered": false,
+    "status": 403
+   },
+   "https://diningdevon.com/contact-pr/?share=twitter": {
+    "final_url": "https://x.com/i/jf/onboarding/web?redirect_after_login=%2Fintent%2Ftweet%3Ftext%3DContact%2520%2526%2520PR%26url%3Dhttps%253A%252F%252Fdiningdevon.com%252Fcontact-pr%252F&mode=login",
+    "rendered": true,
+    "status": 200
+   },
+   "https://diningdevon.com/contact/": {
+    "final_url": "https://diningdevon.com/contact-pr/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "dish-cult": {
+  "article": {
+   "final_url": "https://www.dishcult.com/articles/glasgows-best-cheap-cheerful",
+   "published": null,
+   "status": 200,
+   "title": "Glasgow\u2019s best eats on a budget | Dish Cult",
+   "url": "https://www.dishcult.com/articles/glasgows-best-cheap-cheerful"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.dishcult.com/": {
+    "final_url": "https://www.dishcult.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.dishcult.com/about": {
+    "final_url": "https://www.dishcult.com/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.dishcult.com/contact": {
+    "final_url": "https://www.dishcult.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.dishcult.com/privacy": {
+    "final_url": "https://www.dishcult.com/privacy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.dishcult.com/terms": {
+    "final_url": "https://www.dishcult.com/terms",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "eat-like-a-girl": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://eatlikeagirl.com/": {
+    "final_url": "https://eatlikeagirl.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://eatlikeagirl.com/about/": {
+    "final_url": "https://eatlikeagirl.com/about/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://eatlikeagirl.com/contact/": {
+    "final_url": "https://eatlikeagirl.com/contact/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "eat-out-norwich": {
+  "article": null,
+  "context": {
+   "eatoutnorwich@gmail.com": "or you've got a hot tip on a new opening \u2014 we'd love to hear from you. \ud83d\udce7 Email eatoutnorwich@gmail.com \ud83d\udccd Based In Norwich, Norfolk \ud83d\udcf8 Instagram @eat_out_norwich In"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "eatoutnorwich@gmail.com": [
+    "https://eatoutnorwich.com/"
+   ]
+  },
+  "pages": {
+   "https://eatoutnorwich.com/": {
+    "final_url": "https://eatoutnorwich.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://eatoutnorwich.com/contact/": {
+    "final_url": "https://eatoutnorwich.com/contact/",
+    "rendered": false,
+    "status": 404
+   }
+  }
+ },
+ "ed-chapman-ruthless": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://ruthlesstalent.com/creators/ed-chapman/": {
+    "final_url": "https://ruthlesstalent.com/creators/ed-chapman/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "edinburgh-reviews": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "andrew@zebraexclipse.com": [
+    "https://edinburgh-reviews.co.uk/pr-media-money-and-us/"
+   ],
+   "bronwen@zebraeclipse.com": [
+    "https://edinburgh-reviews.co.uk/pr-media-money-and-us/"
+   ]
+  },
+  "pages": {
+   "https://edinburgh-reviews.co.uk/": {
+    "final_url": "https://edinburgh-reviews.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://edinburgh-reviews.co.uk/contact-us/": {
+    "final_url": "https://edinburgh-reviews.co.uk/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://edinburgh-reviews.co.uk/contact-us/are-we-edinburgh-influencers/": {
+    "final_url": "https://edinburgh-reviews.co.uk/contact-us/are-we-edinburgh-influencers/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://edinburgh-reviews.co.uk/contact-us/context.item.anchor": {
+    "final_url": "https://edinburgh-reviews.co.uk/contact-us/context.item.anchor",
+    "rendered": false,
+    "status": 404
+   },
+   "https://edinburgh-reviews.co.uk/contact-us/context.submission.url": {
+    "final_url": "https://edinburgh-reviews.co.uk/contact-us/context.submission.url",
+    "rendered": false,
+    "status": 404
+   },
+   "https://edinburgh-reviews.co.uk/contact/": {
+    "final_url": "https://edinburgh-reviews.co.uk/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://edinburgh-reviews.co.uk/how-to-submit-a-review/": {
+    "final_url": "https://edinburgh-reviews.co.uk/how-to-submit-a-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://edinburgh-reviews.co.uk/pr-media-money-and-us/": {
+    "final_url": "https://edinburgh-reviews.co.uk/pr-media-money-and-us/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "enjoy-norwich": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://enjoynorwich.com/": {
+    "final_url": "https://enjoynorwich.com/.well-known/sgcaptcha/?r=%2F&y=ipc:134.33.68.254:1791985611.046",
+    "rendered": true,
+    "status": 202
+   },
+   "https://enjoynorwich.com/contact/": {
+    "final_url": "https://enjoynorwich.com/.well-known/sgcaptcha/?r=%2Fcontact%2F&y=ipc:134.33.68.254:1791985613.242",
+    "rendered": true,
+    "status": 202
+   }
+  }
+ },
+ "faraway-lucy": {
+  "article": {
+   "final_url": "https://www.farawaylucy.com/cheap-eats-liverpool/",
+   "published": null,
+   "status": 0,
+   "title": null,
+   "url": "https://www.farawaylucy.com/cheap-eats-liverpool/"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.farawaylucy.com/": {
+    "final_url": "https://www.farawaylucy.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.farawaylucy.com/contact/": {
+    "final_url": "https://www.farawaylucy.com/contact/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.farawaylucy.com/work-with-me/": {
+    "final_url": "https://www.farawaylucy.com/work-with-me/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "feeding-boys": {
+  "article": null,
+  "context": {
+   "katie@feedingboys.co.uk": "ons by following the unsubscribe links in our emails. You may also notify us at katie@feedingboys.co.uk to be removed from our mailing list. Access \u2013 You may acces"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "katie@feedingboys.co.uk": [
+    "https://www.feedingboys.co.uk/contact/",
+    "https://www.feedingboys.co.uk/privacy-policy/",
+    "http://www.feedingboys.co.uk/contact/"
+   ]
+  },
+  "pages": {
+   "http://www.feedingboys.co.uk/contact/": {
+    "final_url": "https://www.feedingboys.co.uk/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/": {
+    "final_url": "https://www.feedingboys.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/about/": {
+    "final_url": "https://www.feedingboys.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/category/all-recipes/preserves-2/": {
+    "final_url": "https://www.feedingboys.co.uk/category/all-recipes/preserves-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/category/review/book-review/": {
+    "final_url": "https://www.feedingboys.co.uk/category/review/book-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/contact/": {
+    "final_url": "https://www.feedingboys.co.uk/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/press/": {
+    "final_url": "https://www.feedingboys.co.uk/press/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/privacy-policy/": {
+    "final_url": "https://www.feedingboys.co.uk/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "finding-the-universe": {
+  "article": {
+   "final_url": "https://findingtheuniverse.com/aberdeen-restaurants-scotland",
+   "published": null,
+   "status": 403,
+   "title": "Just a moment...",
+   "url": "https://findingtheuniverse.com/aberdeen-restaurants-scotland"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://findingtheuniverse.com/": {
+    "final_url": "https://findingtheuniverse.com/",
+    "rendered": true,
+    "status": 403
+   },
+   "https://findingtheuniverse.com/contact/": {
+    "final_url": "https://findingtheuniverse.com/contact/",
+    "rendered": true,
+    "status": 403
+   }
+  }
+ },
+ "foodie-quine": {
+  "article": null,
+  "context": {
+   "claire@foodiequine.co.uk": "odie Quine CONTACT Hello! I\u2019m so pleased you want to get it touch. Please email claire@foodiequine.co.uk or enter your message in the form below and I\u2019ll get back t"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "claire@foodiequine.co.uk": [
+    "http://www.foodiequine.co.uk/p/contact_25.html"
+   ]
+  },
+  "pages": {
+   "http://www.foodiequine.co.uk/p/contact_25.html": {
+    "final_url": "https://www.foodiequine.co.uk/p/contact_25.html",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.foodiequine.co.uk/": {
+    "final_url": "https://www.foodiequine.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.foodiequine.co.uk//about": {
+    "final_url": "https://www.foodiequine.co.uk//about",
+    "rendered": false,
+    "status": 429
+   },
+   "https://www.foodiequine.co.uk/about": {
+    "final_url": "https://www.foodiequine.co.uk/about",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.foodiequine.co.uk/contact": {
+    "final_url": "https://www.foodiequine.co.uk/contact",
+    "rendered": false,
+    "status": 429
+   },
+   "https://www.foodiequine.co.uk/p/about-me.html": {
+    "final_url": "https://www.foodiequine.co.uk/p/about-me.html",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.foodiequine.co.uk/search/label/preserves?&max-results=20": {
+    "final_url": "https://www.foodiequine.co.uk/search/label/preserves?&max-results=20",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "gastrogays": {
+  "article": null,
+  "context": {
+   "hiya@gastrogays.com": "you have any questions about this Privacy Policy, please contact us: By email: hiya@gastrogays.com Patrick & Russell Read More Buy our book! Looking for somet"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hiya@gastrogays.com": [
+    "https://gastrogays.com/",
+    "https://gastrogays.com/contact/",
+    "https://gastrogays.com/work-with-us/",
+    "https://gastrogays.com/about-gastrogays/",
+    "https://gastrogays.com/about/hire-gastrogays-socialmedia/",
+    "https://gastrogays.com/about/newsletter/",
+    "https://gastrogays.com/about/events-demos/",
+    "https://gastrogays.com/privacy-policy/",
+    "https://gastrogays.com/cookbooks-2023/",
+    "https://gastrogays.com/category/about-us/"
+   ]
+  },
+  "pages": {
+   "https://gastrogays.com/": {
+    "final_url": "https://gastrogays.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/about-gastrogays/": {
+    "final_url": "https://gastrogays.com/about-gastrogays/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/about/events-demos/": {
+    "final_url": "https://gastrogays.com/about/events-demos/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/about/hire-gastrogays-socialmedia/": {
+    "final_url": "https://gastrogays.com/about/hire-gastrogays-socialmedia/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/about/newsletter/": {
+    "final_url": "https://gastrogays.com/about/newsletter/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/category/about-us/": {
+    "final_url": "https://gastrogays.com/category/about-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/contact/": {
+    "final_url": "https://gastrogays.com/about/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/cookbooks-2023/": {
+    "final_url": "https://gastrogays.com/cookbooks-2023/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/privacy-policy/": {
+    "final_url": "https://gastrogays.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://gastrogays.com/work-with-us/": {
+    "final_url": "https://gastrogays.com/work-with-us/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://gastrogays.com/wp-content/uploads/2016/06/GastroGays_MediaKit_July2016.pdf": {
+    "final_url": "https://gastrogays.com/wp-content/uploads/2016/06/GastroGays_MediaKit_July2016.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "honest-places-ruthless": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://ruthlesstalent.com/contact/": {
+    "final_url": "https://ruthlesstalent.com/contact/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://ruthlesstalent.com/creators/honest-places/": {
+    "final_url": "https://ruthlesstalent.com/creators/honest-places/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "independent-leicester": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@bidleicester.co.uk": [
+    "https://independentleicester.co.uk/wp-content/uploads/2019/10/Independent-Leicester-Privacy-Policy-300919.pdf"
+   ]
+  },
+  "pages": {
+   "https://independentleicester.co.uk/": {
+    "final_url": "https://independentleicester.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://independentleicester.co.uk/2026/09/03/leicester-restaurant-week-2026-the-deals-worth-getting-excited-about/": {
+    "final_url": "https://independentleicester.co.uk/2026/09/03/leicester-restaurant-week-2026-the-deals-worth-getting-excited-about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://independentleicester.co.uk/about/": {
+    "final_url": "https://independentleicester.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://independentleicester.co.uk/contact/": {
+    "final_url": "https://independentleicester.co.uk/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://independentleicester.co.uk/wp-content/uploads/2019/10/Independent-Leicester-Privacy-Policy-300919.pdf": {
+    "final_url": "https://independentleicester.co.uk/wp-content/uploads/2019/10/Independent-Leicester-Privacy-Policy-300919.pdf",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "independent-liverpool": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://independentliverpool.co.uk/": {
+    "final_url": "https://independentliverpool.co.uk/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://independentliverpool.co.uk/contact/": {
+    "final_url": "https://independentliverpool.co.uk/contact/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "ireland-before-you-die": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.irelandbeforeyoudie.com/": {
+    "final_url": "https://www.irelandbeforeyoudie.com/.well-known/sgcaptcha/?r=%2F&y=ipc:134.33.68.254:1791985172.794",
+    "rendered": true,
+    "status": 202
+   },
+   "https://www.irelandbeforeyoudie.com/contact/": {
+    "final_url": "https://www.irelandbeforeyoudie.com/contact/",
+    "rendered": true,
+    "status": 202
+   }
+  }
+ },
+ "kentishtowner": {
+  "article": null,
+  "context": {
+   "info@kentishtowner.co.uk": "enquiries and those from PR companies and other interested parties please email info@kentishtowner.co.uk Editors Stephen Emms and Tom Kihl can be reached on: stephe",
+   "info@londonbelongstome.com": "ome.com Commercial: advertise, sponsorships & partnerships (more info here ) to info@londonbelongstome.com All editorial pitches and ideas should be addressed to the",
+   "stephen@kentishtowner.co.uk": "l info@kentishtowner.co.uk Editors Stephen Emms and Tom Kihl can be reached on: stephen@kentishtowner.co.uk tom@kentishtowner.co.uk For advertising enquiries please em",
+   "stephen@londonbelongstome.com": "dent, Sunday Times Travel, The Times, Coast and Time Out. Editorial: pitches to stephen@londonbelongstome.com Commercial: advertise, sponsorships & partnerships (more in",
+   "tom@kentishtowner.co.uk": "ditors Stephen Emms and Tom Kihl can be reached on: stephen@kentishtowner.co.uk tom@kentishtowner.co.uk For advertising enquiries please email info@kentishtowner.c"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@kentishtowner.co.uk": [
+    "https://www.kentishtowner.co.uk/contact/",
+    "https://www.kentishtowner.co.uk/about/",
+    "http://www.kentishtowner.co.uk/about/",
+    "http://www.kentishtowner.co.uk/contact-2/"
+   ],
+   "info@londonbelongstome.com": [
+    "https://www.kentishtowner.co.uk/about/",
+    "https://www.kentishtowner.co.uk/privacy-policy/",
+    "http://www.kentishtowner.co.uk/about/"
+   ],
+   "stephen@kentishtowner.co.uk": [
+    "https://www.kentishtowner.co.uk/contact/",
+    "http://www.kentishtowner.co.uk/contact-2/"
+   ],
+   "stephen@londonbelongstome.com": [
+    "https://www.kentishtowner.co.uk/about/",
+    "http://www.kentishtowner.co.uk/about/"
+   ],
+   "tom@kentishtowner.co.uk": [
+    "https://www.kentishtowner.co.uk/contact/",
+    "http://www.kentishtowner.co.uk/contact-2/"
+   ]
+  },
+  "pages": {
+   "http://www.kentishtowner.co.uk/about/": {
+    "final_url": "https://www.kentishtowner.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "http://www.kentishtowner.co.uk/contact-2/": {
+    "final_url": "https://www.kentishtowner.co.uk/contact-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/": {
+    "final_url": "https://www.kentishtowner.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/2026/02/27/funny-weather-books-coffee-were-still-pinching-ourselves-daily/": {
+    "final_url": "https://www.kentishtowner.co.uk/2026/02/27/funny-weather-books-coffee-were-still-pinching-ourselves-daily/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/about/": {
+    "final_url": "https://www.kentishtowner.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/category/culture/books/": {
+    "final_url": "https://www.kentishtowner.co.uk/category/culture/books/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/category/people/": {
+    "final_url": "https://www.kentishtowner.co.uk/category/people/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/category/people/lgbt/lgbtq/": {
+    "final_url": "https://www.kentishtowner.co.uk/category/people/lgbt/lgbtq/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/contact/": {
+    "final_url": "https://www.kentishtowner.co.uk/contact-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.kentishtowner.co.uk/privacy-policy/": {
+    "final_url": "https://www.kentishtowner.co.uk/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "leeds-list": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "editor@leeds-list.com": [
+    "https://leeds-list.com/",
+    "https://leeds-list.com/contact/",
+    "https://leeds-list.com/advertise/",
+    "https://leeds-list.com/advertising/advertising-in-leeds/",
+    "https://leeds-list.com/competitions/win-a-festive-night-out-for-up-to-10-people-this-christmas-at-carousel-with-food-cocktails-gaming-included/",
+    "https://leeds-list.com/things-to-do/best-independent-book-shops-in-leeds/",
+    "https://leeds-list.com/advertising/advertising-in-leeds/?q=brand-partnerships",
+    "https://leeds-list.com/about-us/how-we-use-your-data/"
+   ]
+  },
+  "pages": {
+   "https://leeds-list.com/": {
+    "final_url": "https://leeds-list.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leeds-list.com/about-us/how-we-use-your-data/": {
+    "final_url": "https://leeds-list.com/about-us/how-we-use-your-data/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leeds-list.com/advertise/": {
+    "final_url": "https://leeds-list.com/advertise/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://leeds-list.com/advertising/advertising-in-leeds/": {
+    "final_url": "https://leeds-list.com/advertising/advertising-in-leeds/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leeds-list.com/advertising/advertising-in-leeds/?q=brand-partnerships": {
+    "final_url": "https://leeds-list.com/advertising/advertising-in-leeds/?q=brand-partnerships",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leeds-list.com/competitions/win-a-festive-night-out-for-up-to-10-people-this-christmas-at-carousel-with-food-cocktails-gaming-included/": {
+    "final_url": "https://leeds-list.com/competitions/win-a-festive-night-out-for-up-to-10-people-this-christmas-at-carousel-with-food-cocktails-gaming-included/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leeds-list.com/contact/": {
+    "final_url": "https://leeds-list.com/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://leeds-list.com/things-to-do/best-independent-book-shops-in-leeds/": {
+    "final_url": "https://leeds-list.com/things-to-do/best-independent-book-shops-in-leeds/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "leftlion": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://leftlion.co.uk/about-us/": {
+    "final_url": "https://leftlion.co.uk/about-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leftlion.co.uk/contact-us/": {
+    "final_url": "https://leftlion.co.uk/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leftlion.co.uk/contact-us/banner.url": {
+    "final_url": "https://leftlion.co.uk/contact-us/banner.url",
+    "rendered": true,
+    "status": 403
+   },
+   "https://leftlion.co.uk/contact-us/skyscraper.url": {
+    "final_url": "https://leftlion.co.uk/contact-us/skyscraper.url",
+    "rendered": true,
+    "status": 403
+   },
+   "https://leftlion.co.uk/features/2025/01/advertise-with-leftlion-to-people-in-nottingham-and-notts-promote-your-business-bar-restaurant-cafe/": {
+    "final_url": "https://leftlion.co.uk/features/2025/01/advertise-with-leftlion-to-people-in-nottingham-and-notts-promote-your-business-bar-restaurant-cafe/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leftlion.co.uk/features/2026/10/what-large-cyber-incidents-show-about-everyday-digital-security/": {
+    "final_url": "https://leftlion.co.uk/features/2026/10/what-large-cyber-incidents-show-about-everyday-digital-security/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.leftlion.co.uk/": {
+    "final_url": "https://leftlion.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.leftlion.co.uk/about-us/": {
+    "final_url": "https://leftlion.co.uk/about-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.leftlion.co.uk/about/": {
+    "final_url": "https://www.leftlion.co.uk/about/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.leftlion.co.uk/about/banner.url": {
+    "final_url": "https://www.leftlion.co.uk/about/banner.url",
+    "rendered": true,
+    "status": 403
+   },
+   "https://www.leftlion.co.uk/about/skyscraper.url": {
+    "final_url": "https://www.leftlion.co.uk/about/skyscraper.url",
+    "rendered": true,
+    "status": 403
+   },
+   "https://www.leftlion.co.uk/contact-us/": {
+    "final_url": "https://leftlion.co.uk/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.leftlion.co.uk/contact/": {
+    "final_url": "https://leftlion.co.uk/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.leftlion.co.uk/features/2025/01/advertise-with-leftlion-to-people-in-nottingham-and-notts-promote-your-business-bar-restaurant-cafe/": {
+    "final_url": "https://leftlion.co.uk/features/2025/01/advertise-with-leftlion-to-people-in-nottingham-and-notts-promote-your-business-bar-restaurant-cafe/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "leicester-food": {
+  "article": null,
+  "context": {
+   "info@leicesterfood.com": "acebook - Instagram - Tiktok - YouTube - Twitter --> Find Us Leicestershire, UK info@leicesterfood.com Contact us Quick Links About Leicester Food Sponsors Charit"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@leicesterfood.com": [
+    "https://leicesterfood.com/contact/",
+    "https://leicesterfood.com/contact-us-for-advertising/",
+    "https://leicesterfood.com/privacy-policy/",
+    "https://leicesterfood.com/terms-and-conditions/"
+   ]
+  },
+  "pages": {
+   "https://leicesterfood.com/": {
+    "final_url": "https://leicesterfood.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/about-leicester-food/": {
+    "final_url": "https://leicesterfood.com/about-leicester-food/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/contact-us-for-advertising/": {
+    "final_url": "https://leicesterfood.com/contact-us-for-advertising/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/contact/": {
+    "final_url": "https://leicesterfood.com/contact-us-for-advertising/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/privacy-policy/": {
+    "final_url": "https://leicesterfood.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/submit-listing-2/": {
+    "final_url": "https://leicesterfood.com/submit-listing-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://leicesterfood.com/terms-and-conditions/": {
+    "final_url": "https://leicesterfood.com/terms-and-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "leyla-kazim-performing-artistes": {
+  "article": null,
+  "context": {
+   "ask@performingartistes.co.uk": "tes, 4th Floor, 85 Great Portland St, London, W1W 7LT T: +44 (0)20 3740 3640 E: ask@performingartistes.co.uk Subscribe to our mailing list \u00a9 Performing Artistes 2026 |",
+   "support@performingartistes.co.uk": "response to your request free of charge. Please contact Us for more details at support@performingartistes.co.uk , or using the contact details below in section 13. 13. Con"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "ask@performingartistes.co.uk": [
+    "https://performingartistes.co.uk/artistes/leyla-kazim",
+    "https://performingartistes.co.uk/contact",
+    "https://performingartistes.co.uk/about",
+    "https://performingartistes.co.uk/meet-the-team",
+    "https://performingartistes.co.uk/terms-and-conditions",
+    "https://performingartistes.co.uk/privacy-policy"
+   ],
+   "support@performingartistes.co.uk": [
+    "https://performingartistes.co.uk/privacy-policy"
+   ]
+  },
+  "pages": {
+   "https://performingartistes.co.uk/about": {
+    "final_url": "https://performingartistes.co.uk/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://performingartistes.co.uk/artistes/leyla-kazim": {
+    "final_url": "https://performingartistes.co.uk/artistes/leyla-kazim",
+    "rendered": false,
+    "status": 200
+   },
+   "https://performingartistes.co.uk/contact": {
+    "final_url": "https://performingartistes.co.uk/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://performingartistes.co.uk/meet-the-team": {
+    "final_url": "https://performingartistes.co.uk/meet-the-team",
+    "rendered": false,
+    "status": 200
+   },
+   "https://performingartistes.co.uk/privacy-policy": {
+    "final_url": "https://performingartistes.co.uk/privacy-policy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://performingartistes.co.uk/terms-and-conditions": {
+    "final_url": "https://performingartistes.co.uk/terms-and-conditions",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "live-breathe-scotland": {
+  "article": {
+   "final_url": "https://www.livebreathescotland.com/tipping-in-scotland/",
+   "published": "2022-07-12 18:46:29",
+   "status": 200,
+   "title": "A guide to tipping in Scotland, how much, when and where?",
+   "url": "https://www.livebreathescotland.com/tipping-in-scotland/"
+  },
+  "context": {
+   "info@livebreathescotland.com": "cotland enthusiasts. Guest posts from talented writers are also welcome! Email: info@livebreathescotland.com Your Name Email Address Subject Your Message Send Message T"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@livebreathescotland.com": [
+    "https://www.livebreathescotland.com/contact/"
+   ]
+  },
+  "pages": {
+   "https://www.livebreathescotland.com/": {
+    "final_url": "https://www.livebreathescotland.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.livebreathescotland.com/about-live-breathe-scotland/": {
+    "final_url": "https://www.livebreathescotland.com/about-live-breathe-scotland/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.livebreathescotland.com/contact/": {
+    "final_url": "https://www.livebreathescotland.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.livebreathescotland.com/privacy-policy/": {
+    "final_url": "https://www.livebreathescotland.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "macmaster-ruthless": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://ruthlesstalent.com/creators/macmaster/": {
+    "final_url": "https://ruthlesstalent.com/creators/macmaster/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "manchesters-finest": {
+  "article": {
+   "final_url": "https://www.manchestersfinest.com/manchester-guides/the-best-genuinely-cheap-eats-in-manchester/",
+   "published": "2026-01-08T10:58:26+00:00",
+   "status": 200,
+   "title": "The best genuinely cheap eats in Manchester",
+   "url": "https://www.manchestersfinest.com/manchester-guides/the-best-genuinely-cheap-eats-in-manchester/"
+  },
+  "context": {
+   "hello@manchestersfinest.com": "opt-out of receiving this (or specific parts of this) at any time by contacting hello@manchestersfinest.com or by changing your preferences; to carry out Manchester\u2019s"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hello@manchestersfinest.com": [
+    "https://www.manchestersfinest.com/privacy/",
+    "https://www.manchestersfinest.com/terms/"
+   ]
+  },
+  "pages": {
+   "https://www.manchestersfinest.com/": {
+    "final_url": "https://www.manchestersfinest.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.manchestersfinest.com/advertise/": {
+    "final_url": "https://www.manchestersfinest.com/advertise/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.manchestersfinest.com/arts-and-culture/music-arts-and-culture/beyond-the-music-is-turning-mediacitys-tv-studios-into-a-music-festival-tonight-and-you-can-go-for-free/": {
+    "final_url": "https://www.manchestersfinest.com/arts-and-culture/music-arts-and-culture/beyond-the-music-is-turning-mediacitys-tv-studios-into-a-music-festival-tonight-and-you-can-go-for-free/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.manchestersfinest.com/contact/": {
+    "final_url": "https://www.manchestersfinest.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.manchestersfinest.com/privacy/": {
+    "final_url": "https://www.manchestersfinest.com/privacy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.manchestersfinest.com/terms/": {
+    "final_url": "https://www.manchestersfinest.com/terms/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "nottinghammm": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://nottinghammm.com/": {
+    "final_url": "https://nottinghammm.com/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://nottinghammm.com/about/": {
+    "final_url": "https://nottinghammm.com/about/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://nottinghammm.com/contact/": {
+    "final_url": "https://nottinghammm.com/contact/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "ollie-eats-connect": {
+  "article": null,
+  "context": {
+   "info@connectmgt.com": "n the world\u2019s biggest brands and the world\u2019s most relevant social-first talent. info@connectmgt.com info@connectmgt.com Connect Management Our Offerings Our Of"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@connectmgt.com": [
+    "https://connectmgt.com/talent-roster/ollie-eats",
+    "https://connectmgt.com/management/talent/ollie-eats",
+    "https://connectmgt.com/management/about",
+    "https://connectmgt.com/management/terms-conditions",
+    "https://connectmgt.com/management/privacy-policy",
+    "https://connectmgt.com/agency/terms-conditions",
+    "https://connectmgt.com/agency/privacy-policy"
+   ]
+  },
+  "pages": {
+   "https://connectmgt.com/agency/privacy-policy": {
+    "final_url": "https://connectmgt.com/agency/privacy-policy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/agency/services/paid-media": {
+    "final_url": "https://connectmgt.com/agency/services/paid-media",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/agency/services/social-media-management": {
+    "final_url": "https://connectmgt.com/agency/services/social-media-management",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/agency/terms-conditions": {
+    "final_url": "https://connectmgt.com/agency/terms-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/food-drink-cooking-influencers/": {
+    "final_url": "https://connectmgt.com/agency/industry/food-cooking",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/management/about": {
+    "final_url": "https://connectmgt.com/management/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/management/privacy-policy": {
+    "final_url": "https://connectmgt.com/management/privacy-policy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/management/talent/ollie-eats": {
+    "final_url": "https://connectmgt.com/management/talent/ollie-eats",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/management/terms-conditions": {
+    "final_url": "https://connectmgt.com/management/terms-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://connectmgt.com/talent-roster/ollie-eats": {
+    "final_url": "https://connectmgt.com/talent-roster/ollie-eats",
+    "rendered": false,
+    "status": 404
+   }
+  }
+ },
+ "sammy-and-tommy-ruthless": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://ruthlesstalent.com/creators/sammy-and-tommy/": {
+    "final_url": "https://ruthlesstalent.com/creators/sammy-and-tommy/",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "secret-bristol": {
+  "article": {
+   "final_url": "https://secretbristol.com/cheap-eats-bristol/",
+   "published": null,
+   "status": 202,
+   "title": "",
+   "url": "https://secretbristol.com/cheap-eats-bristol/"
+  },
+  "context": {
+   "bristol@secretmedianetwork.com": "ll leave a note at the end of the article if we have made a substantial update. bristol@secretmedianetwork.com Advertise with us We\u2019re proud to have collaborated with maj"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "bristol@secretmedianetwork.com": [
+    "https://secretbristol.com/contact/",
+    "https://secretbristol.com/about-us/"
+   ]
+  },
+  "pages": {
+   "https://secretbristol.com/": {
+    "final_url": "https://secretbristol.com/",
+    "rendered": false,
+    "status": 202
+   },
+   "https://secretbristol.com/about-us/": {
+    "final_url": "https://secretbristol.com/about-us/",
+    "rendered": true,
+    "status": 202
+   },
+   "https://secretbristol.com/contact/": {
+    "final_url": "https://secretbristol.com/contact/",
+    "rendered": true,
+    "status": 202
+   }
+  }
+ },
+ "seven-streets": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.sevenstreets.com/": {
+    "final_url": "https://www.sevenstreets.com/",
+    "rendered": false,
+    "status": 525
+   },
+   "https://www.sevenstreets.com/contact/": {
+    "final_url": "https://www.sevenstreets.com/contact/",
+    "rendered": false,
+    "status": 525
+   }
+  }
+ },
+ "southampton-food": {
+  "article": null,
+  "context": {
+   "southamptonfood@gmail.com": "out and came away seriously impressed. More blog posts Southampton Food Limited SouthamptonFood@gmail.com \u200b Company number: 16669759 Privacy Policy Accessibility Sta"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "example@mysite.com": [
+    "https://www.southamptonfood.co.uk/contact"
+   ],
+   "southamptonfood@gmail.com": [
+    "https://www.southamptonfood.co.uk/",
+    "https://www.southamptonfood.co.uk/contact",
+    "https://www.southamptonfood.co.uk/about"
+   ]
+  },
+  "pages": {
+   "https://www.southamptonfood.co.uk/": {
+    "final_url": "https://www.southamptonfood.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.southamptonfood.co.uk/about": {
+    "final_url": "https://www.southamptonfood.co.uk/about",
+    "rendered": true,
+    "status": 200
+   },
+   "https://www.southamptonfood.co.uk/contact": {
+    "final_url": "https://www.southamptonfood.co.uk/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.southamptonfood.co.uk/privacy-policy": {
+    "final_url": "https://www.southamptonfood.co.uk/privacy-policy",
+    "rendered": false,
+    "status": 429
+   }
+  }
+ },
+ "stephen-tries": {
+  "article": null,
+  "context": {
+   "abc@xyz.com": "our email address to subscribe Provide your email address to subscribe. For e.g abc@xyz.com I agree to receive your newsletters and accept the data pri",
+   "feedback@chortle.co.uk": "order, please contact the relevant company. Contacting us Our general email is feedback@chortle.co.uk or call 020 8281 5204 Please note we receive a huge volume",
+   "listings@chortle.co.uk": "ed within a few hours during normal working times. Alternatively, you can email listings@chortle.co.uk . We endeavour to get all these listings up as quickly as p",
+   "steve@chortle.co.uk": "nd syndication For an advertising ratecard, or syndication rights, please email steve@chortle.co.uk Tickets and products We are associates of various ticketing",
+   "syndication@chortle.co.uk": "n any medium without licence. To inquire about use of our content, please email syndication@chortle.co.uk Images on this site are the property of the copyright holde"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "abc@xyz.com": [
+    "https://www.chortle.co.uk/about/2014/09/15/20926/subscribe_to_the_chortle_digest"
+   ],
+   "feedback@chortle.co.uk": [
+    "https://www.chortle.co.uk/other-news/2023/09/21/54196/management_deal_for_stephen_tries",
+    "https://www.chortle.co.uk/books",
+    "https://www.chortle.co.uk/about/2014/09/15/20926/subscribe_to_the_chortle_digest",
+    "https://www.chortle.co.uk/about/2008/06/23/6954/about_us",
+    "https://www.chortle.co.uk/about/2022/12/16/52282/privacy_notice"
+   ],
+   "listings@chortle.co.uk": [
+    "https://www.chortle.co.uk/about/2008/06/23/6954/about_us"
+   ],
+   "steve@chortle.co.uk": [
+    "https://www.chortle.co.uk/about/2008/06/23/6954/about_us",
+    "https://www.chortle.co.uk/about/2022/12/16/52282/privacy_notice"
+   ],
+   "syndication@chortle.co.uk": [
+    "https://www.chortle.co.uk/aboutus/terms.php"
+   ]
+  },
+  "pages": {
+   "https://www.chortle.co.uk/about/2008/06/23/6954/about_us": {
+    "final_url": "https://www.chortle.co.uk/about/2008/06/23/6954/about_us",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/about/2014/09/15/20926/subscribe_to_the_chortle_digest": {
+    "final_url": "https://www.chortle.co.uk/about/2014/09/15/20926/subscribe_to_the_chortle_digest",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/about/2022/12/16/52282/privacy_notice": {
+    "final_url": "https://www.chortle.co.uk/about/2022/12/16/52282/privacy_notice",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/aboutus/cookie.php": {
+    "final_url": "https://www.chortle.co.uk/aboutus/cookie.php",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/aboutus/terms.php": {
+    "final_url": "https://www.chortle.co.uk/aboutus/terms.php",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/books": {
+    "final_url": "https://www.chortle.co.uk/books",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.chortle.co.uk/other-news/2023/09/21/54196/management_deal_for_stephen_tries": {
+    "final_url": "https://www.chortle.co.uk/other-news/2023/09/21/54196/management_deal_for_stephen_tries",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/@StephenTries/about": {
+    "final_url": "https://www.youtube.com/@StephenTries/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/about/": {
+    "final_url": "https://about.youtube/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/about/copyright/": {
+    "final_url": "https://www.youtube.com/howyoutubeworks/copyright/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/about/press/": {
+    "final_url": "https://blog.youtube/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/contact_us/": {
+    "final_url": "https://www.youtube.com/t/contact_us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/privacy": {
+    "final_url": "https://policies.google.com/privacy?hl=en-GB",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/terms": {
+    "final_url": "https://www.youtube.com/t/terms",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "the-london-foodie": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.thelondonfoodie.co.uk/": {
+    "final_url": "https://www.thelondonfoodie.co.uk/",
+    "rendered": false,
+    "status": 0
+   },
+   "https://www.thelondonfoodie.co.uk/p/about.html": {
+    "final_url": "https://www.thelondonfoodie.co.uk/p/about.html",
+    "rendered": false,
+    "status": 0
+   }
+  }
+ },
+ "the-lovecats-inc": {
+  "article": null,
+  "context": {
+   "helen@thelovecatsinc.com": "osts about tyres (yes, really), I am not interested. Simply drop me an email at helen@thelovecatsinc.com . Hi there I'm Helen, Northener and creator of The Lovecats"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "helen@thelovecatsinc.com": [
+    "https://www.thelovecatsinc.com/",
+    "https://www.thelovecatsinc.com/contact/",
+    "https://www.thelovecatsinc.com/work-with-me/",
+    "https://www.thelovecatsinc.com/about",
+    "https://www.thelovecatsinc.com/contact"
+   ]
+  },
+  "pages": {
+   "https://www.thelovecatsinc.com/": {
+    "final_url": "https://www.thelovecatsinc.com/",
+    "rendered": true,
+    "status": 200
+   },
+   "https://www.thelovecatsinc.com/about": {
+    "final_url": "https://www.thelovecatsinc.com/about",
+    "rendered": true,
+    "status": 200
+   },
+   "https://www.thelovecatsinc.com/contact": {
+    "final_url": "https://www.thelovecatsinc.com/contact",
+    "rendered": true,
+    "status": 200
+   },
+   "https://www.thelovecatsinc.com/contact/": {
+    "final_url": "https://www.thelovecatsinc.com/contact",
+    "rendered": true,
+    "status": 200
+   },
+   "https://www.thelovecatsinc.com/work-with-me/": {
+    "final_url": "https://www.thelovecatsinc.com/work-with-me/",
+    "rendered": true,
+    "status": 404
+   }
+  }
+ },
+ "the-nudge": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "advertising@thenudge.com": [
+    "https://thenudge.com/about/",
+    "https://thenudge.com/advertisement-partnerships/",
+    "https://thenudge.com/contact-us/"
+   ],
+   "editor@thenudge.com": [
+    "https://thenudge.com/about/",
+    "https://thenudge.com/contact-us/"
+   ],
+   "experiences@thenudge.com": [
+    "https://thenudge.com/about/"
+   ],
+   "info@thenudge.com": [
+    "https://thenudge.com/terms-and-conditions/",
+    "https://thenudge.com/privacy-policy/"
+   ],
+   "members@thenudge.com": [
+    "https://thenudge.com/about/",
+    "https://thenudge.com/terms-and-conditions/",
+    "https://thenudge.com/privacy-policy/",
+    "https://thenudge.com/contact-us/"
+   ],
+   "neil@thenudge.com": [
+    "https://thenudge.com/about/",
+    "https://thenudge.com/contact-us/"
+   ],
+   "pa-2-sep-2026-@lateef.photography-36-1536x1024.jpg.avif": [
+    "https://thenudge.com/"
+   ],
+   "pa-2-sep-2026-@lateef.photography-36-768x512.jpg.avif": [
+    "https://thenudge.com/"
+   ],
+   "partnerships@thenudge.com": [
+    "https://thenudge.com/about/",
+    "https://thenudge.com/contact-us/"
+   ],
+   "sabina@thenudge.com": [
+    "https://thenudge.com/contact-us/"
+   ],
+   "talisa@thenudge.com": [
+    "https://thenudge.com/contact-us/"
+   ]
+  },
+  "pages": {
+   "https://thenudge.com/": {
+    "final_url": "https://thenudge.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/about/": {
+    "final_url": "https://thenudge.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/advertisement-partnerships/": {
+    "final_url": "https://thenudge.com/advertisement-partnerships/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/contact-us/": {
+    "final_url": "https://thenudge.com/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/contact/": {
+    "final_url": "https://thenudge.com/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://thenudge.com/privacy-policy/": {
+    "final_url": "https://thenudge.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/terms-and-conditions/": {
+    "final_url": "https://thenudge.com/terms-and-conditions/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://thenudge.com/the-team/": {
+    "final_url": "https://thenudge.com/the-team/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "the-oxfordshire-foodie": {
+  "article": null,
+  "context": {
+   "theoxfordshirefoodie@gmail.com": "alking about food is eating - John Walters \u00a92026 by The Oxfordshire Foodie Ltd. theoxfordshirefoodie@gmail.com Web design by SNOW-WINE Digital bottom of page"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "theoxfordshirefoodie@gmail.com": [
+    "https://www.theoxfordshirefoodie.co.uk/",
+    "https://www.theoxfordshirefoodie.co.uk/contact",
+    "https://www.theoxfordshirefoodie.co.uk/about"
+   ]
+  },
+  "pages": {
+   "https://www.theoxfordshirefoodie.co.uk/": {
+    "final_url": "https://www.theoxfordshirefoodie.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.theoxfordshirefoodie.co.uk/about": {
+    "final_url": "https://www.theoxfordshirefoodie.co.uk/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.theoxfordshirefoodie.co.uk/contact": {
+    "final_url": "https://www.theoxfordshirefoodie.co.uk/contact",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "the-rare-welsh-bit": {
+  "article": null,
+  "context": {
+   "kacie@therarewelshbit.com": "these messages every day. I\u2019m looking forward to connecting with you! \ud83d\ude00 E-mail: kacie@therarewelshbit.com Facebook | Instagram | Twitter | TikTok | Pinterest | Linke"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "kacie@therarewelshbit.com": [
+    "https://www.therarewelshbit.com/",
+    "https://www.therarewelshbit.com/contact/",
+    "https://www.therarewelshbit.com/work-with-me/",
+    "https://www.therarewelshbit.com/about/",
+    "https://www.therarewelshbit.com/press-coverage/",
+    "https://www.therarewelshbit.com/terms-and-conditions/",
+    "https://www.therarewelshbit.com/pabout-rare-welsh-bit-html"
+   ],
+   "therarewelshbit@gmail.com": [
+    "https://www.therarewelshbit.com/about/",
+    "https://www.therarewelshbit.com/pabout-rare-welsh-bit-html"
+   ]
+  },
+  "pages": {
+   "https://www.therarewelshbit.com/": {
+    "final_url": "https://www.therarewelshbit.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/about/": {
+    "final_url": "https://www.therarewelshbit.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/contact/": {
+    "final_url": "https://www.therarewelshbit.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/pabout-rare-welsh-bit-html": {
+    "final_url": "https://www.therarewelshbit.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/press-coverage/": {
+    "final_url": "https://www.therarewelshbit.com/press-coverage/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/terms-and-conditions/": {
+    "final_url": "https://www.therarewelshbit.com/terms-and-conditions/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.therarewelshbit.com/work-with-me/": {
+    "final_url": "https://www.therarewelshbit.com/work-with-me/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "topjaw-ymu": {
+  "article": {
+   "final_url": "https://www.mca-insight.com/innovation/why-chefs-are-obsessed-with-this-foodie-instagram-account/685009.article",
+   "published": "2023-11-05",
+   "status": 200,
+   "title": "Why chefs are obsessed with this foodie Instagram account",
+   "url": "https://www.mca-insight.com/innovation/why-chefs-are-obsessed-with-this-foodie-instagram-account/685009.article"
+  },
+  "context": {
+   "careers@ymugroup.com": "tnerships@ymugroup.com Event Appearances event.appearances@ymugroup.com Careers careers@ymugroup.com Or leave us a message Fill out the form and we\u2019ll get back",
+   "enquiries@ymugroup.com": "touch Get in touch Contact Us Contact Us C o n t a c t U s Management Enquiries enquiries@ymugroup.com Brand Partnerships partnerships@ymugroup.com Event Appearan",
+   "event.appearances@ymugroup.com": "ies@ymugroup.com Brand Partnerships partnerships@ymugroup.com Event Appearances event.appearances@ymugroup.com Careers careers@ymugroup.com Or leave us a message Fill out",
+   "partnerships@ymugroup.com": "o n t a c t U s Management Enquiries enquiries@ymugroup.com Brand Partnerships partnerships@ymugroup.com Event Appearances event.appearances@ymugroup.com Careers ca"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "careers@ymugroup.com": [
+    "https://www.ymugroup.com/contact/"
+   ],
+   "enquiries@ymugroup.com": [
+    "https://www.ymugroup.com/talent/topjaw/",
+    "https://www.ymugroup.com/contact/",
+    "https://www.ymugroup.com/terms-conditions/",
+    "https://www.ymugroup.com/privacy-policy/",
+    "https://www.ymugroup.com/privacy-policy-usa/"
+   ],
+   "event.appearances@ymugroup.com": [
+    "https://www.ymugroup.com/contact/"
+   ],
+   "partnerships@ymugroup.com": [
+    "https://www.ymugroup.com/contact/"
+   ]
+  },
+  "pages": {
+   "https://www.ymugroup.com/contact/": {
+    "final_url": "https://www.ymugroup.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ymugroup.com/privacy-policy-usa/": {
+    "final_url": "https://www.ymugroup.com/privacy-policy-usa/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ymugroup.com/privacy-policy/": {
+    "final_url": "https://www.ymugroup.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ymugroup.com/talent/topjaw/": {
+    "final_url": "https://www.ymugroup.com/talent/topjaw/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.ymugroup.com/terms-conditions/": {
+    "final_url": "https://www.ymugroup.com/terms-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "vittles": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://vittles.substack.com/about": {
+    "final_url": "https://vittles.substack.com/about",
+    "rendered": true,
+    "status": 403
+   }
+  }
+ },
+ "whats-good-to-do": {
+  "article": null,
+  "context": {
+   "info@whatsgoodtodo.com": "ormation Registered office: 52 Torquay Drive Leagrave Luton Beds LU4 9LN email: info@whatsgoodtodo.com mobile: 07724 743416 whatsgoodtodo.com is a trading name of"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@whatsgoodtodo.com": [
+    "https://whatsgoodtodo.com/",
+    "https://whatsgoodtodo.com/contact/",
+    "https://whatsgoodtodo.com/advertise/",
+    "https://whatsgoodtodo.com/are-any-discount-codes-available-that-you-can-use-to-buy-advertising-sponsorship/",
+    "https://whatsgoodtodo.com/about_us/",
+    "https://whatsgoodtodo.com/advertising-booking-request/",
+    "https://whatsgoodtodo.com/karcher-k5-comfort-premium-pressure-washer-review/",
+    "https://whatsgoodtodo.com/something-about-a-threesome/",
+    "https://whatsgoodtodo.com/how-to-get-reliable-information-about-contraception/",
+    "https://whatsgoodtodo.com/contact/?random-post=1",
+    "https://whatsgoodtodo.com/press/",
+    "https://whatsgoodtodo.com/disclosure_cookie_policy_terms_and_conditions/",
+    "https://whatsgoodtodo.com/advertise/?random-post=1"
+   ]
+  },
+  "pages": {
+   "https://whatsgoodtodo.com/": {
+    "final_url": "https://whatsgoodtodo.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/about_us/": {
+    "final_url": "https://whatsgoodtodo.com/about_us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/advertise/": {
+    "final_url": "https://whatsgoodtodo.com/advertise/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://whatsgoodtodo.com/advertise/?random-post=1": {
+    "final_url": "https://whatsgoodtodo.com/snapwatch-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/advertising-booking-request/": {
+    "final_url": "https://whatsgoodtodo.com/advertising-booking-request/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/are-any-discount-codes-available-that-you-can-use-to-buy-advertising-sponsorship/": {
+    "final_url": "https://whatsgoodtodo.com/are-any-discount-codes-available-that-you-can-use-to-buy-advertising-sponsorship/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/contact/": {
+    "final_url": "https://whatsgoodtodo.com/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://whatsgoodtodo.com/contact/?random-post=1": {
+    "final_url": "https://whatsgoodtodo.com/badiani-flower-shaped-gelato-cake-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/disclosure_cookie_policy_terms_and_conditions/": {
+    "final_url": "https://whatsgoodtodo.com/disclosure_cookie_policy_terms_and_conditions/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/how-to-get-reliable-information-about-contraception/": {
+    "final_url": "https://whatsgoodtodo.com/how-to-get-reliable-information-about-contraception/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/karcher-k5-comfort-premium-pressure-washer-review/": {
+    "final_url": "https://whatsgoodtodo.com/karcher-k5-comfort-premium-pressure-washer-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/press/": {
+    "final_url": "https://whatsgoodtodo.com/press/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://whatsgoodtodo.com/something-about-a-threesome/": {
+    "final_url": "https://whatsgoodtodo.com/something-about-a-threesome/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "where-goes-rose": {
+  "article": {
+   "final_url": "https://www.wheregoesrose.com/cheap-eats-manchester-city-centre/",
+   "published": "2017-12-11T18:25:06+00:00",
+   "status": 200,
+   "title": "10 Cheap Eats In Manchester: Eating Out On A Budget",
+   "url": "https://www.wheregoesrose.com/cheap-eats-manchester-city-centre/"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "rosemunday1@gmail.com": [
+    "https://www.wheregoesrose.com/meet-people-new-city/"
+   ],
+   "wheregoesrose@gmail.com": [
+    "https://www.wheregoesrose.com/",
+    "https://www.wheregoesrose.com/contact/",
+    "https://www.wheregoesrose.com/work-with-me/",
+    "https://www.wheregoesrose.com/privacy-policy/",
+    "https://www.wheregoesrose.com/about-me/",
+    "https://www.wheregoesrose.com/about/",
+    "https://www.wheregoesrose.com/meet-people-new-city/"
+   ],
+   "wheregoesrose@gmail.com.hello": [
+    "https://www.wheregoesrose.com/work-with-me/"
+   ]
+  },
+  "pages": {
+   "https://www.wheregoesrose.com/": {
+    "final_url": "https://www.wheregoesrose.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.wheregoesrose.com/about-me/": {
+    "final_url": "https://www.wheregoesrose.com/about-me/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.wheregoesrose.com/about/": {
+    "final_url": "https://www.wheregoesrose.com/about-me/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.wheregoesrose.com/contact/": {
+    "final_url": "https://www.wheregoesrose.com/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.wheregoesrose.com/meet-people-new-city/": {
+    "final_url": "https://www.wheregoesrose.com/meet-people-new-city/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.wheregoesrose.com/privacy-policy/": {
+    "final_url": "https://www.wheregoesrose.com/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.wheregoesrose.com/work-with-me/": {
+    "final_url": "https://www.wheregoesrose.com/work-with-me/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "york-on-a-fork": {
+  "article": null,
+  "context": {
+   "ben@yorkonafork.com": "tact Like what you see here and want to get in touch? Contact York on a Fork on ben@yorkonafork.com and we can have a chat! Share this page Share on Facebook S"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "ben@yorkonafork.com": [
+    "https://yorkonafork.com/contact/",
+    "https://yorkonafork.com/about/work-with-me/"
+   ]
+  },
+  "pages": {
+   "https://yorkonafork.com/": {
+    "final_url": "https://yorkonafork.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/2018/11/02/harewood-food-drink-team-up-with-northern-monk/": {
+    "final_url": "https://yorkonafork.com/2018/11/02/harewood-food-drink-team-up-with-northern-monk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/2019/12/01/sage-barista-express/": {
+    "final_url": "https://yorkonafork.com/2019/12/01/sage-barista-express/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/2021/12/01/slap-pickles-team-up-with-zarach-leeds/": {
+    "final_url": "https://yorkonafork.com/2021/12/01/slap-pickles-team-up-with-zarach-leeds/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/2025/01/01/2024-and-10-years-of-forking-about/": {
+    "final_url": "https://yorkonafork.com/2025/01/01/2024-and-10-years-of-forking-about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/about/": {
+    "final_url": "https://yorkonafork.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/about/work-with-me/": {
+    "final_url": "https://yorkonafork.com/about/work-with-me/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://yorkonafork.com/contact/": {
+    "final_url": "https://yorkonafork.com/contact/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ }
+}
