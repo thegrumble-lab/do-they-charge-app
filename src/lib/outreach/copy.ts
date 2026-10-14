@@ -107,7 +107,10 @@ Some figures from the data so far (as of ${FIGURES.asOf}):
 - 10% is the most common rate, followed by 12.5%, and a handful now charge 15%.
 - ${FIGURES.noCharge} state that tips are left entirely to the diner.
 
-I'm happy to share the underlying list with sources, break it down by city or chain, or answer any questions.
+There's also a chain-by-chain tracker covering Pizza Express, Zizzi, Dishoom, Wagamama and others, each cited from the chain's own site, with a CSV download:
+${SITE_URL}/chains
+
+I'm happy to share the underlying list with sources, break it down by city, or answer any questions.
 
 ${sig}
 
@@ -118,7 +121,7 @@ ${footer(unsubUrl, "press")}`,
     subject: `Re: ${subject}`,
     text: `${hi}
 
-Bringing this back to the top of your inbox in case the figures are useful for anything you're working on. Happy to send the full list with sources, or a breakdown by city or chain.
+Bringing this back to the top of your inbox in case the figures are useful for anything you're working on. The chain-by-chain tracker is here, with sources and a CSV download: ${SITE_URL}/chains\n\nHappy to send the full list with sources, or a breakdown by city.
 
 ${sig}
 

@@ -43,6 +43,7 @@ export default function SiteFooter() {
       </p>
       <p>
         <Link href="/guides">Guides</Link> ·{" "}
+        <Link href="/chains">Chain tracker</Link> ·{" "}
         <Link href="/about">About</Link> · <Link href="/privacy">Privacy</Link>
         <CookieSettingsLink />
       </p>

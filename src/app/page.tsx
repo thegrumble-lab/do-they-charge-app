@@ -74,6 +74,15 @@ export default async function HomePage() {
       </main>
 
       <section className="ticket" style={{ marginTop: 24 }}>
+        <h2 className="h2">Which chains add one?</h2>
+        <p className="small-print" style={{ marginTop: 0 }}>
+          Pizza Express, Zizzi, Dishoom, Wagamama and more: see{" "}
+          <Link href="/chains">the chain tracker</Link>, with every
+          chain&apos;s policy cited from its own site.
+        </p>
+      </section>
+
+      <section className="ticket" style={{ marginTop: 24 }}>
         <h2 className="h2">How service charges work</h2>
         <p className="small-print" style={{ marginTop: 0 }}>
           Whether you can decline one, what the law requires a restaurant to

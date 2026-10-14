@@ -3,6 +3,7 @@ import { CHAIN_POLICIES } from "@/lib/chain-policies";
 import { getAreas } from "@/lib/data";
 import { SITE_URL } from "@/lib/site";
 import { GUIDES } from "@/content/guides";
+import { TRACKED_CHAINS } from "@/content/chain-tracker";
 import { supabase } from "@/lib/supabase";
 
 const PUB = 7843;
@@ -81,8 +82,12 @@ export async function pressReference(): Promise<string> {
     `- Home page and search across every listed restaurant, each with its source: ${SITE_URL}`,
     "",
     ...(split.length ? [...split, ""] : []),
+    `Chain tracker (every chain below, with sources, last-checked dates and a change log; CSV download at ${SITE_URL}/chains/data.csv): ${SITE_URL}/chains`,
     "Chain policies (from each chain's own published policy):",
     ...chains,
+    "",
+    "Chains checked that publish no policy either way (their own site, menus and terms say nothing; never describe these as not charging):",
+    ...TRACKED_CHAINS.filter((c) => c.verdict === "not-published").map((c) => `- ${c.chain}: ${SITE_URL}/chains/${c.slug}`),
     "",
     areas.length ? "Area pages (every listed restaurant in that area, with sources):" : "",
     ...areas,

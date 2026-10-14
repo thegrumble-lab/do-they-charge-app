@@ -1,5 +1,6 @@
 import { getAreas } from "@/lib/data";
 import { GUIDES } from "@/content/guides";
+import { TRACKED_CHAINS } from "@/content/chain-tracker";
 import { getPgPool } from "@/lib/db";
 import { SITE_URL } from "@/lib/site";
 import { RESTAURANTS_PER_SITEMAP, getSitemapShardCount } from "@/lib/sitemap-shards";
@@ -44,8 +45,16 @@ export async function GET(
       { url: SITE_URL, changeFrequency: "daily", priority: 1 },
       { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.4 },
       { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.2 },
-      { url: `${SITE_URL}/guides`, changeFrequency: "monthly", priority: 0.7 }
+      { url: `${SITE_URL}/guides`, changeFrequency: "monthly", priority: 0.7 },
+      { url: `${SITE_URL}/chains`, changeFrequency: "weekly", priority: 0.8 }
     );
+    for (const c of TRACKED_CHAINS) {
+      entries.push({
+        url: `${SITE_URL}/chains/${c.slug}`,
+        changeFrequency: "monthly",
+        priority: 0.6,
+      });
+    }
     // Seven hand-written pages, so they're listed from the same static
     // registry the routes use — there's no way for the sitemap to drift
     // from what actually exists.

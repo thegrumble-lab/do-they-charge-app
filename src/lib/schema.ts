@@ -402,3 +402,53 @@ export function guidesIndexSchema(guides: Guide[]) {
     ],
   };
 }
+
+/** /chains: the chain tracker as a citable Dataset, plus its list of chains. */
+export function chainTrackerSchema(
+  chains: { chain: string; slug: string }[],
+  lastChecked: string
+) {
+  const url = `${SITE_URL}/chains`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Dataset",
+        "@id": `${url}#dataset`,
+        name: "UK restaurant chain service charge tracker",
+        description:
+          "Which UK restaurant and pub chains add a service charge, at what rate and for which tables, each cited from the chain's own website, menu or booking terms.",
+        url,
+        dateModified: lastChecked,
+        isAccessibleForFree: true,
+        creator: { "@id": ORG_ID },
+        publisher: { "@id": ORG_ID },
+        spatialCoverage: "United Kingdom",
+        distribution: {
+          "@type": "DataDownload",
+          encodingFormat: "text/csv",
+          contentUrl: `${url}/data.csv`,
+        },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#list`,
+        numberOfItems: chains.length,
+        itemListElement: chains.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: c.chain,
+          url: `${url}/${c.slug}`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Chain tracker", item: url },
+        ],
+      },
+    ],
+  };
+}
