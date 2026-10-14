@@ -8,6 +8,9 @@
 //    on the tracker come from that file, so the tracker and the per-branch
 //    reports can never disagree. The summary here is the short plain-English
 //    line for the table.
+//    Chains matched from the third pass on (14 October 2026) work the other
+//    way round: chain-policies.ts reads their note, rate and source from
+//    here via fromTracker(), so editing the entry here updates both.
 //  - Chains checked with no published statement ("not-published"). This is
 //    a finding in its own right, and wording matters: it means the chain's
 //    own site, menus and terms say nothing either way, NOT that it doesn't
@@ -379,6 +382,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Bill's",
     slug: "bills",
+    matcherName: "Bill's",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -392,6 +396,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Bistrot Pierre",
     slug: "bistrot-pierre",
+    matcherName: "Bistrot Pierre",
     verdict: "every-bill",
     rate: "10%",
     groupSize: null,
@@ -405,6 +410,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Brasserie Blanc",
     slug: "brasserie-blanc",
+    matcherName: "Brasserie Blanc",
     verdict: "every-bill",
     rate: null,
     groupSize: null,
@@ -418,6 +424,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Bread Meats Bread",
     slug: "bread-meats-bread",
+    matcherName: "Bread Meats Bread",
     verdict: "every-bill",
     rate: "10%",
     groupSize: null,
@@ -431,6 +438,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Frankie & Benny's",
     slug: "frankie-and-bennys",
+    matcherName: "Frankie & Benny's",
     verdict: "groups",
     rate: "10–12.5%",
     groupSize: 8,
@@ -444,6 +452,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Flat Iron",
     slug: "flat-iron",
+    matcherName: "Flat Iron",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -457,6 +466,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Wahaca",
     slug: "wahaca",
+    matcherName: "Wahaca",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -470,6 +480,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Kricket",
     slug: "kricket",
+    matcherName: "Kricket",
     verdict: "every-bill",
     rate: null,
     groupSize: null,
@@ -483,6 +494,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Megan's",
     slug: "megans",
+    matcherName: "Megan's",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -496,6 +508,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Rick Stein",
     slug: "rick-stein",
+    matcherName: "Rick Stein",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -509,6 +522,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Roka",
     slug: "roka",
+    matcherName: "Roka",
     verdict: "every-bill",
     rate: "14.5%",
     groupSize: null,
@@ -522,6 +536,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Sticks'n'Sushi",
     slug: "sticks-n-sushi",
+    matcherName: "Sticks'n'Sushi",
     verdict: "every-bill",
     rate: "12.5%",
     groupSize: null,
@@ -535,6 +550,7 @@ export const TRACKED_CHAINS: TrackedChain[] = [
   {
     chain: "Di Maggio's",
     slug: "di-maggios",
+    matcherName: "Di Maggio's",
     verdict: "every-bill",
     rate: "10%",
     groupSize: null,

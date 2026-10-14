@@ -17,6 +17,7 @@
 // of newly-added branches.
 
 import { ReportStatus } from "./types";
+import { TRACKED_CHAINS } from "../content/chain-tracker";
 
 export interface ChainPolicyRow {
   name: string;
@@ -261,6 +262,146 @@ function isIvyCollection(row: ChainPolicyRow): boolean {
   return IVY_COLLECTION_MARKERS.some((marker) => plain.includes(marker));
 }
 
+
+// --- third pass, 14 October 2026 ------------------------------------------
+//
+// Chains added to the tracker by the first monthly check, then to the branch
+// matcher on Matt's say-so. Their note, rate and source live in
+// src/content/chain-tracker.ts (written by the monthly task from the chain's
+// own page), and fromTracker() reads them from there, so a monthly update to
+// the tracker flows through to newly matched branches without a second edit.
+//
+// Pub brands from the same pass (Vintage Inns, Nicholson's, Young's) are
+// tracker-only for the reason given above: FHRS lists their pubs by pub name.
+
+function fromTracker(slug: string, pctOverride?: number): ChainReport {
+  const c = TRACKED_CHAINS.find((x) => x.slug === slug);
+  if (!c || !c.note || !c.sourceUrl) {
+    throw new Error(`chain-tracker entry "${slug}" is missing a note or source`);
+  }
+  const status: ReportStatus =
+    c.verdict === "every-bill" ? "charges" : c.verdict === "groups" ? "groups" : "unclear";
+  const single = c.rate && /^\d+(\.\d+)?%$/.test(c.rate) ? Number(c.rate.replace("%", "")) : null;
+  return {
+    status,
+    pct: pctOverride ?? single,
+    note: c.note,
+    sourceUrl: c.sourceUrl,
+  };
+}
+
+// Normalised name: accents and apostrophes gone, "&" read as "and",
+// punctuation collapsed to single spaces.
+function looseName(name: string): string {
+  return plainName(name)
+    .replace(/[\u2018\u2019'`]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+// Bill's: only names that are plainly the restaurant group. Bare "Bill's"
+// and "Bill's <town>" are skipped, since the same pattern covers Bill's
+// Cafe, Bill's Bar, Bill's Kitchen and Bill's Lodge up and down the country.
+function isBillsRestaurant(row: ChainPolicyRow): boolean {
+  const n = looseName(row.name);
+  if (/\b(cafe|bar|kitchen|bakery|lodge|street|roast)\b/.test(n)) return false;
+  return /^bills restaurants?( ltd| limited)?\b/.test(n);
+}
+
+// Frankie & Benny's listings are often bundled with the group's delivery
+// brands under commas rather than "t/a", so require the name to be only the
+// brand, the same approach as TGI Fridays.
+function isFrankieAndBennysCleanListing(row: ChainPolicyRow): boolean {
+  return /^frankie and bennys$/.test(looseName(row.name));
+}
+
+const FRANKIE_AND_BENNYS_HIGHER_RATE = ["paddington", "covent garden"];
+
+// Megan's names each site "Megan's by/at/in the ...". Megan's Deli, Megans
+// Sports Bar and bare "Megan's" are skipped.
+function isMegans(row: ChainPolicyRow): boolean {
+  return /^megans (by|at|in) /.test(looseName(row.name)) || looseName(row.name) === "megans restaurant";
+}
+
+const TRACKER_MATCHED_POLICIES: ChainPolicy[] = [
+  {
+    chainName: "Bill's",
+    matches: isBillsRestaurant,
+    resolve: () => fromTracker("bills"),
+  },
+  {
+    chainName: "Bistrot Pierre",
+    keywords: ["bistrot pierre"],
+    resolve: () => fromTracker("bistrot-pierre"),
+  },
+  {
+    chainName: "Brasserie Blanc",
+    keywords: ["brasserie blanc"],
+    resolve: () => fromTracker("brasserie-blanc"),
+  },
+  {
+    chainName: "Bread Meats Bread",
+    keywords: ["bread meats bread"],
+    resolve: () => fromTracker("bread-meats-bread"),
+  },
+  {
+    chainName: "Frankie & Benny's",
+    matches: isFrankieAndBennysCleanListing,
+    resolve: (row) => {
+      const where = `${row.area} ${row.address}`.toLowerCase();
+      const higher = FRANKIE_AND_BENNYS_HIGHER_RATE.some((b) => where.includes(b));
+      return fromTracker("frankie-and-bennys", higher ? 12.5 : 10);
+    },
+  },
+  {
+    chainName: "Flat Iron",
+    // Must start the name: "The Flat Iron" and "The Pocket Flat Iron" are pubs.
+    matches: (row) => /^flat iron\b/.test(looseName(row.name)),
+    resolve: () => fromTracker("flat-iron"),
+  },
+  {
+    chainName: "Wahaca",
+    keywords: ["wahaca"],
+    resolve: () => fromTracker("wahaca"),
+  },
+  {
+    chainName: "Kricket",
+    // "Kricket Delivery" is a delivery kitchen with no tables.
+    matches: (row) => wordMatch(row.name, "kricket") && !/delivery/i.test(row.name),
+    resolve: () => fromTracker("kricket"),
+  },
+  {
+    chainName: "Megan's",
+    matches: isMegans,
+    resolve: () => fromTracker("megans"),
+  },
+  {
+    chainName: "Rick Stein",
+    // Not "Stein's Fish & Chips" or "Stein's Cafe", which are counter service.
+    matches: (row) => /^rick stein\b/.test(looseName(row.name)),
+    resolve: () => fromTracker("rick-stein"),
+  },
+  {
+    chainName: "Roka",
+    // Bare "Roka" or Roka plus one of its London site names. "Roka The
+    // Square" in Bagshot is unrelated, as are "Frokada", "Rokalis", "DeRoka".
+    matches: (row) =>
+      /^roka( (aldwych|mayfair|canary wharf|charlotte street))?$/.test(looseName(row.name)),
+    resolve: () => fromTracker("roka"),
+  },
+  {
+    chainName: "Sticks'n'Sushi",
+    matches: (row) => looseName(row.name).replace(/ /g, "").includes("sticksnsushi"),
+    resolve: () => fromTracker("sticks-n-sushi"),
+  },
+  {
+    chainName: "Di Maggio's",
+    matches: (row) => /^di maggios?\b/.test(looseName(row.name)),
+    resolve: () => fromTracker("di-maggios"),
+  },
+];
+
 export const CHAIN_POLICIES: ChainPolicy[] = [
   {
     chainName: "Franco Manca",
@@ -500,6 +641,7 @@ export const CHAIN_POLICIES: ChainPolicy[] = [
       sourceUrl: ASK_ITALIAN_SOURCE,
     }),
   },
+  ...TRACKER_MATCHED_POLICIES,
 ];
 
 export function matchChainPolicy(row: ChainPolicyRow): ChainPolicy | null {
