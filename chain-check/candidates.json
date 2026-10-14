@@ -1,0 +1,443 @@
+[
+  {
+    "id": "miller-and-carter",
+    "pages": [
+      "https://www.millerandcarter.co.uk/tablebooking#/",
+      "https://www.millerandcarter.co.uk/tablebooking"
+    ],
+    "policy": true
+  },
+  {
+    "id": "fullers",
+    "pages": [
+      "https://www.fullers.co.uk/termsandconditions/christmasbookings",
+      "https://www.fullers.co.uk/termsandconditions/get-together",
+      "https://www.fullers.co.uk/christmas",
+      "https://www.fullers.co.uk/blog/pubs-articles/autumn-winter-menus"
+    ],
+    "policy": true
+  },
+  {
+    "id": "busaba",
+    "pages": [
+      "https://www.busaba.com/bookingterms",
+      "https://www.busaba.com/terms-and-conditions",
+      "https://www.busaba.com/wp-content/uploads/2024/03/Busaba_Core_Food_Menu_2024_02_22_AW.pdf",
+      "https://www.busaba.com/wp-content/uploads/2025/08/Busaba_Christmas_Menus_2025_07_21_WEB.pdf",
+      "https://www.busaba.com/christmas-at-busaba",
+      "https://www.busaba.com/wp-content/uploads/2023/11/Busaba_Christmas_Booking_PDF_2023.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "tattu",
+    "pages": [
+      "https://tattu.co.uk/wp-content/uploads/2026/03/ALL-DAY_LDN-ONLINE.pdf",
+      "https://tattu.co.uk/wp-content/uploads/2023/04/NORTH-group-booking-policy-.pdf",
+      "https://tattu.co.uk/wp-content/uploads/2026/06/Manchester-XMAS-event-brochure-2026-DIGITAL.pdf",
+      "https://tattu.co.uk/wp-content/uploads/2026/01/ALC_EDI_ONLINE.pdf",
+      "https://tattu.co.uk/wp-content/uploads/2025/09/ALC_LEEDS_ONLINE.pdf",
+      "https://tattu.co.uk/wp-content/uploads/2025/04/SHARING_LONDON_ONLINE.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "gaucho",
+    "pages": [
+      "https://gauchorestaurants.com/terms-conditions/",
+      "https://gauchorestaurants.com/wp-content/uploads/2025/01/Gaucho_Classic-Menu_A5_LDNMAN_1024.pdf",
+      "https://gauchorestaurants.com/wp-content/uploads/2023/03/Gaucho_SetLunch_A5_London_0924_V2_Digital.pdf",
+      "https://gauchorestaurants.com/wp-content/uploads/2026/01/Gaucho_RED_ALC_CST_A3_1225.pdf",
+      "https://gauchorestaurants.com/wp-content/uploads/2025/11/Gaucho_RED_ALC_NWC_A3_1025.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "caravan",
+    "pages": [
+      "https://caravanrestaurants.co.uk/kings-cross.php",
+      "https://caravanrestaurants.co.uk/contact.php",
+      "https://caravanandco.com/pages/bankside"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hakkasan",
+    "pages": [
+      "https://hakkasan.com/group-events-terms-conditions/",
+      "https://hakkasan.com/mayfair/",
+      "https://hakkasangroup.com/venues/hakkasan-mayfair-london/menu/",
+      "https://hakkasangroup.com/wp-content/uploads/2026/04/Hakkasan-SpringSummer-ALC-Menu-2026.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hawksmoor",
+    "pages": [
+      "https://thehawksmoor.com/locations/borough/food/menu/",
+      "https://thehawksmoor.com/book-a-table/",
+      "https://thehawksmoor.com/locations/airstreet/food/menu/",
+      "https://thehawksmoor.com/wp-content/uploads/2023/04/GH-LARGE-GROUP-SET-MENU-NEW-2023.pdf",
+      "https://thehawksmoor.com/?p=46382"
+    ],
+    "policy": true
+  },
+  {
+    "id": "yo-sushi",
+    "pages": [
+      "https://yosushi.com/bookings-terms-conditions",
+      "https://yosushi.com/content/booking-faqs",
+      "https://yosushi.com/birmingham"
+    ],
+    "policy": true
+  },
+  {
+    "id": "rudys-pizza",
+    "pages": [
+      "https://www.rudyspizza.co.uk/faqs/",
+      "https://www.rudyspizza.co.uk/content/uploads/2025/11/RUDYS-PIZZA-PACKAGE_LONDON_A5_WEB.pdf",
+      "https://www.rudyspizza.co.uk/menu/harborne-birmingham/",
+      "https://www.rudyspizza.co.uk/christmas/",
+      "https://www.rudyspizza.co.uk/location/glasgow/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "pizza-pilgrims",
+    "pages": [
+      "https://www.pizzapilgrims.co.uk/faqs/",
+      "https://www.pizzapilgrims.co.uk/terms-and-conditions/",
+      "https://www.pizzapilgrims.co.uk/pizzerias/birmingham/",
+      "https://www.pizzapilgrims.co.uk/pizzerias/covent-garden/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "toby-carvery",
+    "pages": [
+      "https://www.tobycarvery.co.uk/faq",
+      "https://www.tobycarvery.co.uk/eventsbookingterms",
+      "https://www.tobycarvery.co.uk/content/dam/toby-carvery/pdf/dn24/toby-dn24-main-menu-pb7.pdf",
+      "https://tobycarvery.co.uk/faq",
+      "https://tobycarvery.co.uk/christmas",
+      "https://tobycarvery.co.uk/content/dam/toby-carvery/pdf/2024/christmas/toby-christmas-day-menu-pb3.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "beefeater",
+    "pages": [
+      "https://www.beefeater.co.uk/en-gb/terms-and-conditions",
+      "https://www.beefeater.co.uk/en-gb/main-menu/beefeater_main_menu_band3.pdf",
+      "https://www.beefeater.co.uk/en-gb/christmas",
+      "https://www.beefeater.co.uk/en-gb/christmas-day",
+      "https://www.beefeater.co.uk/en-gb/locations/kent/the-beacon"
+    ],
+    "policy": true
+  },
+  {
+    "id": "brewers-fayre",
+    "pages": [
+      "https://www.brewersfayre.co.uk/en-gb/frequently-asked-questions",
+      "https://www.brewersfayre.co.uk/en-gb/terms-and-conditions",
+      "https://www.brewersfayre.co.uk/en-gb/main-menu/brewers_fayre_main_menu_band3.pdf",
+      "https://www.brewersfayre.co.uk/en-gb/christmas-festive-menu",
+      "https://brewersfayre.co.uk/en-gb/locations/falkirk/cadgers-brae/menus",
+      "https://www.brewersfayre.co.uk/en-gb/sunday-roast"
+    ],
+    "policy": true
+  },
+  {
+    "id": "table-table",
+    "pages": [
+      "https://www.tabletable.co.uk/en-gb/frequently-asked-questions",
+      "https://www.tabletable.co.uk/en-gb/terms-and-conditions",
+      "https://www.tabletable.co.uk/en-gb/main-menu/table_table_main_menu_band3.pdf",
+      "https://www.tabletable.co.uk/en-gb/christmas",
+      "https://www.tabletable.co.uk/en-gb/christmas-day-menu"
+    ],
+    "policy": true
+  },
+  {
+    "id": "carluccios",
+    "pages": [
+      "https://www.carluccios.com/pages/faqs-restaurants",
+      "https://www.carluccios.com/pages/terms-conditions",
+      "https://www.carluccios.com/pages/christmas"
+    ],
+    "policy": true
+  },
+  {
+    "id": "comptoir-libanais",
+    "pages": [
+      "https://www.comptoirlibanais.com/menus/",
+      "https://www.comptoirlibanais.com/private-events/",
+      "https://www.comptoirlibanais.com/locations/manchester/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "bundobust",
+    "pages": [
+      "https://bundobust.com/faq/",
+      "https://bundobust.com/wp-content/uploads/2025/09/Bundobust-Menu-AUG-2025-DIGITAL.pdf",
+      "https://bundobust.com/locations/leeds/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "the-real-greek",
+    "pages": [
+      "https://www.therealgreek.com/faqs/",
+      "https://www.therealgreek.com/legals/",
+      "https://www.therealgreek.com/wp-content/uploads/2026/03/TRG%E2%80%93Main-Menu%E2%80%93Spring%E2%80%93Menu%E2%80%9326.pdf",
+      "https://www.therealgreek.com/party-menu/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "bodeans",
+    "pages": [
+      "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2026/04/Bodeans-A5-Lunch-Menu-NEW-1.pdf",
+      "https://bodeansbbq.com/bodeans-2025/wp-content/uploads/2025/05/Bodeans-Main-Menu-Design-Update-Allergens.pdf",
+      "https://bodeansbbq.com/menus/",
+      "https://bodeansbbq.com/christmas/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hard-rock-cafe",
+    "pages": [
+      "https://cafe.hardrock.com/london/files/5330/USJ219497_-_HRC_EU_-_EATS_MENU_-_JAN_26_-_B_-_LONDON_OPL_-_ENG.pdf",
+      "https://cafe.hardrock.com/london/files/5330/Hard_Rock_Cafe_Europe_2023_Group_Menus.pdf",
+      "https://cafe.hardrock.com/london/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "burger-and-lobster",
+    "pages": [
+      "https://www.burgerandlobster.com/wp-content/uploads/2025/09/WLDMenu_LDN_2025.pdf",
+      "https://www.burgerandlobster.com/menus/london/",
+      "https://www.burgerandlobster.com/christmas/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "meatliquor",
+    "pages": [
+      "https://meatliquor.com/faqs/",
+      "https://meatliquor.com/menu/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "coppa-club",
+    "pages": [
+      "https://coppaclub.co.uk/service-charge-policy/",
+      "https://www.coppaclub.co.uk/terms-and-conditions"
+    ],
+    "policy": true
+  },
+  {
+    "id": "brunning-and-price",
+    "pages": [
+      "https://www.brunningandprice.co.uk/company/tsandcs/",
+      "https://www.brunningandprice.co.uk/thewharf/tsandcs/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "revolucion-de-cuba",
+    "pages": [
+      "https://www.revoluciondecuba.com/faq/",
+      "https://www.revoluciondecuba.com/terms-conditions/",
+      "https://www.revoluciondecuba.com/wp-content/uploads/2023/08/RBG-BOOKING-TERMS-AND-CONDITIONS.pdf",
+      "https://www.revoluciondecuba.com/wp-content/uploads/2024/06/13682-RDC-Cantina-Menu-24-3.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "revolution",
+    "pages": [
+      "https://www.revolution-bars.co.uk/FAQ/",
+      "https://www.revolution-bars.co.uk/wp/app/uploads/2023/09/RBG-BOOKING-TERMS-AND-CONDITIONS-FINAL-3.pdf",
+      "https://www.revolution-bars.co.uk/wp/app/uploads/2025/07/Revolution-Christmas-2025-Menu-Pricing-3.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "thaikhun",
+    "pages": [
+      "https://www.thaikhun.co.uk/fileadmin/TK_Menus/ALL/TK_Main_Menu_DEC25_Estate_V2.pdf",
+      "https://www.thaikhun.co.uk/thai-restaurant/aberdeen/group-bookings",
+      "https://www.thaikhun.co.uk/christmas"
+    ],
+    "policy": true
+  },
+  {
+    "id": "chaophraya",
+    "pages": [
+      "https://chaophraya.co.uk/faqs",
+      "https://chaophraya.co.uk/thai-restaurant/leeds/menus",
+      "https://chaophraya.co.uk/christmas"
+    ],
+    "policy": true
+  },
+  {
+    "id": "zaap-thai",
+    "pages": [
+      "https://zaapthai.co.uk/wp-content/uploads/2024/08/ZAAP_A3Menu.pdf",
+      "https://zaapthai.co.uk/food/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hickorys",
+    "pages": [
+      "https://hickorys.co.uk/faqs/",
+      "https://hickorys.co.uk/terms/",
+      "https://hickorys.co.uk/legal/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hub-box",
+    "pages": [
+      "https://hubbox.co.uk/terms-conditions/",
+      "https://hubbox.co.uk/booking/",
+      "https://hubbox.co.uk/new-menu/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "blacklock",
+    "pages": [
+      "https://theblacklock.com/menus/",
+      "https://theblacklock.com/coventgarden-reservations/",
+      "https://theblacklock.com/manchester-reservations/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "temper",
+    "pages": [
+      "https://temperrestaurant.com/reservations",
+      "https://temperrestaurant.com/party-reservations/",
+      "https://temperrestaurant.com/temper-soho/menu"
+    ],
+    "policy": true
+  },
+  {
+    "id": "hoppers",
+    "pages": [
+      "https://www.hopperslondon.com/faqs/",
+      "https://www.hopperslondon.com/wp-content/uploads/2025/11/Hoppers-Festive-Group-Menu-101125-1.pdf",
+      "https://www.hopperslondon.com/soho/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "bao",
+    "pages": [
+      "https://baolondon.com/faq/",
+      "https://baolondon.com/groups/",
+      "https://baolondon.com/bookings/",
+      "https://baolondon.com/menus/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "mildreds",
+    "pages": [
+      "https://www.mildreds.co.uk/booking-page/",
+      "https://www.mildreds.co.uk/terms-and-conditions/",
+      "https://www.mildreds.co.uk/locations/soho/all-day/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "homeslice",
+    "pages": [
+      "https://www.homeslicepizza.co.uk/menu",
+      "https://www.homeslicepizza.co.uk/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "purezza",
+    "pages": [
+      "https://purezza.co.uk/faq/",
+      "https://purezza.co.uk/terms-and-conditions/",
+      "https://purezza.co.uk/locations/london/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "benihana",
+    "pages": [
+      "https://www.benihana.co.uk/book-a-table/",
+      "https://www.benihana.co.uk/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "cinnamon-collection",
+    "pages": [
+      "https://www.cinnamon-kitchen.com/leeds/",
+      "https://www.cinnamon-kitchen.com/wp-content/uploads/2024/09/3-course-Set-Lunch-CKC-09.09.24.pdf",
+      "https://cinnamon-bazaar.com/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "six-by-nico",
+    "pages": [
+      "https://www.sixbynico.co.uk/faqs/",
+      "https://www.sixbynico.co.uk/london/booking/",
+      "https://www.sixbynico.co.uk/manchester/booking/"
+    ],
+    "policy": true
+  },
+  {
+    "id": "the-alchemist",
+    "pages": [
+      "https://thealchemist.uk.com/christmas-tcs/",
+      "https://thealchemist.uk.com/menus/",
+      "https://thealchemist.uk.com/christmas-bookings"
+    ],
+    "policy": true
+  },
+  {
+    "id": "lina-stores",
+    "pages": [
+      "https://www.linastores.co.uk/booking-terms-and-conditions",
+      "https://support.linastores.co.uk/support/solutions/articles/77000534500-do-you-offer-bookings-for-larger-parties-"
+    ],
+    "policy": true
+  },
+  {
+    "id": "bancone",
+    "pages": [
+      "https://www.bancone.co.uk/faqs",
+      "https://www.bancone.co.uk/s/Covent-Garden-Main-Menu-9th-July-2025.pdf"
+    ],
+    "policy": true
+  },
+  {
+    "id": "pastaio",
+    "pages": [
+      "https://www.pastaio.co.uk/book-a-table",
+      "https://www.pastaio.co.uk/mainmenu"
+    ],
+    "policy": true
+  },
+  {
+    "id": "brewdog",
+    "pages": [
+      "https://brewdog.com/pages/uk-booking-terms",
+      "https://brewdog.com/pages/terms-and-conditions"
+    ],
+    "policy": true
+  }
+]
