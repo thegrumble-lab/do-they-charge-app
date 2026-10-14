@@ -1,0 +1,51 @@
+name: Chain check
+
+# The monthly chain tracker task (a Claude scheduled task) pushes the pages it
+# needs read to the chain-check branch as chain-check/candidates.json: every
+# tracked chain's cited source, plus candidate pages for chains not yet
+# tracked. This job fetches each page, records the text around any
+# service-charge wording (PDF menus included), and commits
+# chain-check/results.json back to the same branch for the task to compare
+# against src/content/chain-tracker.ts.
+#
+# Same reason as prospect-check.yml: GitHub's runners have normal internet
+# access, Claude sessions don't. A separate branch from prospect-check so the
+# two research tasks can never overwrite each other's candidates.
+on:
+  push:
+    branches: [chain-check]
+    paths: [chain-check/candidates.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: chain-check
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # pypdf for menu PDFs; headless Chromium for JavaScript-only sites.
+      - name: Install dependencies
+        run: |
+          pip install pypdf==5.1.0 playwright==1.48.0
+          python -m playwright install --with-deps chromium
+
+      - name: Check pages
+        run: python3 scripts/check_prospects.py chain-check
+
+      - name: Save results to the branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add chain-check/results.json
+          git commit -q -m "Chain check results $(date -u +%FT%TZ)"
+          git push -q origin HEAD:chain-check

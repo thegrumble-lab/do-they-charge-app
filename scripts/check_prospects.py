@@ -11,7 +11,9 @@ Input:  <dir>/candidates.json, a list of
     "pages":    [urls where the email should be published],   # optional
     "email":    "expected@address" or "",                       # optional
     "article":  "url of the angle article/post" or "",          # optional
-    "follow":   true to also scan same-site contact/about/team/terms links
+    "follow":   true to also scan same-site contact/about/team/terms links,
+    "policy":   true to record the visible text around service-charge wording
+                (used by the chain tracker re-check, chain-check/)
   }
 
 Output: <dir>/results.json, keyed by id:
@@ -21,7 +23,9 @@ Output: <dir>/results.json, keyed by id:
     "email_confirmed": true/false/None (None when no email was expected),
     "email_seen_on": [urls],
     "pages": {url: {"status": int, "rendered": bool}},
-    "article": {"url", "status", "title", "published", "final_url"} or None
+    "article": {"url", "status", "title", "published", "final_url"} or None,
+    "policy_text": {url: [snippets around "service charge", "gratuity", "tip", "tronc"]}
+                   (only when "policy" is true; PDFs are read with pypdf)
   }
 
 Emails are read from plain text, mailto: links, Cloudflare's email
@@ -104,6 +108,34 @@ def extract_emails(body: str) -> dict:
     return out
 
 
+def pdf_text(raw: bytes) -> str:
+    """Text from a PDF with pypdf when it's installed, else "" (callers fall back to raw bytes)."""
+    try:
+        import io
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(raw))
+        return "\n".join((pg.extract_text() or "") for pg in reader.pages[:40])
+    except Exception as e:
+        print(f"  pdf text failed: {e}", flush=True)
+        return ""
+
+
+POLICY_RE = re.compile(r"service[\s-]*charge|gratuit|\btip(s|ping)?\b|tronc|optional charge|discretionary", re.I)
+
+
+def policy_snippets(body: str, limit: int = 15) -> list:
+    """Visible text around every service-charge-ish phrase, merged where they overlap."""
+    words = page_words(body)
+    spans = []
+    for m in POLICY_RE.finditer(words):
+        a, b = max(0, m.start() - 220), min(len(words), m.end() + 220)
+        if spans and a <= spans[-1][1]:
+            spans[-1] = (spans[-1][0], b)
+        else:
+            spans.append((a, b))
+    return [words[a:b].strip() for a, b in spans[:limit]]
+
+
 def visible_len(body: str) -> int:
     body = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", body)
     return len(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).strip())
@@ -115,7 +147,10 @@ def http_get(url: str):
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
             raw = r.read(5_000_000)
             ctype = r.headers.get_content_type()
-            if ctype == "application/pdf":
+            if ctype == "application/pdf" or url.lower().split("?")[0].endswith(".pdf"):
+                text = pdf_text(raw)
+                if text:
+                    return r.status, text, r.geturl()
                 # Crude but dependency-free: addresses in PDFs are usually stored as plain text or mailto URIs.
                 return r.status, raw.decode("latin-1", errors="replace"), r.geturl()
             return r.status, raw.decode(r.headers.get_content_charset() or "utf-8", errors="replace"), r.geturl()
@@ -198,6 +233,8 @@ def check(c: dict, cache: dict) -> dict:
     expected = (c.get("email") or "").strip().lower()
     pages = [p for p in c.get("pages", []) if p and p.startswith("http")]
     res = {"emails_found": {}, "context": {}, "email_confirmed": None, "email_seen_on": [], "pages": {}, "article": None}
+    if c.get("policy"):
+        res["policy_text"] = {}
     queue = list(pages)
     if c.get("follow"):
         for p in pages:
@@ -205,7 +242,9 @@ def check(c: dict, cache: dict) -> dict:
             queue += [u for u in follow_links(final, body) if u not in queue]
     for url in queue:
         status, body, final, rendered = get(url, cache)
-        res["pages"][url] = {"status": status, "rendered": rendered}
+        res["pages"][url] = {"status": status, "rendered": rendered, "final_url": final}
+        if c.get("policy"):
+            res["policy_text"][url] = policy_snippets(body)
         for e, ctx in extract_emails(body).items():
             res["emails_found"].setdefault(e, []).append(url)
             if ctx and e not in res["context"]:
