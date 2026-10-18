@@ -36,12 +36,12 @@ export type Seed = {
  * own website or menu states one, as cited on each listing.
  */
 export const FIGURES = {
-  asOf: "14 October 2026",
-  withPolicy: "1,444",
-  addCharge: "1,417",
-  everyBill: "724",
-  groupsOnly: "693",
-  noCharge: "27",
+  asOf: "18 October 2026",
+  withPolicy: "1,460",
+  addCharge: "1,431",
+  everyBill: "733",
+  groupsOnly: "698",
+  noCharge: "29",
 };
 
 export function badgeSnippet(page: string): string {
