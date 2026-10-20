@@ -1,1124 +1,579 @@
 {
- "a-clerkenwellboy2": {
+ "a-cmgtalent": {
   "article": null,
+  "context": {
+   "legal@cmgtalent.co": "our Services. If you still have any questions or concerns, please contact us at legal@cmgtalent.co . SUMMARY OF KEY POINTS This summary provides key points fr"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "ally@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "amber@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "arian@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "arianna@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "ash@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "ethan@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "gabby@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "joey@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "juanita@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "kaitlyn@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "katie@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "kelsey@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "legal@cmgtalent.co": [
+    "https://www.cmgtalent.co/privacy-policy/"
+   ],
+   "madison@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "natasha@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "paige.b@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "paige@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "reese@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "ry@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "ryan@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "sandra@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "savannah@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "taylor@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "tejas@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ],
+   "wyatt@cmgworldwide.com": [
+    "https://www.cmgtalent.co/cmg-talent-team/"
+   ]
+  },
+  "pages": {
+   "https://www.cmgtalent.co/cmg-talent-team/": {
+    "final_url": "https://www.cmgtalent.co/cmg-talent-team/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.cmgtalent.co/contact/": {
+    "final_url": "https://www.cmgtalent.co/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.cmgtalent.co/news-and-press/": {
+    "final_url": "https://www.cmgtalent.co/news-and-press/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.cmgtalent.co/privacy-policy/": {
+    "final_url": "https://www.cmgtalent.co/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.cmgtalent.co/talent/food/": {
+    "final_url": "https://www.cmgtalent.co/talent/food/",
+    "rendered": false,
+    "status": 404
+   }
+  }
+ },
+ "a-viraltalent": {
+  "article": null,
+  "context": {
+   "info@viraltalent.co.uk": "ds Teen Gaming OTT/CTV Let\u2019s collaborate Call us: 01202 555655 Email us direct: info@viraltalent.co.uk Meet us: Viral Talent HQ, Enterprise House Ground Floor 21"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@viraltalent.co.uk": [
+    "https://viraltalent.co.uk/talent/",
+    "https://viraltalent.co.uk/about/",
+    "https://viraltalent.co.uk/contact/",
+    "https://viraltalent.co.uk/privacy-policy/"
+   ]
+  },
+  "pages": {
+   "https://viraltalent.co.uk/about/": {
+    "final_url": "https://viraltalent.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://viraltalent.co.uk/contact/": {
+    "final_url": "https://viraltalent.co.uk/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://viraltalent.co.uk/privacy-policy/": {
+    "final_url": "https://viraltalent.co.uk/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://viraltalent.co.uk/talent/": {
+    "final_url": "https://viraltalent.co.uk/talent/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "b-dishcult": {
+  "article": {
+   "final_url": "https://dishcult.com/articles/independent-restaurants-sheffield",
+   "published": null,
+   "status": 200,
+   "title": "Independent restaurants in Sheffield | Dish Cult",
+   "url": "https://dishcult.com/articles/sheffield/independent-restaurants-sheffield"
+  },
   "context": {},
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {},
   "pages": {
-   "https://clerkenwellboy.com/": {
-    "final_url": "https://clerkenwellboy.com/",
+   "https://dishcult.com/": {
+    "final_url": "https://dishcult.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://dishcult.com/about": {
+    "final_url": "https://dishcult.com/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://dishcult.com/contact": {
+    "final_url": "https://dishcult.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://dishcult.com/privacy": {
+    "final_url": "https://dishcult.com/privacy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://dishcult.com/terms": {
+    "final_url": "https://dishcult.com/terms",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "b-ellieandco": {
+  "article": null,
+  "context": {
+   "hello@ellieandco.co.uk": "n touch Feel free to drop us a line, we're always happy to hear from you. Email hello@ellieandco.co.uk To collaborate, see Work with us . About Work with us Shop"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hello@ellieandco.co.uk": [
+    "https://www.ellieandco.co.uk/",
+    "https://www.ellieandco.co.uk/contact/",
+    "https://www.ellieandco.co.uk/about",
+    "https://www.ellieandco.co.uk/category/inspiration/books-films",
+    "https://www.ellieandco.co.uk/about/",
+    "https://www.ellieandco.co.uk/privacy-policy/"
+   ]
+  },
+  "pages": {
+   "https://www.ellieandco.co.uk/": {
+    "final_url": "https://www.ellieandco.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ellieandco.co.uk/about": {
+    "final_url": "https://www.ellieandco.co.uk/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ellieandco.co.uk/about/": {
+    "final_url": "https://www.ellieandco.co.uk/about",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ellieandco.co.uk/category/inspiration/books-films": {
+    "final_url": "https://www.ellieandco.co.uk/category/inspiration/books-films",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.ellieandco.co.uk/contact/": {
+    "final_url": "https://www.ellieandco.co.uk/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.ellieandco.co.uk/privacy-policy/": {
+    "final_url": "https://www.ellieandco.co.uk/privacy-policy",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "b-farawaylucy": {
+  "article": {
+   "final_url": "https://www.farawaylucy.com/cheap-eats-liverpool/",
+   "published": null,
+   "status": 0,
+   "title": null,
+   "url": "https://www.farawaylucy.com/cheap-eats-liverpool/"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.farawaylucy.com/": {
+    "final_url": "https://www.farawaylucy.com/",
     "rendered": false,
     "status": 0
    },
-   "https://www.aevitascreative.com/about": {
-    "final_url": "https://www.aevitascreative.com/about",
+   "https://www.farawaylucy.com/contact/": {
+    "final_url": "https://www.farawaylucy.com/contact/",
     "rendered": false,
-    "status": 200
+    "status": 0
    },
-   "https://www.aevitascreative.com/contact": {
-    "final_url": "https://www.aevitascreative.com/contact",
+   "https://www.farawaylucy.com/work-with-me/": {
+    "final_url": "https://www.farawaylucy.com/work-with-me/",
     "rendered": false,
-    "status": 200
-   },
-   "https://www.aevitascreative.com/genres/food-and-cookbooks": {
-    "final_url": "https://www.aevitascreative.com/genres/food-and-cookbooks",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.aevitascreative.com/our-team": {
-    "final_url": "https://www.aevitascreative.com/our-team",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.aevitascreative.com/privacy-policy": {
-    "final_url": "https://www.aevitascreative.com/privacy-policy",
-    "rendered": false,
-    "status": 200
+    "status": 0
    }
   }
  },
- "a-gracedent2": {
-  "article": null,
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "brands@intertalentgroup.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ],
-   "ian.monk@woburnpartners.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ],
-   "oliviabertolotti@intertalentgroup.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ],
-   "samdayoffice@intertalentgroup.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ],
-   "talentdirectors@intertalentgroup.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ],
-   "unscripted@intertalentgroup.com": [
-    "https://www.intertalentgroup.com/contact/"
-   ]
-  },
-  "pages": {
-   "https://www.intertalentgroup.com/": {
-    "final_url": "https://www.intertalentgroup.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.intertalentgroup.com/contact/": {
-    "final_url": "https://www.intertalentgroup.com/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.intertalentgroup.com/contact/{{ link }}": {
-    "final_url": "https://www.intertalentgroup.com/contact/%7B%7B%20link",
-    "rendered": true,
-    "status": 404
-   }
-  }
- },
- "b-becleverwithcash": {
-  "article": {
-   "final_url": "https://becleverwithyourcash.com/is-a-tastecard-or-other-dining-card-worth-it/",
-   "published": "2024-11-06T11:56:00+00:00",
-   "status": 200,
-   "title": "Restaurant discount cards compared - are they worth it? - Be Clever With Your Cash",
-   "url": "https://becleverwithyourcash.com/is-a-tastecard-or-other-dining-card-worth-it/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "partnerships@smartmoneypeople.com": [
-    "https://becleverwithyourcash.com/contact/"
-   ],
-   "press@smartmoneypeople.com": [
-    "https://becleverwithyourcash.com/contact/"
-   ]
-  },
-  "pages": {
-   "https://becleverwithyourcash.com/": {
-    "final_url": "https://becleverwithyourcash.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://becleverwithyourcash.com/about/": {
-    "final_url": "https://becleverwithyourcash.com/about/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://becleverwithyourcash.com/american-express-offers-deals/": {
-    "final_url": "https://becleverwithyourcash.com/american-express-offers-deals/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://becleverwithyourcash.com/contact/": {
-    "final_url": "https://becleverwithyourcash.com/contact/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-britbreakfast": {
-  "article": {
-   "final_url": "https://britbreakfast.com/blog-toby-carvery/",
-   "published": null,
-   "status": 200,
-   "title": "Toby Carvery Breakfast 2026 \u2014 Menu, Prices & Honest Review",
-   "url": "https://britbreakfast.com/blog-toby-carvery/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {},
-  "pages": {
-   "https://britbreakfast.com/": {
-    "final_url": "https://britbreakfast.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://britbreakfast.com/about/": {
-    "final_url": "https://britbreakfast.com/about/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://britbreakfast.com/contact/": {
-    "final_url": "https://britbreakfast.com/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://britbreakfast.com/privacy-policy/": {
-    "final_url": "https://britbreakfast.com/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://britbreakfast.com/terms/": {
-    "final_url": "https://britbreakfast.com/terms/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-budgettraveller": {
-  "article": {
-   "final_url": "https://budgettraveller.org/best-cheap-eats-london-guide/",
-   "published": "2025-07-23T14:47:10+00:00",
-   "status": 200,
-   "title": "London's Best Cheap Eats: 20 Budget-Friendly Restaurants from just \u00a32.50 - BudgetTraveller",
-   "url": "https://budgettraveller.org/best-cheap-eats-london-guide/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "europebudgetguide@gmail.com": [
-    "https://budgettraveller.org/privacy-policy/"
-   ],
-   "kash@budgettraveller.org": [
-    "https://budgettraveller.org/contact/",
-    "https://budgettraveller.org/about-me/",
-    "https://budgettraveller.org/contact-us/"
-   ]
-  },
-  "pages": {
-   "https://budgettraveller.org/": {
-    "final_url": "https://budgettraveller.org/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://budgettraveller.org/about-me/": {
-    "final_url": "https://budgettraveller.org/about-me/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://budgettraveller.org/contact-us/": {
-    "final_url": "https://budgettraveller.org/contact-us/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://budgettraveller.org/contact/": {
-    "final_url": "https://budgettraveller.org/contact-us/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://budgettraveller.org/privacy-policy/": {
-    "final_url": "https://budgettraveller.org/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://budgettraveller.org/work-with-me/": {
-    "final_url": "https://budgettraveller.org/work-with-me/",
-    "rendered": false,
-    "status": 404
-   }
-  }
- },
- "b-documentingmydinner": {
+ "b-feedingboys": {
   "article": null,
   "context": {
-   "kerry@documentingmydinner.com": "at suit and would be delighted to hear from you. Please contact me via email at kerry@documentingmydinner.com and I can provide you with my rate card. Previous Work My p"
+   "katie@feedingboys.co.uk": "ons by following the unsubscribe links in our emails. You may also notify us at katie@feedingboys.co.uk to be removed from our mailing list. Access \u2013 You may acces"
   },
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {
-   "kerry@documentingmydinner.com": [
-    "https://www.documentingmydinner.com/workwithme/",
-    "https://www.documentingmydinner.com/aberdeen-food-blogger-about-2/"
+   "katie@feedingboys.co.uk": [
+    "https://www.feedingboys.co.uk/contact/",
+    "https://www.feedingboys.co.uk/privacy-policy/",
+    "http://www.feedingboys.co.uk/contact/"
    ]
   },
   "pages": {
-   "https://www.documentingmydinner.com/": {
-    "final_url": "https://www.documentingmydinner.com/",
+   "http://www.feedingboys.co.uk/contact/": {
+    "final_url": "https://www.feedingboys.co.uk/contact/",
     "rendered": false,
     "status": 200
    },
-   "https://www.documentingmydinner.com/aberdeen-food-blogger-about-2/": {
-    "final_url": "https://www.documentingmydinner.com/aberdeen-food-blogger-about-2/",
+   "https://www.feedingboys.co.uk/": {
+    "final_url": "https://www.feedingboys.co.uk/",
     "rendered": false,
     "status": 200
    },
-   "https://www.documentingmydinner.com/aberdeen-food-blogger-about-2/thumbnail_img_7559/": {
-    "final_url": "https://www.documentingmydinner.com/aberdeen-food-blogger-about-2/thumbnail_img_7559/",
+   "https://www.feedingboys.co.uk/about/": {
+    "final_url": "https://www.feedingboys.co.uk/about/",
     "rendered": false,
     "status": 200
    },
-   "https://www.documentingmydinner.com/workwithme/": {
-    "final_url": "https://www.documentingmydinner.com/workwithme/",
+   "https://www.feedingboys.co.uk/category/all-recipes/preserves-2/": {
+    "final_url": "https://www.feedingboys.co.uk/category/all-recipes/preserves-2/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/category/review/book-review/": {
+    "final_url": "https://www.feedingboys.co.uk/category/review/book-review/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/contact/": {
+    "final_url": "https://www.feedingboys.co.uk/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/press/": {
+    "final_url": "https://www.feedingboys.co.uk/press/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.feedingboys.co.uk/privacy-policy/": {
+    "final_url": "https://www.feedingboys.co.uk/privacy-policy/",
     "rendered": false,
     "status": 200
    }
   }
  },
- "b-dreambig": {
+ "b-hiddenscotland": {
   "article": {
-   "final_url": "https://www.dreambigtravelfarblog.com/blog/best-cheap-eats-london",
-   "published": null,
-   "status": 200,
-   "title": "15 BEST Cheap Eats in London [A Local Foodies Guide!]",
-   "url": "https://www.dreambigtravelfarblog.com/blog/best-cheap-eats-london"
-  },
-  "context": {
-   "cazzy@dreambigtravelfarblog.com": "about us or would like the chance to work with us, then you can contact us at: cazzy@dreambigtravelfarblog.com Alternatively, message us directly on Facebook or Instagram",
-   "enquiries@dreambigtravelfarblog.com": "by contacting us. If you have any questions or queries, get in touch with us at enquiries@dreambigtravelfarblog.com 9 million people can't be wrong Get exclusive weekly travel"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "cazzy@dreambigtravelfarblog.com": [
-    "https://www.dreambigtravelfarblog.com/contact",
-    "https://www.dreambigtravelfarblog.com/about"
-   ],
-   "enquiries@dreambigtravelfarblog.com": [
-    "https://www.dreambigtravelfarblog.com/privacy-policy"
-   ],
-   "enqurieis@dreambigtravelfarblog.com": [
-    "https://www.dreambigtravelfarblog.com/privacy-policy"
-   ]
-  },
-  "pages": {
-   "https://www.dreambigtravelfarblog.com/": {
-    "final_url": "https://www.dreambigtravelfarblog.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.dreambigtravelfarblog.com/about": {
-    "final_url": "https://www.dreambigtravelfarblog.com/about",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.dreambigtravelfarblog.com/blog/how-we-booked-ba-first-class-with-avios": {
-    "final_url": "https://www.dreambigtravelfarblog.com/blog/how-we-booked-ba-first-class-with-avios",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.dreambigtravelfarblog.com/contact": {
-    "final_url": "https://www.dreambigtravelfarblog.com/about",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.dreambigtravelfarblog.com/privacy-policy": {
-    "final_url": "https://www.dreambigtravelfarblog.com/privacy-policy",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-homegirllondon": {
-  "article": {
-   "final_url": "https://homegirllondon.com/london-restaurant-blog/",
-   "published": "2015-09-12T14:17:44+00:00",
-   "status": 200,
-   "title": "Homegirl London",
-   "url": "https://homegirllondon.com/london-restaurant-blog/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {},
-  "pages": {
-   "https://homegirllondon.com/": {
-    "final_url": "https://homegirllondon.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://homegirllondon.com/about-my-lovely-london-lifestyle-blog/": {
-    "final_url": "https://homegirllondon.com/about-my-lovely-london-lifestyle-blog/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://homegirllondon.com/advertising-policy/": {
-    "final_url": "https://homegirllondon.com/advertising-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://homegirllondon.com/contact/": {
-    "final_url": "https://homegirllondon.com/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://homegirllondon.com/privacy-policy/": {
-    "final_url": "https://homegirllondon.com/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-hungrybritish": {
-  "article": {
-   "final_url": "https://www.hungrybritish.com/north-east-england/",
-   "published": null,
-   "status": 200,
-   "title": "North East England Restaurant Reviews & Advise For Hungry British - Hungry British",
-   "url": "https://www.hungrybritish.com/north-east-england/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {},
-  "pages": {
-   "https://www.hungrybritish.com/": {
-    "final_url": "https://www.hungrybritish.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.hungrybritish.com/contact/": {
-    "final_url": "https://www.hungrybritish.com/contact/",
-    "rendered": true,
-    "status": 403
-   },
-   "https://www.hungrybritish.com/pg/about": {
-    "final_url": "https://www.hungrybritish.com/pg/about",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.hungrybritish.com/pg/contact": {
-    "final_url": "https://www.hungrybritish.com/pg/contact",
-    "rendered": true,
-    "status": 403
-   }
-  }
- },
- "b-ladyjaney": {
-  "article": null,
-  "context": {
-   "ashvalo@hotmail.com": "m should be able to provide returns labels. Ashley on July 19, 2023 at 11:27 AM ashvalo@hotmail.com hi i am trying to find my parcel it says tracking number is",
-   "baholidays.contactcentre@ba.com": "are detailed below. globalcustomerrelations@ba.com duty.office@holidays.ba.com baholidays.contactcentre@ba.com basupport@email.ba.com Customer.Relations@holidays.britisha",
-   "ben.cordes@evri.com": "retailer, they need to sort this for you. Reply Jul on June 7, 2025 at 2:55 PM ben.cordes@evri.com , martijn.delange@evri.com , Carl.Lyon@evri.com , Chris.Ash",
-   "call.executiveclub@ba.com": "complaint number and feel I have been fobbed off again. Email they gave me was call.executiveclub@ba.com Is this a genuine address or am I wasting my time Jonathan",
-   "calum.laming@ba.com": "@holidays.britishairways.com Shahid.tufail@ba.com (Customer Experience Manager) Calum.Laming@ba.com (Chief Customer Officer) manjit.brar.escalations@ba.com I h",
-   "carl.lyon@evri.com": "Jul on June 7, 2025 at 2:55 PM ben.cordes@evri.com , martijn.delange@evri.com , Carl.Lyon@evri.com , Chris.Ashworth@evri.com , Fash.Sawyer@evri.com , Nathan.W",
-   "chris.ashworth@evri.com": "t 2:55 PM ben.cordes@evri.com , martijn.delange@evri.com , Carl.Lyon@evri.com , Chris.Ashworth@evri.com , Fash.Sawyer@evri.com , Nathan.White@evri.com , David.Saen",
-   "claims@international.evri.com": "r ensure that your case is investigated. For international orders you can email claims@international.evri.com What if your parcel is lost, delayed or marked as delivered",
-   "customer.relations@holidays.britishairways.com": "y.office@holidays.ba.com baholidays.contactcentre@ba.com basupport@email.ba.com Customer.Relations@holidays.britishairways.com Shahid.tufail@ba.com (Customer Experience Manager) Calum.La",
-   "david.saenz@evri.com": ".com , Chris.Ashworth@evri.com , Fash.Sawyer@evri.com , Nathan.White@evri.com , David.Saenz@evri.com , Jack.Mitchell@evri.com , Jamie.Lockett@evri.com Reply Jon",
-   "davidlutumba@yahoo.com": "blems. They are some of the unsung heroes of our business. Related 301 Comments Davidlutumba@yahoo.com on February 7, 2023 at 3:28 PM Hi my name is David Lutumba",
-   "duty.office@holidays.ba.com": "Updated email options to try are detailed below. globalcustomerrelations@ba.com duty.office@holidays.ba.com baholidays.contactcentre@ba.com basupport@email.ba.com Cust",
-   "fash.sawyer@evri.com": "com , martijn.delange@evri.com , Carl.Lyon@evri.com , Chris.Ashworth@evri.com , Fash.Sawyer@evri.com , Nathan.White@evri.com , David.Saenz@evri.com , Jack.Mitch",
-   "globalcustomerrelations@ba.com": "Sean Doyle Seanl.Doyle@ba.com Updated email options to try are detailed below. globalcustomerrelations@ba.com duty.office@holidays.ba.com baholidays.contactcentre@ba.com",
-   "iykechemicals@gmail.com": "em to sort this for you. Reply Ikeh Gerald Agbachu on July 26, 2024 at 12:42 PM Iykechemicals@gmail.com my parcel number ho483q0631996232 , card number 41654902437",
-   "jack.mitchell@evri.com": "vri.com , Fash.Sawyer@evri.com , Nathan.White@evri.com , David.Saenz@evri.com , Jack.Mitchell@evri.com , Jamie.Lockett@evri.com Reply Jonathan Ono on November 17,",
-   "jamie.lockett@evri.com": "i.com , Nathan.White@evri.com , David.Saenz@evri.com , Jack.Mitchell@evri.com , Jamie.Lockett@evri.com Reply Jonathan Ono on November 17, 2025 at 9:28 AM please i",
-   "jane.phillips@ba.com": "\ud83d\ude09 Reply Colin Pett on June 11, 2023 at 7:26 PM Think its seanl.doyle@ba.com But jane.phillips@ba.com does bounce back Reply Nigel Collins on June 7, 2023 at 1:2",
-   "jane@ladyjaney.co.uk": "Lady Janey Queen of Customer Service and Consumer Champion jane@ladyjaney.co.uk Facebook X Instagram Facebook X Instagram Home About Me Blo",
-   "manjit.brar.escalations@ba.com": ".com (Customer Experience Manager) Calum.Laming@ba.com (Chief Customer Officer) manjit.brar.escalations@ba.com I hope that the above contact details are useful. If all el",
-   "martijn.delange@evri.com": "o sort this for you. Reply Jul on June 7, 2025 at 2:55 PM ben.cordes@evri.com , martijn.delange@evri.com , Carl.Lyon@evri.com , Chris.Ashworth@evri.com , Fash.Sawye",
-   "nathan.white@evri.com": "vri.com , Carl.Lyon@evri.com , Chris.Ashworth@evri.com , Fash.Sawyer@evri.com , Nathan.White@evri.com , David.Saenz@evri.com , Jack.Mitchell@evri.com , Jamie.Loc",
-   "seanl.doyle@ba.com": "mplaints and claims on the BA customer service portal. Email the CEO Sean Doyle Seanl.Doyle@ba.com Updated email options to try are detailed below. globalcust",
-   "seanldoyle@ba.com": "to CEO and 5 others about exemplary service all mails returned Your message to seanldoyle@ba.com couldn\u2019t be delivered. seanldoyle wasn\u2019t found at ba.com. R",
-   "shahid.tufail@ba.com": "re@ba.com basupport@email.ba.com Customer.Relations@holidays.britishairways.com Shahid.tufail@ba.com (Customer Experience Manager) Calum.Laming@ba.com (Chief Cu",
-   "yanaangela594@gmail.com": "y the ones that have the contract with Evri and can help you to sort the issue. Yanaangela594@gmail.com on February 11, 2024 at 2:09 PM hy my Name is yana angela,"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "ashvalo@hotmail.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "baholidays.contactcentre@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "ben.cordes@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "call.executiveclub@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "calum.laming@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "carl.lyon@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "chris.ashworth@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "claims@international.evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "customer.relations@holidays.britishairways.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "david.saenz@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "davidlutumba@yahoo.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "duty.office@holidays.ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "fash.sawyer@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "globalcustomerrelations@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "iykechemicals@gmail.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "jack.mitchell@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "jamie.lockett@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "jane.phillips@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "jane@ladyjaney.co.uk": [
-    "https://ladyjaney.co.uk/",
-    "https://ladyjaney.co.uk/contact/",
-    "https://ladyjaney.co.uk/about-me/",
-    "https://ladyjaney.co.uk/category/how-to-contact/",
-    "https://ladyjaney.co.uk/category/how-to-contact/%20",
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/",
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "manjit.brar.escalations@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "martijn.delange@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "nathan.white@evri.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ],
-   "seanl.doyle@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "seanldoyle@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "shahid.tufail@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "tom.stevens@ba.com": [
-    "https://ladyjaney.co.uk/how-to-contact-british-airways/"
-   ],
-   "yanaangela594@gmail.com": [
-    "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/"
-   ]
-  },
-  "pages": {
-   "https://ladyjaney.co.uk/": {
-    "final_url": "https://ladyjaney.co.uk/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://ladyjaney.co.uk/about-me/": {
-    "final_url": "https://ladyjaney.co.uk/about-me/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://ladyjaney.co.uk/category/how-to-contact/": {
-    "final_url": "https://ladyjaney.co.uk/category/how-to-contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://ladyjaney.co.uk/category/how-to-contact/%20": {
-    "final_url": "https://ladyjaney.co.uk/category/how-to-contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://ladyjaney.co.uk/contact/": {
-    "final_url": "https://ladyjaney.co.uk/contact/",
-    "rendered": false,
-    "status": 404
-   },
-   "https://ladyjaney.co.uk/how-to-contact-british-airways/": {
-    "final_url": "https://ladyjaney.co.uk/how-to-contact-british-airways/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/": {
-    "final_url": "https://ladyjaney.co.uk/lost-and-delayed-parcels-how-to-contact-evri/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-londonyaar": {
-  "article": {
-   "final_url": "https://www.londonyaar.com/blogs/17-affordable-eats-in-london-that-are-actually-worth-your-money",
+   "final_url": "https://hiddenscotland.co/chris-lindsays-glasgow-food-roundup/",
    "published": null,
    "status": 404,
-   "title": "Londonyaar",
-   "url": "https://www.londonyaar.com/blogs/17-affordable-eats-in-london-that-are-actually-worth-your-money"
+   "title": null,
+   "url": "https://hiddenscotland.co/chris-lindsays-glasgow-food-roundup/"
   },
   "context": {
-   "londonyaar@gmail.com": "ions or partnerships, feel free to reach out\u2014 I\u2019d love to hear from you! Email: londonyaar@gmail.com Londonyaar Privacy Policy | \u00a9 2026 Londonyaar Ltd | All Rig"
+   "hello@hiddenscotland.com": ". Designed and published in Aberdeenshire, printed and dispatched from Glasgow. hello@hiddenscotland.com Discover Places to stay Things to do Itineraries Library Th"
   },
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {
-   "londonyaar@gmail.com": [
-    "https://www.londonyaar.com/",
-    "https://www.londonyaar.com/privacy-policy"
+   "hello@hiddenscotland.com": [
+    "https://hiddenscotland.co/",
+    "https://hiddenscotland.com/contact",
+    "https://hiddenscotland.com/about",
+    "https://hiddenscotland.com/privacy-policy",
+    "https://hiddenscotland.com/terms-of-services"
    ]
   },
   "pages": {
-   "https://www.londonyaar.com/": {
-    "final_url": "https://www.londonyaar.com/",
+   "https://hiddenscotland.co/": {
+    "final_url": "https://hiddenscotland.com/",
     "rendered": false,
     "status": 200
    },
-   "https://www.londonyaar.com/about": {
-    "final_url": "https://www.londonyaar.com/about",
+   "https://hiddenscotland.co/about/": {
+    "final_url": "https://hiddenscotland.co/about/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://hiddenscotland.co/contact/": {
+    "final_url": "https://hiddenscotland.co/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://hiddenscotland.com/about": {
+    "final_url": "https://hiddenscotland.com/about",
     "rendered": false,
     "status": 200
    },
-   "https://www.londonyaar.com/contact": {
-    "final_url": "https://www.londonyaar.com/contact",
+   "https://hiddenscotland.com/contact": {
+    "final_url": "https://hiddenscotland.com/contact",
     "rendered": false,
     "status": 200
    },
-   "https://www.londonyaar.com/privacy-policy": {
-    "final_url": "https://www.londonyaar.com/privacy-policy",
+   "https://hiddenscotland.com/privacy-policy": {
+    "final_url": "https://hiddenscotland.com/privacy-policy",
     "rendered": false,
     "status": 200
    },
-   "https://www.londonyaar.com/tips-tricks-tales/japanese-market-in-london-everything-to-know-about-shtengai-market": {
-    "final_url": "https://www.londonyaar.com/tips-tricks-tales/japanese-market-in-london-everything-to-know-about-shtengai-market",
+   "https://hiddenscotland.com/terms-of-services": {
+    "final_url": "https://hiddenscotland.com/terms-of-services",
     "rendered": false,
     "status": 200
    }
   }
  },
- "b-oxfordshirefoodie": {
-  "article": null,
-  "context": {
-   "theoxfordshirefoodie@gmail.com": "alking about food is eating - John Walters \u00a92026 by The Oxfordshire Foodie Ltd. theoxfordshirefoodie@gmail.com Web design by SNOW-WINE Digital bottom of page"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "theoxfordshirefoodie@gmail.com": [
-    "https://www.theoxfordshirefoodie.co.uk/",
-    "https://www.theoxfordshirefoodie.co.uk/food",
-    "https://www.theoxfordshirefoodie.co.uk/about",
-    "https://www.theoxfordshirefoodie.co.uk/contact"
-   ]
-  },
-  "pages": {
-   "https://www.theoxfordshirefoodie.co.uk/": {
-    "final_url": "https://www.theoxfordshirefoodie.co.uk/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.theoxfordshirefoodie.co.uk/about": {
-    "final_url": "https://www.theoxfordshirefoodie.co.uk/about",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.theoxfordshirefoodie.co.uk/contact": {
-    "final_url": "https://www.theoxfordshirefoodie.co.uk/contact",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.theoxfordshirefoodie.co.uk/food": {
-    "final_url": "https://www.theoxfordshirefoodie.co.uk/food",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-philsfoodworld": {
+ "b-sevenstreets": {
   "article": {
-   "final_url": "https://philsfoodworld.blogspot.com/2024/10/review-sugo-glasgow.html",
-   "published": "2024-10-11T15:09:00-07:00",
-   "status": 200,
-   "title": "Review: Sugo, Glasgow",
-   "url": "https://philsfoodworld.blogspot.com/2024/10/review-sugo-glasgow.html"
-  },
-  "context": {
-   "philsfoodworld@gmail.com": "Other Apps Phil\u2019s Food World Media Kit Web: Philsfoodworld.blogspot.com/ Email: Philsfoodworld@gmail.com Phone: 0783 4817 915 Phil Cook has a career in the food ind"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "philsfoodworld@gmail.com": [
-    "https://philsfoodworld.blogspot.com/p/media_14.html"
-   ]
-  },
-  "pages": {
-   "https://philsfoodworld.blogspot.com/": {
-    "final_url": "https://philsfoodworld.blogspot.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://philsfoodworld.blogspot.com/p/media_14.html": {
-    "final_url": "https://philsfoodworld.blogspot.com/p/media_14.html",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-realmumreview": {
-  "article": null,
-  "context": {
-   "realmumreviews@gmail.com": "Pregnancy What I\u2019m Reading Giveaways Select Page Work with Me EMAIL ME \u2013 mailto:realmumreviews@gmail.com TWITTER \u2013 @realmumreview FACEBOOK \u2013 Real Mum Reviews INSTAG"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "realmumreviews@gmail.com": [
-    "https://realmumreview.com/contact/",
-    "https://realmumreview.com/about/",
-    "https://realmumreview.com/about/real-mum-reviews/",
-    "https://realmumreview.com/about/giveaway-terms-conditions/",
-    "https://realmumreview.com/privacy-policy/"
-   ]
-  },
-  "pages": {
-   "https://realmumreview.com/": {
-    "final_url": "https://realmumreview.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/about/": {
-    "final_url": "https://realmumreview.com/about/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/about/disclosure-policy/": {
-    "final_url": "https://realmumreview.com/about/disclosure-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/about/giveaway-terms-conditions/": {
-    "final_url": "https://realmumreview.com/about/giveaway-terms-conditions/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/about/real-mum-reviews/": {
-    "final_url": "https://realmumreview.com/about/real-mum-reviews/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/category/uncategorized/fun-games/books/": {
-    "final_url": "https://realmumreview.com/category/uncategorized/fun-games/books/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/contact/": {
-    "final_url": "https://realmumreview.com/about/contact-work-with-me/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/heading-to-verona-heres-why-you-should-always-book-opera-tickets-in-advance/": {
-    "final_url": "https://realmumreview.com/heading-to-verona-heres-why-you-should-always-book-opera-tickets-in-advance/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/privacy-policy/": {
-    "final_url": "https://realmumreview.com/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/reading-chest-book-subscription-review/": {
-    "final_url": "https://realmumreview.com/reading-chest-book-subscription-review/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://realmumreview.com/the-best-book-and-yoto-card-collection-combinations/": {
-    "final_url": "https://realmumreview.com/the-best-book-and-yoto-card-collection-combinations/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-retiredmartin": {
-  "article": {
-   "final_url": "https://retiredmartin.com/2025/04/20/disappearing-pub-lunches-in-sheffield/",
-   "published": "2025-04-20T08:12:07+00:00",
-   "status": 200,
-   "title": "DISAPPEARING PUB LUNCHES IN SHEFFIELD",
-   "url": "https://retiredmartin.com/2025/04/20/disappearing-pub-lunches-in-sheffield/"
-  },
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {},
-  "pages": {
-   "https://retiredmartin.com/": {
-    "final_url": "https://retiredmartin.com/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-rosetinted": {
-  "article": null,
-  "context": {},
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {},
-  "pages": {
-   "https://www.arosetintedworld.co.uk/": {
-    "final_url": "https://www.arosetintedworld.co.uk/",
-    "rendered": false,
-    "status": 403
-   },
-   "https://www.arosetintedworld.co.uk/contact/": {
-    "final_url": "https://www.arosetintedworld.co.uk/contact/",
-    "rendered": false,
-    "status": 403
-   }
-  }
- },
- "b-savinginlondon": {
-  "article": {
-   "final_url": "https://savinginlondoncity.com/blog/eat-out-for-cheap-save-money-dining/",
+   "final_url": "https://www.sevenstreets.com/top-ten-eats-under-a-fiver/",
    "published": null,
-   "status": 403,
-   "title": "403 - Forbidden",
-   "url": "https://savinginlondoncity.com/blog/eat-out-for-cheap-save-money-dining/"
+   "status": 525,
+   "title": "sevenstreets.com | 525: SSL handshake failed",
+   "url": "https://www.sevenstreets.com/top-ten-eats-under-a-fiver/"
   },
   "context": {},
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {},
   "pages": {
-   "https://savinginlondoncity.com/": {
-    "final_url": "https://savinginlondoncity.com/",
+   "https://www.sevenstreets.com/": {
+    "final_url": "https://www.sevenstreets.com/",
     "rendered": false,
-    "status": 403
+    "status": 525
    },
-   "https://savinginlondoncity.com/blog/": {
-    "final_url": "https://savinginlondoncity.com/blog/",
+   "https://www.sevenstreets.com/about/": {
+    "final_url": "https://www.sevenstreets.com/about/",
     "rendered": false,
-    "status": 403
+    "status": 525
+   },
+   "https://www.sevenstreets.com/contact/": {
+    "final_url": "https://www.sevenstreets.com/contact/",
+    "rendered": false,
+    "status": 525
    }
   }
  },
- "b-stephaniefox": {
-  "article": {
-   "final_url": "https://www.stephaniefox.co.uk/unique-places-to-eat-drink-in-glasgow/",
-   "published": "2020-08-28T05:00:20+00:00",
-   "status": 200,
-   "title": "Unique Places To Eat & Drink In Glasgow | Stephanie Fox Blog",
-   "url": "https://www.stephaniefox.co.uk/unique-places-to-eat-drink-in-glasgow/"
-  },
-  "context": {
-   "info@stephaniefox.co.uk": "anie Fox Our website address is: https://www.stephaniefox.co.uk. Email contact: info@stephaniefox.co.uk I understand that your privacy is important to you and that",
-   "stephfox143@gmail.com": "ays Things To Do Contact If you are interested in working with me, please email stephfox143@gmail.com About Me Stephanie Fox: Newcastle, Travel and Lifestyle A N"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "info@stephaniefox.co.uk": [
-    "https://www.stephaniefox.co.uk/about/privacy-policy/"
-   ],
-   "stephfox143@gmail.com": [
-    "https://www.stephaniefox.co.uk/contact/"
-   ]
-  },
-  "pages": {
-   "https://www.stephaniefox.co.uk/": {
-    "final_url": "https://www.stephaniefox.co.uk/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.stephaniefox.co.uk/about/privacy-policy/": {
-    "final_url": "https://www.stephaniefox.co.uk/about/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.stephaniefox.co.uk/all-about-an-anti-prestige-ski-trip-to-bulgaria-why-you-should-do-it-too/": {
-    "final_url": "https://www.stephaniefox.co.uk/all-about-an-anti-prestige-ski-trip-to-bulgaria-why-you-should-do-it-too/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.stephaniefox.co.uk/contact/": {
-    "final_url": "https://www.stephaniefox.co.uk/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.stephaniefox.co.uk/stephaniefox-about/": {
-    "final_url": "https://www.stephaniefox.co.uk/stephaniefox-about/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.stephaniefox.co.uk/the-digital-detox-alternative-why-real-time-video-calls-beat-endless-social-media-swiping/": {
-    "final_url": "https://www.stephaniefox.co.uk/the-digital-detox-alternative-why-real-time-video-calls-beat-endless-social-media-swiping/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-travelwithkat": {
-  "article": {
-   "final_url": "https://travelwithkat.com/the-best-restaurants-in-belfast/",
-   "published": null,
-   "status": 403,
-   "title": "403 - Forbidden",
-   "url": "https://travelwithkat.com/the-best-restaurants-in-belfast/"
-  },
+ "s-beardmeatsfood": {
+  "article": null,
   "context": {},
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {},
   "pages": {
-   "https://travelwithkat.com/": {
-    "final_url": "https://travelwithkat.com/",
-    "rendered": false,
-    "status": 403
+   "https://beardmeatsfood.com/": {
+    "final_url": "https://forsale.godaddy.com/forsale/beardmeatsfood.com?utm_source=TDFS_DASLNC&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-daslnc_base&traffic_type=TDFS_DASLNC&traffic_id=daslnc&",
+    "rendered": true,
+    "status": 200
    },
-   "https://travelwithkat.com/contact/": {
-    "final_url": "https://travelwithkat.com/contact/",
+   "https://www.youtube.com/@BeardMeatsFood/about": {
+    "final_url": "https://www.youtube.com/@BeardMeatsFood/about",
     "rendered": false,
-    "status": 403
+    "status": 200
+   },
+   "https://www.youtube.com/about/": {
+    "final_url": "https://about.youtube/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/about/copyright/": {
+    "final_url": "https://www.youtube.com/howyoutubeworks/copyright/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/about/press/": {
+    "final_url": "https://blog.youtube/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/contact_us/": {
+    "final_url": "https://www.youtube.com/t/contact_us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/privacy": {
+    "final_url": "https://policies.google.com/privacy?hl=en-GB",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/terms": {
+    "final_url": "https://www.youtube.com/t/terms",
+    "rendered": false,
+    "status": 200
    }
   }
  },
- "b-wanderlustchloe": {
-  "article": {
-   "final_url": "https://www.wanderlustchloe.com/cheap-restaurants-london/",
-   "published": "2016-01-25T07:50:08+00:00",
-   "status": 200,
-   "title": "21 BEST Cheap Restaurants In Central London: 2026 Food Guide",
-   "url": "https://www.wanderlustchloe.com/cheap-restaurants-london/"
-  },
+ "s-kayscooking": {
+  "article": null,
   "context": {},
   "email_confirmed": null,
   "email_seen_on": [],
-  "emails_found": {
-   "%20chloe@wanderlustchloe.com": [
-    "https://www.wanderlustchloe.com/work-with-me/"
-   ],
-   "chloe@wanderlustchloe.com": [
-    "https://www.wanderlustchloe.com/privacy-policy/"
-   ]
-  },
+  "emails_found": {},
   "pages": {
-   "https://www.wanderlustchloe.com/": {
-    "final_url": "https://www.wanderlustchloe.com/",
+   "https://www.youtube.com/@kayscooking/about": {
+    "final_url": "https://www.youtube.com/@kayscooking/about",
     "rendered": false,
     "status": 200
    },
-   "https://www.wanderlustchloe.com/about-wanderlust-chloe/": {
-    "final_url": "https://www.wanderlustchloe.com/about-wanderlust-chloe/",
+   "https://www.youtube.com/about/": {
+    "final_url": "https://about.youtube/",
     "rendered": false,
     "status": 200
    },
-   "https://www.wanderlustchloe.com/contact/": {
-    "final_url": "https://www.wanderlustchloe.com/contact/",
+   "https://www.youtube.com/about/copyright/": {
+    "final_url": "https://www.youtube.com/howyoutubeworks/copyright/",
     "rendered": false,
     "status": 200
    },
-   "https://www.wanderlustchloe.com/press-and-media/": {
-    "final_url": "https://www.wanderlustchloe.com/press-and-media/",
+   "https://www.youtube.com/about/press/": {
+    "final_url": "https://blog.youtube/",
     "rendered": false,
     "status": 200
    },
-   "https://www.wanderlustchloe.com/privacy-policy/": {
-    "final_url": "https://www.wanderlustchloe.com/privacy-policy/",
+   "https://www.youtube.com/t/contact_us/": {
+    "final_url": "https://www.youtube.com/t/contact_us/",
     "rendered": false,
     "status": 200
    },
-   "https://www.wanderlustchloe.com/work-with-me/": {
-    "final_url": "https://www.wanderlustchloe.com/work-with-me/",
+   "https://www.youtube.com/t/privacy": {
+    "final_url": "https://policies.google.com/privacy?hl=en-GB",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.youtube.com/t/terms": {
+    "final_url": "https://www.youtube.com/t/terms",
     "rendered": false,
     "status": 200
    }
   }
  },
- "b-wanderlustforlife": {
-  "article": {
-   "final_url": "https://www.awanderlustforlife.com/cheap-eats-in-london/",
-   "published": "2022-05-06T09:38:00+00:00",
-   "status": 200,
-   "title": "Cheap eats in London for \u00a310 or less - A Wanderlust for Life",
-   "url": "https://www.awanderlustforlife.com/cheap-eats-in-london/"
-  },
-  "context": {
-   "awanderlustforlife@gmail.com": "ons by following the unsubscribe links in our emails. You may also notify us at awanderlustforlife@gmail.com to be removed from our mailing list. Access You may access"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "awanderlustforlife@gmail.com": [
-    "https://www.awanderlustforlife.com/cookie-privacy-policy/"
-   ],
-   "jessica@awanderlustforlife.com": [
-    "https://www.awanderlustforlife.com/contact/",
-    "https://www.awanderlustforlife.com/about-us/vision-and-values/",
-    "https://www.awanderlustforlife.com/about-us/press/",
-    "https://www.awanderlustforlife.com/about-us/work-with-us/"
-   ]
-  },
-  "pages": {
-   "https://www.awanderlustforlife.com/": {
-    "final_url": "https://www.awanderlustforlife.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/about-us/press/": {
-    "final_url": "https://www.awanderlustforlife.com/about-us/press/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/about-us/vision-and-values/": {
-    "final_url": "https://www.awanderlustforlife.com/about-us/vision-and-values/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/about-us/work-with-us/": {
-    "final_url": "https://www.awanderlustforlife.com/about-us/work-with-us/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/book-your-travel/": {
-    "final_url": "https://www.awanderlustforlife.com/book-your-travel/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/contact/": {
-    "final_url": "https://www.awanderlustforlife.com/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.awanderlustforlife.com/cookie-privacy-policy/": {
-    "final_url": "https://www.awanderlustforlife.com/cookie-privacy-policy/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-whileimyoung": {
-  "article": {
-   "final_url": "https://www.whileimyoung.com/best-places-to-eat-in-durham-england/",
-   "published": "2022-11-15T13:50:07+00:00",
-   "status": 200,
-   "title": "Best Places To Eat In Durham, England - While I'm Young",
-   "url": "https://www.whileimyoung.com/best-places-to-eat-in-durham-england/"
-  },
-  "context": {
-   "noonandannielle@gmail.com": "d privacy policies, please visit Mediavine Partners . Please email dannielle at noonandannielle@gmail.com if you have any questions. I respect your privacy and don\u2019t"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "noonandannielle@gmail.com": [
-    "https://www.whileimyoung.com/",
-    "https://www.whileimyoung.com/about/",
-    "https://www.whileimyoung.com/privacy-policy/"
-   ]
-  },
-  "pages": {
-   "https://www.whileimyoung.com/": {
-    "final_url": "https://www.whileimyoung.com/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.whileimyoung.com/about/": {
-    "final_url": "https://www.whileimyoung.com/about/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.whileimyoung.com/contact/": {
-    "final_url": "https://www.whileimyoung.com/contact/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.whileimyoung.com/privacy-policy/": {
-    "final_url": "https://www.whileimyoung.com/privacy-policy/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.whileimyoung.com/the-reserve-at-chester-zoo-accommodation-review/": {
-    "final_url": "https://www.whileimyoung.com/the-reserve-at-chester-zoo-accommodation-review/",
-    "rendered": false,
-    "status": 200
-   },
-   "https://www.whileimyoung.com/trekking-in-nepal-for-the-first-time-what-uk-travellers-need-to-know-before-booking/": {
-    "final_url": "https://www.whileimyoung.com/trekking-in-nepal-for-the-first-time-what-uk-travellers-need-to-know-before-booking/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-yorkshireman": {
+ "s-samaansaripour": {
   "article": null,
   "context": {
-   "hello@the-yorkshireman.com": "-related story to cover or simply want to get in touch? Contact us via email on hello@the-yorkshireman.com Please leave this field empty Sign up to receive The Yorksh"
+   "finance.budapest@timeout.com": "st or make a complaint, you can contact the Data Protection Officer by email at finance.budapest@timeout.com . In the locations listed in the table below, third party f",
+   "investor_relations@timeout.com": "to know more, contact a member of the Time Out Group team: Investor enquiries: investor_relations@timeout.com Press enquiries: pr@timeout.com If you have any other enqui",
+   "legal@timeout.com": "objectionable or infringe any intellectual property rights please contact us at legal@timeout.com . On our receipt of such notice we shall commence an invest",
+   "pr@timeout.com": "Group team: Investor enquiries: investor_relations@timeout.com Press enquiries: pr@timeout.com If you have any other enquiries please visit our contact us",
+   "privacy@timeout.com": "on UK & France Time Out England Limited Time Out Market Limited Time Out France privacy@timeout.com Portugal Time Out Portugal, Unipessoal, Lda MC - Mercados d"
   },
   "email_confirmed": null,
   "email_seen_on": [],
   "emails_found": {
-   "hello@the-yorkshireman.com": [
-    "https://the-yorkshireman.com/contact-us/"
+   "finance.budapest@timeout.com": [
+    "https://www.timeout.com/privacy-notice"
+   ],
+   "investor_relations@timeout.com": [
+    "https://www.timeout.com/about/investors"
+   ],
+   "legal@timeout.com": [
+    "https://www.timeout.com/terms-of-use"
+   ],
+   "nprivacy@timeout.com": [
+    "https://www.timeout.com/privacy-notice"
+   ],
+   "pr@timeout.com": [
+    "https://www.timeout.com/about/latest-news",
+    "https://www.timeout.com/about/investors"
+   ],
+   "privacy@timeout.com": [
+    "https://www.timeout.com/privacy-notice"
    ]
   },
   "pages": {
-   "https://the-yorkshireman.com/": {
-    "final_url": "https://the-yorkshireman.com/",
+   "https://www.timeout.com/about": {
+    "final_url": "https://www.timeout.com/about",
     "rendered": false,
     "status": 200
    },
-   "https://the-yorkshireman.com/about-us/": {
-    "final_url": "https://the-yorkshireman.com/about-us/",
+   "https://www.timeout.com/about/investors": {
+    "final_url": "https://www.timeout.com/about/investors",
     "rendered": false,
     "status": 200
    },
-   "https://the-yorkshireman.com/contact-us/": {
-    "final_url": "https://the-yorkshireman.com/contact-us/",
+   "https://www.timeout.com/about/latest-news": {
+    "final_url": "https://www.timeout.com/about/latest-news",
     "rendered": false,
     "status": 200
    },
-   "https://the-yorkshireman.com/privacy-policy/": {
-    "final_url": "https://the-yorkshireman.com/privacy-policy/",
+   "https://www.timeout.com/about/time-out-destinations": {
+    "final_url": "https://www.timeout.com/about/time-out-destinations",
     "rendered": false,
     "status": 200
    },
-   "https://the-yorkshireman.com/terms-of-use/": {
-    "final_url": "https://the-yorkshireman.com/terms-of-use/",
-    "rendered": false,
-    "status": 200
-   }
-  }
- },
- "b-yorkshirewonders": {
-  "article": {
-   "final_url": "https://yorkshirewonders.co.uk/afternoon-tea-harrogate",
-   "published": "2023-05-25T14:10:01+00:00",
-   "status": 200,
-   "title": "5 Places for the Best Afternoon Tea in Harrogate \u22c6 Yorkshire Wonders",
-   "url": "https://yorkshirewonders.co.uk/afternoon-tea-harrogate"
-  },
-  "context": {
-   "nikki@yorkshirewonders.co.uk": "cy Policy Blog Post Home Contact Me Contact Me Please feel free to email me at: nikki@yorkshirewonders.co.uk . Learn more about our Family Travel Blog and see our media"
-  },
-  "email_confirmed": null,
-  "email_seen_on": [],
-  "emails_found": {
-   "nikki@yorkshirewonders.co.uk": [
-    "https://yorkshirewonders.co.uk/contact",
-    "https://yorkshirewonders.co.uk/contact-me"
-   ]
-  },
-  "pages": {
-   "https://yorkshirewonders.co.uk/": {
-    "final_url": "https://yorkshirewonders.co.uk/",
+   "https://www.timeout.com/privacy-notice": {
+    "final_url": "https://www.timeout.com/privacy-notice",
     "rendered": false,
     "status": 200
    },
-   "https://yorkshirewonders.co.uk/contact": {
-    "final_url": "https://yorkshirewonders.co.uk/contact-me",
+   "https://www.timeout.com/profile/sama-ansari-pour": {
+    "final_url": "https://www.timeout.com/profile/sama-ansari-pour",
     "rendered": false,
     "status": 200
    },
-   "https://yorkshirewonders.co.uk/contact-me": {
-    "final_url": "https://yorkshirewonders.co.uk/contact-me",
-    "rendered": false,
-    "status": 200
-   },
-   "https://yorkshirewonders.co.uk/privacy-policy": {
-    "final_url": "https://yorkshirewonders.co.uk/privacy-policy",
+   "https://www.timeout.com/terms-of-use": {
+    "final_url": "https://www.timeout.com/terms-of-use",
     "rendered": false,
     "status": 200
    }
