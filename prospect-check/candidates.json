@@ -1,510 +1,237 @@
 [
  {
-  "id": "s-bosfinesse",
+  "id": "b-documentingmydinner",
   "pages": [
-   "https://linktr.ee/bosfinesse"
+   "https://www.documentingmydinner.com/",
+   "https://www.documentingmydinner.com/workwithme/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "a-onlyscrans",
+  "id": "b-stephaniefox",
   "pages": [
-   "https://ruthlesstalent.com/creators/only-scrans/",
-   "https://ruthlesstalent.com/contact/",
-   "https://motionapp.com/creator/onlyscrans/"
+   "https://www.stephaniefox.co.uk/",
+   "https://www.stephaniefox.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "https://www.stephaniefox.co.uk/unique-places-to-eat-drink-in-glasgow/",
+  "follow": true
+ },
+ {
+  "id": "b-philsfoodworld",
+  "pages": [
+   "https://philsfoodworld.blogspot.com/"
+  ],
+  "email": "",
+  "article": "https://philsfoodworld.blogspot.com/2024/10/review-sugo-glasgow.html",
+  "follow": true
+ },
+ {
+  "id": "b-travelwithkat",
+  "pages": [
+   "https://travelwithkat.com/",
+   "https://travelwithkat.com/contact/"
+  ],
+  "email": "",
+  "article": "https://travelwithkat.com/the-best-restaurants-in-belfast/",
+  "follow": true
+ },
+ {
+  "id": "b-hungrybritish",
+  "pages": [
+   "https://www.hungrybritish.com/",
+   "https://www.hungrybritish.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.hungrybritish.com/north-east-england/",
+  "follow": true
+ },
+ {
+  "id": "b-whileimyoung",
+  "pages": [
+   "https://www.whileimyoung.com/",
+   "https://www.whileimyoung.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.whileimyoung.com/best-places-to-eat-in-durham-england/",
+  "follow": true
+ },
+ {
+  "id": "b-retiredmartin",
+  "pages": [
+   "https://retiredmartin.com/"
+  ],
+  "email": "",
+  "article": "https://retiredmartin.com/2025/04/20/disappearing-pub-lunches-in-sheffield/",
+  "follow": true
+ },
+ {
+  "id": "b-oxfordshirefoodie",
+  "pages": [
+   "https://www.theoxfordshirefoodie.co.uk/",
+   "https://www.theoxfordshirefoodie.co.uk/food"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "s-chickenconn",
+  "id": "b-yorkshirewonders",
   "pages": [
-   "https://www.youtube.com/@TheChickenConnoisseur/about"
+   "https://yorkshirewonders.co.uk/",
+   "https://yorkshirewonders.co.uk/contact"
+  ],
+  "email": "",
+  "article": "https://yorkshirewonders.co.uk/afternoon-tea-harrogate",
+  "follow": true
+ },
+ {
+  "id": "b-yorkshireman",
+  "pages": [
+   "https://the-yorkshireman.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "s-foodreviewclub",
+  "id": "b-britbreakfast",
   "pages": [
-   "https://linktr.ee/foodreviewclub",
-   "https://foodreviewclub.co.uk/",
-   "https://foodreviewclub.co.uk/contact/",
-   "https://foodreviewclub.co.uk/about/"
+   "https://britbreakfast.com/"
   ],
   "email": "",
-  "article": "https://foodreviewclub.co.uk/locations/milton-keynes-reviews/",
+  "article": "https://britbreakfast.com/blog-toby-carvery/",
   "follow": true
  },
  {
-  "id": "s-eatingwithtod",
+  "id": "b-becleverwithcash",
   "pages": [
-   "https://motionapp.com/creator/eating-with-tod/",
-   "https://linktr.ee/eatingwithtod"
+   "https://becleverwithyourcash.com/",
+   "https://becleverwithyourcash.com/contact/",
+   "https://becleverwithyourcash.com/about/"
   ],
   "email": "",
-  "article": "",
+  "article": "https://becleverwithyourcash.com/is-a-tastecard-or-other-dining-card-worth-it/",
   "follow": true
  },
  {
-  "id": "s-hawkker",
+  "id": "b-ladyjaney",
   "pages": [
-   "https://hawkker.com",
-   "https://hawkker.com/contact"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "s-cheatdaymcr",
-  "pages": [
-   "https://linktr.ee/cheatdaymcr"
+   "https://ladyjaney.co.uk/",
+   "https://ladyjaney.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "s-scouseghetto",
+  "id": "b-realmumreview",
   "pages": [
-   "https://linktr.ee/thescouseghettogourmet"
+   "https://realmumreview.com/",
+   "https://realmumreview.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "a-clerkenwellboy",
+  "id": "b-savinginlondon",
   "pages": [
-   "https://www.aevitascreative.com/client/clerkenwell-boy",
-   "https://londontheinside.com/clerkenwell-boy-food-travel-instagramer/"
+   "https://savinginlondoncity.com/",
+   "https://savinginlondoncity.com/blog/"
+  ],
+  "email": "",
+  "article": "https://savinginlondoncity.com/blog/eat-out-for-cheap-save-money-dining/",
+  "follow": true
+ },
+ {
+  "id": "b-rosetinted",
+  "pages": [
+   "https://www.arosetintedworld.co.uk/",
+   "https://www.arosetintedworld.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "s-stephentries",
+  "id": "b-homegirllondon",
   "pages": [
-   "https://linktr.ee/stephentries"
+   "https://homegirllondon.com/",
+   "https://homegirllondon.com/contact/"
+  ],
+  "email": "",
+  "article": "https://homegirllondon.com/london-restaurant-blog/",
+  "follow": true
+ },
+ {
+  "id": "b-dreambig",
+  "pages": [
+   "https://www.dreambigtravelfarblog.com/",
+   "https://www.dreambigtravelfarblog.com/contact"
+  ],
+  "email": "",
+  "article": "https://www.dreambigtravelfarblog.com/blog/best-cheap-eats-london",
+  "follow": true
+ },
+ {
+  "id": "b-budgettraveller",
+  "pages": [
+   "https://budgettraveller.org/",
+   "https://budgettraveller.org/contact/",
+   "https://budgettraveller.org/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://budgettraveller.org/best-cheap-eats-london-guide/",
+  "follow": true
+ },
+ {
+  "id": "b-wanderlustchloe",
+  "pages": [
+   "https://www.wanderlustchloe.com/",
+   "https://www.wanderlustchloe.com/contact/",
+   "https://www.wanderlustchloe.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "https://www.wanderlustchloe.com/cheap-restaurants-london/",
+  "follow": true
+ },
+ {
+  "id": "b-wanderlustforlife",
+  "pages": [
+   "https://www.awanderlustforlife.com/",
+   "https://www.awanderlustforlife.com/contact/"
+  ],
+  "email": "",
+  "article": "https://www.awanderlustforlife.com/cheap-eats-in-london/",
+  "follow": true
+ },
+ {
+  "id": "b-londonyaar",
+  "pages": [
+   "https://www.londonyaar.com/"
+  ],
+  "email": "",
+  "article": "https://www.londonyaar.com/blogs/17-affordable-eats-in-london-that-are-actually-worth-your-money",
+  "follow": true
+ },
+ {
+  "id": "a-clerkenwellboy2",
+  "pages": [
+   "https://www.aevitascreative.com/contact",
+   "https://clerkenwellboy.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "s-biteyourbrum",
+  "id": "a-gracedent2",
   "pages": [
-   "https://linktr.ee/biteyourbrum"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "s-rarewelshbit",
-  "pages": [
-   "https://www.therarewelshbit.com/contact"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "s-foodyfella",
-  "pages": [
-   "https://motionapp.com/creator/foodyfella/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "a-macmaster",
-  "pages": [
-   "https://ruthlesstalent.com/creators/macmaster/"
-  ],
-  "email": "",
-  "article": "https://ruthlesstalent.com/testing-tiktok-sensations-a-realists-guide-to-londons-most-hyped-food-spots/",
-  "follow": true
- },
- {
-  "id": "a-whereswes",
-  "pages": [
-   "https://ruthlesstalent.com/creators/wheres-wes/",
-   "https://www.youtube.com/@WheresWes/about"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "a-gracedent",
-  "pages": [
-   "https://www.intertalentgroup.com/client/grace-dent/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-eatlikeagirl",
-  "pages": [
-   "https://eatlikeagirl.com/",
-   "https://eatlikeagirl.com/contact/",
-   "https://eatlikeagirl.com/about/",
-   "https://influencermatchmaker.co.uk/influencer/eat-like-a-girl"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-lovenorwich",
-  "pages": [
-   "https://www.lovenorwichfood.co.uk/",
-   "https://www.lovenorwichfood.co.uk/contact/",
-   "https://www.lovenorwichfood.co.uk/about/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "n-bristolsauce",
-  "pages": [
-   "https://www.thebristolsauce.com/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-stickybeak",
-  "pages": [
-   "https://www.thestickybeak.co.uk/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-southamptonfood",
-  "pages": [
-   "https://www.southamptonfood.co.uk/",
-   "https://www.southamptonfood.co.uk/contact",
-   "https://www.southamptonfood.co.uk/about"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-portsmouthfood",
-  "pages": [
-   "https://portsmouthfoodguide.co.uk/",
-   "https://portsmouthfoodguide.co.uk/contact/",
-   "https://portsmouthfoodguide.co.uk/about/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-becc4",
-  "pages": [
-   "https://www.becc4.co.uk/",
-   "https://www.becc4.co.uk/p/contact.html"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-wooloftheking",
-  "pages": [
-   "https://www.wooloftheking.com/",
-   "https://www.wooloftheking.com/p/contact.html"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-graphicfoodie",
-  "pages": [
-   "https://www.thegraphicfoodie.co.uk/",
-   "https://www.thegraphicfoodie.co.uk/contact",
-   "https://www.thegraphicfoodie.co.uk/about"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-exploringexeter",
-  "pages": [
-   "https://www.exploringexeter.co.uk/",
-   "https://www.exploringexeter.co.uk/contact/",
-   "https://www.exploringexeter.co.uk/about/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-latoyah",
-  "pages": [
-   "https://www.latoyah.co.uk/",
-   "https://www.latoyah.co.uk/p/contact.html"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-gosouthwest",
-  "pages": [
-   "https://gosouthwestengland.co.uk/",
-   "https://gosouthwestengland.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "https://gosouthwestengland.co.uk/restaurants-in-exeter/",
-  "follow": true
- },
- {
-  "id": "b-inksplott",
-  "pages": [
-   "https://www.inksplott.co.uk/",
-   "https://www.inksplott.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-imjustagirl",
-  "pages": [
-   "https://www.imjustagirl16.co.uk/",
-   "https://www.imjustagirl16.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "https://www.imjustagirl16.co.uk/best-places-to-eat-in-swansea-bay-mumbles-gower/",
-  "follow": true
- },
- {
-  "id": "b-freshhomecook",
-  "pages": [
-   "https://freshhomecook.com/",
-   "https://freshhomecook.com/contact/"
-  ],
-  "email": "",
-  "article": "https://freshhomecook.com/rediscovering-swanseas-food-scene/",
-  "follow": true
- },
- {
-  "id": "b-carouseldiary",
-  "pages": [
-   "https://carouseldiary.com/",
-   "https://carouseldiary.com/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-mkfoodie",
-  "pages": [
-   "https://mkfoodie.co.uk/",
-   "https://mkfoodie.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-lifeofman",
-  "pages": [
-   "https://lifeofman.co.uk/",
-   "https://lifeofman.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-foodoholism",
-  "pages": [
-   "https://foodoholism.com/",
-   "https://foodoholism.com/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-bridgesballoons",
-  "pages": [
-   "https://bridgesandballoons.com/",
-   "https://bridgesandballoons.com/contact/"
-  ],
-  "email": "",
-  "article": "https://bridgesandballoons.com/best-bristol-restaurants/",
-  "follow": true
- },
- {
-  "id": "b-lifelessorg",
-  "pages": [
-   "https://lifelessorganised.com/",
-   "https://lifelessorganised.com/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-heartofengland",
-  "pages": [
-   "https://exploretheheartofengland.co.uk/",
-   "https://exploretheheartofengland.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "https://exploretheheartofengland.co.uk/restaurants-in-stoke-on-trent/",
-  "follow": true
- },
- {
-  "id": "b-foodieboomboom",
-  "pages": [
-   "https://foodieboomboom.blog/",
-   "https://foodieboomboom.blog/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-edinreviews",
-  "pages": [
-   "https://edinburgh-reviews.co.uk/",
-   "https://edinburgh-reviews.co.uk/contact/",
-   "https://edinburgh-reviews.co.uk/about/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-blogpreston",
-  "pages": [
-   "https://www.blogpreston.co.uk/",
-   "https://www.blogpreston.co.uk/contact/",
-   "https://www.blogpreston.co.uk/advertise/"
-  ],
-  "email": "",
-  "article": "https://www.blogpreston.co.uk/2026/01/a-year-of-eating-out-in-preston-our-food-reviews-from-2025/",
-  "follow": true
- },
- {
-  "id": "b-cumbria24",
-  "pages": [
-   "https://cumbria24.com/",
-   "https://cumbria24.com/contact/",
-   "https://cumbria24.com/advertise/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-wheregoesrose",
-  "pages": [
-   "https://www.wheregoesrose.com/",
-   "https://www.wheregoesrose.com/contact/",
-   "https://www.wheregoesrose.com/work-with-me/"
-  ],
-  "email": "",
-  "article": "https://www.wheregoesrose.com/cheap-eats-manchester-city-centre/",
-  "follow": true
- },
- {
-  "id": "b-mcrrestaurants",
-  "pages": [
-   "https://manchesterrestaurants.com/",
-   "https://manchesterrestaurants.com/affordable.htm"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-boredoflunch",
-  "pages": [
-   "https://boredoflunch.com/",
-   "https://boredoflunch.com/pages/contact"
-  ],
-  "email": "",
-  "article": "https://boredoflunch.com/blogs/the-best-places-to-eat-in-belfast/",
-  "follow": true
- },
- {
-  "id": "b-foodiequine",
-  "pages": [
-   "https://www.foodiequine.co.uk/",
-   "https://www.foodiequine.co.uk/p/contact.html"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-eatliverpool",
-  "pages": [
-   "https://eatliverpool.co.uk/",
-   "https://eatliverpool.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-cheesebiscuits",
-  "pages": [
-   "https://www.cheeseandbiscuits.org/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "b-londonfoodie",
-  "pages": [
-   "https://www.thelondonfoodie.co.uk/",
-   "https://www.thelondonfoodie.co.uk/p/contact.html"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "n-gastrogays",
-  "pages": [
-   "https://gastrogays.com/",
-   "https://gastrogays.com/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "n-vittles",
-  "pages": [
-   "https://www.vittlesmagazine.com/",
-   "https://vittles.substack.com/about"
+   "https://www.intertalentgroup.com/contact/",
+   "https://www.intertalentgroup.com/"
   ],
   "email": "",
   "article": "",
