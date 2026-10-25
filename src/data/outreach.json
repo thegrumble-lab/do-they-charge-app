@@ -1721,5 +1721,229 @@
   "outlet": "Hidden Scotland",
   "angle": "",
   "variant": "creator"
+ },
+ {
+  "campaign": "restaurant",
+  "email": "info@pacos.co.uk",
+  "name": "Paco's Restaurant",
+  "first": "",
+  "page": "https://discretionary.uk/perth-and-kinross/paco-s-restaurant",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "restaurant",
+  "email": "info@larkrestaurant.net",
+  "name": "Lark",
+  "first": "",
+  "page": "https://discretionary.uk/west-suffolk/lark",
+  "basis": "own",
+  "outlet": "",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "consumer.champions@theguardian.com",
+  "name": "Guardian Consumer Champions",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Guardian",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "pitches@spectator.co.uk",
+  "name": "The Spectator",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Spectator",
+  "angle": "The Spectator's piece on Gordon Ramsay and the tyranny of the restaurant service charge"
+ },
+ {
+  "campaign": "press",
+  "email": "james.stagg@thecaterer.com",
+  "name": "James Stagg",
+  "first": "James",
+  "page": "",
+  "basis": "",
+  "outlet": "The Caterer",
+  "angle": "The Caterer's nine takeaways from its tipping summit"
+ },
+ {
+  "campaign": "press",
+  "email": "reporters@expressandstar.co.uk",
+  "name": "Express & Star newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Express & Star",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "reporters@dailyrecord.co.uk",
+  "name": "Daily Record newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Daily Record",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@glasgowlive.co.uk",
+  "name": "Glasgow Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Glasgow Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@edinburghlive.co.uk",
+  "name": "Edinburgh Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Edinburgh Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "scot.news@express.co.uk",
+  "name": "Scottish Daily Express newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Scottish Daily Express",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "news@belfastlive.co.uk",
+  "name": "Belfast Live newsdesk",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Belfast Live",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@manchestermill.co.uk",
+  "name": "The Mill",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Manchester Mill",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@livpost.co.uk",
+  "name": "The Post",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Post, Liverpool",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "editor@the-londoner.co.uk",
+  "name": "The Londoner",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Londoner",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "priyanka@thebristolcable.org",
+  "name": "Priyanka Raval",
+  "first": "Priyanka",
+  "page": "",
+  "basis": "",
+  "outlet": "The Bristol Cable",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "uknews@lovemoney.com",
+  "name": "loveMONEY news",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "loveMONEY",
+  "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "jeff@newcastleeats.co.uk",
+  "name": "Jeff Lyall",
+  "first": "Jeff",
+  "page": "",
+  "basis": "",
+  "outlet": "Newcastle Eats",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@heylolly.co.uk",
+  "name": "Hey Lolly",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hey Lolly",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "tartanspoon@yahoo.co.uk",
+  "name": "TartanSpoon",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "TartanSpoon",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "sammy@thethirdplace.co.uk",
+  "name": "The Third Place",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Third Place",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@brightonjournal.co.uk",
+  "name": "Brighton Journal",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Brighton Journal",
+  "angle": "your guide to restaurants in Brighton"
+ },
+ {
+  "campaign": "press",
+  "email": "editor@suffolknorfolklife.com",
+  "name": "Kevin Davis",
+  "first": "Kevin",
+  "page": "",
+  "basis": "",
+  "outlet": "Suffolk Norfolk Life",
+  "angle": ""
  }
 ]
