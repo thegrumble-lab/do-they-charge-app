@@ -1,440 +1,275 @@
 [
  {
-  "id": "eat-like-a-girl",
+  "id": "retired-martin",
   "pages": [
-   "https://eatlikeagirl.com/",
-   "https://eatlikeagirl.com/contact/"
+   "https://retiredmartin.com/",
+   "https://retiredmartin.com/about/"
+  ],
+  "email": "",
+  "article": "https://retiredmartin.com/2025/12/13/the-joy-of-burgess-hill-spoons/",
+  "follow": true
+ },
+ {
+  "id": "rdldn",
+  "pages": [
+   "https://www.rdldn.co.uk/",
+   "https://blog.rdldn.co.uk/about/"
+  ],
+  "email": "",
+  "article": "https://blog.rdldn.co.uk/10-best-roast-dinners-in-london-2025/",
+  "follow": true
+ },
+ {
+  "id": "ne-family-fun",
+  "pages": [
+   "https://www.northeastfamilyfun.co.uk/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "london-foodie",
+  "id": "eat-north-east",
   "pages": [
-   "https://www.thelondonfoodie.co.uk/",
-   "https://www.thelondonfoodie.co.uk/p/contact.html"
+   "https://eatnortheast.blog/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "cheese-and-biscuits",
+  "id": "secret-diner",
   "pages": [
-   "https://www.cheeseandbiscuits.org/"
+   "https://www.secretdiner.org/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "homegirl-london",
+  "id": "jamie-chance",
   "pages": [
-   "https://homegirllondon.com/",
-   "https://homegirllondon.com/contact"
+   "https://jamiechancetravels.com/",
+   "https://jamiechancetravels.com/contact/"
   ],
   "email": "",
-  "article": "https://homegirllondon.com/london-food-blog/",
+  "article": "https://jamiechancetravels.com/blog/places-to-eat-in-newcastle/",
   "follow": true
  },
  {
-  "id": "a-girl-has-to-eat",
+  "id": "rare-welsh-bit",
   "pages": [
-   "https://www.agirlhastoeat.com/",
-   "https://www.agirlhastoeat.com/contact/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "hold-the-anchovies",
-  "pages": [
-   "https://www.holdtheanchoviesplease.com/"
+   "https://www.therarewelshbit.com/",
+   "https://www.therarewelshbit.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "london-the-inside",
+  "id": "btown-social",
   "pages": [
-   "https://londontheinside.com/",
-   "https://londontheinside.com/contact/"
-  ],
-  "email": "",
-  "article": "https://londontheinside.com/how-technology-is-revolutionising-service-in-london-restaurants/",
-  "follow": true
- },
- {
-  "id": "foodyfella",
-  "pages": [
-   "https://motionapp.com/creator/foodyfella/"
+   "https://btownsocial.co.uk/",
+   "https://btownsocial.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "yourboybenz",
+  "id": "bab-about-town",
   "pages": [
-   "https://motionapp.com/creator/yourboybenz/"
+   "https://bababouttown.com/",
+   "https://bababouttown.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "blog-preston",
+  "id": "elsa-eats",
   "pages": [
-   "https://www.blogpreston.co.uk/",
-   "https://www.blogpreston.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "https://www.blogpreston.co.uk/2026/01/a-year-of-eating-out-in-preston-our-food-reviews-from-2025/",
-  "follow": true
- },
- {
-  "id": "york-on-a-fork",
-  "pages": [
-   "https://yorkonafork.com/",
-   "https://yorkonafork.com/about/"
+   "http://www.elsaeats.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "feeding-boys",
+  "id": "manchester-daily",
   "pages": [
-   "https://www.feedingboys.co.uk/"
+   "https://themanchesterdaily.co.uk/"
+  ],
+  "email": "",
+  "article": "https://themanchesterdaily.co.uk/food-and-drink/best-of/the-best-cheap-eats-in-manchester-where-to-dine-on-a-dime-mryhzt82",
+  "follow": true
+ },
+ {
+  "id": "eat-lvpl",
+  "pages": [
+   "https://www.eatlvpl.com/",
+   "https://www.eatlvpl.com/p/about_18.html"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "lovecats-inc",
+  "id": "daily-struggle",
   "pages": [
-   "https://www.thelovecatsinc.com/"
+   "https://www.thedailystruggle.co.uk/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "taste-of-manchester",
+  "id": "candace-abroad",
   "pages": [
-   "https://tasteofmanchester.com/"
+   "https://candaceabroad.com/",
+   "https://candaceabroad.com/contact/"
   ],
   "email": "",
-  "article": "https://tasteofmanchester.com/reviews/review-the-thrill-of-gourmet-grilled-cheese-you-tasted-it-here-first/",
+  "article": "https://candaceabroad.com/sunday-roasts-in-edinburgh/",
   "follow": true
  },
  {
-  "id": "restaurants-of-manchester",
+  "id": "phils-food-world",
   "pages": [
-   "https://manchesterrestaurants.com/"
-  ],
-  "email": "",
-  "article": "https://manchesterrestaurants.com/affordable.htm",
-  "follow": true
- },
- {
-  "id": "where-goes-rose",
-  "pages": [
-   "https://www.wheregoesrose.com/",
-   "https://www.wheregoesrose.com/contact/"
-  ],
-  "email": "",
-  "article": "https://www.wheregoesrose.com/cheap-eats-manchester-city-centre/",
-  "follow": true
- },
- {
-  "id": "absolutely-lucy",
-  "pages": [
-   "https://absolutelylucy.com/",
-   "https://absolutelylucy.com/contact/"
-  ],
-  "email": "",
-  "article": "https://absolutelylucy.com/bradford-food-guide/",
-  "follow": true
- },
- {
-  "id": "seven-streets",
-  "pages": [
-   "https://www.sevenstreets.com/"
+   "https://philsfoodworld.blogspot.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "foodie-quine",
+  "id": "bridges-balloons",
   "pages": [
-   "https://www.foodiequine.co.uk/",
-   "https://www.foodiequine.co.uk/p/contact.html"
+   "https://bridgesandballoons.com/",
+   "https://bridgesandballoons.com/contact/"
+  ],
+  "email": "",
+  "article": "https://bridgesandballoons.com/best-bristol-restaurants/",
+  "follow": true
+ },
+ {
+  "id": "portsmouth-food-guide",
+  "pages": [
+   "https://portsmouthfoodguide.co.uk/",
+   "https://portsmouthfoodguide.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "scrumptious-scran",
+  "id": "wrap-your-lips",
   "pages": [
-   "https://scrumptiousscran.co.uk/"
+   "https://wrapyourlipsaroundthis.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "glasgow-foodie",
+  "id": "thats-what-she-had",
   "pages": [
-   "https://glasgowfoodie.co.uk/"
+   "https://thatswhatshehad.com/",
+   "https://thatswhatshehad.com/contact/"
   ],
   "email": "",
-  "article": "https://glasgowfoodie.co.uk/category/where-to-eat/",
+  "article": "https://thatswhatshehad.com/best-cheap-eats-in-london/",
   "follow": true
  },
  {
-  "id": "documenting-my-dinner",
+  "id": "wanderlust-chloe",
   "pages": [
-   "https://www.documentingmydinner.com/",
-   "https://www.documentingmydinner.com/workwithme/"
+   "https://www.wanderlustchloe.com/",
+   "https://www.wanderlustchloe.com/contact/"
   ],
   "email": "",
-  "article": "",
+  "article": "https://www.wanderlustchloe.com/cheap-restaurants-london/",
   "follow": true
  },
  {
-  "id": "dinner-stories",
+  "id": "budget-traveller",
   "pages": [
-   "https://www.dinnerstories.co.uk/"
+   "https://budgettraveller.org/",
+   "https://budgettraveller.org/contact/"
   ],
   "email": "",
-  "article": "",
+  "article": "https://budgettraveller.org/best-cheap-eats-london-guide/",
   "follow": true
  },
  {
-  "id": "two-scots-abroad",
+  "id": "london-travel-geek",
   "pages": [
-   "https://twoscotsabroad.com/",
-   "https://twoscotsabroad.com/contact/"
+   "https://www.londontravelgeek.co.uk/"
   ],
   "email": "",
-  "article": "https://twoscotsabroad.com/tipping-in-scotland-what-you-actually-need-to-know-without-the-awkwardness/",
+  "article": "https://www.londontravelgeek.co.uk/articles/best-sunday-roast-london/",
   "follow": true
  },
  {
-  "id": "the-aye-life",
+  "id": "globetotting",
   "pages": [
-   "https://theayelife.com/"
-  ],
-  "email": "",
-  "article": "https://theayelife.com/foodie-aye-ventures-in-aberdeen-and-aberdeenshire/",
-  "follow": true
- },
- {
-  "id": "taste-scot",
-  "pages": [
-   "https://tastescot.co.uk/"
-  ],
-  "email": "",
-  "article": "https://tastescot.co.uk/local-produce/cheap-eats-glasgow",
-  "follow": true
- },
- {
-  "id": "glasgow-food-girl",
-  "pages": [
-   "https://glasgowfoodgirl.wordpress.com/"
+   "https://globetotting.com/",
+   "https://globetotting.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "gourmet-gorro",
+  "id": "gastrobrum",
   "pages": [
-   "https://gourmetgorro.blogspot.com/"
+   "https://gastrobrum.wordpress.com/about/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "cardiff-menu",
+  "id": "motion-danny-vs-food",
   "pages": [
-   "https://thecardiffmenu.wordpress.com/"
+   "https://motionapp.com/creator/danny-vs-food/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "belfast-food-blogger",
+  "id": "motion-rhys-stroulger",
   "pages": [
-   "https://hogies12.wixsite.com/thebelfastfoodblog"
+   "https://motionapp.com/creator/rhysstroulger/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "dish-cult",
+  "id": "melinda-london",
   "pages": [
-   "https://dishcult.com/",
-   "https://dishcult.com/contact"
-  ],
-  "email": "",
-  "article": "https://dishcult.com/articles/bristol/bristols-best-cheap-cheerful-eats",
-  "follow": true
- },
- {
-  "id": "leftlion",
-  "pages": [
-   "https://leftlion.co.uk/",
-   "https://leftlion.co.uk/contact/"
+   "https://beacons.ai/melinda_london"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "rachel-phipps",
+  "id": "thinking-about-food",
   "pages": [
-   "https://rachelphipps.com/",
-   "https://rachelphipps.com/contact/"
+   "https://linktr.ee/thinkingaboutfood"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "food-mag-sw",
+  "id": "rium-roster",
   "pages": [
-   "https://food-mag.co.uk/",
-   "https://food-mag.co.uk/contact/"
-  ],
-  "email": "",
-  "article": "https://food-mag.co.uk/features/feature/south-west-takeaway-directory/",
-  "follow": true
- },
- {
-  "id": "taste-buds-mag",
-  "pages": [
-   "https://tastebudsmagazine.co.uk/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "passport-delicious",
-  "pages": [
-   "https://www.passportdelicious.com/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rt-macmaster",
-  "pages": [
-   "https://ruthlesstalent.com/creators/macmaster/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rt-scousers-in-a-van",
-  "pages": [
-   "https://ruthlesstalent.com/creators/scousers-in-a-van/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rt-george-redfern",
-  "pages": [
-   "https://ruthlesstalent.com/creators/george-redfern/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rt-sammy-tommy",
-  "pages": [
-   "https://ruthlesstalent.com/creators/sammy-and-tommy/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rt-dale-philip",
-  "pages": [
-   "https://ruthlesstalent.com/creators/dale-philip/",
-   "https://ruthlesstalent.com/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "connect-ieuan-kane",
-  "pages": [
-   "https://connectmgt.com/management/talent/ieuan-kane"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "connect-roland-may",
-  "pages": [
-   "https://connectmgt.com/management/talent/roland-may"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "connect-frankie-parker",
-  "pages": [
-   "https://connectmgt.com/management/talent/frankie-parker"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "cmg-food",
-  "pages": [
-   "https://www.cmgtalent.co/talent/food/",
-   "https://www.cmgtalent.co/"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "duran-co",
-  "pages": [
-   "https://duranandco.com/talent-roster",
-   "https://duranandco.com/contact"
-  ],
-  "email": "",
-  "article": "",
-  "follow": true
- },
- {
-  "id": "rium-talent",
-  "pages": [
+   "https://riumtalent.co.uk/talent",
+   "https://riumtalent.co.uk/creators",
    "https://riumtalent.co.uk/"
   ],
   "email": "",
@@ -442,31 +277,64 @@
   "follow": true
  },
  {
-  "id": "creators-table",
+  "id": "homegirl-london-2",
   "pages": [
-   "https://creatorstable.co.uk/"
+   "https://homegirllondon.com/about/",
+   "https://homegirllondon.com/work-with-me/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "toast-represents",
+  "id": "hold-anchovies-2",
   "pages": [
-   "https://www.toastrepresents.co.uk/",
-   "https://www.toastrepresents.co.uk/about"
+   "https://www.holdtheanchoviesplease.com/contact/",
+   "https://www.holdtheanchoviesplease.com/about/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "in-your-pocket-leeds",
+  "id": "dish-cult-2",
   "pages": [
-   "https://inyourpocket.com/england/leeds"
+   "https://dishcult.com/about",
+   "https://dishcult.com/advertise"
   ],
   "email": "",
-  "article": "https://inyourpocket.com/england/leeds/articles/best-cheap-eats-in-leeds",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "restaurants-manchester-2",
+  "pages": [
+   "https://manchesterrestaurants.com/contact.htm",
+   "https://manchesterrestaurants.com/about.htm"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "the-aye-life-2",
+  "pages": [
+   "https://theayelife.com/contact/",
+   "https://theayelife.com/about/",
+   "https://theayelife.com/work-with-me/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "leftlion-2",
+  "pages": [
+   "https://leftlion.co.uk/about/",
+   "https://leftlion.co.uk/about-us/"
+  ],
+  "email": "",
+  "article": "",
   "follow": true
  }
 ]
