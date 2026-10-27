@@ -1945,5 +1945,170 @@
   "basis": "",
   "outlet": "Suffolk Norfolk Life",
   "angle": ""
+ },
+ {
+  "campaign": "press",
+  "email": "hello@absolutelylucy.com",
+  "name": "Absolutely Lucy",
+  "first": "Lucy",
+  "page": "",
+  "basis": "",
+  "outlet": "Absolutely Lucy",
+  "angle": "your Bradford food guide",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "foodie@scrumptiousscran.co.uk",
+  "name": "Scrumptious Scran",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Scrumptious Scran",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@tastescot.co.uk",
+  "name": "Taste Scot",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Taste Scot",
+  "angle": "your guide to cheap eats in Glasgow",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "contact@twoscotsabroad.com",
+  "name": "Two Scots Abroad",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Two Scots Abroad",
+  "angle": "your piece on tipping in Scotland",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@thedailystruggle.co.uk",
+  "name": "The Daily Struggle",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Daily Struggle",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "passmethegravy@rdldn.co.uk",
+  "name": "Roast Dinners In London",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Roast Dinners In London",
+  "angle": "your list of the best roast dinners in London",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@dinnerswithfriends.co.uk",
+  "name": "Dinners With Friends",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Dinners With Friends",
+  "angle": "your guide to the best cheap eats in Exeter",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "info@familydaydiaries.com",
+  "name": "Family Day Diaries",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Family Day Diaries",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "hello@hedgecombers.com",
+  "name": "Hedgecombers",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Hedgecombers",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "news@moneytothemasses.com",
+  "name": "Money to the Masses",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Money to the Masses",
+  "angle": "your guide to where kids eat free this school holiday",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "press@saltmag.co.uk",
+  "name": "SALT Magazine",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "SALT Magazine",
+  "angle": "your list of the best country pubs in Kent, Surrey and Sussex",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "secretdiner@secretdiner.org",
+  "name": "The Secret Diner",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "The Secret Diner",
+  "angle": "",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "editor@skintdad.co.uk",
+  "name": "Skint Dad",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Skint Dad",
+  "angle": "your tips on saving money when eating out",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "editorial@sopublishing.com",
+  "name": "SoGlos",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "SoGlos",
+  "angle": "your list of Gloucestershire restaurants for a foodie bucket list",
+  "variant": "creator"
+ },
+ {
+  "campaign": "press",
+  "email": "essentialsurrey@sheengate.co.uk",
+  "name": "Essential Surrey",
+  "first": "",
+  "page": "",
+  "basis": "",
+  "outlet": "Essential Surrey",
+  "angle": "your round-up of the best gastro pubs in Surrey",
+  "variant": "creator"
  }
 ]
