@@ -1,337 +1,330 @@
 [
  {
-  "id": "retired-martin",
+  "id": "oxfordshire-foodie",
   "pages": [
-   "https://retiredmartin.com/",
-   "https://retiredmartin.com/about/"
-  ],
-  "email": "",
-  "article": "https://retiredmartin.com/2025/12/13/the-joy-of-burgess-hill-spoons/",
-  "follow": true
- },
- {
-  "id": "rdldn",
-  "pages": [
-   "https://www.rdldn.co.uk/",
-   "https://blog.rdldn.co.uk/about/"
-  ],
-  "email": "",
-  "article": "https://blog.rdldn.co.uk/10-best-roast-dinners-in-london-2025/",
-  "follow": true
- },
- {
-  "id": "ne-family-fun",
-  "pages": [
-   "https://www.northeastfamilyfun.co.uk/"
+   "https://www.theoxfordshirefoodie.co.uk/",
+   "https://www.theoxfordshirefoodie.co.uk/contact"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "eat-north-east",
+  "id": "ox-in-a-box",
   "pages": [
-   "https://eatnortheast.blog/"
+   "https://oxinabox.co.uk/",
+   "https://oxinabox.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "secret-diner",
+  "id": "cambridge-food-blog",
   "pages": [
-   "https://www.secretdiner.org/"
+   "https://www.cambridgefoodblog.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "jamie-chance",
+  "id": "notts-foodie",
   "pages": [
-   "https://jamiechancetravels.com/",
-   "https://jamiechancetravels.com/contact/"
-  ],
-  "email": "",
-  "article": "https://jamiechancetravels.com/blog/places-to-eat-in-newcastle/",
-  "follow": true
- },
- {
-  "id": "rare-welsh-bit",
-  "pages": [
-   "https://www.therarewelshbit.com/",
-   "https://www.therarewelshbit.com/contact/"
+   "http://www.nottsfoodie.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "btown-social",
+  "id": "nottingham-food-blog",
   "pages": [
-   "https://btownsocial.co.uk/",
-   "https://btownsocial.co.uk/contact/"
+   "https://thenottinghamfoodblog.com/",
+   "https://thenottinghamfoodblog.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "bab-about-town",
+  "id": "love-norwich-food",
   "pages": [
-   "https://bababouttown.com/",
-   "https://bababouttown.com/contact/"
+   "https://www.lovenorwichfood.co.uk/",
+   "https://www.lovenorwichfood.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "elsa-eats",
+  "id": "eat-out-norwich",
   "pages": [
-   "http://www.elsaeats.com/"
+   "https://eatoutnorwich.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "manchester-daily",
+  "id": "kat-got-your-tongue",
   "pages": [
-   "https://themanchesterdaily.co.uk/"
-  ],
-  "email": "",
-  "article": "https://themanchesterdaily.co.uk/food-and-drink/best-of/the-best-cheap-eats-in-manchester-where-to-dine-on-a-dime-mryhzt82",
-  "follow": true
- },
- {
-  "id": "eat-lvpl",
-  "pages": [
-   "https://www.eatlvpl.com/",
-   "https://www.eatlvpl.com/p/about_18.html"
+   "https://katgotyourtongue.co.uk/",
+   "https://katgotyourtongue.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "daily-struggle",
+  "id": "kent-review",
   "pages": [
-   "https://www.thedailystruggle.co.uk/"
+   "https://www.thekentreview.com/",
+   "https://www.thekentreview.com/contact"
+  ],
+  "email": "",
+  "article": "https://www.thekentreview.com/restaurantreviews",
+  "follow": true
+ },
+ {
+  "id": "soglos",
+  "pages": [
+   "https://www.soglos.com/",
+   "https://www.soglos.com/contact-us"
+  ],
+  "email": "",
+  "article": "https://www.soglos.com/hot-list/food-drink/gloucestershire-restaurants-to-put-on-your-foodie-bucket-list/13165/",
+  "follow": true
+ },
+ {
+  "id": "essential-surrey",
+  "pages": [
+   "https://www.essentialsurrey.co.uk/",
+   "https://www.essentialsurrey.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "https://www.essentialsurrey.co.uk/food-drink/best-gastro-pubs-in-surrey/",
+  "follow": true
+ },
+ {
+  "id": "salt-mag",
+  "pages": [
+   "https://saltmag.co.uk/",
+   "https://saltmag.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "https://saltmag.co.uk/the-ten-best-country-pubs-in-kent-surrey-and-sussex/",
+  "follow": true
+ },
+ {
+  "id": "hedgecombers",
+  "pages": [
+   "https://hedgecombers.com/",
+   "https://hedgecombers.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "candace-abroad",
+  "id": "dinners-with-friends",
   "pages": [
-   "https://candaceabroad.com/",
-   "https://candaceabroad.com/contact/"
+   "https://dinnerswithfriends.co.uk/",
+   "https://dinnerswithfriends.co.uk/contact/"
   ],
   "email": "",
-  "article": "https://candaceabroad.com/sunday-roasts-in-edinburgh/",
+  "article": "https://dinnerswithfriends.co.uk/blog/best-cheap-eats-exeter-under-10-guide",
   "follow": true
  },
  {
-  "id": "phils-food-world",
+  "id": "faraway-lucy",
   "pages": [
-   "https://philsfoodworld.blogspot.com/"
+   "https://www.farawaylucy.com/",
+   "https://www.farawaylucy.com/contact/"
   ],
   "email": "",
-  "article": "",
+  "article": "https://www.farawaylucy.com/cheap-eats-liverpool/",
   "follow": true
  },
  {
-  "id": "bridges-balloons",
+  "id": "lucy-lives-here",
   "pages": [
-   "https://bridgesandballoons.com/",
-   "https://bridgesandballoons.com/contact/"
-  ],
-  "email": "",
-  "article": "https://bridgesandballoons.com/best-bristol-restaurants/",
-  "follow": true
- },
- {
-  "id": "portsmouth-food-guide",
-  "pages": [
-   "https://portsmouthfoodguide.co.uk/",
-   "https://portsmouthfoodguide.co.uk/contact/"
+   "https://lucyliveshere.com/",
+   "https://lucyliveshere.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "wrap-your-lips",
+  "id": "best-of-bristol",
   "pages": [
-   "https://wrapyourlipsaroundthis.com/"
+   "https://www.bestofbristol.co/",
+   "https://www.bestofbristol.co/contact"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "thats-what-she-had",
+  "id": "leeds-food-tours",
   "pages": [
-   "https://thatswhatshehad.com/",
-   "https://thatswhatshehad.com/contact/"
-  ],
-  "email": "",
-  "article": "https://thatswhatshehad.com/best-cheap-eats-in-london/",
-  "follow": true
- },
- {
-  "id": "wanderlust-chloe",
-  "pages": [
-   "https://www.wanderlustchloe.com/",
-   "https://www.wanderlustchloe.com/contact/"
-  ],
-  "email": "",
-  "article": "https://www.wanderlustchloe.com/cheap-restaurants-london/",
-  "follow": true
- },
- {
-  "id": "budget-traveller",
-  "pages": [
-   "https://budgettraveller.org/",
-   "https://budgettraveller.org/contact/"
-  ],
-  "email": "",
-  "article": "https://budgettraveller.org/best-cheap-eats-london-guide/",
-  "follow": true
- },
- {
-  "id": "london-travel-geek",
-  "pages": [
-   "https://www.londontravelgeek.co.uk/"
-  ],
-  "email": "",
-  "article": "https://www.londontravelgeek.co.uk/articles/best-sunday-roast-london/",
-  "follow": true
- },
- {
-  "id": "globetotting",
-  "pages": [
-   "https://globetotting.com/",
-   "https://globetotting.com/contact/"
+   "https://leedsfoodtours.com/",
+   "https://leedsfoodtours.com/pages/contact"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "gastrobrum",
+  "id": "pubs-and-beer",
   "pages": [
-   "https://gastrobrum.wordpress.com/about/"
+   "https://pubsandbeer.co.uk/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "motion-danny-vs-food",
+  "id": "good-beer-good-pubs",
   "pages": [
-   "https://motionapp.com/creator/danny-vs-food/"
+   "https://www.goodbeergoodpubs.co.uk/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "motion-rhys-stroulger",
+  "id": "london-curry-blog",
   "pages": [
-   "https://motionapp.com/creator/rhysstroulger/"
+   "https://www.londoncurryblog.com/",
+   "https://www.londoncurryblog.com/contact"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "melinda-london",
+  "id": "skint-dad",
   "pages": [
-   "https://beacons.ai/melinda_london"
+   "https://skintdad.co.uk/",
+   "https://skintdad.co.uk/contact/"
+  ],
+  "email": "",
+  "article": "https://skintdad.co.uk/save-money-eating-out/",
+  "follow": true
+ },
+ {
+  "id": "much-more-with-less",
+  "pages": [
+   "https://www.muchmorewithless.co.uk/",
+   "https://www.muchmorewithless.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "thinking-about-food",
+  "id": "frugal-family",
   "pages": [
-   "https://linktr.ee/thinkingaboutfood"
+   "https://www.frugalfamily.co.uk/",
+   "https://www.frugalfamily.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "rium-roster",
+  "id": "complaining-cow",
   "pages": [
-   "https://riumtalent.co.uk/talent",
-   "https://riumtalent.co.uk/creators",
-   "https://riumtalent.co.uk/"
+   "https://thecomplainingcow.co.uk/",
+   "https://thecomplainingcow.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "homegirl-london-2",
+  "id": "savings-4-savvy-mums",
   "pages": [
-   "https://homegirllondon.com/about/",
-   "https://homegirllondon.com/work-with-me/"
+   "https://savings4savvymums.co.uk/",
+   "https://savings4savvymums.co.uk/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "hold-anchovies-2",
+  "id": "my-money-cottage",
   "pages": [
-   "https://www.holdtheanchoviesplease.com/contact/",
-   "https://www.holdtheanchoviesplease.com/about/"
+   "https://mymoneycottage.com/",
+   "https://mymoneycottage.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "dish-cult-2",
+  "id": "money-to-the-masses",
   "pages": [
-   "https://dishcult.com/about",
-   "https://dishcult.com/advertise"
+   "https://moneytothemasses.com/",
+   "https://moneytothemasses.com/contact-us"
+  ],
+  "email": "",
+  "article": "https://moneytothemasses.com/quick-savings/tips/how-to-save-money-on-eating-out-with-children-this-school-holiday",
+  "follow": true
+ },
+ {
+  "id": "family-day-diaries",
+  "pages": [
+   "https://familydaydiaries.com/",
+   "https://familydaydiaries.com/contact/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "restaurants-manchester-2",
+  "id": "graphic-foodie",
   "pages": [
-   "https://manchesterrestaurants.com/contact.htm",
-   "https://manchesterrestaurants.com/about.htm"
+   "https://www.thegraphicfoodie.co.uk/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "the-aye-life-2",
+  "id": "another-food-blogger",
   "pages": [
-   "https://theayelife.com/contact/",
-   "https://theayelife.com/about/",
-   "https://theayelife.com/work-with-me/"
+   "https://www.anotherfoodblogger.com/"
   ],
   "email": "",
   "article": "",
   "follow": true
  },
  {
-  "id": "leftlion-2",
+  "id": "eat-north-east-2",
   "pages": [
-   "https://leftlion.co.uk/about/",
-   "https://leftlion.co.uk/about-us/"
+   "https://eatnortheast.blog/contact/",
+   "https://eatnortheast.blog/about/"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "secret-diner-2",
+  "pages": [
+   "https://www.secretdiner.org/p/contact.html"
+  ],
+  "email": "",
+  "article": "",
+  "follow": true
+ },
+ {
+  "id": "retired-martin-2",
+  "pages": [
+   "https://retiredmartin.com/contact/"
   ],
   "email": "",
   "article": "",
