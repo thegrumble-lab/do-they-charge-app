@@ -17,6 +17,10 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 const VERCEL_PRODUCTION_ALIAS = "do-they-charge-app.vercel.app";
 
 const nextConfig: NextConfig = {
+  // Umami analytics script from our own domain (see app/stats/api/send/route.ts).
+  async rewrites() {
+    return [{ source: "/stats/script.js", destination: "https://umami-beta-eight.vercel.app/script.js" }];
+  },
   async redirects() {
     return [
       {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 import Analytics from "@/components/Analytics";
+import Script from "next/script";
 
 const TITLE = "Discretionary — UK restaurant service charge checker";
 const DESCRIPTION =
@@ -40,6 +41,8 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
+        {/* Umami analytics: cookieless, served from our own domain (/stats). data-domains keeps previews out of the counts. */}
+        <Script src="/stats/script.js" data-website-id="84c26fa4-ad9a-470e-8c34-92c11959f6a1" data-domains="discretionary.uk,www.discretionary.uk" strategy="afterInteractive" />
       </body>
     </html>
   );

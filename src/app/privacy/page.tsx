@@ -74,6 +74,14 @@ export default function PrivacyPage() {
             every page; choosing Decline there removes the analytics
             cookies.
           </p>
+          <p>
+            Separately, we count visits with Umami, a privacy-friendly
+            analytics tool we run ourselves. It sets no cookies and stores
+            no personal data: it records things like which pages are
+            viewed, which site sent you here, your browser, device type
+            and country. Your IP address is only used to work out your
+            country and is never stored. The data is held in London.
+          </p>
         </section>
 
         <section className="entry">
