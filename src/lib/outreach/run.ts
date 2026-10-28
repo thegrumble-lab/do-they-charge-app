@@ -159,7 +159,8 @@ async function processInbox(report: RunReport, deadline: number) {
         const subject = `Re: ${m.subject.replace(/^(re|fwd?):\s*/i, "")}`;
         const references = [p.first_message_id ?? "", m.messageId];
         const id =
-          m.via === "inbox"
+          // Replies to mail in the Zoho inbox, or while outreach still lives on Zoho, go through Resend (Zoho's terms bar automated sending).
+          m.via === "inbox" || /zoho/i.test(box.smtpHost)
             ? await sendFromSite({ to: m.from, subject, text, inReplyTo: m.messageId, references })
             : await sendOutreach({ to: m.from, subject, text, inReplyTo: m.messageId, references, listUnsubscribe: false });
         await updateProspect(p.email, { ai_replies: p.ai_replies + 1, last_message_id: id });
