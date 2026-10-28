@@ -1128,7 +1128,7 @@ State lives in Upstash Redis (keys prefixed `dc:`), so the app's anon-key-only S
 
 The badge (`/badge/[area]/[slug]`, SVG) only renders while the listing's latest report is `no-charge`.
 
-Env vars (Production): `OUTREACH_SMTP_USER` (the Zoho mailbox login), `OUTREACH_SMTP_PASS` (a Zoho app password), `OUTREACH_FROM_ADDRESS` (hello@discretionary.uk), `OUTREACH_DIGEST_TO`, `ANTHROPIC_API_KEY`, `CRON_SECRET`, Upstash's `KV_REST_API_URL`/`KV_REST_API_TOKEN`, and `OUTREACH_ENABLED=true` only once the preview digest is approved.
+Env vars (Production): `OUTREACH_SMTP_USER`/`OUTREACH_SMTP_PASS` (the outreach mailbox login and app password, on the separate outreach domain), `OUTREACH_SMTP_HOST`/`OUTREACH_IMAP_HOST` (smtp.gmail.com / imap.gmail.com for Google Workspace), `OUTREACH_FROM_ADDRESS` (our alias on the outreach domain), `RESEND_API_KEY` (the daily summary, and replies from hello@discretionary.uk, go through Resend: Zoho's terms bar automated sending), optional `INBOX_IMAP_USER`/`INBOX_IMAP_PASS` (the Zoho mailbox, read only, so prospects who write to hello@ still get answered), `OUTREACH_DIGEST_TO`, `ANTHROPIC_API_KEY`, `CRON_SECRET`, Upstash's `KV_REST_API_URL`/`KV_REST_API_TOKEN`, and `OUTREACH_ENABLED=true` only once the preview digest is approved.
 
 ## Chain tracker: /chains (October 2026)
 

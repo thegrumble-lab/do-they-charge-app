@@ -5,12 +5,14 @@ import { ImapFlow } from "imapflow";
 import { simpleParser } from "mailparser";
 import { SITE_URL } from "@/lib/site";
 
+import { sendSiteEmail, siteFrom } from "@/lib/email";
+
 /**
- * Outreach mailbox. hello@discretionary.uk is an alias on a Zoho Mail
- * mailbox (EU data centre) that also serves another site, so we log in as
- * that mailbox (OUTREACH_SMTP_USER), send from the alias
- * (OUTREACH_FROM_ADDRESS), and only ever read mail addressed to this
- * domain.
+ * Outreach mailbox: the separate outreach domain's mailbox (Google Workspace),
+ * shared with other sites' outreach. We log in as that mailbox
+ * (OUTREACH_SMTP_USER), send from our alias (OUTREACH_FROM_ADDRESS), and only
+ * ever read mail addressed to our own domains. Set OUTREACH_SMTP_HOST and
+ * OUTREACH_IMAP_HOST to smtp.gmail.com and imap.gmail.com for Google.
  */
 export function mailbox() {
   const user = process.env.OUTREACH_SMTP_USER;
@@ -19,12 +21,35 @@ export function mailbox() {
   return {
     user,
     pass,
-    from: process.env.OUTREACH_FROM_ADDRESS || "hello@discretionary.uk",
+    from: (process.env.OUTREACH_FROM_ADDRESS || "hello@discretionary.uk").toLowerCase(),
     fromName: process.env.OUTREACH_FROM_NAME || "Discretionary",
+    smtpHost: process.env.OUTREACH_SMTP_HOST || "smtppro.zoho.eu",
+    imapHost: process.env.OUTREACH_IMAP_HOST || "imappro.zoho.eu",
   };
 }
 
-export const OUR_DOMAIN = "discretionary.uk";
+/**
+ * The shared Zoho mailbox where hello@discretionary.uk lands. Read only (Zoho's
+ * terms don't allow automated sending), so replies to mail found here go through
+ * Resend. Optional: set INBOX_IMAP_USER/INBOX_IMAP_PASS to keep answering
+ * prospects who write to hello@ after outreach moves to its own mailbox.
+ */
+export function inboxMailbox() {
+  const user = process.env.INBOX_IMAP_USER;
+  const pass = process.env.INBOX_IMAP_PASS;
+  if (!user || !pass) return null;
+  return { user, pass, imapHost: process.env.INBOX_IMAP_HOST || "imappro.zoho.eu" };
+}
+
+export const SITE_DOMAIN = "discretionary.uk";
+export const SITE_ADDRESS = "hello@discretionary.uk";
+
+/** Domains whose mail is ours: the site itself and the outreach domain. */
+export function ourDomains(): string[] {
+  const box = mailbox();
+  const d = box?.from.split("@")[1];
+  return [...new Set([SITE_DOMAIN, ...(d ? [d] : [])])];
+}
 
 function secret() {
   const s = process.env.CRON_SECRET;
@@ -52,7 +77,7 @@ function transport() {
   if (!box) throw new Error("Outreach mailbox not configured");
   return {
     box,
-    t: nodemailer.createTransport({ host: process.env.OUTREACH_SMTP_HOST || "smtppro.zoho.eu", port: 465, secure: true, auth: { user: box.user, pass: box.pass } }),
+    t: nodemailer.createTransport({ host: box.smtpHost, port: 465, secure: true, auth: { user: box.user, pass: box.pass } }),
   };
 }
 
@@ -77,14 +102,19 @@ export async function sendOutreach(mail: Outgoing): Promise<string> {
   return info.messageId;
 }
 
-/** Internal email (the daily digest) from the same address. */
+/** Internal email (the daily digest) through Resend. */
 export async function sendInternal(to: string, subject: string, text: string) {
-  const { box, t } = transport();
-  await t.sendMail({ from: { name: box.fromName, address: box.from }, to, subject, text });
-  t.close();
+  await sendSiteEmail({ from: siteFrom(), to, subject, text });
+}
+
+/** A reply from hello@discretionary.uk through Resend, for mail that reached the Zoho inbox. Returns the Message-ID. */
+export async function sendFromSite(mail: { to: string; subject: string; text: string; inReplyTo?: string | null; references?: string[] }): Promise<string> {
+  return sendSiteEmail({ from: { name: process.env.OUTREACH_FROM_NAME || "Discretionary", address: SITE_ADDRESS }, ...mail });
 }
 
 export type Incoming = {
+  /** Which mailbox it was read from. */
+  via: "inbox" | "outreach";
   messageId: string;
   from: string;
   to: string[];
@@ -93,11 +123,11 @@ export type Incoming = {
   autoSubmitted: boolean;
 };
 
-/** Reads inbox messages received since the given date. */
-export async function fetchInbox(since: Date): Promise<Incoming[]> {
-  const box = mailbox();
+/** Reads messages received since the given date from the outreach mailbox or the hello@ inbox. */
+export async function fetchInbox(since: Date, which: "outreach" | "inbox" = "outreach"): Promise<Incoming[]> {
+  const box = which === "outreach" ? mailbox() : inboxMailbox();
   if (!box) return [];
-  const client = new ImapFlow({ host: process.env.OUTREACH_IMAP_HOST || "imappro.zoho.eu", port: 993, secure: true, auth: { user: box.user, pass: box.pass }, logger: false });
+  const client = new ImapFlow({ host: box.imapHost, port: 993, secure: true, auth: { user: box.user, pass: box.pass }, logger: false });
   const out: Incoming[] = [];
   await client.connect();
   const lock = await client.getMailboxLock("INBOX");
@@ -111,6 +141,7 @@ export async function fetchInbox(since: Date): Promise<Incoming[]> {
         const deliveredTo = String(parsed.headers.get("delivered-to") ?? "").toLowerCase();
         const auto = String(parsed.headers.get("auto-submitted") ?? "").toLowerCase();
         out.push({
+          via: which,
           messageId: parsed.messageId ?? `uid-${msg.uid}`,
           from: parsed.from?.value?.[0]?.address?.toLowerCase() ?? "",
           to: [...addrs(parsed.to), ...addrs(parsed.cc), deliveredTo].filter(Boolean),

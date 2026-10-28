@@ -1,7 +1,7 @@
 import "server-only";
 import prospectsData from "@/data/outreach.json";
 import { FOLLOW_UP_DAYS, SEQUENCE_LENGTH, confirmationReply, renderStep, type Seed } from "./copy";
-import { OUR_DOMAIN, fetchInbox, mailbox, sendInternal, sendOutreach, stripQuoted, unsubUrl } from "./mail";
+import { fetchInbox, inboxMailbox, mailbox, ourDomains, sendFromSite, sendInternal, sendOutreach, stripQuoted, unsubUrl, type Incoming } from "./mail";
 import { decideReply } from "./ai";
 import { pressReference } from "./reference";
 import { publishSubmissionsSummary } from "./submissions";
@@ -57,6 +57,20 @@ async function importProspects(report: RunReport) {
 
 /* ---------- Inbox: replies, bounces, AI answers ---------- */
 
+/** The outreach mailbox, plus the hello@ inbox when it's a separate login (for prospects who write there). */
+async function readMailboxes(since: Date, outreachUser: string, report: RunReport): Promise<Incoming[]> {
+  const outreach = await fetchInbox(since, "outreach");
+  const inbox = inboxMailbox();
+  if (!inbox || inbox.user.toLowerCase() === outreachUser.toLowerCase()) return outreach;
+  const extra = await fetchInbox(since, "inbox").catch((err) => {
+    report.errors.push(`Couldn't read the hello@ inbox: ${(err as Error).message}`);
+    return [] as Incoming[];
+  });
+  // Bounces in the hello@ inbox belong to the other sites now.
+  const seen = new Set(outreach.map((m) => m.messageId));
+  return [...outreach, ...extra.filter((m) => !seen.has(m.messageId) && !/mailer-daemon|postmaster/i.test(m.from))];
+}
+
 async function processInbox(report: RunReport, deadline: number) {
   const box = mailbox();
   if (!box) {
@@ -66,7 +80,8 @@ async function processInbox(report: RunReport, deadline: number) {
   const last = await getState("last_inbox_check");
   const since = new Date(last ? new Date(last).getTime() - 2 * 86400_000 : Date.now() - 7 * 86400_000);
   const started = new Date().toISOString();
-  const messages = await fetchInbox(since);
+  const messages = await readMailboxes(since, box.user, report);
+  const domains = ourDomains();
 
   const prospects = await allProspects();
   const byEmail = new Map(prospects.map((p) => [p.email, p]));
@@ -97,7 +112,7 @@ async function processInbox(report: RunReport, deadline: number) {
     }
 
     // Only mail sent to this site's address; the mailbox also serves another site.
-    if (!m.to.some((a) => a.endsWith(`@${OUR_DOMAIN}`))) continue;
+    if (!m.to.some((a) => domains.some((d) => a.endsWith(`@${d}`)))) continue;
 
     const d = businessDomain(m.from);
     const p = byEmail.get(m.from) ?? (d ? byDomain.get(d) : undefined);
@@ -142,7 +157,11 @@ async function processInbox(report: RunReport, deadline: number) {
       }
       try {
         const subject = `Re: ${m.subject.replace(/^(re|fwd?):\s*/i, "")}`;
-        const id = await sendOutreach({ to: m.from, subject, text, inReplyTo: m.messageId, references: [p.first_message_id ?? "", m.messageId], listUnsubscribe: false });
+        const references = [p.first_message_id ?? "", m.messageId];
+        const id =
+          m.via === "inbox"
+            ? await sendFromSite({ to: m.from, subject, text, inReplyTo: m.messageId, references })
+            : await sendOutreach({ to: m.from, subject, text, inReplyTo: m.messageId, references, listUnsubscribe: false });
         await updateProspect(p.email, { ai_replies: p.ai_replies + 1, last_message_id: id });
         await logEvent(p.email, "ai_reply", text);
         report.replies.push(item({ action: "AI replied", kind: decision.kind, summary: decision.summary, ours: text, changes: "changes" in decision ? decision.changes : undefined, followUp: "follow_up" in decision ? decision.follow_up : undefined }));
@@ -263,7 +282,7 @@ const flat = (s: string, n = 600) => s.replace(/\s+/g, " ").slice(0, n);
 
 async function sendDigest(report: RunReport) {
   const to = process.env.OUTREACH_DIGEST_TO;
-  if (!to || !mailbox()) return;
+  if (!to) return;
   const sendingOff = process.env.OUTREACH_ENABLED !== "true";
   const interesting = sendingOff || report.replies.length || report.errors.length || report.bounced.length || report.sent.length || report.imported;
   if (!interesting) return;
