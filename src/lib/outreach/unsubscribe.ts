@@ -3,7 +3,7 @@ import { checkUnsubToken } from "./mail";
 import { getProspect, logEvent, saveProspect, updateProspect } from "./store";
 
 /** Marks an address as never-contact. Works even if it isn't a known prospect. */
-export async function unsubscribe(email: string, token: string): Promise<boolean> {
+export async function unsubscribe(email: string, token: string, source: "page" | "one-click" = "page"): Promise<boolean> {
   const e = email.trim().toLowerCase();
   if (!e || !token || !checkUnsubToken(e, token)) return false;
   if (await getProspect(e)) {
@@ -25,6 +25,6 @@ export async function unsubscribe(email: string, token: string): Promise<boolean
       created_at: new Date().toISOString(),
     });
   }
-  await logEvent(e, "unsubscribed", "Unsubscribe link");
+  await logEvent(e, "unsubscribed", source === "one-click" ? "One-click unsubscribe (mail app button)" : "Unsubscribe page (confirmed)");
   return true;
 }

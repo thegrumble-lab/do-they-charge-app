@@ -33,7 +33,7 @@ export default async function Unsubscribe({ searchParams }: { searchParams: Prom
               <p>Stop all emails from Discretionary to {sp.e}?</p>
               <input type="hidden" name="e" value={sp.e} />
               <input type="hidden" name="t" value={sp.t} />
-              <button type="submit">Unsubscribe</button>
+              <button type="submit" data-umami-event="Unsubscribe confirmed">Unsubscribe</button>
             </form>
           )}
         </section>

@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: NextRequest) {
   const e = request.nextUrl.searchParams.get("e") ?? "";
   const t = request.nextUrl.searchParams.get("t") ?? "";
-  const ok = await unsubscribe(e, t).catch(() => false);
+  const ok = await unsubscribe(e, t, "one-click").catch(() => false);
   return NextResponse.json({ ok }, { status: ok ? 200 : 400 });
 }
 

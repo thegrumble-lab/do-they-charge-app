@@ -5,7 +5,7 @@ import { fetchInbox, inboxMailbox, mailbox, ourDomains, sendFromSite, sendIntern
 import { decideReply } from "./ai";
 import { pressReference } from "./reference";
 import { publishSubmissionsSummary } from "./submissions";
-import { allProspects, countSend, firstSeen, getState, logEvent, saveProspect, sentOn, setState, updateProspect, type Prospect } from "./store";
+import { allProspects, countSend, firstSeen, getState, logEvent, recentEvents, saveProspect, sentOn, setState, updateProspect, type Prospect } from "./store";
 
 const SEEDS = prospectsData as Seed[];
 const seedFor = (email: string) => SEEDS.find((s) => s.email === email);
@@ -342,6 +342,20 @@ async function sendDigest(report: RunReport) {
   L.push(`Sent today: ${report.sent.length} (${restaurants.length} to restaurants, ${press.length} to journalists; ${report.sent.filter((s) => s.step > 1).length} of them follow-ups)`);
   if (report.imported) L.push(`Added to the queue: ${report.imported}`);
   if (report.bounced.length) L.push(`Bounced: ${report.bounced.join(", ")}`);
+  try {
+    const unsubs = await recentEvents("unsubscribed", Date.now() - 24 * 60 * 60 * 1000);
+    const all = await allProspects();
+    const contacted = all.filter((p) => p.step > 0).length;
+    const unsubTotal = all.filter((p) => p.status === "unsubscribed").length;
+    const rate = contacted ? ((unsubTotal / contacted) * 100).toFixed(1) : "0";
+    const bySource = (match: RegExp) => unsubs.filter((u) => match.test(u.detail ?? "")).length;
+    L.push(
+      `Unsubscribes (last 24h): ${unsubs.length} (${bySource(/page/i)} via the unsubscribe page, ${bySource(/one-click/i)} via the mail app button, ${bySource(/replied|asked/i)} by reply)`,
+      `Unsubscribed overall: ${unsubTotal} of ${contacted} contacted (${rate}%). Under 2% is normal for cold outreach.`,
+    );
+  } catch {
+    // Stats are a nice-to-have; never block the digest.
+  }
   if (report.errors.length) L.push("", "PROBLEMS", ...report.errors.map((e) => `- ${e}`));
   if (report.notes.length) L.push("", ...report.notes.map((n) => `Note: ${n}`));
 

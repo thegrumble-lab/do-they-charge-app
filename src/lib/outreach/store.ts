@@ -75,6 +75,13 @@ export async function logEvent(email: string | null, type: string, detail?: stri
   await redis().ltrim(EVENTS, 0, 1999);
 }
 
+/** Recent events (newest first), optionally filtered by type. */
+export async function recentEvents(type?: string, sinceMs?: number): Promise<{ at: string; email: string | null; type: string; detail?: string }[]> {
+  const raw = (await redis().lrange<string | object>(EVENTS, 0, 1999)) ?? [];
+  const out = raw.map((r) => (typeof r === "string" ? JSON.parse(r) : r) as { at: string; email: string | null; type: string; detail?: string });
+  return out.filter((e) => (!type || e.type === type) && (!sinceMs || Date.parse(e.at) >= sinceMs));
+}
+
 /** Number of emails sent on a UK calendar date. */
 export async function sentOn(date: string): Promise<number> {
   return Number((await redis().get<number>(`dc:outreach:sent:${date}`)) ?? 0);
