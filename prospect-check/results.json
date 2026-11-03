@@ -1,0 +1,608 @@
+{
+ "budget-traveller": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "europebudgetguide@gmail.com": [
+    "https://budgettraveller.org/privacy-policy/"
+   ],
+   "kash@budgettraveller.org": [
+    "https://budgettraveller.org/contact/",
+    "https://budgettraveller.org/about-me/",
+    "https://budgettraveller.org/contact-us/"
+   ]
+  },
+  "pages": {
+   "https://budgettraveller.org/": {
+    "final_url": "https://budgettraveller.org/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/about-me/": {
+    "final_url": "https://budgettraveller.org/about-me/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/contact-us/": {
+    "final_url": "https://budgettraveller.org/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/contact/": {
+    "final_url": "https://budgettraveller.org/contact-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://budgettraveller.org/privacy-policy/": {
+    "final_url": "https://budgettraveller.org/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "culture-calling": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "info@londoncalling.com": [
+    "https://www.culturecalling.com/terms-conditions"
+   ],
+   "legal@londoncalling.com": [
+    "https://www.culturecalling.com/terms-conditions"
+   ],
+   "press@culturecalling.com": [
+    "https://www.culturecalling.com/contact/",
+    "https://www.culturecalling.com/contact"
+   ]
+  },
+  "pages": {
+   "https://www.culturecalling.com/": {
+    "final_url": "https://www.culturecalling.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/about-us": {
+    "final_url": "https://www.culturecalling.com/about-us",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/contact": {
+    "final_url": "https://www.culturecalling.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/contact/": {
+    "final_url": "https://www.culturecalling.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/privacy-policy": {
+    "final_url": "https://www.culturecalling.com/privacy-policy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/terms-conditions": {
+    "final_url": "https://www.culturecalling.com/terms-conditions",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.culturecalling.com/write-for-us": {
+    "final_url": "https://www.culturecalling.com/write-for-us",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "et-speaks": {
+  "article": {
+   "final_url": "https://etspeaksfromhome.co.uk/2026/04/from-picnics-to-play-centres-and-maximising-family-fun-across-the-uk.html",
+   "published": "2026-04-09T15:25:33+00:00",
+   "status": 200,
+   "title": "From Picnics to Play Centres and Maximising Family Fun Across the UK - ET Speaks From Home",
+   "url": "https://etspeaksfromhome.co.uk/2026/04/from-picnics-to-play-centres-and-maximising-family-fun-across-the-uk.html"
+  },
+  "context": {
+   "eileen.lichfield@yahoo.com": ". If you would like your product or service to be reviewed, please email me at: eileen.lichfield@yahoo.com About Us We are a family of four: I\u2019m Eileen Teo, happily m"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "eileen.lichfield@yahoo.com": [
+    "https://etspeaksfromhome.co.uk/",
+    "https://etspeaksfromhome.co.uk/contact/",
+    "https://etspeaksfromhome.co.uk/category/food-drink/cookbook",
+    "https://etspeaksfromhome.co.uk/category/review/book",
+    "https://etspeaksfromhome.co.uk/contact-me",
+    "https://etspeaksfromhome.co.uk/pr-media-pack",
+    "https://etspeaksfromhome.co.uk/2026/10/superstitions-about-eyelid-twitching-good-or-bad-omens.html",
+    "https://etspeaksfromhome.co.uk/2026/10/how-24-hour-blood-pressure-monitoring-works.html",
+    "https://etspeaksfromhome.co.uk/privacy-policy"
+   ]
+  },
+  "pages": {
+   "https://etspeaksfromhome.co.uk/": {
+    "final_url": "https://etspeaksfromhome.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/2026/10/how-24-hour-blood-pressure-monitoring-works.html": {
+    "final_url": "https://etspeaksfromhome.co.uk/2026/10/how-24-hour-blood-pressure-monitoring-works.html",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/2026/10/superstitions-about-eyelid-twitching-good-or-bad-omens.html": {
+    "final_url": "https://etspeaksfromhome.co.uk/2026/10/superstitions-about-eyelid-twitching-good-or-bad-omens.html",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/category/food-drink/cookbook": {
+    "final_url": "https://etspeaksfromhome.co.uk/category/food-drink/cookbook",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/category/review/book": {
+    "final_url": "https://etspeaksfromhome.co.uk/category/review/book",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/contact-me": {
+    "final_url": "https://etspeaksfromhome.co.uk/contact-me",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/contact/": {
+    "final_url": "https://etspeaksfromhome.co.uk/contact-me",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/pr-media-pack": {
+    "final_url": "https://etspeaksfromhome.co.uk/pr-media-pack",
+    "rendered": false,
+    "status": 200
+   },
+   "https://etspeaksfromhome.co.uk/privacy-policy": {
+    "final_url": "https://etspeaksfromhome.co.uk/privacy-policy",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "family-days-out": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "admin@familydayout.com": [
+    "https://www.familydaysout.com/terms-and-conditions"
+   ],
+   "admin@familydayput.com": [
+    "https://www.familydaysout.com/terms-and-conditions"
+   ],
+   "info@cupello.com": [
+    "https://www.familydaysout.com/terms-and-conditions"
+   ]
+  },
+  "pages": {
+   "https://familydaysout.com/": {
+    "final_url": "https://www.familydaysout.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://familydaysout.com/contact/": {
+    "final_url": "https://www.familydaysout.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.familydaysout.com/about-us": {
+    "final_url": "https://www.familydaysout.com/about-us",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.familydaysout.com/contact": {
+    "final_url": "https://www.familydaysout.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.familydaysout.com/privacy-policy": {
+    "final_url": "https://www.familydaysout.com/privacy-policy",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.familydaysout.com/terms-and-conditions": {
+    "final_url": "https://www.familydaysout.com/terms-and-conditions",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "frugal-family": {
+  "article": {
+   "final_url": "https://www.frugalfamily.co.uk/10-family-friendly-restaurants-offering-great-value-across-the-uk/",
+   "published": "2025-08-04T21:03:55+01:00",
+   "status": 200,
+   "title": "10 Family-Friendly Restaurants Offering Great Value Across the UK.... | The Diary of a Frugal Family",
+   "url": "https://www.frugalfamily.co.uk/10-family-friendly-restaurants-offering-great-value-across-the-uk/"
+  },
+  "context": {
+   "cass@frugalfamily.co.uk": "sure if their mom is tuned in or not, so will check with her first, of course. Cass@FrugalFamily says December 6, 2012 at 7:40 pm Ha ha well spotted \u2013 I never not"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "cass@frugalfamily.co.uk": [
+    "https://www.frugalfamily.co.uk/",
+    "https://www.frugalfamily.co.uk/contact/"
+   ]
+  },
+  "pages": {
+   "https://www.frugalfamily.co.uk/": {
+    "final_url": "https://www.frugalfamily.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.frugalfamily.co.uk/contact/": {
+    "final_url": "https://www.frugalfamily.co.uk/contact-santa-for-free/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "globetotting": {
+  "article": {
+   "final_url": "https://globetotting.com/child-friendly-restaurants-in-london/",
+   "published": "2026-01-26T12:30:00+00:00",
+   "status": 200,
+   "title": "The 40+ best family friendly restaurants in London (2026) - Globetotting",
+   "url": "https://globetotting.com/?p=29750"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "katja@globetotting.com": [
+    "https://globetotting.com/contact/",
+    "https://globetotting.com/terms-conditions/"
+   ]
+  },
+  "pages": {
+   "https://globetotting.com/": {
+    "final_url": "https://globetotting.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://globetotting.com/about/": {
+    "final_url": "https://globetotting.com/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://globetotting.com/category/books/": {
+    "final_url": "https://globetotting.com/category/books/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://globetotting.com/contact/": {
+    "final_url": "https://globetotting.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://globetotting.com/privacy-disclosure/": {
+    "final_url": "https://globetotting.com/privacy-disclosure/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://globetotting.com/terms-conditions/": {
+    "final_url": "https://globetotting.com/terms-conditions/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "household-money-saving": {
+  "article": {
+   "final_url": "https://www.householdmoneysaving.com/is-tastecard-worth-it/",
+   "published": "2021-05-27T22:13:35+01:00",
+   "status": 200,
+   "title": "What Is a Tastecard and Is It Worth It in 2026? -",
+   "url": "https://www.householdmoneysaving.com/?p=13802"
+  },
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.householdmoneysaving.com/": {
+    "final_url": "https://www.householdmoneysaving.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/contact/": {
+    "final_url": "https://www.householdmoneysaving.com/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-cashback/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-cashback/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-finding-a-side-hustle/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-finding-a-side-hustle/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-making-money-from-home/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-making-money-from-home/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-making-money-online/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-making-money-online/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-matched-betting/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-matched-betting/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.householdmoneysaving.com/homepage/make-money/all-about-selling/": {
+    "final_url": "https://www.householdmoneysaving.com/homepage/make-money/all-about-selling/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "just-average-jen": {
+  "article": {
+   "final_url": "https://www.justaveragejen.com/tipping-restaurants-uk.html",
+   "published": "2024-02-24T15:12:19+00:00",
+   "status": 200,
+   "title": "To Tip or Not to Tip? Restaurant Tipping Etiquette in the UK",
+   "url": "https://www.justaveragejen.com/tipping-restaurants-uk.html"
+  },
+  "context": {
+   "jen@justaveragejen.com": "s not missed, please use a subject line appropriate to your reason for contact. Jen@justaveragejen.com . Jen Mellor Founder of Just Average Jen Healthy Living, We"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "jen@justaveragejen.com": [
+    "https://www.justaveragejen.com/contact/",
+    "https://www.justaveragejen.com/contact.html",
+    "https://www.justaveragejen.com/in-media",
+    "https://www.justaveragejen.com/contact",
+    "https://www.justaveragejen.com/privacy-policy"
+   ]
+  },
+  "pages": {
+   "https://www.justaveragejen.com/": {
+    "final_url": "https://www.justaveragejen.com/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/about-me": {
+    "final_url": "https://www.justaveragejen.com/about-me",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/contact": {
+    "final_url": "https://www.justaveragejen.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/contact.html": {
+    "final_url": "https://www.justaveragejen.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/contact/": {
+    "final_url": "https://www.justaveragejen.com/contact",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/in-media": {
+    "final_url": "https://www.justaveragejen.com/in-media",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.justaveragejen.com/privacy-policy": {
+    "final_url": "https://www.justaveragejen.com/privacy-policy",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "single-parents-on-holiday": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "andrea.robinson@singleparentsonholiday.co.uk": [
+    "https://singleparentsonholiday.co.uk/service/write-for-us/"
+   ],
+   "info@singleparentsonholiday.co.uk": [
+    "https://singleparentsonholiday.co.uk/",
+    "https://singleparentsonholiday.co.uk/contact/",
+    "https://singleparentsonholiday.co.uk/book-now/",
+    "https://singleparentsonholiday.co.uk/book-now-solo/",
+    "https://www.singleparentsonholiday.co.uk/book-now/",
+    "https://singleparentsonholiday.co.uk/about-us/",
+    "https://singleparentsonholiday.co.uk/service/privacy-policy/",
+    "https://singleparentsonholiday.co.uk/service/terms-of-use/",
+    "https://singleparentsonholiday.co.uk/service/write-for-us/"
+   ]
+  },
+  "pages": {
+   "https://singleparentsonholiday.co.uk/": {
+    "final_url": "https://singleparentsonholiday.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/about-us/": {
+    "final_url": "https://singleparentsonholiday.co.uk/about-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/book-now-solo/": {
+    "final_url": "https://singleparentsonholiday.co.uk/book-now-solo/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/book-now/": {
+    "final_url": "https://singleparentsonholiday.co.uk/book-now/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/contact/": {
+    "final_url": "https://singleparentsonholiday.co.uk/contact/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/service/privacy-policy/": {
+    "final_url": "https://singleparentsonholiday.co.uk/service/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/service/terms-of-use/": {
+    "final_url": "https://singleparentsonholiday.co.uk/service/terms-of-use/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://singleparentsonholiday.co.uk/service/write-for-us/": {
+    "final_url": "https://singleparentsonholiday.co.uk/service/write-for-us/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.singleparentsonholiday.co.uk/book-now/": {
+    "final_url": "https://singleparentsonholiday.co.uk/book-now/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "snack-mag": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://snackmag.co.uk/": {
+    "final_url": "https://snackmag.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://snackmag.co.uk/category/books": {
+    "final_url": "https://snackmag.co.uk/category/books",
+    "rendered": false,
+    "status": 200
+   },
+   "https://snackmag.co.uk/contact/": {
+    "final_url": "https://snackmag.co.uk/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://snackmag.co.uk/parasocial-activity-james-mcavoy-and-inspiring-conversations-about-connection-in-our-digital-disconnect-interview": {
+    "final_url": "https://snackmag.co.uk/parasocial-activity-james-mcavoy-and-inspiring-conversations-about-connection-in-our-digital-disconnect-interview",
+    "rendered": false,
+    "status": 200
+   },
+   "https://snackmag.co.uk/privacy": {
+    "final_url": "https://snackmag.co.uk/privacy",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "whats-on-glasgow": {
+  "article": null,
+  "context": {
+   "hello@whatsonnetwork.co.uk": ", amend, or delete the personal information that we hold. Email your request to hello@whatsonnetwork.co.uk. Changes To This Privacy Notice This privacy notice was pub"
+  },
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {
+   "hello@whatsonnetwork.co.uk": [
+    "https://www.whatsonglasgow.co.uk/about/",
+    "https://www.whatsonglasgow.co.uk/privacy-policy/"
+   ]
+  },
+  "pages": {
+   "https://www.whatsonglasgow.co.uk/": {
+    "final_url": "https://www.whatsonglasgow.co.uk/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonglasgow.co.uk/about/": {
+    "final_url": "https://www.whatsonglasgow.co.uk/about/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonglasgow.co.uk/contact/": {
+    "final_url": "https://www.whatsonglasgow.co.uk/contact/",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.whatsonglasgow.co.uk/privacy-policy/": {
+    "final_url": "https://www.whatsonglasgow.co.uk/privacy-policy/",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ },
+ "whatson-live-home": {
+  "article": null,
+  "context": {},
+  "email_confirmed": null,
+  "email_seen_on": [],
+  "emails_found": {},
+  "pages": {
+   "https://www.whatsonlive.co.uk/": {
+    "final_url": "https://www.whatsonlive.co.uk/birmingham/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/birmingham/event/birmingham-moor-street/the-polar-express-train-ride/290188": {
+    "final_url": "https://www.whatsonlive.co.uk/birmingham/event/birmingham-moor-street/the-polar-express-train-ride/290188",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/birmingham/news/amanda-root-talks-about-her-roles-in-the-rscs-middlemarch/66503": {
+    "final_url": "https://www.whatsonlive.co.uk/birmingham/news/amanda-root-talks-about-her-roles-in-the-rscs-middlemarch/66503",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/contact-us": {
+    "final_url": "https://www.whatsonlive.co.uk/contact-us",
+    "rendered": false,
+    "status": 404
+   },
+   "https://www.whatsonlive.co.uk/staffordshire": {
+    "final_url": "https://www.whatsonlive.co.uk/staffordshire",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/staffordshire/": {
+    "final_url": "https://www.whatsonlive.co.uk/staffordshire/",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/staffordshire//": {
+    "final_url": "https://www.whatsonlive.co.uk/staffordshire//",
+    "rendered": false,
+    "status": 200
+   },
+   "https://www.whatsonlive.co.uk/worcestershire/event/severn-valley-railway/santas-steam-specials/289044": {
+    "final_url": "https://www.whatsonlive.co.uk/worcestershire/event/severn-valley-railway/santas-steam-specials/289044",
+    "rendered": false,
+    "status": 200
+   }
+  }
+ }
+}
