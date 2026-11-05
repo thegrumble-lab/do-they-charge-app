@@ -206,7 +206,18 @@ function businessDaysBetween(from: string, to: string) {
   return n;
 }
 
+/**
+ * Manual pause, set by Matt on 5 Nov 2026 while the pitch is reworked.
+ * While true, no first emails or follow-ups go out. Replies are still read and
+ * handled, and the daily digest still arrives. Set to false to resume.
+ */
+const SENDING_PAUSED = true;
+
 async function sendDue(report: RunReport, deadline: number) {
+  if (SENDING_PAUSED) {
+    report.notes.push("Sending is paused in the code (SENDING_PAUSED in src/lib/outreach/run.ts), so nothing was sent.");
+    return;
+  }
   if (process.env.OUTREACH_ENABLED !== "true") {
     report.notes.push("Sending is switched off (OUTREACH_ENABLED isn't true), so nothing was sent.");
     return;
