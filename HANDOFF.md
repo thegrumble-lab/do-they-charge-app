@@ -106,6 +106,8 @@ with_check = (status = ANY (ARRAY['charges','no-charge','groups','unclear']))
 
 — so the publishable key alone can never write a `source='researched'` row; only a `service_role`-equivalent secret key can bypass RLS. Loosening the public policy to allow anon `source='researched'` inserts was explicitly rejected — that would let anyone on the internet forge "researched" reports about real businesses, which undermines the whole honesty premise of this project.
 
+> **Changed 6 Nov 2026 (security fix):** the function below now takes a private research key as its first argument: `insert_researched_report(p_key text, p_restaurant_id uuid, p_status text, p_pct numeric, p_note text, p_source_url text, p_report_date date)`. Without it, anyone holding the publishable key could post "researched" reports about any restaurant. The key's SHA-256 hash is stored in `private_research_keys` (RLS on, no access for anon or authenticated); the key itself is never committed (this repo is public). Matt keeps it; to issue a new one, insert another hash into that table from the SQL editor. `source_url` must now be https or empty. The old keyless version was dropped. The SQL below is the original design, kept for history.
+
 **Chosen design — a narrow RPC, not the secret key, does the automation writes.** Rather than handing an unattended, fresh-every-run session the full RLS-bypass secret key (which would mean storing it in the scheduled task's prompt — persisted by the scheduler, resent into every run, a real exposure increase over "in-memory for one interactive session"), a single-purpose Postgres function was added instead:
 
 ```sql
@@ -1122,7 +1124,7 @@ Ported from the Carer Tickets engine. A Vercel cron (`vercel.json`, weekdays 08:
 - imports prospects from `src/data/outreach.json` (two campaigns: `restaurant` = venues listed as no service charge, asked to confirm and offered a badge; `press` = journalists pitched the figures in `FIGURES` in `src/lib/outreach/copy.ts`, a snapshot to refresh by hand),
 - reads replies over IMAP, classifies them with Claude (Haiku), auto-answers routine restaurant replies (confirmations get a fixed thank-you with the badge code), and escalates every journalist reply,
 - sends first emails and one follow-up (restaurants 7 days, press 5), warming up from 8 a day,
-- emails a digest (NEEDS YOU / READY TO PUBLISH / HANDLED). Site changes from confirmations are applied by hand in a Claude session, as a researched report via `insert_researched_report` with a note that the restaurant confirmed by email.
+- emails a digest (NEEDS YOU / READY TO PUBLISH / HANDLED). Site changes from confirmations are applied by hand in a Claude session, as a researched report via `insert_researched_report` (needs Matt's private research key since 6 Nov 2026) with a note that the restaurant confirmed by email.
 
 State lives in Upstash Redis (keys prefixed `dc:`), so the app's anon-key-only Supabase setup is unchanged. hello@discretionary.uk is an alias on the Zoho Mail Lite mailbox that serves hello@carertickets.co.uk: the engine logs in as that mailbox, sends from the alias, and only handles mail addressed to @discretionary.uk.
 
