@@ -1,0 +1,30 @@
+name: Ship preview
+
+# Puts everything on the preview branch live: fast-forwards main to preview,
+# which triggers one production deploy on Netlify.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ship-preview
+  cancel-in-progress: false
+
+jobs:
+  ship:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fast-forward main to preview
+        run: |
+          git fetch -q origin main preview
+          if [ "$(git rev-list --count origin/main..origin/preview)" = "0" ]; then echo "Nothing to ship"; exit 0; fi
+          if ! git merge-base --is-ancestor origin/main origin/preview; then
+            echo "main has commits that preview doesn't. Merge main into preview first."; exit 1
+          fi
+          git push origin origin/preview:refs/heads/main

@@ -1,0 +1,52 @@
+name: Scheduled jobs
+
+# Replaces the Vercel cron jobs in vercel.json. Each job runs the route
+# handler directly with scripts/run-cron.mts, so it can take as long as it
+# needs. Stays switched off until the repository variable CRONS_ON_GITHUB is
+# set to "true" (done when the site moves to Netlify), so jobs never run twice.
+# Times are UTC, the same as before.
+on:
+  schedule:
+    - cron: "20 8 * * 1-5"   # outreach
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job to run now"
+        required: true
+        type: choice
+        options: [outreach]
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    if: vars.CRONS_ON_GITHUB == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: cron-${{ github.event.inputs.job || github.event.schedule }}
+      cancel-in-progress: false
+    env:
+      # SITE_ENV_FILE is one repository secret holding the site's settings as
+      # KEY=value lines: the same block that's pasted into Netlify.
+      SITE_ENV_FILE: ${{ secrets.SITE_ENV_FILE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Pick the job
+        id: pick
+        run: |
+          case "${{ github.event.inputs.job || github.event.schedule }}" in
+            outreach|"20 8 * * 1-5") echo "job=outreach" >> "$GITHUB_OUTPUT" ;;
+            *) echo "Unknown schedule"; exit 1 ;;
+          esac
+      - name: Run ${{ steps.pick.outputs.job }}
+        run: |
+          printf '%s\n' "$SITE_ENV_FILE" > .env.cron
+          printf 'SITE_URL=https://discretionary.uk\n' >> .env.cron
+          npx --yes tsx@4 --env-file=.env.cron --require ./scripts/cron-preload.cjs scripts/run-cron.mts "${{ steps.pick.outputs.job }}"

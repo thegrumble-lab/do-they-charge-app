@@ -14,7 +14,7 @@ import { withSentryConfig } from "@sentry/nextjs/config";
  * Both run in Vercel's routing layer from next.config, before any function
  * is invoked, so they add no serverless or proxy cost.
  */
-const VERCEL_PRODUCTION_ALIAS = "do-they-charge-app.vercel.app";
+const PRODUCTION_ALIASES = ["do-they-charge-app.vercel.app", "do-they-charge-app.netlify.app"];
 
 const nextConfig: NextConfig = {
   // Umami analytics script from our own domain (see app/stats/api/send/route.ts).
@@ -23,12 +23,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
+      ...PRODUCTION_ALIASES.map((alias) => ({
         source: "/:path*",
-        has: [{ type: "host", value: VERCEL_PRODUCTION_ALIAS }],
+        has: [{ type: "host" as const, value: alias }],
         destination: "https://discretionary.uk/:path*",
         permanent: true,
-      },
+      })),
     ];
   },
   async headers() {
@@ -36,6 +36,11 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         has: [{ type: "host", value: "(?<host>.*)\\.vercel\\.app" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(?<host>.*)\\.netlify\\.app" }],
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];

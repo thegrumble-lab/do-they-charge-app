@@ -1,0 +1,7 @@
+# Netlify build settings. The Next.js runtime is added automatically.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Scheduled jobs run in GitHub Actions (.github/workflows/crons.yml), not on
+# Netlify, because they need minutes rather than seconds to finish.

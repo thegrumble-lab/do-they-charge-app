@@ -1,0 +1,44 @@
+name: Preview digest
+
+# Once a day, if the preview branch has changes that aren't live yet, emails
+# Matt a list of them with the preview link. Ship them with the "Ship preview"
+# workflow (or ask Claude). Off until the repository variable PREVIEW_FLOW is "true".
+on:
+  schedule:
+    - cron: "0 17 * * *"   # 17:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    if: vars.PREVIEW_FLOW == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE_ENV_FILE: ${{ secrets.SITE_ENV_FILE }}
+      SITE_NAME: "Discretionary"
+      PREVIEW_URL: "https://preview--do-they-charge-app.netlify.app"
+      DIGEST_TO: matt@slingshotsearch.co.uk
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: List unshipped changes
+        id: log
+        run: |
+          git fetch -q origin main preview
+          COUNT=$(git rev-list --count origin/main..origin/preview)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          git log --no-merges --format='<li>%s <small>(%ad)</small></li>' --date=format:'%d %b %H:%M' origin/main..origin/preview > changes.html
+      - name: Email the digest
+        if: steps.log.outputs.count != '0'
+        run: |
+          RESEND_API_KEY=$(printf '%s\n' "$SITE_ENV_FILE" | sed -n 's/^RESEND_API_KEY=//p' | tr -d '"' | head -1)
+          FROM=$(printf '%s\n' "$SITE_ENV_FILE" | sed -n 's/^DIGEST_FROM=//p;s/^EMAIL_FROM=//p' | tr -d '"' | head -1)
+          SHIP="https://github.com/${GITHUB_REPOSITORY}/actions/workflows/ship-preview.yml"
+          HTML="<p>${{ steps.log.outputs.count }} change(s) waiting on the ${SITE_NAME} preview:</p><ul>$(cat changes.html)</ul><p><a href=\"${PREVIEW_URL}\">See the preview</a> &middot; <a href=\"${SHIP}\">Ship to the live site</a> (Run workflow), or reply to Claude.</p>"
+          jq -n --arg from "$FROM" --arg to "$DIGEST_TO" --arg subject "${SITE_NAME}: ${{ steps.log.outputs.count }} change(s) ready to ship" --arg html "$HTML" \
+            '{from:$from,to:[$to],subject:$subject,html:$html}' > body.json
+          curl -sS --fail-with-body https://api.resend.com/emails -H "Authorization: Bearer $RESEND_API_KEY" -H 'Content-Type: application/json' -d @body.json
