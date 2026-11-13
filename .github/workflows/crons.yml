@@ -28,8 +28,9 @@ jobs:
       group: cron-${{ github.event.inputs.job || github.event.schedule }}
       cancel-in-progress: false
     env:
-      # SITE_ENV_FILE is one repository secret holding the site's settings as
-      # KEY=value lines: the same block that's pasted into Netlify.
+      # Repository secrets holding settings as KEY=value lines: SHARED_ENV_FILE
+      # (keys several sites use) and SITE_ENV_FILE (this site's own settings).
+      SHARED_ENV_FILE: ${{ secrets.SHARED_ENV_FILE }}
       SITE_ENV_FILE: ${{ secrets.SITE_ENV_FILE }}
     steps:
       - uses: actions/checkout@v4
@@ -47,6 +48,6 @@ jobs:
           esac
       - name: Run ${{ steps.pick.outputs.job }}
         run: |
-          printf '%s\n' "$SITE_ENV_FILE" > .env.cron
+          printf '%s\n%s\n' "$SHARED_ENV_FILE" "$SITE_ENV_FILE" > .env.cron
           printf 'SITE_URL=https://discretionary.uk\n' >> .env.cron
           npx --yes tsx@4 --env-file=.env.cron --require ./scripts/cron-preload.cjs scripts/run-cron.mts "${{ steps.pick.outputs.job }}"

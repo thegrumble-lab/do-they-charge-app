@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
+      SHARED_ENV_FILE: ${{ secrets.SHARED_ENV_FILE }}
       SITE_ENV_FILE: ${{ secrets.SITE_ENV_FILE }}
       SITE_NAME: "Discretionary"
       PREVIEW_URL: "https://preview--do-they-charge-app.netlify.app"
@@ -35,8 +36,8 @@ jobs:
       - name: Email the digest
         if: steps.log.outputs.count != '0'
         run: |
-          RESEND_API_KEY=$(printf '%s\n' "$SITE_ENV_FILE" | sed -n 's/^RESEND_API_KEY=//p' | tr -d '"' | head -1)
-          FROM=$(printf '%s\n' "$SITE_ENV_FILE" | sed -n 's/^DIGEST_FROM=//p;s/^EMAIL_FROM=//p' | tr -d '"' | head -1)
+          RESEND_API_KEY=$(printf '%s\n%s\n' "$SHARED_ENV_FILE" "$SITE_ENV_FILE" | sed -n 's/^RESEND_API_KEY=//p' | tr -d '"' | head -1)
+          FROM=$(printf '%s\n%s\n' "$SHARED_ENV_FILE" "$SITE_ENV_FILE" | sed -n 's/^DIGEST_FROM=//p;s/^EMAIL_FROM=//p' | tr -d '"' | head -1)
           SHIP="https://github.com/${GITHUB_REPOSITORY}/actions/workflows/ship-preview.yml"
           HTML="<p>${{ steps.log.outputs.count }} change(s) waiting on the ${SITE_NAME} preview:</p><ul>$(cat changes.html)</ul><p><a href=\"${PREVIEW_URL}\">See the preview</a> &middot; <a href=\"${SHIP}\">Ship to the live site</a> (Run workflow), or reply to Claude.</p>"
           jq -n --arg from "$FROM" --arg to "$DIGEST_TO" --arg subject "${SITE_NAME}: ${{ steps.log.outputs.count }} change(s) ready to ship" --arg html "$HTML" \
