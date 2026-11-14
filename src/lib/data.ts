@@ -198,6 +198,26 @@ export async function searchRestaurants(
     .filter(Boolean)
     .slice(0, 8);
 
+  // Words under 3 characters can't use the pg_trgm indexes (trigrams need
+  // 3 characters), so a single "w" or "st" made search_restaurants_ranked()
+  // match and score most of the 184k rows: 4-6 seconds per search, hit
+  // constantly mid-typing ("nandos w", "kfc st"). Only the 3+ character
+  // words go to the database; short words then narrow those results as a
+  // word prefix of name, area, postcode or address ("nandos w" keeps
+  // Westminster, Wigan...). A query of only short words returns nothing;
+  // the search box waits for 3 characters before searching.
+  const longWords = words.filter((w) => w.length >= 3);
+  const shortWords = words.filter((w) => w.length < 3);
+  if (words.length > 0 && longWords.length === 0) return [];
+  const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const shortMatchers = shortWords.map(
+    (w) => new RegExp(`(^|[^a-z0-9])${escapeRe(w)}`, "i")
+  );
+  const matchesShortWords = (r: { name: string; area: string; postcode: string; address: string }) =>
+    shortMatchers.every((re) =>
+      [r.name, r.area, r.postcode, r.address].some((v) => re.test(v ?? ""))
+    );
+
   if (words.length === 0) {
     // Browse mode (status chip only, no text typed) — nothing to rank, so
     // skip the fuzzy RPC entirely and just page the (optionally
@@ -281,11 +301,11 @@ export async function searchRestaurants(
     join restaurants r on r.id = ranked.id
     order by ranked.rn
     `,
-    [words, restaurantIdFilter]
+    [longWords, restaurantIdFilter]
   );
   if (rows.length === 0) return [];
 
-  return (rows as DbRestaurant[]).map(toRestaurant);
+  return (rows as DbRestaurant[]).filter(matchesShortWords).map(toRestaurant);
 }
 
 /**

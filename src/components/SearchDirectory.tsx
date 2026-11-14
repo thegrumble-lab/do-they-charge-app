@@ -39,7 +39,14 @@ export default function SearchDirectory({
     restaurants: Restaurant[];
   } | null>(null);
   const requestId = useRef(0);
-  const trimmedQuery = query.trim();
+  // Searches need at least one word of 3+ characters: shorter words can't
+  // use the database's text indexes on their own (see searchRestaurants),
+  // so "k" or "kf" just keeps the current list until there's more to go on.
+  const typedQuery = query.trim();
+  const tooShort =
+    typedQuery !== "" &&
+    !typedQuery.split(/\s+/).some((w) => w.replace(/[%,()]/g, "").length >= 3);
+  const trimmedQuery = tooShort ? "" : typedQuery;
   const isFiltering = trimmedQuery !== "" || status !== "all";
 
   useEffect(() => {
@@ -107,7 +114,9 @@ export default function SearchDirectory({
         </div>
       </div>
       <p className="count-line">
-        {loading
+        {tooShort
+          ? "Keep typing to search…"
+          : loading
           ? "Searching…"
           : isFiltering || !showingSample
           ? `Showing ${shown.length} of ${totalCount.toLocaleString()} restaurants${
