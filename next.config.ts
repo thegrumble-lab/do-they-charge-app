@@ -19,7 +19,7 @@ const PRODUCTION_ALIASES = ["do-they-charge-app.vercel.app", "do-they-charge-app
 const nextConfig: NextConfig = {
   // Umami analytics script from our own domain (see app/stats/api/send/route.ts).
   async rewrites() {
-    return [{ source: "/stats/script.js", destination: "https://umami-beta-eight.vercel.app/script.js" }];
+    return [{ source: "/stats/script.js", destination: "https://grumble-umami.netlify.app/script.js" }];
   },
   async redirects() {
     return [
