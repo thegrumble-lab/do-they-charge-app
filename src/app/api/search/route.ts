@@ -19,7 +19,20 @@ export async function GET(req: NextRequest) {
 
   try {
     const restaurants = await searchRestaurants(query, status);
-    return NextResponse.json({ restaurants });
+    // Netlify runs this function in Ohio, far from the London database, so
+    // keep each result at Netlify's edge for 10 minutes (and serve a stale
+    // copy for up to a day while it refreshes). The cache key includes the
+    // q and status parameters, so every search gets its own entry.
+    return NextResponse.json(
+      { restaurants },
+      {
+        headers: {
+          "Cache-Control": "public, max-age=0, must-revalidate",
+          "Netlify-CDN-Cache-Control": "public, s-maxage=600, stale-while-revalidate=86400, durable",
+          "Netlify-Vary": "query=q|status",
+        },
+      }
+    );
   } catch (err) {
     console.error("Search failed:", err);
     return NextResponse.json({ error: "Search failed." }, { status: 500 });
