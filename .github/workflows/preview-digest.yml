@@ -20,6 +20,8 @@ jobs:
       SHARED_ENV_FILE: ${{ secrets.SHARED_ENV_FILE }}
       SITE_ENV_FILE: ${{ secrets.SITE_ENV_FILE }}
       SITE_NAME: "Discretionary"
+      # Used when neither settings file has DIGEST_FROM or EMAIL_FROM (the same address the site itself sends from).
+      DEFAULT_FROM: hello@discretionary.uk
       PREVIEW_URL: "https://preview--do-they-charge-app.netlify.app"
       DIGEST_TO: matt@slingshotsearch.co.uk
     steps:
@@ -41,6 +43,12 @@ jobs:
           val() { printf '%s\n%s\n' "$SITE_ENV_FILE" "$SHARED_ENV_FILE" | tr -d '\r' | sed -n "s/^[[:space:]]*$1=//p" | head -1 | sed "s/^[[:space:]'\"]*//;s/[[:space:]'\"]*\$//"; }
           RESEND_API_KEY=$(val RESEND_API_KEY)
           FROM=$(val DIGEST_FROM); [ -n "$FROM" ] || FROM=$(val EMAIL_FROM)
+          # Keep only the bare address and add the site's name ourselves, so a quoted or oddly formatted display name
+          # in the settings can't make Resend reject the sender.
+          ADDR=$(printf '%s' "$FROM" | grep -oE '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' | head -1)
+          [ -n "$ADDR" ] || ADDR="$DEFAULT_FROM"
+          FROM="${SITE_NAME} <${ADDR}>"
+          echo "Sending from an address at ${ADDR#*@}"
           SHIP="https://github.com/${GITHUB_REPOSITORY}/actions/workflows/ship-preview.yml"
           HTML="<p>${{ steps.log.outputs.count }} change(s) waiting on the ${SITE_NAME} preview:</p><ul>$(cat changes.html)</ul><p><a href=\"${PREVIEW_URL}\">See the preview</a> &middot; <a href=\"${SHIP}\">Ship to the live site</a> (Run workflow), or reply to Claude.</p>"
           jq -n --arg from "$FROM" --arg to "$DIGEST_TO" --arg subject "${SITE_NAME}: ${{ steps.log.outputs.count }} change(s) ready to ship" --arg html "$HTML" \
