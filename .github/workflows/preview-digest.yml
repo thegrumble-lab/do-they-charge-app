@@ -36,8 +36,11 @@ jobs:
       - name: Email the digest
         if: steps.log.outputs.count != '0'
         run: |
-          RESEND_API_KEY=$(printf '%s\n%s\n' "$SHARED_ENV_FILE" "$SITE_ENV_FILE" | sed -n 's/^RESEND_API_KEY=//p' | tr -d '"' | head -1)
-          FROM=$(printf '%s\n%s\n' "$SHARED_ENV_FILE" "$SITE_ENV_FILE" | sed -n 's/^DIGEST_FROM=//p;s/^EMAIL_FROM=//p' | tr -d '"' | head -1)
+          # The site's own settings win over the shared ones (the shared file can hold another site's sender), and
+          # quotes of either kind, stray carriage returns and spaces are stripped so the address stays valid.
+          val() { printf '%s\n%s\n' "$SITE_ENV_FILE" "$SHARED_ENV_FILE" | tr -d '\r' | sed -n "s/^[[:space:]]*$1=//p" | head -1 | sed "s/^[[:space:]'\"]*//;s/[[:space:]'\"]*\$//"; }
+          RESEND_API_KEY=$(val RESEND_API_KEY)
+          FROM=$(val DIGEST_FROM); [ -n "$FROM" ] || FROM=$(val EMAIL_FROM)
           SHIP="https://github.com/${GITHUB_REPOSITORY}/actions/workflows/ship-preview.yml"
           HTML="<p>${{ steps.log.outputs.count }} change(s) waiting on the ${SITE_NAME} preview:</p><ul>$(cat changes.html)</ul><p><a href=\"${PREVIEW_URL}\">See the preview</a> &middot; <a href=\"${SHIP}\">Ship to the live site</a> (Run workflow), or reply to Claude.</p>"
           jq -n --arg from "$FROM" --arg to "$DIGEST_TO" --arg subject "${SITE_NAME}: ${{ steps.log.outputs.count }} change(s) ready to ship" --arg html "$HTML" \
