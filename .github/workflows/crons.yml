@@ -6,8 +6,8 @@ name: Scheduled jobs
 # set to "true" (done when the site moves to Netlify), so jobs never run twice.
 # Times are UTC, the same as before.
 on:
-  schedule:
-    - cron: "20 8 * * 1-5"   # outreach
+  # Started on time by the job scheduler on Carer Tickets' Netlify site
+  # (carer-tickets: netlify/functions/job-scheduler.mts), not GitHub's schedule, which ran hours late.
   workflow_dispatch:
     inputs:
       job:

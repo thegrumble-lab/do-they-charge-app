@@ -4,8 +4,8 @@ name: Preview digest
 # Matt a list of them with the preview link. Ship them with the "Ship preview"
 # workflow (or ask Claude). Off until the repository variable PREVIEW_FLOW is "true".
 on:
-  schedule:
-    - cron: "0 17 * * *"   # 17:00 UTC
+  # Started on time by the job scheduler on Carer Tickets' Netlify site
+  # (carer-tickets: netlify/functions/job-scheduler.mts), not GitHub's schedule, which ran hours late.
   workflow_dispatch:
 
 permissions:
