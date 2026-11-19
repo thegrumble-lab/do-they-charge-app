@@ -1,7 +1,9 @@
 name: Ship preview
 
-# Puts everything on the preview branch live: fast-forwards main to preview,
-# which triggers one production deploy on Netlify.
+# Puts everything on the preview branch live: brings any main-only commits into
+# preview, then moves main to preview, which triggers one production deploy on
+# Netlify. Started automatically once a day at 17:00 by the job scheduler on
+# Carer Tickets' Netlify site (no approval needed), and can also be run by hand.
 on:
   workflow_dispatch:
 
@@ -20,11 +22,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Fast-forward main to preview
+      - name: Ship preview to main
         run: |
           git fetch -q origin main preview
           if [ "$(git rev-list --count origin/main..origin/preview)" = "0" ]; then echo "Nothing to ship"; exit 0; fi
-          if ! git merge-base --is-ancestor origin/main origin/preview; then
-            echo "main has commits that preview doesn't. Merge main into preview first."; exit 1
+          git config user.name "thegrumble-lab"
+          git config user.email "323149094+thegrumble-lab@users.noreply.github.com"
+          git checkout -q -B preview origin/preview
+          if ! git merge-base --is-ancestor origin/main preview; then
+            echo "main has commits that preview doesn't: merging them into preview first"
+            git merge --no-edit origin/main -m "Merge main into preview before shipping"
+            git push origin preview
           fi
-          git push origin origin/preview:refs/heads/main
+          git push origin preview:refs/heads/main
