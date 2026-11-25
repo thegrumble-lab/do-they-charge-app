@@ -25,6 +25,18 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         disallow: ["/api/", "/admin"],
         crawlDelay: 30,
       },
+      // GPTBot was making ~2.7K requests an hour in Nov 2026 on a site with
+      // very little human traffic, a large share of Netlify's bandwidth and
+      // request credits. Same throttle as ClaudeBot rather than a block, so
+      // the site can still appear in ChatGPT answers. OpenAI doesn't document
+      // Crawl-delay support: if Observability shows no drop, block it in
+      // src/proxy.ts instead.
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        disallow: ["/api/", "/admin"],
+        crawlDelay: 30,
+      },
     ],
     // The restaurant sitemap is sharded across /sitemap/<id>.xml (see
     // sitemap.ts) — but rather than listing every shard here (which would
