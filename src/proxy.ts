@@ -7,7 +7,18 @@ import { NextResponse, type NextRequest } from "next/server";
  * aliases never get here: next.config redirects them to the real domain.
  * Every other host (the real domain) passes straight through.
  */
+/**
+ * Scrapers that don't honour robots.txt and cost real money on Netlify. Lightpanda (a headless
+ * scraping browser) was making ~24K requests an hour in Nov 2026, running the analytics beacon on
+ * every page too. This runs at the edge before the cache or any function, so a blocked request
+ * costs almost nothing. Add to the list if another one turns up in Observability.
+ */
+const BLOCKED_AGENTS = /lightpanda|bytespider/i;
+
 export function proxy(request: NextRequest) {
+  if (BLOCKED_AGENTS.test(request.headers.get("user-agent") ?? "")) {
+    return new NextResponse("Forbidden", { status: 403, headers: { "Cache-Control": "no-store" } });
+  }
   const host = (request.headers.get("host") ?? "").toLowerCase();
   if (!/\.netlify\.app$/.test(host)) return NextResponse.next();
   const password = process.env.PREVIEW_PASSWORD;
